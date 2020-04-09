@@ -1,0 +1,23 @@
+@import "./media-queries.scss";
+
+body{
+    background-color: $background-color;
+    color: $text-color;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+h1{
+    margin-bottom: 1.5rem;
+}
+
+p{
+    margin-bottom: 0.0675rem;
+}
+
+.main-container{
+    margin: 5rem auto;
+    max-width: $max-width;
+}

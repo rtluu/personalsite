@@ -1,0 +1,25 @@
+@import "./media-queries.scss";
+
+.about-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+    .about-text-block{
+        margin: 0.75rem 0;
+    }
+
+    .about-pic{
+        position: absolute;
+        max-width: 15.5rem;
+        right: 0;
+        width: 40%;
+    }
+
+}
+
+.about-section-head{
+    font-style: italic;
+    font-weight: 600;
+}

@@ -27,6 +27,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: AtlasGrotesk-Regular;
     font-variant-ligatures: no-common-ligatures;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-font-smoothing: antialiased;
@@ -35,20 +36,19 @@
 body{
     background-color: $background-color;
     color: $text-color;
-    font-family: AtlasGrotesk-Regular;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1{
-    font-family: AtlasGrotesk-Medium;
-    margin-bottom: 1.5rem;
+h1,h2,h3,h4,h5,h6,p,a{
+    font-weight: 400;
 }
 
-p{
-    font-size: 1rem;
-    line-height: 1.625rem;
-    margin-bottom: 0.0675rem;
+h1{
+    font-family: AtlasGrotesk-Medium;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 h6{
@@ -58,11 +58,61 @@ h6{
     line-height: 1.3125rem;
 }
 
-.main-container{
-    margin: 5rem auto;
-    max-width: $max-width;
-    padding: 2.5rem;
+p{
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-bottom: 0.0675rem;
 }
+
+a{  
+    display: inline-block;
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover{color: $link-hover;}
+    &:after{color: $link-active;}
+}
+
+li{
+    list-style-type: none;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.1s;
+
+    &:hover{
+        svg{
+            path{
+                fill: $icon-hover;
+                fill-opacity: 1;
+            }
+        }
+    }
+}
+
+
+/*- Custom Classes-*/
+
+.layout{
+    display: flex;
+    flex-direction: row;
+
+    .main-container{
+        width: 100%;
+
+        .template{
+            margin: 5rem auto 5rem;
+            max-width: $max-width;
+            padding: 2.5rem;
+        }
+    }
+}
+
+
 
 .caption{
     font-style: italic;

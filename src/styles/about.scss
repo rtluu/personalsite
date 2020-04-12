@@ -8,15 +8,31 @@
 
     .about-text-block{
         margin: 0.75rem 0;
+
+        #washpost{
+            &:after{
+                content: "WashingtonPost";
+                position: relative;
+            }
+            @media (max-width: $breakpoint-phone) {
+                &:after{
+                    content: "WaPo";
+                }
+            }
+        }
     }
 
-    .about-pic{
-        position: absolute;
+    .about-pic-box{
         max-width: 15.5rem;
         right: 0;
+        position: absolute;
         width: 40%;
-    }
 
+        .about-pic{
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
 }
 
 .about-section-head{

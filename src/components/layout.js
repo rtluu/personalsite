@@ -1,7 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import "../styles/index.scss"
+import React from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import "../styles/index.scss";
+import Nav from "./Nav/nav"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,12 +16,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <main className="main-container">{children}</main>
-      <footer>
-        {/* © {new Date().getFullYear()} */}
-      </footer>
-    </>
+    <div className="layout">
+      <Nav />
+      <main className="main-container">
+        <div className="template">
+          {children}
+        </div>
+      </main>
+    </div>
   )
 }
 

@@ -1,0 +1,82 @@
+@import "../../styles/media-queries.scss";
+
+.nav{
+    position: fixed;
+    z-index: 100;
+
+    &.open{
+        position: relative;
+
+        @media (max-width: $breakpoint-tablet) {           
+            position: fixed;
+        }
+
+        .spacer{
+            height: 100vh;
+            min-width: 17.5rem;        
+            position: relative;
+            z-index: 0;
+            @media (max-width: $breakpoint-tablet) {
+                background: $sidebar-overlay;
+                bottom: 0;
+                cursor: pointer;
+                left: 0;
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        .nav-inner{
+            border-right: 1px solid $border-color;
+            min-width: 17.5rem;
+            height: 100vh;
+
+            @media (max-width: $breakpoint-tablet) {
+                background: $sidebar-color;               
+            }
+        }
+
+        .icon{
+            &.sidebar{
+                path{
+                    fill-opacity: 1;
+                }
+            }
+        }
+    }
+    
+    
+
+    .nav-inner{
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    
+        .button-box{
+            align-items: center;
+            display: flex;
+            height: 4rem;
+            margin: 0 1rem;
+    
+            .icon{
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                height: 2rem;
+                margin: 0 0.25rem;
+                width: 2rem;
+    
+                &.home{
+                    margin-top: -0.0675rem;
+                }
+            }
+        }
+        
+        .menu-holder{
+            padding: 1rem 1.5rem;
+        }
+    }
+    
+}
+

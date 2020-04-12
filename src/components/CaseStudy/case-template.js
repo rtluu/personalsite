@@ -1,5 +1,5 @@
 import React from "react";
-import "./case-template.scss";
+import "./case.scss";
 
 const Template = () => (
     <div className="template">

@@ -4,6 +4,7 @@ import "./nav.scss";
 import HomeIcon from "./home-icon.inline.svg";
 import SidebarIcon from "./sidebar-icon.inline.svg";
 import BackIcon from "./back-icon.inline.svg";
+import FolderIcon from "./folder-icon.inline.svg";
 
 const Nav = () => {
     const [menuActive, setMenuState] = useState(false);
@@ -25,6 +26,10 @@ const Nav = () => {
                 <div className="menu-holder">
                     {menuActive &&
                         <div className="menu">
+                            <div className="menu-header">
+                                <FolderIcon />
+                                <h3 className="menu-heading">Personal Site</h3>
+                            </div>
                             <ul className="menu-options">
                                 <p><Link to="/washingtonpost/">+Washington Post</Link></p>
                                 <p><Link to="/adhoc">+Ad Hoc</Link></p>

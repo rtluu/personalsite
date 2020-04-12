@@ -1,0 +1,32 @@
+@import "../../../styles/media-queries.scss";
+
+.menu-holder{
+    padding: 0.5rem 1.5rem;
+
+    .menu{
+
+        .menu-header{
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            margin: 0.625rem 0 2rem 0;
+
+            .menu-heading{
+                color: $white;
+                margin: 0;
+
+                .emoji-head{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .emoji-line{
+            margin-bottom: 2rem;
+        }
+
+        .menu-option-set{
+            margin-bottom: 2rem;
+        }
+    }
+}

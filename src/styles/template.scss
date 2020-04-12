@@ -1,0 +1,22 @@
+@import "./media-queries.scss";
+
+.template-content{
+    .template-section{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 0 0 1.5rem 0;  
+
+        &.row{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .hero{
+            margin-bottom: 1rem;
+            position: relative;
+            width: 100%;
+        }
+    }
+}
+

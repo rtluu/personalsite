@@ -35,21 +35,27 @@
             @media (max-width: $breakpoint-tablet) {
                 background: $sidebar-color;               
             }
-        }
 
-        .icon{
-            &.sidebar{
+            .button-box{
                 position: absolute;
-                right: -3.5rem;
+                right: -4rem;
 
-                &:hover{
-                    #bar{
-                        fill-opacity: 0.4;
+
+                .icon{
+                    &:hover{
+                        #bar{
+                            fill-opacity: 0.4;
+                        }
                     }
-                }
+                    
+                    path{
+                        fill-opacity: 1;
+                    }
 
-                path{
-                    fill-opacity: 1;
+                    &.home{
+                        display: none;
+                        margin-top: -0.0675rem;
+                    }
                 }
             }
         }
@@ -81,25 +87,6 @@
                 }
             }
         }
-        
-        .menu-holder{
-            padding: 0.5rem 1.5rem;
-
-            .menu{
-
-                .menu-header{
-                    align-items: center;
-                    display: flex;
-                    flex-direction: row;
-                    margin: 1rem 0 2.5rem 0;
-
-                    .menu-heading{
-                        margin: 0.5rem 0.5rem 0 0.5rem;
-                    }
-                }
-            }
-        }
     }
-    
 }
 

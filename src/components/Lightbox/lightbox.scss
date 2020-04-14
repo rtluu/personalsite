@@ -1,0 +1,12 @@
+.lightbox-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+.preview-button{
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}

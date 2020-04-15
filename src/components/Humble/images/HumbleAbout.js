@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Lightbox from '../Lightbox/lightbox';
+import Lightbox from '../../Lightbox/lightbox';
 
 const HumbleAbout = () => {
   const data = useStaticQuery(graphql`

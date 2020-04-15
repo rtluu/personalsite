@@ -1,8 +1,10 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import "./humble.scss";
-import HeroHumble from "./images/HeroHumble"
-import HeroAbout from "./HumbleAbout"
+import HeroHumble from "./images/HeroHumble";
+import HumbleAbout from "./images/HumbleAbout";
+import HumbleApproach from "./images/HumbleApproach";
+import HumblePortfolio from "./images/HumblePortfolio";
 
 const Humble = () => {
     return (
@@ -42,9 +44,12 @@ const Humble = () => {
             <div className="template-section">
                 <h2>Design</h2>
                 <p>The directive from the client was to leverage a space theme and bring a design unity across the different sections of the experience. Each one of the following blocks had a corresponding page that followed the overarching design pattern. I mocked the designs in sketch and shared them with the client in Invision throughout the design phase.</p>
+                <div className="image-row three">
+                    <HumbleAbout />
+                    <HumbleApproach />
+                    <HumblePortfolio />
+                </div>
             </div>
-
-            <HeroAbout />
         </div>
     )
 }

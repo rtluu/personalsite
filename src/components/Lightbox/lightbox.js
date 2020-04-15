@@ -1,20 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import Img from 'gatsby-image';
-
 import "./lightbox.scss";
-
+import CloseIcon from "./close-icon.inline.svg";
 
 export default class Lightbox extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             showLightbox: false,
             selectedImage: null,
         };
-
-
     }
 
     render() {
@@ -22,22 +18,28 @@ export default class Lightbox extends Component {
         const { selectedImage, showLightbox } = this.state;
         return (
             <Fragment>
-                <div className="lightbox-container">
-                    <button
-                        className="preview-button"
-                        key={imageSource.childImageSharp.fluid.src}
-                        type="button"
-                        onClick={() => this.setState({ showLightbox: true, selectedImage: imageSource })}
-                    >
-                        <Img fluid={imageSource.childImageSharp.fluid} />
-                    </button>
-                </div>
+                <button
+                    className="image-container"
+                    key={imageSource.childImageSharp.fluid.src}
+                    type="button"
+                    onClick={() => this.setState({ showLightbox: true, selectedImage: imageSource })}
+                >
+                    <Img fluid={imageSource.childImageSharp.fluid} />
+                </button>
                 {showLightbox && (
-                    <div>
-                        <Img fluid={selectedImage.childImageSharp.fluid} />
-                        <button type="button" onClick={() => this.setState({ showLightbox: false })}>
-                            Close
-          </button>
+                    <div className="lightbox">
+                        <div className="lightbox-header">
+                            <button className="icon close" type="button" onClick={() => this.setState({ showLightbox: false })}>
+                                <CloseIcon />
+                            </button>
+                        </div>
+                        <div className="lightbox-item">
+                            <div className="center-item">
+                                <div className="image-inner">
+                                    <Img fluid={selectedImage.childImageSharp.fluid} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )}
             </Fragment>

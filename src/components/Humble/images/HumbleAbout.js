@@ -7,7 +7,7 @@ const HumbleAbout = () => {
       query {
         imageSource: file(relativePath: { eq: "humble/humble-about.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1400) {
               ...GatsbyImageSharpFluid
             }
           }

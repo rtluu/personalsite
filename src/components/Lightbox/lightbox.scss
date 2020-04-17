@@ -1,19 +1,22 @@
 @import "../../styles/media-queries.scss";
 
-.image-container{
+.image-button{
     height: 100%;
     width: 100%;
+    cursor: zoom-in;
 }
 
 .lightbox{
     background: $overlay-background;
-    height: 100%;
-    left: 0;
-    max-height: 100vh;
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 100;
+    opacity: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     .lightbox-header{
         display: flex;
@@ -39,35 +42,56 @@
         flex-direction: column;
         flex: 1 0;
         transition: margin 200ms;
+        height: calc(100vh - 16px - 16px - 64px);
 
-        .center-item{
+        .center-children{
             align-items: center;
             display: flex;
             flex: 1 0;
-            justify-content: center;
 
-            .image-inner{
-                display: flex;
-                max-width: 80rem;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                max-height: 100%;
-                -ms-flex-align: center;
-                align-items: center;
-                text-align: center;
+            &.center-children>*{
+                margin: auto;
+            }
 
+            .lightbox-image-wrapper{
+                position: relative;
+                display: block;
+                margin: auto;
+
+                    
                 .gatsby-image-wrapper{
-                    height: 100%;
+                    display: flex;
+                    justify-content: center;
                     width: 100%;
+                    height: 100%;
+                    max-height: 100%;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    text-align: center;
+
+                    div{
+                        display: none;
+                    }
 
                     img{
-                        max-width: 100%;
-                        max-height: calc(100vh - 16px - 16px - 64px);
-                        margin: 0 auto;
-                        transition: max-width 200ms,max-height 200ms;
+                        display: none;
                     }
+
+                    picture{
+                        img{
+                            display: block;
+                            position: relative !important;
+                            max-width: 100%;
+                            max-height: calc(100vh - 16px - 16px - 64px);
+                            margin: 0 auto;
+                            transition: max-width 200ms,max-height 200ms;
+                            width: auto !important;
+                        }
+                    }
+    
+                    
                 }
+                    
             }
         }
     }

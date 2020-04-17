@@ -19,7 +19,7 @@ export default class Lightbox extends Component {
         return (
             <Fragment>
                 <button
-                    className="image-container"
+                    className="image-button"
                     key={imageSource.childImageSharp.fluid.src}
                     type="button"
                     onClick={() => this.setState({ showLightbox: true, selectedImage: imageSource })}
@@ -27,19 +27,21 @@ export default class Lightbox extends Component {
                     <Img fluid={imageSource.childImageSharp.fluid} />
                 </button>
                 {showLightbox && (
-                    <div className="lightbox">
+                    <div className="lightbox" onClick={() => this.setState({ showLightbox: false })}>
                         <div className="lightbox-header">
                             <button className="icon close" type="button" onClick={() => this.setState({ showLightbox: false })}>
                                 <CloseIcon />
                             </button>
                         </div>
-                        <div className="lightbox-item">
-                            <div className="center-item">
-                                <div className="image-inner">
-                                    <Img fluid={selectedImage.childImageSharp.fluid} />
+                        <span className="lightbox-item">
+                            <div className="center-children">
+                                <div>
+                                    <div className="lightbox-image-wrapper">
+                                        <Img fluid={selectedImage.childImageSharp.fluid} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </span>
                     </div>
                 )}
             </Fragment>

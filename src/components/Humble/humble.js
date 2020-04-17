@@ -5,6 +5,8 @@ import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
 import HumbleApproach from "./images/HumbleApproach";
 import HumblePortfolio from "./images/HumblePortfolio";
+import HumbleTeam from "./images/HumbleTeam";
+import HumbleCTA from "./images/HumbleCTA";
 
 const Humble = () => {
     return (
@@ -44,11 +46,41 @@ const Humble = () => {
             <div className="template-section">
                 <h2>Design</h2>
                 <p>The directive from the client was to leverage a space theme and bring a design unity across the different sections of the experience. Each one of the following blocks had a corresponding page that followed the overarching design pattern. I mocked the designs in sketch and shared them with the client in Invision throughout the design phase.</p>
-                <div className="image-row three">
-                    <HumbleAbout />
-                    <HumbleApproach />
-                    <HumblePortfolio />
-                </div>
+                <span className="gallery">
+                    <div className="gallery-outer-wrapper">
+                        <div className="gallery-wrapper">
+                            <div className="gallery-item-wrapper">
+                                <HumbleAbout />
+                            </div>
+                            <div className="gallery-item-wrapper">
+                                <HumbleApproach />
+                            </div>
+                            <div className="gallery-item-wrapper">
+                                <HumblePortfolio />
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span className="gallery">
+                    <div className="gallery-outer-wrapper second-gallery-row">
+                        <div className="gallery-wrapper">
+                            <div className="gallery-item-wrapper flex-humble-team">
+                                <HumbleTeam />
+                            </div>
+                            <div className="gallery-item-wrapper flex-humble-cta">
+                                <HumbleCTA />
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div className="template-section">
+                <h2>Development</h2>
+                <p>The website was build in Wordpress for ease of editing by the client with a significant amount of custom html and css to transform the original template into the accepted designs. It was my first experience building it Wordpress so I was learning on the fly, but it opened my eyes to the expansiveness of the Wordpress ecosystem and all the different plugins involved in creating a site on the platform.</p>
+            </div>
+            <div className="template-section">
+                <h2>Reflection</h2>
+                <p>This was my first client project and taught me a ton about managing the product development process with external stakeholders. Proactive communication works wonders in managing expectations and frequent updates makes sure everyone is on the same page throughout the process. Being clear about what blockers arise and when input is needed ensures the right prioritizations are made, leading to the right outcomes. I’m excited for the next client project and thankful for the opportunity to work with such a great organization.</p>
             </div>
         </div>
     )

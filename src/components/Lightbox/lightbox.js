@@ -27,7 +27,6 @@ const Lightbox = (props) => {
     }
 
     var currentCount = value;
-    console.log(galleryMax);
 
     return (
         <Fragment>

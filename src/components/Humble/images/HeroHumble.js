@@ -14,6 +14,6 @@ const HeroHumble = () => {
         }
       }
     `)
-  return <Lightbox imageSource={data.imageSource} />
+  return <Lightbox imageSource={data.imageSource} imageNumber={1} galleryMax={6} />
 }
 export default HeroHumble;

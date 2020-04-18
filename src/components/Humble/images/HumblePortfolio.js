@@ -14,6 +14,6 @@ const HumblePortfolio = () => {
         }
       }
     `)
-  return <Lightbox imageSource={data.imageSource} />
+  return <Lightbox imageSource={data.imageSource} imageNumber={4} galleryMax={6} />
 }
 export default HumblePortfolio;

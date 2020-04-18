@@ -14,6 +14,6 @@ const HumbleCTA = () => {
         }
       }
     `)
-  return <Lightbox imageSource={data.imageSource} />
+  return <Lightbox imageSource={data.imageSource} imageNumber={6} galleryMax={6} />
 }
 export default HumbleCTA;

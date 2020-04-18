@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import "./nav.scss";
 import HomeIcon from "./home-icon.inline.svg";
 import SidebarIcon from "./sidebar-icon.inline.svg";
-import BackIcon from "./back-icon.inline.svg";
 import FolderIcon from "./folder-icon.inline.svg";
 import Menu from "./Menu/menu";
 

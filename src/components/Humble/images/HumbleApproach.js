@@ -14,6 +14,6 @@ const HumbleApproach = () => {
         }
       }
     `)
-  return <Lightbox imageSource={data.imageSource} />
+  return <Lightbox imageSource={data.imageSource} imageNumber={3} galleryMax={6} />
 }
 export default HumbleApproach;

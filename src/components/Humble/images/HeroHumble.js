@@ -1,8 +1,18 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Lightbox from '../../Lightbox/lightbox';
+import Img from "gatsby-image";
+import { lightboxActive, setImageSource, setImageNumber, setImageGallery, useGlobalState } from '../../../state';
 
 const HeroHumble = () => {
+  const [value, update] = useGlobalState('lightboxActive');
+
+  function openLightbox() {
+    setImageSource(data.imageSource.childImageSharp.fluid);
+    setImageNumber(1);
+    setImageGallery(6);
+    update(!value);
+  }
+
   const data = useStaticQuery(graphql`
       query {
         imageSource: file(relativePath: { eq: "humble/humble-hero.png" }) {
@@ -14,6 +24,15 @@ const HeroHumble = () => {
         }
       }
     `)
-  return <Lightbox imageSource={data.imageSource} imageNumber={1} galleryMax={6} />
+  return (
+    <button
+      className="image-button"
+      key={data.imageSource.src}
+      type="button"
+      onClick={openLightbox}
+    >
+      <Img fluid={data.imageSource.childImageSharp.fluid} objectFit="cover" />
+    </button>
+  )
 }
 export default HeroHumble;

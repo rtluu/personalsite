@@ -4,50 +4,37 @@ import "./lightbox.scss";
 import CloseIcon from "./close-icon.inline.svg";
 import BackIcon from "./back-icon.inline.svg";
 import NextIcon from "./next-icon.inline.svg";
-import { count, setCount, clearCount, countUp, countDown, useGlobalState } from '../../state';
+import { lightboxActive, imageSource, nextNumber, nextSource, useGlobalState } from '../../state';
 
-const Lightbox = (props) => {
-    const [value, update] = useGlobalState('count');
-
-    const [showLightbox, setShowLightbox] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(undefined);
-
-    var imageSource = props.imageSource.childImageSharp.fluid;
-    var imageNumber = props.imageNumber;
-    var galleryMax = props.galleryMax;
-
-    function openLightbox() {
-        setShowLightbox(true)
-        setCount(imageNumber)
-    }
+const Lightbox = () => {
+    const [value, update] = useGlobalState('lightboxActive');
+    const [imageSource] = useGlobalState('imageSource');
+    const [imageNumber] = useGlobalState('imageNumber');
+    const [imageGallery] = useGlobalState('imageGallery');
 
     function closeLightbox() {
-        setShowLightbox(false)
-        clearCount()
+        update(!value);
     }
 
-    var currentCount = value;
+    function nextImage() {
+        nextNumber();
+        nextSource();
+    }
+
+    console.log(imageNumber);
 
     return (
         <Fragment>
-            <button
-                className="image-button"
-                key={imageSource.src}
-                type="button"
-                onClick={openLightbox}
-            >
-                <Img fluid={imageSource} />
-            </button>
-            {showLightbox && (
+            {value && (
                 <div className="lightbox" >
                     <div className="lightbox-header">
                         <button className="icon close" type="button" onClick={closeLightbox} >
                             <CloseIcon />
                         </button>
                         <div className="image-switch">
-                            <button onClick={countDown}><BackIcon /></button>
-                            <h5>{currentCount} of {galleryMax}</h5>
-                            <button onClick={countUp}><NextIcon /></button>
+                            <button ><BackIcon /></button>
+                            <h5>{imageNumber} of {imageGallery}</h5>
+                            <button onClick={nextImage}><NextIcon /></button>
                         </div>
                     </div>
                     <span className="lightbox-item">

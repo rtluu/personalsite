@@ -1,11 +1,11 @@
 import { Link } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import Headshot from "./images/Headshot";
 import "./about.scss";
-import { menuSwitch, useGlobalState } from '../../state';
+import { useGlobalState } from '../../state';
 
 const About = () => {
-    const [value, update] = useGlobalState('menuActive');
+    const [value] = useGlobalState('menuActive');
     return (
         <div className="template-content">
             <h1>Ryan Luu - Personal Site</h1>

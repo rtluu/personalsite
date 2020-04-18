@@ -1,28 +1,39 @@
 import { createGlobalState } from 'react-hooks-global-state';
 
 const { setGlobalState, useGlobalState } = createGlobalState({
-    count: 0,
     menuActive: false,
+    lightboxActive: false,
+    imageSource: null,
+    imageNumber: 0,
+    imageGallery: 0,
 });
 
 export const menuSwitch = () => {
     setGlobalState('menuActive', (v) => !v);
 };
 
-export const countUp = () => {
-    setGlobalState('count', (v) => v + 1);
+export const lightboxSwitch = () => {
+    setGlobalState('lightboxActive', (v) => !v);
 };
 
-export const countDown = () => {
-    setGlobalState('count', (v) => v - 1);
+export const setImageSource = (imageSource) => {
+    setGlobalState('imageSource', (v) => imageSource);
 };
 
-export const setCount = (imageNumber) => {
-    setGlobalState('count', (v) => imageNumber);
+export const setImageNumber = (imageNumber) => {
+    setGlobalState('imageNumber', (v) => imageNumber);
 };
 
-export const clearCount = (count) => {
-    setGlobalState('count', (v) => 0);
+export const setImageGallery = (imageGallery) => {
+    setGlobalState('imageGallery', (v) => imageGallery);
+};
+
+export const nextNumber = (imageNumber) => {
+    setGlobalState('imageNumber', (v) => v + 1);
+};
+
+export const nextSource = (imageSource) => {
+    setGlobalState('imageSource', (v) => v + 1);
 };
 
 export { useGlobalState };

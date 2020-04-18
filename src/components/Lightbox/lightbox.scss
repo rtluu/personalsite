@@ -1,11 +1,5 @@
 @import "../../styles/media-queries.scss";
 
-.image-button{
-    height: 100%;
-    width: 100%;
-    cursor: zoom-in;
-}
-
 .lightbox{
     background: $overlay-background;
     position: fixed;

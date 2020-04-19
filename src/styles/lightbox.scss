@@ -1,4 +1,4 @@
-@import "../../../styles/media-queries.scss";
+@import "./media-queries.scss";
 
 .lightbox{
     background: $overlay-background;
@@ -12,25 +12,53 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
+    .invisible-close{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
     .lightbox-header{
         align-items: center;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         height: 4rem;
+        position: relative;
         width: 100%;
+        z-index: 2;
+        pointer-events: none;
 
         .close{
             box-sizing: content-box;
-            height: 0.625rem;
-            margin-left: 1.1875rem;
-            padding: 0.75rem;
-            width: 0.625rem;
+            height: 2rem;
+            margin-top: 0.125rem;
+            width: 3.75rem;
+            pointer-events: all;
         }
 
-        .image-switch{
+        .gallery-arrows{
+            align-items: center;
+            border-left: 0.0625rem solid $border-color;
             display: flex;
             flex-direction: row;
+            height: 2rem;
+            pointer-events: all;
+
+            .arrow{
+                align-items: center;
+                display: flex;
+                height: 2rem;
+                justify-content: center;
+                width: 2.5rem;
+            }
+
+            .gallery-counter{
+                margin-top: 0.125rem;
+            }
         }
     }
 
@@ -43,6 +71,8 @@
         flex: 1 0;
         transition: margin 200ms;
         height: calc(100vh - 16px - 16px - 64px);
+        pointer-events: none;
+        z-index: 2;
 
         .center-children{
             align-items: center;

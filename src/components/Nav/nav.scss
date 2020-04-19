@@ -38,6 +38,7 @@
             border-right: 1px solid $border-color;
             min-width: 17.5rem;
             height: 100vh;
+            opacity: 1;
 
             @media (max-width: $breakpoint-tablet) {
                 background: $sidebar-color;               
@@ -74,6 +75,7 @@
         position: fixed;
         top: 0;
         z-index: 1;
+        opacity: 1;
     
         .button-box{
             align-items: center;

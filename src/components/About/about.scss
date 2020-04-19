@@ -38,9 +38,12 @@
     right: 0;
     position: absolute;
     width: 40%;
+    z-index: 1;
+
 
     .about-pic{
         border-radius: 50%;
         overflow: hidden;
+        cursor: zoom-in;
     }
 }

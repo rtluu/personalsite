@@ -1,9 +1,9 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import "./lightbox.scss";
 import CloseIcon from "./close-icon.inline.svg";
 import BackIcon from "./back-icon.inline.svg";
 import NextIcon from "./next-icon.inline.svg";
-import { lightboxActive, nextNumber, resetNumber, prevNumber, galleryEnd, useGlobalState } from '../../../state';
+import { nextNumber, resetNumber, prevNumber, galleryEnd, useGlobalState } from '../../../state';
 
 import HeroHumble from "../images/HeroHumble";
 import HumbleAbout from "../images/HumbleAbout";

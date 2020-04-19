@@ -12,18 +12,18 @@ const About = () => {
             <div className="template-section row">
                 <div className="template-text-block">
                     <p className="bold-italic">A little about me:</p>
-                    <p>🏡 Live in DC</p>
-                    <p>💼 Senior PM @<span className={`washpost ${value ? "menu-open" : ""}`} /></p>
-                    <p>💻 Design and code for fun</p>
-                    <p>💍 Engaged to K</p>
-                    <p>🐢 UMD Alum</p>
-                    <p>🏀 Ball is life</p>
+                    <p><span role="img" aria-label="live">🏡</span> Live in DC</p>
+                    <p><span role="img" aria-label="work">💼</span> Senior PM @<span className={`washpost ${value ? "menu-open" : ""}`} /></p>
+                    <p><span role="img" aria-label="build">💻</span> Design and code for fun</p>
+                    <p><span role="img" aria-label="wedding">💍</span> Engaged to K</p>
+                    <p><span role="img" aria-label="college">🐢</span> UMD Alum</p>
+                    <p><span role="img" aria-label="basketball">🏀</span> Ball is life</p>
                 </div>
                 <div className="about-pic-box">
                     <div className="about-pic">
                         <Headshot />
                     </div>
-                    <h6 className="caption">Hi, I'm Ryan <span className="caption-emoji">👋</span></h6>
+                    <h6 className="caption">Hi, I'm Ryan <span role="img" aria-label="wave" className="caption-emoji">👋</span></h6>
                 </div>
             </div>
             <div className="template-section">

@@ -7,8 +7,14 @@
     &.open{
         position: relative;
 
-        @media (max-width: $breakpoint-tablet) {           
+        @media (max-width: $breakpoint-tablet) {
+            background: $sidebar-overlay;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
             position: fixed;
+            right: 0;
+            top: 0;
         }
 
         .spacer{
@@ -24,6 +30,7 @@
                 position: fixed;
                 right: 0;
                 top: 0;
+                width: 100%;
             }
         }
 

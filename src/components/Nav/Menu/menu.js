@@ -5,9 +5,9 @@ import "./menu.scss";
 const Menu = () => (
     <div className="menu">
         <div className="menu-header">
-            <Link to="/"><h3 className="menu-heading"><span className="emoji-head">🧔🏻</span> Ryan Luu</h3></Link>
+            <Link to="/"><h3 className="menu-heading"><span role="img" aria-label="head" className="emoji-head">🧔🏻</span> Ryan Luu</h3></Link>
         </div>
-        <p className="emoji-line">🏡 💼 💻 💍 🐢 🏀</p>
+        <p className="emoji-line"><span role="img" aria-label="live">🏡</span> <span role="img" aria-label="work">💼</span> <span role="img" aria-label="build">💻</span> <span role="img" aria-label="wedding">💍</span> <span role="img" aria-label="college">🐢</span> <span role="img" aria-label="basketball">🏀</span></p>
         <ul className="menu-option-set">
             <p className="bold-italic">Product:</p>
             <p><Link to="/washingtonpost/">+Washington Post</Link></p>

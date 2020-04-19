@@ -1,5 +1,4 @@
-import { Link } from "gatsby";
-import React, { useState, useRef } from "react";
+import React from "react";
 import "./humble.scss";
 import Lightbox from "./Lightbox/lightbox"
 import HeroHumble from "./images/HeroHumble";
@@ -8,7 +7,7 @@ import HumbleApproach from "./images/HumbleApproach";
 import HumblePortfolio from "./images/HumblePortfolio";
 import HumbleTeam from "./images/HumbleTeam";
 import HumbleCTA from "./images/HumbleCTA";
-import { lightboxActive, setImageSource, setImageNumber, setImageGallery, useGlobalState } from '../../state';
+import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
 
 const Humble = () => {

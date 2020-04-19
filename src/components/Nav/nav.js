@@ -12,7 +12,7 @@ const Nav = () => {
 
     return (
         <nav className={`nav ${value ? "open" : ""}`}>
-            <div className="spacer" onClick={() => update(!value)} />
+            <button className="spacer" onClick={() => update(!value)} />
             <div className="nav-inner">
                 <div className="button-box">
                     <Link to="/">

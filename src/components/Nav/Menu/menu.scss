@@ -2,6 +2,11 @@
 
 .menu-holder{
     padding: 0.5rem 1.5rem;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    min-width: 14.5rem;
+    bottom: 0;
 
     .menu{
 

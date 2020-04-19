@@ -15,6 +15,10 @@ export const lightboxSwitch = () => {
     setGlobalState('lightboxActive', (v) => !v);
 };
 
+export const lightboxOpen = () => {
+    setGlobalState('lightboxActive', (v) => true);
+};
+
 export const setImageNumber = (imageNumber) => {
     setGlobalState('imageNumber', (v) => imageNumber);
 };

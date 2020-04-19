@@ -1,6 +1,6 @@
 import React from "react";
 import "./humble.scss";
-import Lightbox from "./Lightbox/lightbox"
+import Lightbox from "./lightboxHumble"
 import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
 import HumbleApproach from "./images/HumbleApproach";

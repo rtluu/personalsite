@@ -24,10 +24,8 @@ const Nav = () => {
                         <SidebarIcon />
                     </button>
                 </div>
-                <div className="menu-holder">
-                    {value &&
-                        <Menu />
-                    }
+                <div className={`menu-holder ${value ? "open" : ""}`}>
+                    <Menu />
                 </div>
             </div>
         </nav>

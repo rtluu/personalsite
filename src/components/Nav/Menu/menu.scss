@@ -5,8 +5,15 @@
     overflow-y: scroll;
     position: fixed;
     top: 0;
+    left: -17.5rem;
     min-width: 14.5rem;
     bottom: 0;
+    opacity: 0;
+
+    &.open{
+        left: 0rem;
+        opacity: 1;
+    }
 
     .menu{
 
@@ -22,6 +29,8 @@
 
                 .emoji-head{
                     font-size: 1.5rem;
+                    position: relative;
+                    top: 0.0625rem;
                 }
             }
         }

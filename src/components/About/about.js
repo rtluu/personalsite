@@ -1,13 +1,20 @@
 import { Link } from "gatsby";
 import React from "react";
-import Headshot from "./images/Headshot";
 import "./about.scss";
-import { useGlobalState } from '../../state';
+import Lightbox from "./lightboxAbout"
+import Headshot from "./images/Headshot";
+import { setImageNumber, setImageGallery, lightboxOpen, useGlobalState } from '../../state';
 
 const About = () => {
     const [value] = useGlobalState('menuActive');
+    const [imageNumber] = useGlobalState('imageNumber');
+    setImageGallery(1);
+
+    function openLightbox1() { console.log('hi'); setImageNumber(1); lightboxOpen(); }
+
     return (
         <div className="template-content">
+            <Lightbox currentImage={imageNumber} />
             <h1>Ryan Luu - Personal Site</h1>
             <div className="template-section row">
                 <div className="template-text-block">
@@ -20,7 +27,7 @@ const About = () => {
                     <p><span role="img" aria-label="basketball">🏀</span> Ball is life</p>
                 </div>
                 <div className="about-pic-box">
-                    <div className="about-pic">
+                    <div className="about-pic" onClick={openLightbox1} key={1} type="button">
                         <Headshot />
                     </div>
                     <h6 className="caption">Hi, I'm Ryan <span role="img" aria-label="wave" className="caption-emoji">👋</span></h6>

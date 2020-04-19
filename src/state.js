@@ -3,7 +3,6 @@ import { createGlobalState } from 'react-hooks-global-state';
 const { setGlobalState, useGlobalState } = createGlobalState({
     menuActive: false,
     lightboxActive: false,
-    imageSource: null,
     imageNumber: 0,
     imageGallery: 0,
 });
@@ -14,10 +13,6 @@ export const menuSwitch = () => {
 
 export const lightboxSwitch = () => {
     setGlobalState('lightboxActive', (v) => !v);
-};
-
-export const setImageSource = (imageSource) => {
-    setGlobalState('imageSource', (v) => imageSource);
 };
 
 export const setImageNumber = (imageNumber) => {
@@ -32,8 +27,16 @@ export const nextNumber = (imageNumber) => {
     setGlobalState('imageNumber', (v) => v + 1);
 };
 
-export const nextSource = (imageSource) => {
-    setGlobalState('imageSource', (v) => v + 1);
+export const prevNumber = (imageNumber) => {
+    setGlobalState('imageNumber', (v) => v - 1);
+};
+
+export const resetNumber = (imageNumber) => {
+    setGlobalState('imageNumber', (v) => 1);
+};
+
+export const galleryEnd = (imageNumber) => {
+    setGlobalState('imageNumber', (v) => 6);
 };
 
 export { useGlobalState };

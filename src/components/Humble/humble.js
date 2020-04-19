@@ -1,20 +1,37 @@
 import { Link } from "gatsby";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./humble.scss";
+import Lightbox from "./Lightbox/lightbox"
 import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
 import HumbleApproach from "./images/HumbleApproach";
 import HumblePortfolio from "./images/HumblePortfolio";
 import HumbleTeam from "./images/HumbleTeam";
 import HumbleCTA from "./images/HumbleCTA";
+import { lightboxActive, setImageSource, setImageNumber, setImageGallery, useGlobalState } from '../../state';
+
 
 const Humble = () => {
+    const [value, update] = useGlobalState('lightboxActive');
+    const [imageNumber] = useGlobalState('imageNumber');
+    setImageGallery(6);
+
+    function openLightbox1() { setImageNumber(1); update(!value); }
+    function openLightbox2() { setImageNumber(2); update(!value); }
+    function openLightbox3() { setImageNumber(3); update(!value); }
+    function openLightbox4() { setImageNumber(4); update(!value); }
+    function openLightbox5() { setImageNumber(5); update(!value); }
+    function openLightbox6() { setImageNumber(6); update(!value); }
+
     return (
         <div className="template-content">
+            <Lightbox currentImage={imageNumber} />
             <h1>Humble Venture Capital</h1>
             <div className="template-section">
                 <div className="hero">
-                    <HeroHumble />
+                    <button onClick={openLightbox1} key={1} className="image-button" type="button">
+                        <HeroHumble />
+                    </button>
                 </div>
                 <div className="template-text-block">
                     <p><span className="bold-italic">Client: </span>Humble Venture Capital</p>
@@ -50,13 +67,19 @@ const Humble = () => {
                     <div className="gallery-outer-wrapper">
                         <div className="gallery-wrapper">
                             <div className="gallery-item-wrapper">
-                                <HumbleAbout />
+                                <button onClick={openLightbox2} className="image-button" type="button">
+                                    <HumbleAbout />
+                                </button>
                             </div>
                             <div className="gallery-item-wrapper">
-                                <HumbleApproach />
+                                <button onClick={openLightbox3} className="image-button" type="button">
+                                    <HumbleApproach />
+                                </button>
                             </div>
                             <div className="gallery-item-wrapper">
-                                <HumblePortfolio />
+                                <button onClick={openLightbox4} className="image-button" type="button">
+                                    <HumblePortfolio />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -65,10 +88,14 @@ const Humble = () => {
                     <div className="gallery-outer-wrapper second-gallery-row">
                         <div className="gallery-wrapper">
                             <div className="gallery-item-wrapper flex-humble-team">
-                                <HumbleTeam />
+                                <button onClick={openLightbox5} className="image-button" type="button">
+                                    <HumbleTeam />
+                                </button>
                             </div>
                             <div className="gallery-item-wrapper flex-humble-cta">
-                                <HumbleCTA />
+                                <button onClick={openLightbox6} className="image-button" type="button">
+                                    <HumbleCTA />
+                                </button>
                             </div>
                         </div>
                     </div>

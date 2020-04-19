@@ -1,14 +1,19 @@
 import React, { useState, Fragment } from 'react';
-import Img from 'gatsby-image';
 import "./lightbox.scss";
 import CloseIcon from "./close-icon.inline.svg";
 import BackIcon from "./back-icon.inline.svg";
 import NextIcon from "./next-icon.inline.svg";
-import { lightboxActive, imageSource, nextNumber, nextSource, useGlobalState } from '../../state';
+import { lightboxActive, nextNumber, resetNumber, prevNumber, galleryEnd, useGlobalState } from '../../../state';
 
-const Lightbox = () => {
+import HeroHumble from "../images/HeroHumble";
+import HumbleAbout from "../images/HumbleAbout";
+import HumbleApproach from "../images/HumbleApproach";
+import HumblePortfolio from "../images/HumblePortfolio";
+import HumbleTeam from "../images/HumbleTeam";
+import HumbleCTA from "../images/HumbleCTA";
+
+const Lightbox = (props) => {
     const [value, update] = useGlobalState('lightboxActive');
-    const [imageSource] = useGlobalState('imageSource');
     const [imageNumber] = useGlobalState('imageNumber');
     const [imageGallery] = useGlobalState('imageGallery');
 
@@ -17,11 +22,21 @@ const Lightbox = () => {
     }
 
     function nextImage() {
-        nextNumber();
-        nextSource();
+        if (imageNumber === imageGallery) {
+            resetNumber();
+        } else {
+            nextNumber();
+        }
+    }
+    function prevImage() {
+        if (imageNumber === 1) {
+            galleryEnd();
+        } else {
+            prevNumber();
+        }
     }
 
-    console.log(imageNumber);
+    var currentImage = props.currentImage;
 
     return (
         <Fragment>
@@ -32,7 +47,7 @@ const Lightbox = () => {
                             <CloseIcon />
                         </button>
                         <div className="image-switch">
-                            <button ><BackIcon /></button>
+                            <button onClick={prevImage}><BackIcon /></button>
                             <h5>{imageNumber} of {imageGallery}</h5>
                             <button onClick={nextImage}><NextIcon /></button>
                         </div>
@@ -41,7 +56,12 @@ const Lightbox = () => {
                         <div className="center-children">
                             <div>
                                 <div className="lightbox-image-wrapper">
-                                    <Img fluid={imageSource} />
+                                    {currentImage === 1 && (<HeroHumble />)}
+                                    {currentImage === 2 && (<HumbleAbout />)}
+                                    {currentImage === 3 && (<HumbleApproach />)}
+                                    {currentImage === 4 && (<HumblePortfolio />)}
+                                    {currentImage === 5 && (<HumbleTeam />)}
+                                    {currentImage === 6 && (<HumbleCTA />)}
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "../styles/index.scss";
 import "../styles/template.scss";
 import Nav from "./Nav/nav";
-import Lightbox from "./Lightbox/lightbox"
 import { useGlobalState } from '../state';
 
 const Layout = ({ children }) => {
@@ -17,7 +16,6 @@ const Layout = ({ children }) => {
           {children}
         </div>
       </main>
-      <Lightbox />
     </div>
   )
 }

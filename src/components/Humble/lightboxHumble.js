@@ -40,35 +40,33 @@ const Lightbox = (props) => {
 
     return (
         <Fragment>
-            {value && (
-                <div className="lightbox" >
-                    <div className="invisible-close" onClick={closeLightbox} />
-                    <div className="lightbox-header">
-                        <button className="icon close" type="button" onClick={closeLightbox} >
-                            <CloseIcon />
-                        </button>
-                        <div className="gallery-arrows">
-                            <button className="arrow" onClick={prevImage}><BackIcon /></button>
-                            <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
-                            <button className="arrow" onClick={nextImage}><NextIcon /></button>
-                        </div>
+            <div className={`lightbox ${value ? "show" : ""}`} >
+                <div className="invisible-close" onClick={closeLightbox} />
+                <div className="lightbox-header">
+                    <button className="icon close" type="button" onClick={closeLightbox} >
+                        <CloseIcon />
+                    </button>
+                    <div className="gallery-arrows">
+                        <button className="arrow" onClick={prevImage}><BackIcon /></button>
+                        <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
+                        <button className="arrow" onClick={nextImage}><NextIcon /></button>
                     </div>
-                    <span className="lightbox-item">
-                        <div className="center-children">
-                            <div>
-                                <div className="lightbox-image-wrapper">
-                                    {currentImage === 1 && (<HeroHumble />)}
-                                    {currentImage === 2 && (<HumbleAbout />)}
-                                    {currentImage === 3 && (<HumbleApproach />)}
-                                    {currentImage === 4 && (<HumblePortfolio />)}
-                                    {currentImage === 5 && (<HumbleTeam />)}
-                                    {currentImage === 6 && (<HumbleCTA />)}
-                                </div>
+                </div>
+                <span className="lightbox-item">
+                    <div className={`center-children ${value ? "show" : "hide"}`}>
+                        <div>
+                            <div className="lightbox-image-wrapper">
+                                {currentImage === 1 && (<HeroHumble />)}
+                                {currentImage === 2 && (<HumbleAbout />)}
+                                {currentImage === 3 && (<HumbleApproach />)}
+                                {currentImage === 4 && (<HumblePortfolio />)}
+                                {currentImage === 5 && (<HumbleTeam />)}
+                                {currentImage === 6 && (<HumbleCTA />)}
                             </div>
                         </div>
-                    </span>
-                </div>
-            )}
+                    </div>
+                </span>
+            </div>
         </Fragment>
     );
 }

@@ -2,17 +2,30 @@
 
 .lightbox{
     background: $overlay-background;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    z-index: 100;
-    opacity: 1;
+    left: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all 0.2s;
+    z-index: -1;
+
+    &.show{
+        opacity: 1;
+        pointer-events: all;
+        z-index: 100;
+
+        .invisible-close{
+            display: block;
+        }
+    }
 
     .invisible-close{
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -63,12 +76,14 @@
     }
 
     .lightbox-item{
+        align-items: center;
         position: relative;
         box-sizing: border-box;
         margin: 1rem 1rem 1rem;
         display: flex;
         flex-direction: column;
         flex: 1 0;
+        justify-content: center;
         transition: margin 200ms;
         height: calc(100vh - 16px - 16px - 64px);
         pointer-events: none;
@@ -77,7 +92,24 @@
         .center-children{
             align-items: center;
             display: flex;
+            position: relative;
             flex: 1 0;
+            transition: all 0.2s;
+            
+            &.show{
+                animation: expandImage 0.2s;
+                height: 100%;
+                opacity: 1;
+                width: 100%;
+               
+            }
+
+            &.hide{
+                animation: collapseImage 0.2s;
+                height: 0;
+                opacity: 0; 
+                width: 0;
+            }
 
             &.center-children>*{
                 margin: auto;
@@ -126,3 +158,23 @@
         }
     }
 }
+
+
+@keyframes expandImage {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+
+@keyframes collapseImage {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+  }

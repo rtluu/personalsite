@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import "./nav.scss";
 import HomeIcon from "./home-icon.inline.svg";
 import SidebarIcon from "./sidebar-icon.inline.svg";
-import BackIcon from "./back-icon.inline.svg";
-import FolderIcon from "./folder-icon.inline.svg";
 import Menu from "./Menu/menu";
 
-import { menuSwitch, useGlobalState } from '../../state';
+import { useGlobalState } from '../../state';
 
 const Nav = () => {
     const [value, update] = useGlobalState('menuActive');

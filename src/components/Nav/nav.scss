@@ -5,6 +5,7 @@
     z-index: 100;
 
     &.open{
+        background: $background-color;
         position: relative;
 
         @media (max-width: $breakpoint-tablet) {

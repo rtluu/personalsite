@@ -38,14 +38,14 @@ const Lightbox = (props) => {
             <div className={`lightbox ${value ? "show" : ""}`} >
                 <div className="invisible-close" onClick={closeLightbox} />
                 <div className="lightbox-header">
-                    <button className="icon close" type="button" onClick={closeLightbox} >
-                        <CloseIcon />
-                    </button>
                     <div className="gallery-arrows">
                         <button className="arrow" onClick={prevImage}><BackIcon /></button>
                         <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
                         <button className="arrow" onClick={nextImage}><NextIcon /></button>
                     </div>
+                    <button className="icon close" type="button" onClick={closeLightbox} >
+                        <CloseIcon />
+                    </button>
                 </div>
                 <span className="lightbox-item">
                     <div className="center-children">

@@ -1,0 +1,114 @@
+@import "./media-queries.scss";
+
+.anchor-set{
+    left: 0;
+    padding: 1.5rem 0;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s;
+
+    &.menu-open{
+        left: 17.5rem;
+
+        &:hover{
+            left: 17rem;
+
+        }
+    }
+   
+    &:hover{
+        left: -0.5rem;
+        .anchor{
+            &:before{
+                opacity: 1;
+                width: 0;
+            }
+            &.lv1{
+                &:before{
+                    left: -2rem;
+                }
+            }
+            &.lv2{
+                &:before{
+                    left: -1.5rem;
+                }
+            }
+
+            &.lv3{
+                &:before{
+                    left: -1.25rem;
+                }
+            }
+            .anchor-text{
+                left: 0rem;
+                opacity: 1;
+            }
+        }
+    }
+
+    .anchor{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        &:before{
+            background: $border-color;
+            content: '';
+            height: 0.125rem;
+            margin: 0 0 0 0.25rem;
+            opacity: 1;
+            position: relative;
+            left: 0rem;
+            transition: ease-in 0.2s;
+        }
+
+        &.lv1{
+            &:before{
+                width: 1.75rem;
+            }
+            .anchor-text{
+                padding-left: 0;
+            }
+        }
+        &.lv2{
+            &:before{
+                width: 1.25rem;
+            }
+            .anchor-text{
+                padding-left: 0.75rem;
+            }
+        }
+
+        &.lv3{
+            &:before{
+                width: 1rem;
+            }
+            .anchor-text{
+                padding-left: 1rem;
+            }
+        }
+
+        a{     
+            display: block;
+            position: relative;
+            width: 100%;
+            &:hover{
+                .anchor-text{
+                    color: $link-hover;
+                }
+            }
+            .anchor-text{
+                left: -1rem;
+                position: relative;
+                padding: 0.25rem 1rem 0.25rem 0.25rem;
+                opacity: 0;
+                transition: ease-in 0.2s;
+            }
+        }
+
+        
+    }
+
+}

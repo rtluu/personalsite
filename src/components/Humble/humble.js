@@ -1,5 +1,4 @@
 import React from "react";
-import "./humble.scss";
 import Lightbox from "./lightboxHumble"
 import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
@@ -7,6 +6,7 @@ import HumbleApproach from "./images/HumbleApproach";
 import HumblePortfolio from "./images/HumblePortfolio";
 import HumbleTeam from "./images/HumbleTeam";
 import HumbleCTA from "./images/HumbleCTA";
+import HumbleAnchors from "./anchorsHumble";
 import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
 
@@ -25,7 +25,8 @@ const Humble = () => {
     return (
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
-            <h1>Humble Venture Capital</h1>
+            <HumbleAnchors />
+            <h1 id="humble">Humble Venture Capital</h1>
             <div className="template-section">
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button" type="button">
@@ -40,18 +41,18 @@ const Humble = () => {
                 </div>
             </div>
             <div className="template-section">
-                <h2>Objective</h2>
+                <h2 id="objective">Objective</h2>
                 <p>Design and build a website for a venture capital firm based in DC & NYC.</p>
             </div>
             <div className="template-section">
-                <h2>Requirements</h2>
+                <h2 id="requirements">Requirements</h2>
                 <ul className="listtype-bullet listindent1" >
                     <li><p>Client must be able to edit the copy and replace images</p></li>
                     <li><p>Pages to include: Homepage, Investment Approach, Portfolio, Case Studies, Team, Contact</p></li>
                 </ul>
             </div>
             <div className="template-section">
-                <h2>Process</h2>
+                <h2 id="process">Process</h2>
                 <ol className="listtype-numbered" >
                     <li><p>Client interview and requirements gathering</p></li>
                     <li><p>Design mocks and review</p></li>
@@ -60,7 +61,7 @@ const Humble = () => {
                 </ol>
             </div>
             <div className="template-section">
-                <h2>Design</h2>
+                <h2 id="design">Design</h2>
                 <p>The directive from the client was to leverage a space theme and bring a design unity across the different sections of the experience. Each one of the following blocks had a corresponding page that followed the overarching design pattern. I mocked the designs in sketch and shared them with the client in Invision throughout the design phase.</p>
                 <span className="gallery">
                     <div className="gallery-outer-wrapper">
@@ -101,11 +102,11 @@ const Humble = () => {
                 </span>
             </div>
             <div className="template-section">
-                <h2>Development</h2>
+                <h2 id="development">Development</h2>
                 <p>The website was build in Wordpress for ease of editing by the client with a significant amount of custom html and css to transform the original template into the accepted designs. It was my first experience building it Wordpress so I was learning on the fly, but it opened my eyes to the expansiveness of the Wordpress ecosystem and all the different plugins involved in creating a site on the platform.</p>
             </div>
             <div className="template-section">
-                <h2>Reflection</h2>
+                <h2 id="reflection" >Reflection</h2>
                 <p>This was my first client project and taught me a ton about managing the product development process with external stakeholders. Proactive communication works wonders in managing expectations and frequent updates makes sure everyone is on the same page throughout the process. Being clear about what blockers arise and when input is needed ensures the right prioritizations are made, leading to the right outcomes. I’m excited for the next client project and thankful for the opportunity to work with such a great organization.</p>
             </div>
         </div>

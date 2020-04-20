@@ -5,7 +5,7 @@ import Humble from "../components/Humble/humble"
 
 const HumbleVentureCapital = () => (
     <Layout>
-        <SEO title="Humble VC" />
+        <SEO title="Humble VC | Ryan Luu" />
         <Humble />
     </Layout>
 )

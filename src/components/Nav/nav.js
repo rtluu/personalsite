@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import "./nav.scss";
-import HomeIcon from "./home-icon.inline.svg";
-import SidebarIcon from "./sidebar-icon.inline.svg";
+import HomeIcon from "../../icons/home-icon.inline.svg";
+import SidebarIcon from "../../icons/sidebar-icon.inline.svg";
 import Menu from "./Menu/menu";
 
 import { useGlobalState } from '../../state';

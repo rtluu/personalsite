@@ -1,45 +1,19 @@
 @import "../../styles/media-queries.scss";
 
-.washpost{
-    &:after{
-        content: "WashingtonPost";
-        position: relative;
-    }
-
-    @media (max-width: $breakpoint-phone) {
-        &:after{
-            content: "WaPo";
-        }
-    }
-
-    &.menu-open{
-        @media (max-width: $breakpoint-1000) {
-            &:after{
-                content: "WaPo";
-            }
-        }
-
-        @media (max-width: $breakpoint-tablet) {
-            &:after{
-                content: "WashingtonPost";
-            }
-        }
-
-        @media (max-width: $breakpoint-phone) {
-            &:after{
-                content: "WaPo";
-            }
-        }
-    }
-}
-
 .about-pic-box{
     max-width: 15.5rem;
     right: 0;
     position: absolute;
     width: 40%;
     z-index: 1;
-
+    @media (max-width: $breakpoint-tablet) {
+        margin-top: 1.5rem;
+        width: 35%;
+    }
+    @media (max-width: $breakpoint-phone) {
+        margin-top: 1.75rem;
+        width: 32%;
+    }
 
     .about-pic{
         border-radius: 50%;

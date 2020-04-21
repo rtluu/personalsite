@@ -11,8 +11,8 @@ const Anchors = () => {
             <li className="anchor lv1"><a href="#ryanluu"><h6 className="anchor-text">Ryan Luu</h6></a></li>
             <li className="anchor lv3"><a href="#about"><h6 className="anchor-text">About</h6></a></li>
             <li className="anchor lv3"><a href="#product"><h6 className="anchor-text">Product</h6></a></li>
-            <li className="anchor lv3"><a href="#projects"><h6 className="anchor-text">Projects</h6></a></li>
-            <li className="anchor lv3"><a href="#connect"><h6 className="anchor-text">Connect</h6></a></li>
+            <li className="anchor lv3"><a href="#development"><h6 className="anchor-text">Development</h6></a></li>
+            <li className="anchor lv3"><a href="#lets-talk"><h6 className="anchor-text">Let's talk</h6></a></li>
         </ul>
     )
 }

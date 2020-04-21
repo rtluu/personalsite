@@ -14,7 +14,7 @@ const Menu = () => (
             <p><Link to="/vumble/">+Vumble</Link></p>
         </ul>
         <ul className="menu-option-set">
-            <p className="bold-italic">Projects:</p>
+            <p className="bold-italic">Development:</p>
             <p><Link to="/openrecord/">+OpenRecord</Link></p>
             <p><Link to="/neat/">+Neat</Link></p>
             <p><Link to="/OurLuuBeginning/">+OurLuuBeginning</Link></p>

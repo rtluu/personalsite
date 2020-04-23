@@ -47,8 +47,11 @@
 
             .button-box{
                 position: absolute;
-                right: -4rem;
+                right: -4.25rem;
 
+                &.home{
+                    right: -3rem;
+                }
 
                 .icon{
                     &:hover{
@@ -59,11 +62,6 @@
                     
                     path{
                         fill-opacity: 1;
-                    }
-
-                    &.home{
-                        display: none;
-                        margin-top: -0.0675rem;
                     }
                 }
             }
@@ -82,19 +80,18 @@
             align-items: center;
             display: flex;
             height: 4rem;
-            margin: 0 1rem;
+            margin: 0 0.4375rem;
+
+            &.home{
+                margin-left: 0.75rem;
+            }
     
             .icon{
                 align-items: center;
                 display: flex;
                 justify-content: center;
                 height: 2rem;
-                margin: 0 0.25rem;
-                width: 2rem;
-    
-                &.home{
-                    margin-top: -0.0675rem;
-                }
+                width: 1.75rem;
             }
         }
     }

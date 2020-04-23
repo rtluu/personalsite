@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout">
-      {window.location.pathname !== '/' && <Nav />}
+      <Nav />
       <main className="main-container">
         <div className={`template ${value ? "menu-open" : ""}`}>
           {children}

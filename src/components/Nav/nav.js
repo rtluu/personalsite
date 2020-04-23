@@ -1,25 +1,30 @@
 import React from "react";
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby";
 import "./nav.scss";
-import HomeIcon from "../../icons/home-icon.inline.svg";
+import BackIcon from "../../icons/back-icon.inline.svg";
 import SidebarIcon from "../../icons/sidebar-icon.inline.svg";
 import Menu from "./Menu/menu";
 
 import { useGlobalState } from '../../state';
 
 const Nav = () => {
+    const location = useLocation();
     const [value, update] = useGlobalState('menuActive');
 
     return (
         <nav className={`nav ${value ? "open" : ""}`}>
             <button className="spacer" onClick={() => update(!value)} />
             <div className="nav-inner">
-                <div className="button-box">
-                    <Link to="/">
-                        <button className="icon home">
-                            <HomeIcon />
-                        </button>
-                    </Link>
+                <div className={`button-box ${location.pathname === "/" ? "home" : ""}`}>
+                    {location.pathname !== "/" && (
+                        <Link to="/">
+                            <button className="icon" onClick={() => window.history.back()}>
+                                <BackIcon />
+                            </button>
+                        </Link>
+                    )}
+
                     <button className='icon sidebar' onClick={() => update(!value)}>
                         <SidebarIcon />
                     </button>
@@ -28,7 +33,7 @@ const Nav = () => {
                     <Menu />
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }
 

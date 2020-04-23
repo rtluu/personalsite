@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
 import "./menu.scss";
+import HomeIcon from "../../../icons/home-icon.inline.svg";
 
 const Menu = () => (
     <div className="menu">
         <div className="menu-header">
-            <Link to="/"><h3 className="menu-heading"><span role="img" aria-label="head" className="emoji-head">🧔🏻</span> Ryan Luu</h3></Link>
+            <Link to="/" >
+                <button className="icon home">
+                    <HomeIcon />
+                </button>
+            </Link>
         </div>
         <ul className="menu-option-set">
             <p className="bold-italic">Product:</p>

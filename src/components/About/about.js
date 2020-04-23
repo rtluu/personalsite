@@ -7,7 +7,6 @@ import AboutAnchors from "./anchorsAbout";
 import { setImageNumber, setImageGallery, lightboxOpen, useGlobalState } from '../../state';
 
 const About = () => {
-    const [value] = useGlobalState('menuActive');
     const [imageNumber] = useGlobalState('imageNumber');
     setImageGallery(1);
 

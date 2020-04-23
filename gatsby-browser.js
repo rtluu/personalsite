@@ -5,3 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+
+export const onRouteUpdate = ({ location, prevLocation }) => {
+    if (location && location.state)
+        location.state.referrer = prevLocation ? prevLocation.pathname : null
+}

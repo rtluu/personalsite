@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "@reach/router"
 import { Link } from "gatsby";
 import "./nav.scss";
+import "../../styles/tooltip.scss";
 import BackIcon from "../../icons/back-icon.inline.svg";
 import SidebarIcon from "../../icons/sidebar-icon.inline.svg";
 import Menu from "./Menu/menu";
@@ -21,9 +22,15 @@ const Nav = () => {
                         <Link to="/">
                             <button className="icon" onClick={() => window.history.back()}>
                                 <BackIcon />
+                                <div className="tooltip">
+                                    <div className="tooltip-body">
+                                        <span className="tooltip-message">Back to home</span>
+                                    </div>
+                                </div>
                             </button>
                         </Link>
                     )}
+
 
                     <button className='icon sidebar' onClick={() => update(!value)}>
                         <SidebarIcon />

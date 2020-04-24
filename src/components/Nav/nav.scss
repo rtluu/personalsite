@@ -92,6 +92,13 @@
                 justify-content: center;
                 height: 2rem;
                 width: 1.75rem;
+                position: relative;
+
+                &:hover{
+                    .tooltip{
+                        display: block;
+                    }
+                }
             }
         }
     }

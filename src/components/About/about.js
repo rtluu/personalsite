@@ -20,7 +20,7 @@ const About = () => {
             <div className="template-section row">
                 <div className="template-text-block two-column">
                     <h2 id="about">About</h2>
-                    <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I create projects with cool people. Currently residing in DC with my fiancée and playing basketball 🏀whenever I get the chance.</p>
+                    <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I create projects with cool people. Currently residing in DC with my fiancée and playing basketball 🏀 whenever I get the chance.</p>
                 </div>
                 <div className="about-pic-box">
                     <div className="about-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">

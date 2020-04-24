@@ -1,6 +1,6 @@
 $breakpoint-1200: 75rem;
 $breakpoint-1000: 62.5rem;
-$breakpoint-tablet: 52.5rem;
+$breakpoint-tablet: 56.5rem;
 $breakpoint-672: 42rem;
 $breakpoint-phone: 36rem;
 $max-width: 46.5625rem;
@@ -18,4 +18,8 @@ $overlay-background: rgba(14,19,27,0.97);
 $sidebar-color: #283241;
 $sidebar-overlay: rgba(23, 27, 33, 0.1);
 $text-color: #e8e9eb;
+$tooltip-background: #000;
+$tooltip-border: #000;
+$tooltip-text: #FFFFFF;
+$tooltip-shadow: 0 0 0 1px #3f4755, 0 0 0 2px rgba(0, 0, 0, 0.5), 0px 8px 13px rgba(14, 19, 27, 0.32);
 $white: #FFFFFF;

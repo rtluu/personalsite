@@ -180,13 +180,22 @@ button{
             padding: 2.5rem;
 
             &.menu-open{
-                margin-left: 6.25rem;
 
-                @media (max-width: $breakpoint-1000) {           
-                    margin-left: 3.5rem;
+                .two-column{
+                    @media (max-width: $breakpoint-1000) {           
+                        width: 57.5%;
+                    }
+                    @media (max-width: $breakpoint-tablet) {           
+                        width: 62%;
+                    }
                 }
 
-                @media (max-width: $breakpoint-tablet) {           
+                .anchor-set{
+                    @media (max-width: $breakpoint-1200) {           
+                        display: none;
+                    }
+                }
+                @media (max-width: $breakpoint-phone) {           
                     margin: 5rem auto 5rem;
                 }
             }

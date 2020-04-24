@@ -1,0 +1,62 @@
+@import "./media-queries.scss";
+
+.tooltip{
+    box-shadow: $tooltip-shadow;
+    padding: 0;
+    text-align: center;
+    white-space: pre-line;
+    pointer-events: none;
+    line-height: 14px;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: $tooltip-background;
+    color: $tooltip-text;
+    border: 0;
+    border-color: $tooltip-border;
+    border-radius: 2px;
+    max-width: 300px;
+    position: absolute;
+    white-space: nowrap;
+    right: -100px;
+    z-index: 1000;
+    display: none;
+
+    &::before{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-bottom-width: 4px;
+        z-index: 2;
+
+        left: -5px;
+        border-right-color: inherit;
+        top: 50%;
+        margin-top: -5px;
+        border-bottom-color: transparent;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-bottom-color: #3F4755;
+        border-bottom-width: 4px;
+        z-index: 1;
+
+        left: -6px;
+        border-right-color: #3F4755;
+        top: 50%;
+        margin-top: -5px;
+        border-bottom-color: transparent;
+    }
+
+    .tooltip-body{
+        padding: 0.3125rem 0.625rem;
+    }
+}

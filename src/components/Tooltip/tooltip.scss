@@ -1,4 +1,4 @@
-@import "./media-queries.scss";
+@import "../../styles/media-queries.scss";
 
 .tooltip{
     box-shadow: $tooltip-shadow;
@@ -17,9 +17,21 @@
     max-width: 300px;
     position: absolute;
     white-space: nowrap;
-    right: -100px;
     z-index: 1000;
     display: none;
+
+    &.back-tip{
+        right: -100px;
+    }
+
+    &.home-tip{
+        right: 113px;
+        top: 20px;
+    }
+
+    &.folder-tip{
+        right: -124px;
+    }
 
     &::before{
         content: '';

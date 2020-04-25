@@ -156,6 +156,12 @@ button{
             }
         }
     }
+
+    &:hover{
+        .tooltip{
+            display: block;
+        }
+    }
 }
 
 
@@ -165,6 +171,10 @@ button{
     font-style: italic;
     font-weight: 600;
     margin-right: 0.125rem;
+}
+
+.bold{
+    font-family: AtlasGrotesk-Medium;
 }
 
 .layout{

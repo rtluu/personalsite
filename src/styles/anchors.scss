@@ -15,9 +15,37 @@
     &.menu-open{
         left: 17.5rem;
 
+        @media (max-width: $breakpoint-1300) {           
+            display: none;
+        }
         &:hover{
             left: 17rem;
         }
+        .anchor{
+            &.lv1{
+                .anchor-text{
+                    @media (max-width: $breakpoint-1400) {           
+                        max-width: 6.25rem;
+                    }
+                }
+            }
+            &.lv2{
+                .anchor-text{
+                    @media (max-width: $breakpoint-1400) {           
+                        max-width: 5.5rem;
+                    }
+                }
+            }
+            
+            .anchor-text{
+                @media (max-width: $breakpoint-1400) {           
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        
     }
    
     &:hover{
@@ -73,6 +101,10 @@
             }
             .anchor-text{
                 padding-left: 0;
+                max-width: 8rem;
+                @media (max-width: $breakpoint-1200) {           
+                    max-width: 6.25rem;
+                }
             }
         }
         &.lv2{
@@ -81,15 +113,11 @@
             }
             .anchor-text{
                 padding-left: 0.75rem;
-            }
-        }
+                max-width: 7.25rem;
 
-        &.lv3{
-            &:before{
-                width: 1rem;
-            }
-            .anchor-text{
-                padding-left: 1rem;
+                @media (max-width: $breakpoint-1200) {           
+                    max-width: 5.5rem;
+                }
             }
         }
 
@@ -108,6 +136,12 @@
                 padding: 0.25rem 1rem 0.25rem 0.25rem;
                 opacity: 0;
                 transition: ease-in 0.2s;
+
+                @media (max-width: $breakpoint-1200) {           
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
         }
 

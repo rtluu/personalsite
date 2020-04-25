@@ -16,13 +16,13 @@ const Menu = () => (
             </Link>
         </div>
         <ul className="menu-option-set">
-            <h4 className="bold">Product:</h4>
+            <h4 className="bold">Product</h4>
             <li><Link to="/washingtonpost/"><DocIcon /><h5>Washington Post</h5></Link></li>
             <li><Link to="/adhoc"><DocIcon /><h5>Ad Hoc</h5></Link></li>
             <li><Link to="/vumble/"><DocIcon /><h5>Vumble</h5></Link></li>
         </ul>
         <ul className="menu-option-set">
-            <h4 className="bold">Development:</h4>
+            <h4 className="bold">Development</h4>
             <li><Link to="/openrecord/"><DocIcon /><h5>OpenRecord</h5></Link></li>
             <li><Link to="/neat/"><DocIcon /><h5>Neat</h5></Link></li>
             <li><Link to="/OurLuuBeginning/"><DocIcon /><h5>OurLuuBeginning</h5></Link></li>

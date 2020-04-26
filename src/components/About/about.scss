@@ -7,12 +7,16 @@
     width: 40%;
     z-index: 1;
     @media (max-width: $breakpoint-tablet) {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         width: 35%;
     }
     @media (max-width: $breakpoint-phone) {
-        margin-top: 1.75rem;
+        margin-top: 1.5rem;
         width: 32%;
+    }
+
+    &.hide{
+        display: none;
     }
 
     .about-pic{

@@ -5,6 +5,7 @@ import "./nav.scss";
 import BackIcon from "../../icons/back-icon.inline.svg";
 import SidebarIcon from "../../icons/sidebar-icon.inline.svg";
 import Menu from "./Menu/menu";
+import Tooltip from "../Tooltip/tooltip";
 
 import { useGlobalState } from '../../state';
 
@@ -21,12 +22,15 @@ const Nav = () => {
                         <Link to="/">
                             <button className="icon" onClick={() => window.history.back()}>
                                 <BackIcon />
+                                <Tooltip text='Back to home' class='back-tip' />
                             </button>
                         </Link>
                     )}
 
+
                     <button className='icon sidebar' onClick={() => update(!value)}>
                         <SidebarIcon />
+                        <Tooltip text={`${value ? "Close" : "Open"} folder view`} class='folder-tip' />
                     </button>
                 </div>
                 <div className={`menu-holder ${value ? "open" : ""}`}>

@@ -1,32 +1,60 @@
 import React from "react";
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby";
 import "./menu.scss";
 import HomeIcon from "../../../icons/home-icon.inline.svg";
+import DocIcon from "../../../icons/doc-icon.inline.svg";
+import Tooltip from "../../Tooltip/tooltip";
 
-const Menu = () => (
-    <div className="menu">
-        <div className="menu-header">
-            <Link to="/" >
-                <button className="icon home">
-                    <HomeIcon />
-                </button>
-            </Link>
+const Menu = () => {
+    const location = useLocation();
+
+    return (
+        <div className="menu">
+            <div className="menu-header">
+                <Link to="/" >
+                    <button className="icon home">
+                        <HomeIcon />
+                        <Tooltip text='Back to home' class='home-tip' />
+                    </button>
+                </Link>
+            </div>
+            <ul className="menu-option-set">
+                <h4 className="bold">Product</h4>
+                <li className={location.pathname === "/washingtonpost/" && ('active')}>
+                    <Link to="/washingtonpost/"><DocIcon /><h5>Washington Post</h5></Link>
+                </li>
+                <li className={location.pathname === "/adhoc/" && ('active')}>
+                    <Link to="/adhoc/"><DocIcon /><h5>Ad Hoc</h5></Link>
+                </li>
+                <li className={location.pathname === "/vumble/" && ('active')}>
+                    <Link to="/vumble/"><DocIcon /><h5>Vumble</h5></Link>
+                </li>
+            </ul>
+            <ul className="menu-option-set">
+                <h4 className="bold">Development</h4>
+                <li className={location.pathname === "/openrecord/" && ('active')}>
+                    <Link to="/openrecord/"><DocIcon /><h5>OpenRecord</h5></Link>
+                </li>
+                <li className={location.pathname === "/neat/" && ('active')}>
+                    <Link to="/neat/"><DocIcon /><h5>Neat</h5></Link>
+                </li>
+                <li className={location.pathname === "/ourluubeginning/" && ('active')}>
+                    <Link to="/ourluubeginning/"><DocIcon /><h5>OurLuuBeginning</h5></Link>
+                </li>
+                <li className={location.pathname === "/fastrope/" && ('active')}>
+                    <Link to="/fastrope/"><DocIcon /><h5>Fastrope Labs</h5></Link>
+                </li>
+                <li className={location.pathname === "/humblevc/" && ('active')}>
+                    <Link to="/humblevc/"><DocIcon /><h5>Humble VC</h5></Link>
+                </li>
+            </ul>
         </div>
-        <ul className="menu-option-set">
-            <p className="bold-italic">Product:</p>
-            <p><Link to="/washingtonpost/">+Washington Post</Link></p>
-            <p><Link to="/adhoc">+Ad Hoc</Link></p>
-            <p><Link to="/vumble/">+Vumble</Link></p>
-        </ul>
-        <ul className="menu-option-set">
-            <p className="bold-italic">Development:</p>
-            <p><Link to="/openrecord/">+OpenRecord</Link></p>
-            <p><Link to="/neat/">+Neat</Link></p>
-            <p><Link to="/OurLuuBeginning/">+OurLuuBeginning</Link></p>
-            <p><Link to="/fastrope/">+Fastrope Labs</Link></p>
-            <p><Link to="/humblevc/">+Humble VC</Link></p>
-        </ul>
-    </div>
-)
+    )
+}
+
+
+
+
 
 export default Menu

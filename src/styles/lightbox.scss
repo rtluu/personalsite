@@ -38,16 +38,24 @@
         align-items: center;
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
         height: 4rem;
         position: relative;
         width: 100%;
         z-index: 2;
         pointer-events: none;
 
+        .close{
+            box-sizing: content-box;
+            height: 2rem;
+            margin-top: 0.125rem;
+            width: 3.75rem;
+            pointer-events: all;
+        }
+
         .gallery-arrows{
             align-items: center;
-            border-right: 0.0625rem solid $border-color;
+            border-left: 0.0625rem solid $border-color;
             display: flex;
             flex-direction: row;
             height: 2rem;
@@ -64,17 +72,7 @@
             .gallery-counter{
                 margin-top: 0.125rem;
             }
-        }
-
-        .close{
-            box-sizing: content-box;
-            height: 2rem;
-            margin-top: 0.125rem;
-            width: 3.75rem;
-            pointer-events: all;
-        }
-
-        
+        }  
     }
 
     .lightbox-item{

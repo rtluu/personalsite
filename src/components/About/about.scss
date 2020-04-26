@@ -15,6 +15,10 @@
         width: 32%;
     }
 
+    &.hide{
+        display: none;
+    }
+
     .about-pic{
         border-radius: 50%;
         overflow: hidden;

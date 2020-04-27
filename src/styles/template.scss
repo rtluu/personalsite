@@ -61,7 +61,26 @@
                 }
             }
             .template-text-body{
-                margin: 0 0 2rem 0;  
+                margin: 0 0 2rem 0;
+                
+                .case-item{
+                        display: inline-block;
+
+                    &:hover{
+                        .case-popup{
+                            opacity: 1;
+                            pointer-events: all;
+                            transition: all 0.2s;
+                        }
+                    }
+
+                    .case-popup{
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: all 0.2s;
+                    }
+                }
             }
         }
 

@@ -5,6 +5,7 @@ import Lightbox from "./lightboxAbout"
 import Headshot from "./images/Headshot";
 import AboutAnchors from "./anchorsAbout";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
+import Popup from "../Popup/popup";
 import { setImageNumber, setImageGallery, lightboxOpen, useGlobalState } from '../../state';
 
 const About = () => {
@@ -70,7 +71,12 @@ const About = () => {
                             <li><p><Link to="/neat/">+Neat</Link></p></li>
                             <li><p><Link to="/OurLuuBeginning/">+OurLuuBeginning</Link></p></li>
                             <li><p><Link to="/fastrope/">+Fastrope Labs</Link></p></li>
-                            <li><p><Link to="/humblevc/">+Humble VC</Link></p></li>
+                            <li>
+                                <Link to="/humblevc/" className="case-item">
+                                    <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" /></div>
+                                    <p>+Humble VC</p>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

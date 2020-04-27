@@ -5,6 +5,10 @@
     transform: translate(-33.33%, calc(-100% - 0.5rem));
     z-index: 10;
 
+    @media (max-width: $breakpoint-1000) {
+        transform: translate(-1.5rem, calc(-100% - 0.5rem));
+    }
+
     &::before{
         border-top: 0;
         border: 0.625rem solid transparent;
@@ -16,6 +20,11 @@
         right: calc(50% - 0.625rem);
         width: 0;
         z-index: 12;
+
+        @media (max-width: $breakpoint-1000) {
+            left: 3rem;
+            right: auto;
+        }
     }
     
     &::after{
@@ -30,6 +39,11 @@
         right: calc(50% - 0.625rem);
         width: 0;
         z-index: 11;
+
+        @media (max-width: $breakpoint-1000) {
+            left: 3rem;
+            right: auto;
+        }
     }
     
 

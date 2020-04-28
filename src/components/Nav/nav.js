@@ -22,7 +22,7 @@ const Nav = () => {
                         <Link to="/">
                             <button className="icon" onClick={() => window.history.back()}>
                                 <BackIcon />
-                                <Tooltip text='Back to home' class='back-tip' />
+                                <Tooltip text='Back to previous page' class='back-tip' />
                             </button>
                         </Link>
                     )}

@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import "./about.scss";
 import Lightbox from "./lightboxAbout"
 import Headshot from "./images/Headshot";
@@ -70,10 +70,15 @@ const About = () => {
                             <li><p><Link to="/openrecord/">+OpenRecord</Link></p></li>
                             <li><p><Link to="/neat/">+Neat</Link></p></li>
                             <li><p><Link to="/OurLuuBeginning/">+OurLuuBeginning</Link></p></li>
-                            <li><p><Link to="/fastrope/">+Fastrope Labs</Link></p></li>
+                            <li>
+                                <Link to="/fastropelabs/" className="case-item">
+                                    <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
+                                    <p>+Fastrope Labs</p>
+                                </Link>
+                            </li>
                             <li>
                                 <Link to="/humblevc/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" /></div>
+                                    <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" imgsrc="HumblePopup" /></div>
                                     <p>+Humble VC</p>
                                 </Link>
                             </li>

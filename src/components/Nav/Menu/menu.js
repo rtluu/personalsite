@@ -53,7 +53,7 @@ const Menu = () => {
                         <Link to="/ourluubeginning/"><h5>OurLuuBeginning</h5></Link>
                     </li>
                     <li className={location.pathname === "/fastrope/" && ('active')}>
-                        <Link to="/fastrope/"><h5>Fastrope Labs</h5></Link>
+                        <Link to="/fastropelabs/"><h5>Fastrope Labs</h5></Link>
                     </li>
                     <li className={location.pathname === "/humblevc/" && ('active')}>
                         <Link to="/humblevc/"><h5>Humble VC</h5></Link>

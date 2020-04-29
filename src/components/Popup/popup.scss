@@ -1,0 +1,92 @@
+@import "../../styles/media-queries.scss";
+
+.popup-container{
+    position: absolute;
+    transform: translate(-33.33%, calc(-100% - 0.5rem));
+    z-index: 10;
+
+    @media (max-width: $breakpoint-1000) {
+        transform: translate(-1.5rem, calc(-100% - 0.5rem));
+    }
+
+    &::before{
+        border-top: 0;
+        border: 0.625rem solid transparent;
+        border-top-color: $popup-text-background;
+        bottom: -1.125rem;
+        content: '';
+        height: 0;
+        position: absolute;
+        right: calc(50% - 0.625rem);
+        width: 0;
+        z-index: 12;
+
+        @media (max-width: $breakpoint-1000) {
+            left: 3rem;
+            right: auto;
+        }
+    }
+    
+    &::after{
+        border-top: 0;
+        border: 0.625rem solid transparent;
+        border-top-color: rgba(0, 0, 0, 0.2);
+        bottom: -1.25rem;
+        content: '';
+        height: 0;
+        margin-bottom: 0.0625rem;
+        position: absolute;
+        right: calc(50% - 0.625rem);
+        width: 0;
+        z-index: 11;
+
+        @media (max-width: $breakpoint-1000) {
+            left: 3rem;
+            right: auto;
+        }
+    }
+    
+
+    .popup-inner{
+        background: $background-color;
+        border: 0.0625rem solid rgba(0, 0, 0, 0.2);
+        border-radius: 0.5rem;
+        box-shadow: $popup-shadow;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20rem;
+        overflow: hidden;
+        position: relative;
+        width: 17.5rem;
+        z-index: 10;
+
+        .popup-media{
+            display: block;
+            height: 17.875rem;
+            width: 100%;
+
+            //Slight Zoom on Image
+            .gatsby-image-wrapper{
+                div{
+                    &:nth-child(1){
+                        top: -0.125rem;
+                        left: -0.1875rem;
+                        padding-bottom: calc(100% + 0.375rem) !important;
+                        width: calc(100% + 0.375rem) !important;
+                    }
+                }
+            }
+        }
+
+        .popup-text{
+            align-items: center;
+            background: $popup-text-background;
+            display: flex;
+            height: 2.5rem;  
+            padding: 0.25rem 0.55rem;      
+        }
+    }
+
+    
+}

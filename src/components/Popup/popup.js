@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import "./popup.scss";
 import HumblePopup from "../../cases/Humble/images/HumblePopup";
 import FastropePopup from "../../cases/Fastrope/images/FastropePopup";

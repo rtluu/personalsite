@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import "../../styles/lightbox.scss";
 import CloseIcon from "../../icons/close-icon.inline.svg";
 import BackIcon from "../../icons/back-icon.inline.svg";
 import NextIcon from "../../icons/next-icon.inline.svg";
-import { nextNumber, resetNumber, prevNumber, galleryEnd, useGlobalState } from '../../state';
-
+import { setImageNumber, useGlobalState } from '../../state';
 import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
 import HumbleApproach from "./images/HumbleApproach";
 import HumblePortfolio from "./images/HumblePortfolio";
 import HumbleTeam from "./images/HumbleTeam";
 import HumbleCTA from "./images/HumbleCTA";
+
+const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
 
 const Lightbox = (props) => {
     const [value, update] = useGlobalState('lightboxActive');
@@ -21,22 +22,38 @@ const Lightbox = (props) => {
         update(!value);
     }
 
+    var currentImage = props.currentImage;
+
     function nextImage() {
         if (imageNumber === imageGallery) {
-            resetNumber();
+            setImageNumber(1);
         } else {
-            nextNumber();
+            setImageNumber(imageNumber + 1);
         }
     }
     function prevImage() {
         if (imageNumber === 1) {
-            galleryEnd();
+            setImageNumber(imageGallery);
         } else {
-            prevNumber();
+            setImageNumber(imageNumber - 1);
         }
     }
 
-    var currentImage = props.currentImage;
+    useEffect(() => {
+        const handleKeyDown = event => {
+            if (event.key === "ArrowRight") {
+                nextImage();
+            } else if (event.key === "ArrowLeft") {
+                prevImage();
+            } else if (event.key === "Escape") {
+                closeLightbox();
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown)
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [imageNumber])
 
     return (
         <Fragment>

@@ -28,7 +28,6 @@ const Fastrope = () => {
     const [objectiveCollapsed, setObjectiveCollapsed] = useState(false);
     const [requirementsCollapsed, setRequirementsCollapsed] = useState(false);
     const [processCollapsed, setProcessCollapsed] = useState(false);
-    const [designCollapsed, setDesignCollapsed] = useState(false);
     const [developmentCollapsed, setDevelopmentCollapsed] = useState(false);
     const [reflectionCollapsed, setReflectionCollapsed] = useState(false);
 

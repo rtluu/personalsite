@@ -6,6 +6,7 @@ exports.components = {
   "component---src-pages-404-js": () => import("./../src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
   "component---src-pages-fastropelabs-js": () => import("./../src/pages/fastropelabs.js" /* webpackChunkName: "component---src-pages-fastropelabs-js" */),
   "component---src-pages-humblevc-js": () => import("./../src/pages/humblevc.js" /* webpackChunkName: "component---src-pages-humblevc-js" */),
-  "component---src-pages-index-js": () => import("./../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */)
+  "component---src-pages-index-js": () => import("./../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
+  "component---src-pages-ourluubeginning-js": () => import("./../src/pages/ourluubeginning.js" /* webpackChunkName: "component---src-pages-ourluubeginning-js" */)
 }
 

@@ -96,13 +96,16 @@ a{
 
 ul{
     &.listtype-bullet{
+        margin-left: 0.25rem !important;
         li{
-            &:before{
-                content: "•";
+            display: flex;
+            margin-bottom: 0.1875rem;
+            span{
                 display: inline-block;
                 font-size: 1.75rem;
-                line-height: 1.5rem;
                 margin-right: 0.5rem;
+                position: relative;
+                top: -0.5rem;
             }
             p{
                 display: inline-block;

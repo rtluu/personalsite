@@ -69,7 +69,7 @@ const About = () => {
                         <ul className="listtype-casestudy" >
                             <li><p><Link to="/openrecord/">+OpenRecord</Link></p></li>
                             <li><p><Link to="/neat/">+Neat</Link></p></li>
-                            <li><p><Link to="/OurLuuBeginning/">+OurLuuBeginning</Link></p></li>
+                            <li><p><Link to="/ourluubeginning/">+OurLuuBeginning</Link></p></li>
                             <li>
                                 <Link to="/fastropelabs/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>

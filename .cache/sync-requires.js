@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-404-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/404.js"))),
   "component---src-pages-fastropelabs-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/fastropelabs.js"))),
   "component---src-pages-humblevc-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/humblevc.js"))),
-  "component---src-pages-index-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/index.js")))
+  "component---src-pages-index-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/index.js"))),
+  "component---src-pages-ourluubeginning-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/ourluubeginning.js")))
 }
 

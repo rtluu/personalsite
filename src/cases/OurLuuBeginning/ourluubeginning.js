@@ -73,7 +73,7 @@ const Fastrope = () => {
                     </div>
                     <div className="template-text-body">
                         <ul className="listtype-bullet listindent1" >
-                            <li><span className="bullet">&bull;</span><p>Guests can access all the relevant wedding info </p></li>
+                            <li><span className="bullet">&bull;</span><p>Guests can access all relevant wedding info</p></li>
                             <li><span className="bullet">&bull;</span><p>Ability to fully customize the UI and add pages for capturing the wedding after it’s over</p></li>
                             <li><span className="bullet">&bull;</span><p>Pages to include: Homepage, Schedule, Accommodations, Registry, Wedding Party, Photos, Proposal</p></li>
                         </ul>

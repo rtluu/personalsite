@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import "./menu.scss";
 import FolderIcon from "../../../icons/folder-icon.inline.svg";
 import HomeIcon from "../../../icons/home-icon.inline.svg";
+import PaperIcon from "../../../icons/paper-icon.inline.svg";
 import Tooltip from "../../Tooltip/tooltip";
 
 const Menu = () => {
@@ -25,15 +26,24 @@ const Menu = () => {
                     <h4 className="bold">Product</h4>
                 </div>
                 <ul className="folder-list">
-                    <li className={location.pathname === "/washingtonpost/" && ('active')}>
-                        <Link to="/washingtonpost/"><h5>Washington Post</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/adhoc/" && ('active')}>
-                        <Link to="/adhoc/"><h5>Ad Hoc</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/vumble/" && ('active')}>
-                        <Link to="/vumble/"><h5>Vumble</h5></Link>
-                    </li>
+                    <Link to="/washingtonpost/">
+                        <li className={location.pathname === "/washingtonpost/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Washington Post</h5>
+                        </li>
+                    </Link>
+                    <Link to="/adhoc/">
+                        <li className={location.pathname === "/adhoc/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Ad Hoc</h5>
+                        </li>
+                    </Link>
+                    <Link to="/vumble/">
+                        <li className={location.pathname === "/vumble/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Vumble</h5>
+                        </li>
+                    </Link>
                 </ul>
             </div>
 
@@ -43,21 +53,36 @@ const Menu = () => {
                     <h4 className="bold">Development</h4>
                 </div>
                 <ul className="folder-list">
-                    <li className={location.pathname === "/openrecord/" && ('active')}>
-                        <Link to="/openrecord/"><h5>OpenRecord</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/neat/" && ('active')}>
-                        <Link to="/neat/"><h5>Neat</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/ourluubeginning/" && ('active')}>
-                        <Link to="/ourluubeginning/"><h5>OurLuuBeginning</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/fastrope/" && ('active')}>
-                        <Link to="/fastropelabs/"><h5>Fastrope Labs</h5></Link>
-                    </li>
-                    <li className={location.pathname === "/humblevc/" && ('active')}>
-                        <Link to="/humblevc/"><h5>Humble VC</h5></Link>
-                    </li>
+                    <Link to="/openrecord/">
+                        <li className={location.pathname === "/openrecord/" && ('active')}>
+                            <PaperIcon />
+                            <h5>OpenRecord</h5>
+                        </li>
+                    </Link>
+                    <Link to="/neat/">
+                        <li className={location.pathname === "/neat/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Neat</h5>
+                        </li>
+                    </Link>
+                    <Link to="/ourluubeginning/">
+                        <li className={location.pathname === "/ourluubeginning/" && ('active')}>
+                            <PaperIcon />
+                            <h5>OurLuuBeginning</h5>
+                        </li>
+                    </Link>
+                    <Link to="/fastropelabs/">
+                        <li className={location.pathname === "/fastropelabs/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Fastrope Labs</h5>
+                        </li>
+                    </Link>
+                    <Link to="/humblevc/">
+                        <li className={location.pathname === "/humblevc/" && ('active')}>
+                            <PaperIcon />
+                            <h5>Humble VC</h5>
+                        </li>
+                    </Link>
                 </ul>
             </div>
         </div>

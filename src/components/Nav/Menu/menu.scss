@@ -43,30 +43,46 @@
             }
             
             .folder-list{
-                li{
-                    border-radius: 0.25rem;
-                    margin-left: 0.1875rem;
+                display: flex;
+                flex-direction: column;
+
+                a{
                     &:hover{
-                        a{
+                        li{
+                            svg{
+                                path{
+                                    fill: $link-hover;
+                                }
+                            }
                             h5{
                                 color: $link-hover;
                             }
                         }
                     }
+                }
+
+                
+
+                li{
+                    align-items: center;
+                    border-radius: 0.25rem;
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 0.125rem;
+                    padding: 0.625rem 0 0.5rem 0.875rem;
+                    width: 100%;
+                    
+                    
     
                     &.active{
                         background: $highlight-background;
                     }
-                    a{
-                        display: flex;
-                        flex-direction: row;
-                        padding: 0.625rem 0.75rem 0.5rem 0.75rem;
-                        width: 100%;
-    
-                        h5{
-                            margin-left: 0rem;
-                            color: $white;
-                        }
+
+                    h5{ 
+                        margin-left: 0.5rem;
+                        color: $white;
+                        position: relative;
+                        top: 0.0625rem;
                     }
                 }            
             }

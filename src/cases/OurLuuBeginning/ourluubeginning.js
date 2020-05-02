@@ -29,9 +29,10 @@ const Fastrope = () => {
     //Collapse - OurLuuBeginning
     const [objectiveCollapsed, setObjectiveCollapsed] = useState(false);
     const [requirementsCollapsed, setRequirementsCollapsed] = useState(false);
-    // const [processCollapsed, setProcessCollapsed] = useState(false);
-    // const [developmentCollapsed, setDevelopmentCollapsed] = useState(false);
-    // const [reflectionCollapsed, setReflectionCollapsed] = useState(false);
+    const [processCollapsed, setProcessCollapsed] = useState(false);
+    const [designCollapsed, setDesignCollapsed] = useState(false);
+    const [developmentCollapsed, setDevelopmentCollapsed] = useState(false);
+    const [reflectionCollapsed, setReflectionCollapsed] = useState(false);
 
     return (
         <div className="template-content">
@@ -79,7 +80,7 @@ const Fastrope = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="template-section">
+            <div className="template-section">
                 <div className={`template-text-block ${processCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setProcessCollapsed(!processCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
@@ -87,11 +88,56 @@ const Fastrope = () => {
                     </div>
                     <div className="template-text-body">
                         <ol className="listtype-numbered" >
-                            <li><p>Client interview and requirements gathering</p></li>
-                            <li><p>Design synthesis and technical discovery</p></li>
-                            <li><p>Develop, deploy, feedback, adjust</p></li>
-                            <li><p>Final delivery and asset transfer</p></li>
+                            <li><p>Build proposal poem page to give K at engagement</p></li>
+                            <li><p>Get engaged 💍 (9/22/19 at Longwood Gardens)</p></li>
+                            <li><p>Determine necessary wedding info with K</p></li>
+                            <li><p>Design mocks and iteration</p></li>
+                            <li><p>Development and refinement based on K’s feedback</p></li>
+                            <li><p>Share with guests on our ‘Save the Date’ and invitation</p></li>
                         </ol>
+                    </div>
+                </div>
+            </div>
+            <div className="template-section">
+                <div className={`template-text-block ${designCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setDesignCollapsed(!designCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="design">Design</h2>
+                    </div>
+                    <div className="template-text-body">
+                        <p>K and I wanted to keep the experience clean and for it to reflect us as a couple. I laid out the mocks in Figma to allow us to easily experiment with different designs and arrangement. We landed on cursive as the primary font, along with outline icons and tied together with the blue/white color combo.</p>
+                        <span className="gallery">
+                            <div className="gallery-outer-wrapper">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper flex-olb-hero">
+                                        <button onClick={openLightbox1} className="image-button" type="button">
+                                            <HeroOLB />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-olb-footer">
+                                        <button onClick={openLightbox2} className="image-button" type="button">
+                                            <OLBFooter />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <span className="gallery">
+                            <div className="gallery-outer-wrapper second-gallery-row">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper">
+                                        <button onClick={openLightbox3} className="image-button" type="button">
+                                            <OLBSchedule />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper">
+                                        <button onClick={openLightbox4} className="image-button" type="button">
+                                            <OLBAccommodations />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -102,34 +148,18 @@ const Fastrope = () => {
                         <h2 id="development">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>The focus for my development was creating a snappy, efficient site while meeting the design requirements laid out by the Fastrope design team. I made it a point to build the components in a modular format for reusability and ease in adjustment.</p>
+                        <p>I built the site in React, allowing me to leverage npm packages to create the scroll effect for the proposal poem. I also put int two different types of photo galleries - one for the proposal pics and the other for the photo collage.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper ">
-                                        <button onClick={openLightbox2} className="image-button" type="button">
-                                            <FastropeTeam />
-                                        </button>
-                                    </div>
-                                    <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox3} className="image-button" type="button">
-                                            <FastropeContact />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </span>
-                        <span className="gallery">
-                            <div className="gallery-outer-wrapper second-gallery-row">
-                                <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper ">
-                                        <button onClick={openLightbox4} className="image-button" type="button">
-                                            <FastropeServices />
-                                        </button>
-                                    </div>
-                                    <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox5} className="image-button" type="button">
-                                            <FastropePortfolio />
+                                            <OLBGrid />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper">
+                                        <button onClick={openLightbox6} className="image-button" type="button">
+                                            <OLBExpanded />
                                         </button>
                                     </div>
                                 </div>
@@ -145,18 +175,18 @@ const Fastrope = () => {
                         <h2 id="reflection" >Reflection</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Working with the Fastrope team was very smooth, with a clear vision for what they wanted to build along with a stellar team that was easy to communicate with. Working on this project gave me another opportunity to refine my development in React and control the full development pipeline from first commit through deployment.</p>
+                        <p>It has been a very fun project and I loved collaborating with K to tell our story. Creating the site from scratch allow us to really craft the design to fit our aesthetic and I got some good practice on both the design and development fronts. Can’t wait for the wedding!</p>
                     </div>
                 </div>
             </div>
             <div className="template-section">
                 <div className="template-text-body">
-                    <Link to="/humblevc/" className="case-item">
-                        <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" imgsrc="HumblePopup" /></div>
-                        <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Humble Venture Capital</p>
+                    <Link to="/fastropelabs/" className="case-item">
+                        <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
+                        <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Fastrope Labs</p>
                     </Link>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

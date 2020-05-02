@@ -96,9 +96,10 @@ a{
 
 ul{
     &.listtype-bullet{
+        margin-left: 0.25rem !important;
         li{
             display: flex;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.1875rem;
             span{
                 display: inline-block;
                 font-size: 1.75rem;

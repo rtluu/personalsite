@@ -1,0 +1,150 @@
+.image-button{
+
+    .video{
+        &.video-expanded{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            top: 0;
+            z-index: 2000;
+
+            .player-container{
+                align-items: center;
+                position: relative;
+                box-sizing: border-box;
+                justify-content: center;
+                transition: margin 200ms;
+                pointer-events: none;
+                box-shadow: none;
+                max-width: 76.5rem;
+                left: 50%;
+                top: calc(50% + 32px);
+                transform: translate(-50%, -50%);
+                width: calc(100% - 3.5rem);
+                z-index: 3;
+
+                .player-holder{
+                    padding-bottom: 55.5%;
+                    position: relative;
+                    overflow: hidden;
+                    pointer-events: all;
+                    width: 100%;
+
+                    .player-inner{
+                        transform: translateY(0px);
+                        height: 100% !important;
+                        width: 100% !important;
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        top: 0px;
+
+                        div{
+                            height: 100% !important;
+                            max-height: calc(100vh - 16px - 16px - 64px)!important;
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+        &.video-small{
+            .player-container{
+                background: black;
+                cursor: pointer;
+                pointer-events: none;
+                position: absolute;
+                bottom: 0;
+                opacity: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                transition: all 0.2s;
+                z-index: 1;
+        
+                &.ready{
+                    opacity: 1;
+                    transition: all 0.2s;
+                }
+            
+                .player-holder{
+                    padding-bottom: 56.25%;
+                    position: relative;
+                    overflow: hidden;
+                    top: 0;
+                    .player-inner{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        top: 0;  
+    
+                        div{
+                            transform: translateY(-30.005%);
+                            height: 250% !important;
+                            width: 100% !important;
+                            video{
+                                background: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}
+
+
+.lightbox-image-wrapper{
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    top: 0;
+    z-index: 2000;
+    .player-container{
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+        justify-content: center;
+        transition: margin 200ms;
+        pointer-events: none;
+        box-shadow: none;
+        max-width: 76.5rem;
+        left: 50%;
+        top: calc(50% + 32px);
+        transform: translate(-50%, -50%);
+        width: calc(100% - 3.5rem);
+        z-index: 3;
+
+        .player-holder{
+            padding-bottom: 55.5%;
+            position: relative;
+            overflow: hidden;
+            pointer-events: all;
+            width: 100%;
+
+            .player-inner{
+                transform: translateY(0px);
+                height: 100% !important;
+                width: 100% !important;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+
+                div{
+                    height: 100% !important;
+                    max-height: calc(100vh - 16px - 16px - 64px)!important;
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+

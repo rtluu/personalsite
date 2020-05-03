@@ -28,19 +28,19 @@ const Menu = () => {
                 <ul className="folder-list">
                     <Link to="/washingtonpost/">
                         <li className={location.pathname === "/washingtonpost/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Washington Post</h5>
                         </li>
                     </Link>
                     <Link to="/adhoc/">
                         <li className={location.pathname === "/adhoc/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Ad Hoc</h5>
                         </li>
                     </Link>
                     <Link to="/vumble/">
                         <li className={location.pathname === "/vumble/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Vumble</h5>
                         </li>
                     </Link>
@@ -55,31 +55,31 @@ const Menu = () => {
                 <ul className="folder-list">
                     <Link to="/openrecord/">
                         <li className={location.pathname === "/openrecord/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>OpenRecord</h5>
                         </li>
                     </Link>
                     <Link to="/neat/">
                         <li className={location.pathname === "/neat/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Neat</h5>
                         </li>
                     </Link>
                     <Link to="/ourluubeginning/">
                         <li className={location.pathname === "/ourluubeginning/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>OurLuuBeginning</h5>
                         </li>
                     </Link>
                     <Link to="/fastropelabs/">
                         <li className={location.pathname === "/fastropelabs/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Fastrope Labs</h5>
                         </li>
                     </Link>
                     <Link to="/humblevc/">
                         <li className={location.pathname === "/humblevc/" && ('active')}>
-                            <PaperIcon />
+                            <span className="paper-icon"><PaperIcon /></span>
                             <h5>Humble VC</h5>
                         </li>
                     </Link>

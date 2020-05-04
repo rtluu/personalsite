@@ -13,6 +13,7 @@ import OLBSchedule from "./images/OLBSchedule";
 import OLBAnchors from "./anchorsOurLuuBeginning";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
+import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
 import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
@@ -120,7 +121,7 @@ const OurLuuBeginning = () => {
                         <h2 id="design">Design</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>K and I wanted to keep the experience clean and for it to reflect us as a couple. I laid out the mocks in Figma to allow us to easily experiment with different designs and arrangement. We landed on cursive as the primary font, along with outline icons and tied together with the blue/white color combo.</p>
+                        <p>K and I wanted the site to reflect our connection as a couple and prefer a minimalist design ease in readability. I laid out the mocks in Figma, iterating through different designs and color patterns. We landed on a cursive primary font and outline icons tied together with a smooth blue background.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
@@ -171,7 +172,7 @@ const OurLuuBeginning = () => {
                                         <button onClick={openLightbox5} className="image-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
                                             <OLBProposalPage />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                {isHoveredFive | videoExpanded & imageNumber === 5 && <Player ytid="kEwzQi0bgc4" />}
+                                                {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="kEwzQi0bgc4" /> : null}
                                             </div>
                                         </button>
                                     </div>
@@ -179,7 +180,13 @@ const OurLuuBeginning = () => {
                                         <button onClick={openLightbox6} className="image-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
                                             <OLBProposalSlides />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                {isHoveredSix | videoExpanded & imageNumber === 6 && <Player ytid="EHQywvZ6ILc" />}
+                                                {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="EHQywvZ6ILc" /> : null}
+                                                {!videoExpanded && <div className="video-engage-instructions">
+                                                    <span className="play-button">
+                                                        <PlayIcon />
+                                                        {/* <div className="loading-spinner" /> */}
+                                                    </span>
+                                                </div>}
                                             </div>
                                         </button>
                                     </div>
@@ -224,7 +231,7 @@ const OurLuuBeginning = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,5 +1,7 @@
-.image-button{
+@import "../../styles/media-queries.scss";
 
+.image-button{
+    ////When Video is started from hover and expanded
     .video{
         &.video-expanded{
             position: fixed;
@@ -9,10 +11,11 @@
             pointer-events: none;
             top: 0;
             z-index: 2000;
+            transition: all 0.2s;
 
             .player-container{
                 align-items: center;
-                position: relative;
+                position: absolute;
                 box-sizing: border-box;
                 justify-content: center;
                 transition: margin 200ms;
@@ -20,6 +23,7 @@
                 box-shadow: none;
                 max-width: 76.5rem;
                 left: 50%;
+                overflow: hidden;
                 top: calc(50% + 32px);
                 transform: translate(-50%, -50%);
                 width: calc(100% - 3.5rem);
@@ -52,16 +56,19 @@
             }
         }
         &.video-small{
+            opacity: 1;
+            overflow: hidden;
+            transition: all 0.2s;
             .player-container{
-                background: black;
+                background: $background-color !important;
                 cursor: pointer;
                 pointer-events: none;
                 position: absolute;
-                bottom: 0;
+                bottom: -0.125rem;
                 opacity: 0;
-                left: 0;
-                right: 0;
-                top: 0;
+                left: -0.125rem;
+                right: -0.125rem;
+                top: -0.125rem;
                 transition: all 0.2s;
                 z-index: 1;
         
@@ -74,7 +81,8 @@
                     padding-bottom: 56.25%;
                     position: relative;
                     overflow: hidden;
-                    top: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
                     .player-inner{
                         position: absolute;
                         bottom: 0;
@@ -86,9 +94,9 @@
                             transform: translateY(-30.005%);
                             height: 250% !important;
                             width: 100% !important;
-                            video{
-                                background: black;
-                            }
+                            // video{
+                            //     background: red !important;
+                            // }
                         }
                     }
                 }
@@ -97,16 +105,20 @@
     } 
 }
 
-
+//When Video is started from Lightbox
 .lightbox-image-wrapper{
-    position: fixed !important;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-    top: 0;
-    z-index: 2000;
-    .player-container{
+    &.video-wrapper{
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        top: 0;
+        z-index: 2000;
+    }
+   
+
+    .media-box{
         align-items: center;
         position: relative;
         box-sizing: border-box;
@@ -116,35 +128,57 @@
         box-shadow: none;
         max-width: 76.5rem;
         left: 50%;
+        overflow: hidden;
         top: calc(50% + 32px);
         transform: translate(-50%, -50%);
         width: calc(100% - 3.5rem);
         z-index: 3;
 
-        .player-holder{
-            padding-bottom: 55.5%;
+        .gatsby-image-wrapper{
+            position: absolute !important;
+        }
+
+        .player-container{
+            height: 100%;
             position: relative;
-            overflow: hidden;
-            pointer-events: all;
+            opacity: 0;
+            top: 0;
             width: 100%;
+            transition: all 0.2s;
 
-            .player-inner{
-                transform: translateY(0px);
-                height: 100% !important;
-                width: 100% !important;
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                top: 0px;
-
-                div{
+            &.ready{
+                opacity: 1;
+                transition: all 0.2s;
+                transition-delay: 0.5s;
+            }
+    
+            .player-holder{
+                padding-bottom: 55.5%;
+                position: relative;
+                overflow: hidden;
+                pointer-events: all;
+                width: 100%;
+    
+                .player-inner{
+                    transform: translateY(0px);
                     height: 100% !important;
-                    max-height: calc(100vh - 16px - 16px - 64px)!important;
                     width: 100% !important;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+                    top: 0px;
+    
+                    div{
+                        height: 100% !important;
+                        max-height: calc(100vh - 16px - 16px - 64px)!important;
+                        width: 100% !important;
+                    }
                 }
             }
         }
     }
+
+    
 }
 

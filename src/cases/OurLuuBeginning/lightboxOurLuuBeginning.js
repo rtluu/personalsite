@@ -84,8 +84,8 @@ const Lightbox = (props) => {
                                 {currentImage === 2 && (<OLBFooter />)}
                                 {currentImage === 3 && (<OLBSchedule />)}
                                 {currentImage === 4 && (<OLBAccommodations />)}
-                                {currentImage === 5 & !videoExpanded ? <div className="media-box"><OLBProposalPage /><Player ytid="kEwzQi0bgc4" /></div> : null}
-                                {currentImage === 6 & !videoExpanded ? <div className="media-box"><OLBProposalSlides /><Player ytid="EHQywvZ6ILc" /></div> : null}
+                                {currentImage === 5 & !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><OLBProposalPage /><Player ytid="kEwzQi0bgc4" /></div> : null}
+                                {currentImage === 6 & !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><OLBProposalSlides /><Player ytid="EHQywvZ6ILc" /></div> : null}
                                 {currentImage === 7 && (<OLBGrid />)}
                                 {currentImage === 8 && (<OLBExpanded />)}
                             </div>

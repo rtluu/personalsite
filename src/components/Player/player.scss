@@ -134,6 +134,11 @@
         width: calc(100% - 3.5rem);
         z-index: 3;
 
+        .loading-spinner{
+            visibility: visible;
+            z-index: 1;
+        }
+
         .gatsby-image-wrapper{
             position: absolute !important;
         }
@@ -145,6 +150,7 @@
             top: 0;
             width: 100%;
             transition: all 0.2s;
+            z-index: 2;
 
             &.ready{
                 opacity: 1;

@@ -173,6 +173,12 @@ const OurLuuBeginning = () => {
                                             <OLBProposalPage />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="kEwzQi0bgc4" /> : null}
+                                                {!videoExpanded && <div className="video-engage-instructions">
+                                                    <span className="play-button">
+                                                        <PlayIcon />
+                                                    </span>
+                                                    <div className="loading-spinner" />
+                                                </div>}
                                             </div>
                                         </button>
                                     </div>
@@ -184,8 +190,8 @@ const OurLuuBeginning = () => {
                                                 {!videoExpanded && <div className="video-engage-instructions">
                                                     <span className="play-button">
                                                         <PlayIcon />
-                                                        {/* <div className="loading-spinner" /> */}
                                                     </span>
+                                                    <div className="loading-spinner" />
                                                 </div>}
                                             </div>
                                         </button>

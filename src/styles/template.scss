@@ -191,8 +191,38 @@
 }
 
 //Popup
+.case-end-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
 .case-item{
     display: inline-block;
+
+    &.next{
+        .case-popup{
+            .popup-container{
+                @media (max-width: $breakpoint-1000) {
+                    transform: translate(-5.5rem, calc(-100% - 0.5rem));
+                }
+                &::before{
+                    @media (max-width: $breakpoint-1000) {
+                        left: auto;
+                        right: 5rem;
+                    }
+                }
+                &::after{
+                    @media (max-width: $breakpoint-1000) {
+                        left: auto;
+                        right: 5rem;
+                    }
+                }
+            }
+        }
+    }
 
     &:hover{
         .case-popup{

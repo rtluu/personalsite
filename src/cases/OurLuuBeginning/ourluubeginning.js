@@ -1,32 +1,48 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Lightbox from "./lightboxOurLuuBeginning"
+import ReactPlayer from 'react-player';
+import Lightbox from "./lightboxOurLuuBeginning";
 import HeroOLB from "./images/HeroOLB";
 import OLBAccommodations from "./images/OLBAccommodations";
 import OLBExpanded from "./images/OLBExpanded";
 import OLBFooter from "./images/OLBFooter";
 import OLBGrid from "./images/OLBGrid";
+import OLBProposalPage from "./images/OLBProposalPage";
+import OLBProposalSlides from "./images/OLBProposalSlides";
 import OLBSchedule from "./images/OLBSchedule";
 import OLBAnchors from "./anchorsOurLuuBeginning";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
+import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
-import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
+import Player from "../../components/Player/player";
+import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
 
-const Fastrope = () => {
-    //Lightbox - About
+const OurLuuBeginning = () => {
+    //Lightbox
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
-    setImageGallery(6);
+    setImageGallery(8);
     function openLightbox1() { setImageNumber(1); update(!value); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
     function openLightbox4() { setImageNumber(4); update(!value); }
-    function openLightbox5() { setImageNumber(5); update(!value); }
-    function openLightbox6() { setImageNumber(6); update(!value); }
+    function openLightbox5() { setImageNumber(5); update(!value); setVideoExpanded(true); }
+    function openLightbox6() { setImageNumber(6); update(!value); setVideoExpanded(true); }
+    function openLightbox7() { setImageNumber(7); update(!value); }
+    function openLightbox8() { setImageNumber(8); update(!value); }
 
-    //Collapse - OurLuuBeginning
+    //Video
+    const [isHoveredFive, setIsHoveredFive] = React.useState();
+    const [isHoveredSix, setIsHoveredSix] = React.useState();
+    const [videoExpanded] = useGlobalState('videoExpanded');
+    // function lightboxExpanded() {
+    //     setVideoExpanded(true);
+    // }
+
+
+    //Collapse
     const [objectiveCollapsed, setObjectiveCollapsed] = useState(false);
     const [requirementsCollapsed, setRequirementsCollapsed] = useState(false);
     const [processCollapsed, setProcessCollapsed] = useState(false);
@@ -73,7 +89,7 @@ const Fastrope = () => {
                     </div>
                     <div className="template-text-body">
                         <ul className="listtype-bullet listindent1" >
-                            <li><span className="bullet">&bull;</span><p>Guests can access all the relevant wedding info </p></li>
+                            <li><span className="bullet">&bull;</span><p>Guests can access all relevant wedding info</p></li>
                             <li><span className="bullet">&bull;</span><p>Ability to fully customize the UI and add pages for capturing the wedding after it’s over</p></li>
                             <li><span className="bullet">&bull;</span><p>Pages to include: Homepage, Schedule, Accommodations, Registry, Wedding Party, Photos, Proposal</p></li>
                         </ul>
@@ -105,7 +121,7 @@ const Fastrope = () => {
                         <h2 id="design">Design</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>K and I wanted to keep the experience clean and for it to reflect us as a couple. I laid out the mocks in Figma to allow us to easily experiment with different designs and arrangement. We landed on cursive as the primary font, along with outline icons and tied together with the blue/white color combo.</p>
+                        <p>K and I wanted the site to reflect our connection as a couple and prefer a minimalist design ease in readability. I laid out the mocks in Figma, iterating through different designs and color patterns. We landed on a cursive primary font and outline icons tied together with a smooth blue background.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
@@ -150,15 +166,49 @@ const Fastrope = () => {
                     <div className="template-text-body">
                         <p>I built the site in React, allowing me to leverage npm packages to create the scroll effect for the proposal poem. I also put int two different types of photo galleries - one for the proposal pics and the other for the photo collage.</p>
                         <span className="gallery">
+                            <div className="gallery-outer-wrapper second-gallery-row">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper">
+                                        <button onClick={openLightbox5} className="image-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
+                                            <OLBProposalPage />
+                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="kEwzQi0bgc4" /> : null}
+                                                {!videoExpanded && <div className="video-engage-instructions">
+                                                    <span className="play-button">
+                                                        <PlayIcon />
+                                                    </span>
+                                                    <div className="loading-spinner" />
+                                                </div>}
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper">
+                                        <button onClick={openLightbox6} className="image-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
+                                            <OLBProposalSlides />
+                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="EHQywvZ6ILc" /> : null}
+                                                {!videoExpanded && <div className="video-engage-instructions">
+                                                    <span className="play-button">
+                                                        <PlayIcon />
+                                                    </span>
+                                                    <div className="loading-spinner" />
+                                                </div>}
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper ">
-                                        <button onClick={openLightbox5} className="image-button" type="button">
+                                        <button onClick={openLightbox7} className="image-button" type="button">
                                             <OLBGrid />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox6} className="image-button" type="button">
+                                        <button onClick={openLightbox8} className="image-button" type="button">
                                             <OLBExpanded />
                                         </button>
                                     </div>
@@ -187,8 +237,8 @@ const Fastrope = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
-export default Fastrope
+export default OurLuuBeginning

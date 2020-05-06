@@ -1,6 +1,7 @@
 @import "../../../styles/media-queries.scss";
 
 .menu-holder{
+    border-right: 0.0625rem solid $border-color;
     padding: 0.5rem 1rem;
     position: fixed;
     top: 0;
@@ -8,10 +9,16 @@
     min-width: 14.5rem;
     bottom: 0;
     opacity: 0;
+    z-index: 101;
 
     &.open{
+        background: $background-color;
         left: 0rem;
         opacity: 1;
+
+        @media (max-width: $breakpoint-tablet) {
+            background: $sidebar-color;
+        }
     }
 
     .menu{
@@ -67,8 +74,8 @@
                     display: flex;
                     flex-direction: row;
                     margin-left: 0.125rem;
-                    padding: 0.75rem 0 0.5625rem 0.875rem;
-                    width: 100%;
+                    padding: 0.75rem 0.875rem 0.5625rem 0.875rem;
+                    width: calc(100% - 1.875rem);
     
                     &.active{
                         background: $highlight-background;

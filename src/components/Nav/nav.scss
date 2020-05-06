@@ -1,11 +1,11 @@
 @import "../../styles/media-queries.scss";
 
 .nav{
+    border-bottom: 0.0625rem solid $border-color;
     position: fixed;
     z-index: 100;
 
     &.open{
-        background: $background-color;
         position: relative;
 
         @media (max-width: $breakpoint-tablet) {
@@ -36,23 +36,12 @@
         }
 
         .nav-inner{
-            border-right: 1px solid $border-color;
-            min-width: 17.5rem;
-            height: 100vh;
-            opacity: 1;
-
-            @media (max-width: $breakpoint-tablet) {
-                background: $sidebar-color;               
-            }
+            background: $background-color;
+            border-bottom: 0.0625rem solid $border-color;
+            width: 100%;
+            left: 16.5rem;
 
             .button-box{
-                position: absolute;
-                right: -4.25rem;
-
-                &.home{
-                    right: -3rem;
-                }
-
                 .icon{
                     &:hover{
                         #bar{
@@ -71,16 +60,31 @@
     
 
     .nav-inner{
+        opacity: 1;
+        pointer-events: none;
         position: fixed;
         top: 0;
         z-index: 1;
-        opacity: 1;
+        transition: 0.1s all;
+       
+        &.scrolled{
+            background: $background-color;
+            border-bottom: 0.0625rem solid $border-color;
+            width: 100%;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+            background: $background-color;
+            border-bottom: 0.0625rem solid $border-color;
+            width: 100%;
+        }
     
         .button-box{
             align-items: center;
             display: flex;
             height: 4rem;
             margin: 0 0.4375rem;
+            pointer-events: all;
 
             &.home{
                 margin-left: 0.75rem;

@@ -181,12 +181,29 @@ button{
 .layout{
     display: flex;
     flex-direction: row;
+    position: relative;
+
+    &.menu-open{
+        @media (max-width: $breakpoint-tablet) {           
+            &::before{
+                min-width: 0 !important;
+                width: 0;
+            }
+        }
+        &::before{
+            content: '';
+            min-width: 16.5625rem;
+            position: relative;
+           
+        }
+    }
 
     .main-container{
+        position: relative;
         width: 100%;
 
         .template{
-            margin: 4rem auto 8rem;
+            margin: 6rem auto 8rem;
             max-width: $max-width;
             padding: 2.5rem;
 
@@ -205,9 +222,6 @@ button{
                     @media (max-width: $breakpoint-1200) {           
                         display: none;
                     }
-                }
-                @media (max-width: $breakpoint-phone) {           
-                    margin: 5rem auto 5rem;
                 }
             }
         }

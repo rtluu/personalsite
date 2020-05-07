@@ -38,7 +38,7 @@ const Humble = () => {
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
             <HumbleAnchors />
-            <h1 id="humble">Humble Venture Capital</h1>
+            <h1 id="humblevc">Humble Venture Capital</h1>
             <div className="template-section">
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button" type="button">

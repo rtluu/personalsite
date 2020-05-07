@@ -1,46 +1,19 @@
 @import "../../styles/media-queries.scss";
 
 .nav{
-    border-bottom: 0.0625rem solid $border-color;
+    background: $background-color;
+    box-shadow: $border-fake;
     position: fixed;
+    width: 100%;
     z-index: 100;
+    transition: 0.2s all;
 
     &.open{
-        position: relative;
-
         @media (max-width: $breakpoint-tablet) {
-            background: $sidebar-overlay;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
+            left: 16.5625rem;
             position: fixed;
-            right: 0;
-            top: 0;
         }
-
-        .spacer{
-            height: 100vh;
-            min-width: 17.5rem;        
-            position: relative;
-            z-index: 0;
-            @media (max-width: $breakpoint-tablet) {
-                background: $sidebar-overlay;
-                bottom: 0;
-                cursor: pointer;
-                left: 0;
-                position: fixed;
-                right: 0;
-                top: 0;
-                width: 100%;
-            }
-        }
-
         .nav-inner{
-            background: $background-color;
-            border-bottom: 0.0625rem solid $border-color;
-            width: 100%;
-            left: 16.5rem;
-
             .button-box{
                 .icon{
                     &:hover{
@@ -60,43 +33,50 @@
     
 
     .nav-inner{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 4rem;
         opacity: 1;
-        pointer-events: none;
-        position: fixed;
+        position: relative;
         top: 0;
+        transition: 0.2s all;
+        width: 100%;
         z-index: 1;
-        transition: 0.1s all;
        
-        &.scrolled{
-            background: $background-color;
-            border-bottom: 0.0625rem solid $border-color;
-            width: 100%;
-        }
-
-        @media (max-width: $breakpoint-tablet) {
-            background: $background-color;
-            border-bottom: 0.0625rem solid $border-color;
-            width: 100%;
-        }
-    
         .button-box{
-            align-items: center;
             display: flex;
-            height: 4rem;
             margin: 0 0.4375rem;
             pointer-events: all;
 
             &.home{
-                margin-left: 0.75rem;
+                margin-left: 1rem; 
             }
-    
+            
             .icon{
                 align-items: center;
                 display: flex;
                 justify-content: center;
                 height: 2rem;
-                width: 1.75rem;
                 position: relative;
+                width: 1.75rem;
+
+            }
+        }
+
+        .nav-link-box{
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.25rem;
+
+            .nav-anchor{
+                color: $white;
+                margin-bottom: 0.125rem;
+            }
+            .nav-link{
+                &:hover{
+                    color: $link-hover;
+                }
             }
         }
     }

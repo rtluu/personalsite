@@ -13,13 +13,13 @@
     }
 
     &.menu-open{
-        left: 17.5rem;
+        left: 16.5625rem;
 
         @media (max-width: $breakpoint-1300) {           
             display: none;
         }
         &:hover{
-            left: 17rem;
+            left: 16.25rem;
         }
         .anchor{
             &.lv1{
@@ -88,7 +88,7 @@
             background: $border-color;
             content: '';
             height: 0.125rem;
-            margin: 0 0 0 0.25rem;
+            margin: 0;
             opacity: 1;
             position: relative;
             left: 0rem;

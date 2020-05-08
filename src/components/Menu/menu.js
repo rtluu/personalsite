@@ -2,16 +2,19 @@ import React from "react";
 import { useLocation } from "@reach/router"
 import { Link } from "gatsby";
 import "./menu.scss";
-import FolderIcon from "../../../icons/folder-icon.inline.svg";
-import HomeIcon from "../../../icons/home-icon.inline.svg";
-import PaperIcon from "../../../icons/paper-icon.inline.svg";
-import Tooltip from "../../Tooltip/tooltip";
+import FolderIcon from "../../icons/folder-icon.inline.svg";
+import HomeIcon from "../../icons/home-icon.inline.svg";
+import PaperIcon from "../../icons/paper-icon.inline.svg";
+import Tooltip from "../Tooltip/tooltip";
+
+import { useGlobalState } from '../../state';
 
 const Menu = () => {
     const location = useLocation();
+    const [value, update] = useGlobalState('menuActive');
 
     return (
-        <div className="menu">
+        <div className={`menu ${value ? "open" : ""}`}>
             <div className="menu-header">
                 <Link to="/" >
                     <button className="icon home">

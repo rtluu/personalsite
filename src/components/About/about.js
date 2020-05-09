@@ -24,7 +24,7 @@ const About = () => {
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
             <AboutAnchors />
-            <h1 id="ryanluu">Ryan Luu - Personal Site</h1>
+            <h1 id="ryanluu">Ryan Luu</h1>
             <div className="template-section row">
                 <div className={`template-text-block two-column ${aboutCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setAboutCollapsed(!aboutCollapsed)}>

@@ -20,8 +20,59 @@
     z-index: 1000;
     display: none;
 
+    &.left-point{
+        &::before{
+            left: -4px;
+            border-right-color: inherit;
+            top: 50%;
+            margin-top: -5px;
+            border-bottom-color: transparent;
+        }
+        &::after{
+            left: -6px;
+            border-right-color: #3F4755;
+            top: 50%;
+            margin-top: -5px;
+            border-bottom-color: transparent;
+        }
+    }
+
+    &.right-point{
+        &::before{
+            right: -9px;
+            border-left-color: inherit;
+            top: 50%;
+            margin-top: -5px;
+            border-bottom-color: transparent;
+        }
+        &::after{
+            right: -11px;
+            border-left-color: #3F4755;
+            top: 50%;
+            margin-top: -5px;
+            border-bottom-color: transparent;
+        }
+    }
+
+    &.up-point{
+        &::before{
+            top: -8px;
+            border-bottom-color: inherit;
+            left: 50%;
+            margin-left: -5px;
+            border-right-color: transparent;
+        }
+        &::after{
+            top: -10px;
+            border-bottom-color: #3F4755;
+            left: 50%;
+            margin-left: -5px;
+            border-right-color: transparent;
+        }
+    }
+
     &.back-tip{
-        right: -144px;
+        right: -146px;
     }
 
     &.home-tip{
@@ -33,6 +84,14 @@
         right: -124px;
     }
 
+    &.link-tip{
+        bottom: -26px;
+    }
+
+    &.light-mode-tip{
+        left: -120px;
+    }
+
     &::before{
         content: '';
         position: absolute;
@@ -42,12 +101,6 @@
         border: 5px solid transparent;
         border-bottom-width: 4px;
         z-index: 2;
-
-        left: -4px;
-        border-right-color: inherit;
-        top: 50%;
-        margin-top: -5px;
-        border-bottom-color: transparent;
     }
 
     &::after{
@@ -60,12 +113,6 @@
         border-bottom-color: #3F4755;
         border-bottom-width: 4px;
         z-index: 1;
-
-        left: -6px;
-        border-right-color: #3F4755;
-        top: 50%;
-        margin-top: -5px;
-        border-bottom-color: transparent;
     }
 
     .tooltip-body{

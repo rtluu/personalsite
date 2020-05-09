@@ -19,7 +19,7 @@ const Menu = () => {
                 <Link to="/" >
                     <button className="icon home">
                         <HomeIcon />
-                        <Tooltip text='Back to home' class='home-tip' />
+                        <Tooltip text='Back to home' class='home-tip left-point' />
                     </button>
                 </Link>
             </div>

@@ -147,7 +147,7 @@ button{
     border: none;
     cursor: pointer;
     outline: none;
-    transition: all 0.1s;
+    transition: $transition-primary;
 
     &:hover{
         svg{

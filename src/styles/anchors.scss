@@ -6,7 +6,7 @@
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    transition: all 0.2s;
+    transition: $transition-primary;
 
     @media (max-width: $breakpoint-1000) {           
         display: none;
@@ -92,7 +92,7 @@
             opacity: 1;
             position: relative;
             left: 0rem;
-            transition: ease-in 0.2s;
+            transition: $transition-primary;
         }
 
         &.lv1{
@@ -135,7 +135,7 @@
                 position: relative;
                 padding: 0.25rem 1rem 0.25rem 0.25rem;
                 opacity: 0;
-                transition: ease-in 0.2s;
+                transition: $transition-primary;
 
                 @media (max-width: $breakpoint-1200) {           
                     overflow: hidden;

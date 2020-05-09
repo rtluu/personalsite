@@ -10,15 +10,15 @@
             right: 0;
             pointer-events: none;
             top: 0;
-            z-index: 2000;
-            transition: all 0.2s;
+            z-index: $expanded-video-z;
+            transition: $transition-primary;
 
             .player-container{
                 align-items: center;
                 position: absolute;
                 box-sizing: border-box;
                 justify-content: center;
-                transition: margin 200ms;
+                transition: $transition-margin;
                 pointer-events: none;
                 box-shadow: none;
                 max-width: 76.5rem;
@@ -27,7 +27,7 @@
                 top: calc(50% + 32px);
                 transform: translate(-50%, -50%);
                 width: calc(100% - 3.5rem);
-                z-index: 3;
+                z-index: $expanded-player-container-z;
 
                 .player-holder{
                     padding-bottom: 55.5%;
@@ -58,7 +58,7 @@
         &.video-small{
             opacity: 1;
             overflow: hidden;
-            transition: all 0.2s;
+            transition: $transition-primary;
             .player-container{
                 background: $background-color !important;
                 cursor: pointer;
@@ -69,12 +69,12 @@
                 left: -0.125rem;
                 right: -0.125rem;
                 top: -0.125rem;
-                transition: all 0.2s;
-                z-index: 1;
+                transition: $transition-primary;
+                z-index: $player-container-small-z;
         
                 &.ready{
                     opacity: 1;
-                    transition: all 0.2s;
+                    transition: $transition-primary;
                 }
             
                 .player-holder{
@@ -114,7 +114,7 @@
         right: 0;
         pointer-events: none;
         top: 0;
-        z-index: 2000;
+        z-index: $lightbox-video-wrapper-z;
     }
    
 
@@ -123,7 +123,7 @@
         position: relative;
         box-sizing: border-box;
         justify-content: center;
-        transition: margin 200ms;
+        transition: $transition-margin;
         pointer-events: none;
         box-shadow: none;
         max-width: 76.5rem;
@@ -132,11 +132,11 @@
         top: calc(50% + 32px);
         transform: translate(-50%, -50%);
         width: calc(100% - 3.5rem);
-        z-index: 3;
+        z-index: $lightbox-media-box-z;
 
         .loading-spinner{
             visibility: visible;
-            z-index: 1;
+            z-index: $lightbox-loading-spinner-z;
         }
 
         .gatsby-image-wrapper{
@@ -149,13 +149,13 @@
             opacity: 0;
             top: 0;
             width: 100%;
-            transition: all 0.2s;
-            z-index: 2;
+            transition: $transition-primary;
+            z-index: $lightbox-player-container-z;
 
             &.ready{
                 opacity: 1;
-                transition: all 0.2s;
-                transition-delay: 0.5s;
+                transition: $transition-primary;
+                transition-delay: $transition-delay-player;
             }
     
             .player-holder{

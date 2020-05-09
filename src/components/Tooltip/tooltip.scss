@@ -17,7 +17,7 @@
     max-width: 300px;
     position: absolute;
     white-space: nowrap;
-    z-index: 1000;
+    z-index: $tooltip-z;
     display: none;
 
     &.left-point{
@@ -100,7 +100,7 @@
         margin-left: -5px;
         border: 5px solid transparent;
         border-bottom-width: 4px;
-        z-index: 2;
+        z-index: $tooltip-before-z;
     }
 
     &::after{
@@ -112,7 +112,7 @@
         border: 5px solid transparent;
         border-bottom-color: #3F4755;
         border-bottom-width: 4px;
-        z-index: 1;
+        z-index: $tooltip-after-z;
     }
 
     .tooltip-body{

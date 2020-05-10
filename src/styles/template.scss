@@ -247,6 +247,12 @@
         &.previous{
             transform: rotate(180deg);
         }
+
+        svg{
+            path{
+                fill: $white;
+            }
+        }
     }
 }
 

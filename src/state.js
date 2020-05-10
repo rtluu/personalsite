@@ -2,6 +2,7 @@ import { createGlobalState } from 'react-hooks-global-state';
 
 const { setGlobalState, useGlobalState } = createGlobalState({
     menuActive: false,
+    lightMode: false,
     lightboxActive: false,
     imageNumber: 0,
     imageGallery: 0,
@@ -10,6 +11,10 @@ const { setGlobalState, useGlobalState } = createGlobalState({
 
 export const menuSwitch = () => {
     setGlobalState('menuActive', (v) => !v);
+};
+
+export const setLightMode = () => {
+    setGlobalState('lightMode', (v) => !v);
 };
 
 export const lightboxSwitch = () => {

@@ -8,9 +8,10 @@ import { useGlobalState } from '../state';
 
 const Layout = ({ children }) => {
   const [value] = useGlobalState('menuActive');
+  const [lightMode] = useGlobalState('lightMode');
 
   return (
-    <div className={`layout ${value ? "menu-open" : ""}`}>
+    <div className={`layout ${value ? "menu-open" : ""} ${lightMode ? "light-mode" : ""}`}>
       <Menu />
       <main className="main-container">
         <Nav />

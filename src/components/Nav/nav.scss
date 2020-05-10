@@ -2,7 +2,6 @@
 
 .nav{
     background: $background-color;
-    // box-shadow: $border-fake;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -86,6 +85,7 @@
 
             .nav-anchor{
                 color: $white;
+                font-weight: 600;
                 margin-bottom: 0.125rem;
             }
             .nav-link{

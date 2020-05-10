@@ -41,7 +41,7 @@
             align-items: center;
             display: flex;
             flex-direction: row;
-            margin: 0.5rem 0 0.5rem 0.9125rem;
+            margin: 0.5rem 0 0.5rem 0.75rem;
 
             h4{
                 margin: 0.3125rem 0 0 0.5rem;
@@ -55,11 +55,6 @@
             a{
                 &:hover{
                     li{
-                        svg{
-                            path{
-                                fill: $link-hover;
-                            }
-                        }
                         h5{
                             color: $link-hover;
                         }
@@ -78,6 +73,12 @@
 
                 &.active{
                     background: $highlight-background;
+                }
+
+                svg{
+                    path{
+                        fill: $paper-color;
+                    }
                 }
 
                 h5{ 

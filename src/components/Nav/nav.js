@@ -10,11 +10,12 @@ import Tooltip from "../Tooltip/tooltip";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import { useGlobalState } from '../../state';
+import { setLightMode, useGlobalState } from '../../state';
 
 const Nav = () => {
     const location = useLocation();
     const [value, update] = useGlobalState('menuActive');
+    const [lightMode, setLightMode] = useGlobalState('lightMode');
 
     const [pageName, setPageName] = useState('Ryan Luu');
     const [anchorNav, setAnchorNav] = useState('#ryanluu');
@@ -86,9 +87,9 @@ const Nav = () => {
                         </button>
                     </CopyToClipboard>
 
-                    <button className='icon sidebar'>
+                    <button className='icon light-mode' onClick={() => setLightMode(!lightMode)}>
                         <LightModeIcon />
-                        <Tooltip text='Enter light mode' class='light-mode-tip right-point' />
+                        <Tooltip text={`${lightMode ? "Enter dark mode" : "Enter light mode"}`} class='light-mode-tip right-point' />
                     </button>
                 </div>
                 <div className={`toast-box ${toastShow ? "show" : "hide"}`}>

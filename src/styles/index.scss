@@ -35,7 +35,6 @@
 
 body{
     background-color: $background-color;
-    color: $text-color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -148,6 +147,12 @@ button{
     cursor: pointer;
     outline: none;
     transition: $transition-primary;
+    svg{
+        path{
+            fill: $icon-color;
+            fill-opacity: 1;
+        }
+    }
 
     &:hover{
         svg{
@@ -179,8 +184,11 @@ button{
 }
 
 .layout{
+    background-color: $background-color;
+    color: $text-color;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
     position: relative;
 
     &.menu-open{
@@ -195,6 +203,119 @@ button{
             min-width: 16.5625rem;
             position: relative;
            
+        }
+    }
+
+    //LightMode Styling
+    &.light-mode{
+        background-color: $background-color-light;
+        color: $text-color-light;
+
+        a{  
+            color: $link-color-light;
+        
+            &:hover{color: $link-hover-light;}
+            &:active{color: $link-active-light;}
+        }
+
+        button{
+            svg{
+                path{
+                    fill: $icon-color-light;
+                    fill-opacity: 1;
+                }
+            }
+        }
+
+        .menu{
+            border-color: $border-color-light;
+            &.open{
+                background: $background-color-light;
+                @media (max-width: $breakpoint-tablet) {
+                    background: $background-color-light;
+                }
+            }
+            .folder-group{
+                .folder-list{
+                    a{
+                        &:hover{
+                            li{
+                                h5{
+                                    color: $link-hover-light;
+                                }
+                            }
+                        }
+                    }
+                    li{
+                        &.active{
+                            background: $highlight-background-light;
+                        } 
+                    }
+                    h5{
+                        color: $text-color-light;
+                    }
+                }
+            }
+        }
+        .nav{
+            background: $background-color-light;
+            .nav-inner-box{
+                .nav-link-box{
+                    .nav-anchor{
+                        color: $text-color-light;
+                    }
+
+                    .nav-link{
+                        color: $link-color-light;
+                    }
+                }
+                .toast-box{
+                    background: $background-color-light;
+                    border-color: $border-color-light;
+                }
+            }
+        }
+        .anchor-set{
+            .anchor{
+                &:before{
+                    background: $anchor-line-light;
+                }
+                a{
+                    &:hover{
+                        .anchor-text{
+                            color: $link-hover-light;
+                        }
+                    }  
+                    .anchor-text{
+                        color: $anchor-color-light;
+                    }
+                }
+            }
+        }
+
+        .lightbox{
+            background: $overlay-background-light;
+            .lightbox-header{
+                .gallery-arrows{
+                    border-left: 0.0625rem solid $border-color-light;
+                }
+            }
+        }
+
+        .popup-container{
+            .popup-inner{
+                background: $background-color-light;
+            }
+        }
+
+        .case-item{
+            .case-arrow{
+                svg{
+                    path{
+                        fill: $text-color-light;
+                    }
+                }
+            }
         }
     }
 

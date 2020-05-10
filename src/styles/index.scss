@@ -65,13 +65,11 @@ h3{
 }
 
 h5{
-    color: $caption-color;
     font-size: 0.875rem;
     font-weight: 400;
 }
 
 h6{
-    color: $caption-color;
     font-size: 0.8125rem;
     font-weight: 400;
     line-height: 1.25rem;
@@ -303,8 +301,20 @@ button{
         }
 
         .popup-container{
+            &::before{
+                border-top-color: $popup-text-background-light;
+            }
+            &:after{
+                border-top-color: rgba(0, 0, 0, 0.2);
+            }
+
             .popup-inner{
                 background: $background-color-light;
+                .popup-text{
+                    background: $popup-text-background-light;
+                    border-color: $border-color-light;
+                    color: $text-color-light;
+                }
             }
         }
 

@@ -1,3 +1,4 @@
+//Media Queries
 $breakpoint-1400: 87.5rem;
 $breakpoint-1300: 81.25rem;
 $breakpoint-1200: 75rem;
@@ -7,9 +8,12 @@ $breakpoint-672: 42rem;
 $breakpoint-phone: 36rem;
 $max-width: 46.5625rem;
 
+//Default Color
+$anchor-active: #0070e0;
+$anchor-color: #a5a9af;
+$anchor-line: #3f4755;
 $background-color: #171B21;
 $border-color: #3f4755;
-$border-fake: 0 0 0 1px rgba(232,233,235,0.166); 
 $caption-color: #a5a9af;
 $icon-color: #a5a9af;
 $icon-hover: #bbbec3;
@@ -21,7 +25,8 @@ $link-active: #a1cef2;
 $loading-spinner-color: rgba(43,51,63,1);
 $loading-spinner-opaque: rgba(43,51,63,0.7);
 $loading-spinner-white: #FFFFFF;
-$overlay-background: rgba(14,19,27,0.97);
+$overlay-background: rgba(14,19,27,0.95);
+$paper-color: #0070e0;
 $play-button: #0F1D74;
 $popup-text-background: #111418;
 $popup-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
@@ -33,3 +38,53 @@ $tooltip-border: #000;
 $tooltip-shadow: 0 0 0 1px #3f4755, 0 0 0 2px rgba(0, 0, 0, 0.5), 0px 8px 13px rgba(14, 19, 27, 0.32);
 $tooltip-text: #FFFFFF;
 $white: #FFFFFF;
+
+//LightMode
+$anchor-active-light: #0070e0;
+$anchor-color-light: #637282;
+$anchor-line-light: #e6e8eb;
+$background-color-light: #FFFFFF;
+$border-color-light: #e6e8eb;
+$overlay-background-light: rgba(255,255,255,0.95);
+$icon-color-light: #637282;
+$icon-hover-light: #6a7c8f;
+$highlight-background-light: #d6e8fa;
+$link-color-light: #0070e0;
+$link-hover-light: #007af5;
+$link-active-light: #005dd6;
+$overlay-background-light: rgba(255,255,255,0.95);
+$text-color-light: #1b2733;
+
+
+
+//Z-Index
+$expanded-player-container-z: 22;
+$expanded-video-z: 21;
+$lightbox-header-z: 20;
+$lightbox-player-container-z: 19;
+$lightbox-loading-spinner-z: 18;
+$lightbox-media-box-z: 17;
+$lightbox-video-wrapper-z: 16;
+$lightbox-item-z: 15;
+$lightbox-invisible-close-z: 14;
+$lightbox-z: 13;
+$tooltip-before-z: 12;
+$tooltip-after-z: 11;
+$tooltip-z: 10;
+$nav-toast-z: 9;
+$nav-inner-z: 8;
+$nav-z: 7;
+$popup-before-z: 6;
+$popup-after-z: 5;
+$popup-inner-z: 4;
+$popup-z: 3;
+$player-container-small-z: 3;
+$menu-z: 2;
+$image-z: 1;
+
+//Transition
+$transition-primary: 0.2s all;
+$transition-delay-player: 0.5s;
+$transition-delay-popup: 0.3s;
+$transition-margin: margin 200ms;
+$transition-img-max: max-width 200ms,max-height 200ms;

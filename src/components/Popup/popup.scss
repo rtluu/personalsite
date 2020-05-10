@@ -3,7 +3,7 @@
 .popup-container{
     position: absolute;
     transform: translate(-33.33%, calc(-100% - 0.5rem));
-    z-index: 10;
+    z-index: $popup-z;
 
     @media (max-width: $breakpoint-1000) {
         transform: translate(-1.5rem, calc(-100% - 0.5rem));
@@ -19,7 +19,7 @@
         position: absolute;
         right: calc(50% - 0.625rem);
         width: 0;
-        z-index: 12;
+        z-index: $popup-before-z;
 
         @media (max-width: $breakpoint-1000) {
             left: 3rem;
@@ -38,7 +38,7 @@
         position: absolute;
         right: calc(50% - 0.625rem);
         width: 0;
-        z-index: 11;
+        z-index: $popup-after-z;
 
         @media (max-width: $breakpoint-1000) {
             left: 3rem;
@@ -59,7 +59,7 @@
         overflow: hidden;
         position: relative;
         width: 17.5rem;
-        z-index: 10;
+        z-index: $popup-inner-z;
 
         .popup-media{
             display: block;

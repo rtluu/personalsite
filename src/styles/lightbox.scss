@@ -11,13 +11,12 @@
     position: fixed;
     right: 0;
     top: 0;
-    transition: all 0.2s;
-    z-index: -1;
+    transition: $transition-primary;
 
     &.show{
         opacity: 1;
         pointer-events: all;
-        z-index: 100;
+        z-index: $lightbox-z;
 
         .invisible-close{
             display: block;
@@ -31,7 +30,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 1;
+        z-index: $lightbox-invisible-close-z;
     }
 
     .lightbox-header{
@@ -42,7 +41,7 @@
         height: 4rem;
         position: relative;
         width: 100%;
-        z-index: 2;
+        z-index: $lightbox-header-z;
         pointer-events: none;
 
         .close{
@@ -70,7 +69,7 @@
             }
 
             .gallery-counter{
-                margin-top: 0.125rem;
+                margin: 0.125rem 0.825rem;
             }
         }  
     }
@@ -84,17 +83,17 @@
         flex-direction: column;
         flex: 1 0;
         justify-content: center;
-        transition: margin 200ms;
+        transition: $transition-margin;
         height: calc(100vh - 16px - 16px - 64px);
         pointer-events: none;
-        z-index: 2;
+        z-index: $lightbox-item-z;
 
         .center-children{
             align-items: center;
             display: flex;
             position: relative;
             flex: 1 0;
-            transition: all 0.2s;
+            transition: $transition-primary;
             
             &.show{
                 animation: expandImage 0.2s;
@@ -146,7 +145,7 @@
                             max-width: 100%;
                             max-height: calc(100vh - 16px - 16px - 64px);
                             margin: 0 auto;
-                            transition: max-width 200ms,max-height 200ms;
+                            transition: $transition-img-max;
                             width: auto !important;
                         }
                     }

@@ -99,7 +99,7 @@
                         flex-basis: calc(33% - 2 * 5px);
                         margin: 0 5px 0 5px;
                         min-width: 0;
-                        transition: transform 100ms linear;
+                        transition: $transition-primary;
 
                         &.flex-humble-team{
                             flex: 1.506;
@@ -161,7 +161,7 @@
             right: 0;
             bottom: 0;
             opacity: 0;
-            transition: all 0.2s;
+            transition: $transition-primary;
         }
 
         .video-engage-instructions{
@@ -175,7 +175,7 @@
                 display: flex;
                 height: 4rem;
                 justify-content: center;
-                transition: all 0.2s;
+                transition: $transition-primary;
                 width: 4rem;
 
                 svg{
@@ -228,8 +228,8 @@
         .case-popup{
             opacity: 1;
             pointer-events: all;
-            transition: all 0.2s;
-            transition-delay: 0.3s;
+            transition: $transition-primary;
+            transition-delay: $transition-delay-popup;
         }
     }
 
@@ -237,7 +237,7 @@
         position: absolute;
         opacity: 0;
         pointer-events: none;
-        transition: all 0.2s;
+        transition: $transition-primary;
     }
 
     .case-arrow{
@@ -246,6 +246,12 @@
 
         &.previous{
             transform: rotate(180deg);
+        }
+
+        svg{
+            path{
+                fill: $white;
+            }
         }
     }
 }

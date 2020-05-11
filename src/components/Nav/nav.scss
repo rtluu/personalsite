@@ -13,12 +13,31 @@
 
     &.open{
         left: 16.5625rem;
-        .nav-inner{
+        .nav-inner-box{
+            &.center {
+                @media (max-width: $breakpoint-750) {
+                    display: none;
+                }
+                
+            }
+            &.right{
+                @media (max-width: $breakpoint-phone) {
+                    display: none;
+                }
+            }
             .button-box{
                 .icon{
-                    &:hover{
-                        #bar{
-                            fill-opacity: 0.4;
+                    @media (hover: hover) {
+                        &:hover{
+                            #bar{
+                                fill-opacity: 0.4;
+                            }
+                        }
+                    }
+                    
+                    &.back-arrow{
+                        @media (max-width: $breakpoint-phone) {
+                            display: none;
                         }
                     }
                     
@@ -89,9 +108,12 @@
                 margin-bottom: 0.125rem;
             }
             .nav-link{
-                &:hover{
-                    color: $link-hover;
-                }
+                color: $text-color-secondary;
+                @media (hover: hover) {
+                    &:hover{
+                        color: $link-hover;
+                    }
+                }   
             }
         }
 

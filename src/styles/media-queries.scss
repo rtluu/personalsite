@@ -4,17 +4,16 @@ $breakpoint-1300: 81.25rem;
 $breakpoint-1200: 75rem;
 $breakpoint-1000: 62.5rem;
 $breakpoint-tablet: 56.5rem;
+$breakpoint-750: 45rem;
 $breakpoint-672: 42rem;
 $breakpoint-phone: 36rem;
 $max-width: 46.5625rem;
 
 //Default Color
 $anchor-active: #0070e0;
-$anchor-color: #a5a9af;
 $anchor-line: #3f4755;
 $background-color: #171B21;
 $border-color: #3f4755;
-$caption-color: #a5a9af;
 $icon-color: #a5a9af;
 $icon-hover: #bbbec3;
 $icon-active: #d2d4d7;
@@ -33,6 +32,7 @@ $popup-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 $sidebar-color: #283241;
 $sidebar-overlay: rgba(23, 27, 33, 0.1);
 $text-color: #e8e9eb;
+$text-color-secondary: #a5a9af;
 $tooltip-background: #000;
 $tooltip-border: #000;
 $tooltip-shadow: 0 0 0 1px #3f4755, 0 0 0 2px rgba(0, 0, 0, 0.5), 0px 8px 13px rgba(14, 19, 27, 0.32);
@@ -41,7 +41,6 @@ $white: #FFFFFF;
 
 //LightMode
 $anchor-active-light: #0070e0;
-$anchor-color-light: #637282;
 $anchor-line-light: #e6e8eb;
 $background-color-light: #FFFFFF;
 $border-color-light: #e6e8eb;
@@ -55,6 +54,8 @@ $link-active-light: #005dd6;
 $overlay-background-light: rgba(255,255,255,0.95);
 $popup-text-background-light: #f7f9fa;
 $text-color-light: #1b2733;
+$text-color-secondary-light: #637282;
+
 
 
 

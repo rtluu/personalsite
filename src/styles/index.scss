@@ -49,6 +49,12 @@ h1{
     font-size: 2.5rem;
     line-height: 3rem;
     margin-bottom: 1.75rem;
+
+    @media (max-width: $breakpoint-phone) {
+        font-size: 2.125rem;
+        line-height: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 h2{
@@ -85,8 +91,10 @@ a{
     display: inline-block;
     color: $link-color;
     text-decoration: none;
-
-    &:hover{color: $link-hover;}
+    
+    @media (hover: hover) {
+        &:hover{color: $link-hover;}
+    }
     &:active{color: $link-active;}
 }
 
@@ -152,18 +160,22 @@ button{
         }
     }
 
-    &:hover{
-        svg{
-            path{
-                fill: $icon-hover;
-                fill-opacity: 1;
+    @media (hover: hover) {
+        &:hover{
+            svg{
+                path{
+                    fill: $icon-hover;
+                    fill-opacity: 1;
+                }
             }
         }
     }
 
-    &:hover{
-        .tooltip{
-            display: block;
+    @media (hover: hover) {
+        &:hover{
+            .tooltip{
+                display: block;
+            }
         }
     }
 }
@@ -211,8 +223,10 @@ button{
 
         a{  
             color: $link-color-light;
-        
-            &:hover{color: $link-hover-light;}
+            
+            @media (hover: hover) {
+                &:hover{color: $link-hover-light;}
+            }
             &:active{color: $link-active-light;}
         }
 
@@ -235,11 +249,13 @@ button{
             }
             .folder-group{
                 .folder-list{
-                    a{
-                        &:hover{
-                            li{
-                                h5{
-                                    color: $link-hover-light;
+                    a{  
+                        @media (hover: hover) {
+                            &:hover{
+                                li{
+                                    h5{
+                                        color: $link-hover-light;
+                                    }
                                 }
                             }
                         }
@@ -264,7 +280,13 @@ button{
                     }
 
                     .nav-link{
-                        color: $link-color-light;
+                        color: $text-color-secondary-light;
+
+                        @media (hover: hover) {
+                            &:hover{
+                                color: $link-hover-light;
+                            }
+                        }
                     }
                 }
                 .toast-box{
@@ -278,14 +300,16 @@ button{
                 &:before{
                     background: $anchor-line-light;
                 }
-                a{
-                    &:hover{
-                        .anchor-text{
-                            color: $link-hover-light;
-                        }
-                    }  
+                a{  
+                    @media (hover: hover) {
+                        &:hover{
+                            .anchor-text{
+                                color: $link-hover-light;
+                            }
+                        }  
+                    }
                     .anchor-text{
-                        color: $anchor-color-light;
+                        color: $text-color-secondary-light;
                     }
                 }
             }
@@ -337,6 +361,10 @@ button{
             margin: 8rem auto 10rem;
             max-width: $max-width;
             padding: 2.5rem;
+
+            @media (max-width: $breakpoint-phone) {
+                margin: 4.5rem auto 7.5rem;
+            }
 
             &.menu-open{
 

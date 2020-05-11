@@ -1,6 +1,28 @@
 @import "../../styles/media-queries.scss";
 
+.home-headline{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
 .about-pic-box{
+
+    &.head{
+        display: none;
+        top: -4.5rem;
+        @media (max-width: $breakpoint-phone) {
+            display: inline-block;
+        }
+    }
+
+    &.section{
+        display: inline-block;
+        @media (max-width: $breakpoint-phone) {
+            display: none;
+        }
+    }
+
     max-width: 15.5rem;
     right: 0;
     position: absolute;

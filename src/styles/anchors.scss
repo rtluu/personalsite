@@ -18,9 +18,16 @@
         @media (max-width: $breakpoint-1300) {           
             display: none;
         }
-        &:hover{
-            left: 16.25rem;
-        }
+        @media (hover: hover) {
+            &:hover{
+                left: 16.25rem;
+            }
+        }   
+        @media (hover: hover) {
+            &:hover{
+                left: 16.25rem;
+            }
+        }   
         .anchor{
             &.lv1{
                 .anchor-text{
@@ -47,37 +54,38 @@
         }
         
     }
-   
-    &:hover{
-        left: -0.5rem;
-        .anchor{
-            &:before{
-                opacity: 1;
-                transition: $transition-primary;
-                width: 0;
-            }
-            &.lv1{
+    @media (hover: hover) {
+        &:hover{
+            left: -0.5rem;
+            .anchor{
                 &:before{
-                    left: -2rem;
+                    opacity: 1;
+                    transition: $transition-primary;
+                    width: 0;
                 }
-            }
-            &.lv2{
-                &:before{
-                    left: -1.5rem;
+                &.lv1{
+                    &:before{
+                        left: -2rem;
+                    }
                 }
-            }
-
-            &.lv3{
-                &:before{
-                    left: -1.25rem;
+                &.lv2{
+                    &:before{
+                        left: -1.5rem;
+                    }
                 }
-            }
-            .anchor-text{
-                left: 0rem;
-                opacity: 1;
+    
+                &.lv3{
+                    &:before{
+                        left: -1.25rem;
+                    }
+                }
+                .anchor-text{
+                    left: 0rem;
+                    opacity: 1;
+                }
             }
         }
-    }
+    }   
 
     .anchor{
         align-items: center;
@@ -127,13 +135,16 @@
             display: block;
             position: relative;
             width: 100%;
-            &:hover{
-                .anchor-text{
-                    color: $link-hover;
+            
+            @media (hover: hover) {
+                &:hover{
+                    .anchor-text{
+                        color: $link-hover;
+                    }
                 }
             }
             .anchor-text{
-                color: $anchor-color;
+                color: $text-color-secondary;
                 left: -1rem;
                 position: relative;
                 padding: 0.25rem 1rem 0.25rem 0.25rem;

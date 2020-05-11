@@ -24,7 +24,16 @@ const About = () => {
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
             <AboutAnchors />
-            <h1 id="ryanluu">Ryan Luu</h1>
+            <div className="template-section row">
+                <div className="home-headline">
+                    <h1 id="ryanluu">Ryan Luu</h1>
+                    <div className="about-pic-box head">
+                        <div className="about-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
+                            <Headshot />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="template-section row">
                 <div className={`template-text-block two-column ${aboutCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setAboutCollapsed(!aboutCollapsed)}>
@@ -35,7 +44,7 @@ const About = () => {
                         <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I create projects with cool people. Currently residing in DC with my fiancée and playing basketball 🏀 whenever I get the chance.</p>
                     </div>
                 </div>
-                <div className={`about-pic-box ${aboutCollapsed ? "hide" : ""}`}>
+                <div className={`about-pic-box section ${aboutCollapsed ? "hide" : ""}`}>
                     <div className="about-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
                         <Headshot />
                     </div>

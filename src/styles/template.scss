@@ -1,6 +1,7 @@
 @import "./media-queries.scss";
 
 .template-content{
+
     .template-section{
         display: flex;
         flex-direction: column;
@@ -14,7 +15,9 @@
 
         .two-column{
             width: 62%;
-            
+            @media (max-width: $breakpoint-phone){
+                width: 100%;
+            }   
         }
         .full-on-phone{
             @media (max-width: $breakpoint-672){
@@ -46,11 +49,14 @@
                 margin-bottom: 0.375rem;
                 position: relative;
 
-                &:hover{
-                    .collapse-expand{
-                        opacity: 1;
+                @media (hover: hover) {
+                    &:hover{
+                        .collapse-expand{
+                            opacity: 1;
+                        }
                     }
                 }
+
 
                 .collapse-expand{
                     display: inline-block;
@@ -129,22 +135,24 @@
     width: 100%;
     cursor: zoom-in;
 
-    &:hover{
-        .video{
-            .video-engage-instructions{
-                .play-button{
-                    display: none;
-                }
-                .loading-spinner{
-                    animation: vjs-spinner-show 0s linear 0.3s forwards;
-                    animation-duration: 0s;
-                    animation-timing-function: linear;
-                    animation-delay: 0s;
-                    animation-iteration-count: 1;
-                    animation-direction: normal;
-                    animation-fill-mode: forwards;
-                    animation-play-state: running;
-                    animation-name: vjs-spinner-show;
+    @media (hover: hover) {
+        &:hover{
+            .video{
+                .video-engage-instructions{
+                    .play-button{
+                        display: none;
+                    }
+                    .loading-spinner{
+                        animation: vjs-spinner-show 0s linear 0.3s forwards;
+                        animation-duration: 0s;
+                        animation-timing-function: linear;
+                        animation-delay: 0s;
+                        animation-iteration-count: 1;
+                        animation-direction: normal;
+                        animation-fill-mode: forwards;
+                        animation-play-state: running;
+                        animation-name: vjs-spinner-show;
+                    }
                 }
             }
         }
@@ -224,12 +232,14 @@
         }
     }
 
-    &:hover{
-        .case-popup{
-            opacity: 1;
-            pointer-events: all;
-            transition: $transition-primary;
-            transition-delay: $transition-delay-popup;
+    @media (hover: hover) {
+        &:hover{
+            .case-popup{
+                opacity: 1;
+                pointer-events: all;
+                transition: $transition-primary;
+                transition-delay: $transition-delay-popup;
+            }
         }
     }
 

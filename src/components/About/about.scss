@@ -3,7 +3,10 @@
 .home-headline{
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
+   
+    @media (max-width: $breakpoint-phone) {
+        margin-bottom: 1rem;
+    }
 }
 
 .about-pic-box{

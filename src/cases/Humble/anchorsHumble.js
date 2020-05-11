@@ -8,13 +8,13 @@ const Anchors = () => {
 
     return (
         <ul className={`anchor-set ${value ? "menu-open" : ""}`}>
-            <li className="anchor lv1"><AnchorLink offset='40' href="#humblevc"><h6 className="anchor-text">Humble VC</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#objective"><h6 className="anchor-text">Objective</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#requirements"><h6 className="anchor-text">Requirements</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#process"><h6 className="anchor-text">Process</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#design"><h6 className="anchor-text">Design</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#development"><h6 className="anchor-text">Development</h6></AnchorLink></li>
-            <li className="anchor lv2"><AnchorLink offset='40' href="#reflection"><h6 className="anchor-text">Reflection</h6></AnchorLink></li>
+            <li className="anchor lv1"><AnchorLink offset='80' href="#humblevc"><h6 className="anchor-text">Humble VC</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#objective"><h6 className="anchor-text">Objective</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#requirements"><h6 className="anchor-text">Requirements</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#process"><h6 className="anchor-text">Process</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#design"><h6 className="anchor-text">Design</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#development"><h6 className="anchor-text">Development</h6></AnchorLink></li>
+            <li className="anchor lv2"><AnchorLink offset='80' href="#reflection"><h6 className="anchor-text">Reflection</h6></AnchorLink></li>
         </ul>
     )
 }

@@ -10,7 +10,7 @@
 
     &.head{
         display: none;
-        top: -4.5rem;
+        top: -4rem;
         @media (max-width: $breakpoint-phone) {
             display: inline-block;
         }

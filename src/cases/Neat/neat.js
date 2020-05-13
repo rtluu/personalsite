@@ -26,7 +26,7 @@ const Neat = () => {
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
     setImageGallery(11);
-    function openLightbox1() { setImageNumber(1); update(!value); }
+    function openLightbox1() { setImageNumber(1); update(!value); setVideoExpanded(true); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
     function openLightbox4() { setImageNumber(4); update(!value); }
@@ -39,6 +39,7 @@ const Neat = () => {
     function openLightbox11() { setImageNumber(11); update(!value); setVideoExpanded(true); }
 
     //Video
+    const [isHoveredOne, setIsHoveredOne] = React.useState();
     const [isHoveredTen, setIsHoveredTen] = React.useState();
     const [isHoveredEleven, setIsHoveredEleven] = React.useState();
     const [videoExpanded] = useGlobalState('videoExpanded');
@@ -64,8 +65,17 @@ const Neat = () => {
             <h1 id="neat">Neat</h1>
             <div className="template-section">
                 <div className="hero">
-                    <button onClick={openLightbox1} key={1} className="image-button" type="button">
+                    <button onClick={openLightbox1} key={1} className="image-button" type="button" onMouseEnter={() => setIsHoveredOne(true)} onMouseLeave={() => setIsHoveredOne(false)}>
                         <HeroNeat />
+                        <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                            {isHoveredOne | videoExpanded & imageNumber === 1 ? <Player ytid="XkhYtBU0GSo" /> : null}
+                            {!videoExpanded && <div className="video-engage-instructions">
+                                <span className="play-button">
+                                    <PlayIcon />
+                                </span>
+                                <div className="loading-spinner" />
+                            </div>}
+                        </div>
                     </button>
                 </div>
                 <div className="template-text-block">

@@ -82,8 +82,8 @@ const Lightbox = (props) => {
                 <span className="lightbox-item">
                     <div className={`center-children ${value ? "show" : "hide"}`}>
                         <div>
-                            <div className={`lightbox-image-wrapper ${currentImage === 10 | currentImage === 11 ? "video-wrapper" : ""}`}>
-                                {currentImage === 1 && (<HeroNeat />)}
+                            <div className={`lightbox-image-wrapper ${currentImage === 1 | currentImage === 10 | currentImage === 11 ? "video-wrapper" : ""}`}>
+                                {currentImage === 1 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><HeroNeat /><Player ytid="XkhYtBU0GSo" /></div> : null}
                                 {currentImage === 2 && (<NeatUserInterview />)}
                                 {currentImage === 3 && (<NeatUserFlow />)}
                                 {currentImage === 4 && (<NeatWireframeListView />)}

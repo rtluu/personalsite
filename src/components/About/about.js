@@ -77,7 +77,12 @@ const About = () => {
                         <p>When I'm not leading product teams, I'm hacking on digital projects with friends or building experiences for cool companies.</p>
                         <ul className="listtype-casestudy" >
                             <li><p><Link to="/openrecord/">+OpenRecord</Link></p></li>
-                            <li><p><Link to="/neat/">+Neat</Link></p></li>
+                            <li>
+                                <Link to="/neat/" className="case-item">
+                                    <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>
+                                    <p>+Neat</p>
+                                </Link>
+                            </li>
                             <li>
                                 <Link to="/ourluubeginning/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>

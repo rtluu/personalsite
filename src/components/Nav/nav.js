@@ -41,6 +41,10 @@ const Nav = () => {
             setPageName('Humble Venture Capital');
             setAnchorNav('#humblevc');
             setPageLink('https://www.ryanluu.com/humblevc');
+        } else if (location.pathname === "/neat/") {
+            setPageName('Neat');
+            setAnchorNav('#neat');
+            setPageLink('https://www.ryanluu.com/neat');
         }
     }, [])
 

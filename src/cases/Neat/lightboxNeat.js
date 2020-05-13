@@ -82,7 +82,7 @@ const Lightbox = (props) => {
                 <span className="lightbox-item">
                     <div className={`center-children ${value ? "show" : "hide"}`}>
                         <div>
-                            <div className="lightbox-image-wrapper">
+                            <div className={`lightbox-image-wrapper ${currentImage === 10 | currentImage === 11 ? "video-wrapper" : ""}`}>
                                 {currentImage === 1 && (<HeroNeat />)}
                                 {currentImage === 2 && (<NeatUserInterview />)}
                                 {currentImage === 3 && (<NeatUserFlow />)}

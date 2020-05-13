@@ -65,10 +65,10 @@ const Neat = () => {
             <h1 id="neat">Neat</h1>
             <div className="template-section">
                 <div className="hero">
-                    <button onClick={openLightbox1} key={1} className="image-button" type="button" onMouseEnter={() => setIsHoveredOne(true)} onMouseLeave={() => setIsHoveredOne(false)}>
+                    <button onClick={openLightbox1} key={1} className="image-button" type="button">
                         <HeroNeat />
                         <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                            {isHoveredOne | videoExpanded & imageNumber === 1 ? <Player ytid="XkhYtBU0GSo" /> : null}
+                            <Player ytid="XkhYtBU0GSo" />
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button">
                                     <PlayIcon />

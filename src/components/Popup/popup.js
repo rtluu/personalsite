@@ -6,24 +6,28 @@ import FastropePopup from "../../cases/Fastrope/images/FastropePopup";
 import FastropePopupLight from "../../cases/Fastrope/images/FastropePopupLight";
 import OLBPopup from "../../cases/OurLuuBeginning/images/OLBPopup";
 import OLBPopupLight from "../../cases/OurLuuBeginning/images/OLBPopupLight";
+import NeatPopup from "../../cases/Neat/images/NeatPopup";
+import NeatPopupLight from "../../cases/Neat/images/NeatPopupLight";
+
 
 import { useGlobalState } from '../../state';
 
 const Popup = (props) => {
     const [lightMode] = useGlobalState('lightMode');
-    return(
+    return (
         <div className="popup-container">
-        <div className="popup-inner">
-            <div className="popup-media">
-                {props.imgsrc === "HumblePopup" && [ (lightMode ? <HumblePopupLight/> : <HumblePopup />)]} 
-                {props.imgsrc === "FastropePopup" && [ (lightMode ? <FastropePopupLight/> : <FastropePopup />)]}
-                {props.imgsrc === "OLBPopup" && [ (lightMode ? <OLBPopupLight/> : <OLBPopup />)]}
-            </div>
-            <div className="popup-text">
-                <h6 className="popup-message">{props.text}</h6>
+            <div className="popup-inner">
+                <div className="popup-media">
+                    {props.imgsrc === "HumblePopup" && [(lightMode ? <HumblePopupLight /> : <HumblePopup />)]}
+                    {props.imgsrc === "FastropePopup" && [(lightMode ? <FastropePopupLight /> : <FastropePopup />)]}
+                    {props.imgsrc === "OLBPopup" && [(lightMode ? <OLBPopupLight /> : <OLBPopup />)]}
+                    {props.imgsrc === "NeatPopup" && [(lightMode ? <NeatPopupLight /> : <NeatPopup />)]}
+                </div>
+                <div className="popup-text">
+                    <h6 className="popup-message">{props.text}</h6>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

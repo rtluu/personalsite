@@ -63,8 +63,8 @@ const OurLuuBeginning = () => {
                 </div>
                 <div className="template-text-block">
                     <div className="template-text-body">
-                        <p><span className="bold-italic">Client: </span>OurLuuBeginning</p>
                         <p><span className="bold-italic">Role: </span>Design, Frontend</p>
+                        <p><span className="bold-italic">Team: </span>Me, myself and I (with guidance from K)</p>
                         <p><span className="bold-italic">Tools: </span>Figma, React, Styled Components</p>
                         <p><span className="bold-italic">Timeline: </span>2019</p>
                     </div>

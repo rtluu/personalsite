@@ -45,7 +45,12 @@ const Nav = () => {
             setPageName('Neat');
             setAnchorNav('#neat');
             setPageLink('https://www.ryanluu.com/neat');
+        } else if (location.pathname === "/openrecord/") {
+            setPageName('OpenRecord');
+            setAnchorNav('#openrecord');
+            setPageLink('https://www.ryanluu.com/openrecord');
         }
+
     }, [])
 
     useEffect(() => {

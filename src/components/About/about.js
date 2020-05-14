@@ -76,7 +76,12 @@ const About = () => {
                     <div className="template-text-body">
                         <p>When I'm not leading product teams, I'm hacking on digital projects with friends or building experiences for cool companies.</p>
                         <ul className="listtype-casestudy" >
-                            <li><p><Link to="/openrecord/">+OpenRecord</Link></p></li>
+                            <li>
+                                <Link to="/openrecord/" className="case-item">
+                                    <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="NeatPopup" /></div>
+                                    <p>+OpenRecord</p>
+                                </Link>
+                            </li>
                             <li>
                                 <Link to="/neat/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>

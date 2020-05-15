@@ -8,6 +8,15 @@ import HeroOpenRecord from "./images/HeroOpenRecord";
 import OpenRecordDiscovery from "./images/OpenRecordDiscovery";
 import OpenRecordUserInterviews from "./images/OpenRecordUserInterviews";
 import OpenRecordTechnicalIA from "./images/OpenRecordTechnicalIA";
+import OpenRecordCollectionFire from "./images/OpenRecordCollectionFire";
+import OpenRecordCollectionMobile from "./images/OpenRecordCollectionMobile";
+import OpenRecordLandingPage from "./images/OpenRecordLandingPage";
+import OpenRecordWorkingDesign from "./images/OpenRecordWorkingDesign";
+import OpenRecordLiveMobile from "./images/OpenRecordLiveMobile";
+import OpenRecordHomepage from "./images/OpenRecordHomepage";
+import OpenRecordFeedback from "./images/OpenRecordFeedback";
+import OpenRecordAddSong from "./images/OpenRecordAddSong";
+import OpenRecordMobileQueue from "./images/OpenRecordMobileQueue";
 import Player from "../../components/Player/player";
 
 const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
@@ -75,18 +84,20 @@ const Lightbox = (props) => {
                 <span className="lightbox-item">
                     <div className={`center-children ${value ? "show" : "hide"}`}>
                         <div>
-                            <div className={`lightbox-image-wrapper ${currentImage === 1 | currentImage === 10 | currentImage === 11 ? "video-wrapper" : ""}`}>
+                            <div className={`lightbox-image-wrapper ${currentImage === 1 | currentImage === 8 | currentImage === 12 ? "video-wrapper" : ""}`}>
                                 {currentImage === 1 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><HeroOpenRecord /><Player ytid="558t8VG-zzw" /></div> : null}
                                 {currentImage === 2 && (<OpenRecordDiscovery />)}
                                 {currentImage === 3 && (<OpenRecordUserInterviews />)}
                                 {currentImage === 4 && (<OpenRecordTechnicalIA />)}
-                                {/* {currentImage === 5 && (<NeatWireframeLogin />)}
-                                {currentImage === 6 && (<NeatWireframeMobile />)}
-                                {currentImage === 7 && (<NeatGrid />)}
-                                {currentImage === 8 && (<NeatListView />)}
-                                {currentImage === 9 && (<NeatMobile />)}
-                                {currentImage === 10 & !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><NeatAddLink /><Player ytid="Royezt5RYpw" /></div> : null}
-                                {currentImage === 11 & !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><NeatEmbed /><Player ytid="HW5FpK13uzg" /></div> : null} */}
+                                {currentImage === 5 && (<OpenRecordCollectionFire />)}
+                                {currentImage === 6 && (<OpenRecordCollectionMobile />)}
+                                {currentImage === 7 && (<OpenRecordLandingPage />)}
+                                {currentImage === 8 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><OpenRecordWorkingDesign /><Player ytid="ghqab6X17pE" /></div> : null}
+                                {currentImage === 9 && (<OpenRecordLiveMobile />)}
+                                {currentImage === 10 && (<OpenRecordHomepage />)}
+                                {currentImage === 11 && (<OpenRecordFeedback />)}
+                                {currentImage === 12 & !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><OpenRecordAddSong /><Player ytid="1PlqPOvsyA0" /></div> : null}
+                                {currentImage === 13 && (<OpenRecordMobileQueue />)}
                             </div>
                         </div>
                     </div>

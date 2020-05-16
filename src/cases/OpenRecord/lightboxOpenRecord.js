@@ -89,9 +89,9 @@ const Lightbox = (props) => {
                                 {currentImage === 2 && (<OpenRecordDiscovery />)}
                                 {currentImage === 3 && (<OpenRecordUserInterviews />)}
                                 {currentImage === 4 && (<OpenRecordTechnicalIA />)}
-                                {currentImage === 5 && (<OpenRecordCollectionFire />)}
-                                {currentImage === 6 && (<OpenRecordCollectionMobile />)}
-                                {currentImage === 7 && (<OpenRecordLandingPage />)}
+                                {currentImage === 5 && (<OpenRecordLandingPage />)}
+                                {currentImage === 6 && (<OpenRecordCollectionFire />)}
+                                {currentImage === 7 && (<OpenRecordCollectionMobile />)}
                                 {currentImage === 8 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><OpenRecordWorkingDesign /><Player ytid="ghqab6X17pE" /></div> : null}
                                 {currentImage === 9 && (<OpenRecordLiveMobile />)}
                                 {currentImage === 10 && (<OpenRecordHomepage />)}

@@ -17,6 +17,7 @@ $border-color: #3f4755;
 $icon-color: #a5a9af;
 $icon-hover: #bbbec3;
 $icon-active: #d2d4d7;
+$item-outline: rgba(138, 195, 239, 0.8);
 $highlight-background: #2c343f;
 $link-color: #72b6ec;
 $link-hover: #8ac3ef;
@@ -37,6 +38,7 @@ $tooltip-background: #000;
 $tooltip-border: #000;
 $tooltip-shadow: 0 0 0 1px #3f4755, 0 0 0 2px rgba(0, 0, 0, 0.5), 0px 8px 13px rgba(14, 19, 27, 0.32);
 $tooltip-text: #FFFFFF;
+$transparent: transparent;
 $white: #FFFFFF;
 
 //LightMode
@@ -47,6 +49,7 @@ $border-color-light: #e6e8eb;
 $overlay-background-light: rgba(255,255,255,0.95);
 $icon-color-light: #637282;
 $icon-hover-light: #6a7c8f;
+$item-outline-light: rgba(0, 112, 224, 0.5);
 $highlight-background-light: #d6e8fa;
 $link-color-light: #0070e0;
 $link-hover-light: #007af5;

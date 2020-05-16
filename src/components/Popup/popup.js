@@ -8,6 +8,8 @@ import OLBPopup from "../../cases/OurLuuBeginning/images/OLBPopup";
 import OLBPopupLight from "../../cases/OurLuuBeginning/images/OLBPopupLight";
 import NeatPopup from "../../cases/Neat/images/NeatPopup";
 import NeatPopupLight from "../../cases/Neat/images/NeatPopupLight";
+import OpenRecordPopup from "../../cases/OpenRecord/images/OpenRecordPopup";
+import OpenRecordPopupLight from "../../cases/OpenRecord/images/OpenRecordPopupLight";
 
 
 import { useGlobalState } from '../../state';
@@ -22,6 +24,7 @@ const Popup = (props) => {
                     {props.imgsrc === "FastropePopup" && [(lightMode ? <FastropePopupLight /> : <FastropePopup />)]}
                     {props.imgsrc === "OLBPopup" && [(lightMode ? <OLBPopupLight /> : <OLBPopup />)]}
                     {props.imgsrc === "NeatPopup" && [(lightMode ? <NeatPopupLight /> : <NeatPopup />)]}
+                    {props.imgsrc === "OpenRecordPopup" && [(lightMode ? <OpenRecordPopupLight /> : <OpenRecordPopup />)]}
                 </div>
                 <div className="popup-text">
                     <h6 className="popup-message">{props.text}</h6>

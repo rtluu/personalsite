@@ -66,9 +66,9 @@ const Neat = () => {
             <h1 id="neat">Neat</h1>
             <div className="template-section">
                 <div className="hero">
-                    <button onClick={openLightbox1} key={1} className="image-button" type="button">
+                    <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroNeat />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
                             <Player ytid="XkhYtBU0GSo" />
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button">
@@ -231,7 +231,7 @@ const Neat = () => {
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox10} className="image-button" type="button" onMouseEnter={() => setIsHoveredTen(true)} onMouseLeave={() => setIsHoveredTen(false)}>
+                                        <button onClick={openLightbox10} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTen(true)} onMouseLeave={() => setIsHoveredTen(false)}>
                                             <NeatAddLink />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredTen | videoExpanded & imageNumber === 10 ? <Player ytid="Royezt5RYpw" /> : null}
@@ -245,7 +245,7 @@ const Neat = () => {
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox11} className="image-button" type="button" onMouseEnter={() => setIsHoveredEleven(true)} onMouseLeave={() => setIsHoveredEleven(false)}>
+                                        <button onClick={openLightbox11} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEleven(true)} onMouseLeave={() => setIsHoveredEleven(false)}>
                                             <NeatEmbed />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredEleven | videoExpanded & imageNumber === 11 ? <Player ytid="HW5FpK13uzg" /> : null}
@@ -280,10 +280,16 @@ const Neat = () => {
             </div>
             <div className="template-section">
                 <div className="template-text-body">
-                    <Link to="/ourluubeginning/" className="case-item">
-                        <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
-                        <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OurLuuBeginning</p>
-                    </Link>
+                    <div className="case-end-links">
+                        <Link to="/ourluubeginning/" className="case-item">
+                            <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
+                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OurLuuBeginning</p>
+                        </Link>
+                        <Link to="/openrecord/" className="case-item next">
+                            <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
+                            <p>+OpenRecord<span className="case-arrow"><CaseArrowIcon /></span></p>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div >

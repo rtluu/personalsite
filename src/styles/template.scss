@@ -186,43 +186,76 @@
 
 .image-button{
     height: 100%;
+    margin: -0.0625rem;
     width: 100%;
     cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
 
-    @media (hover: hover) {
-        &:hover{
-            .video{
-                .video-engage-instructions{
-                    .play-button{
-                        display: none;
+    &.video-button{
+        @media (hover: hover) {
+            &:hover{
+                .video{
+                    border-color: $item-outline;
+                    .video-engage-instructions{
+                        .play-button{
+                            display: none;
+                        }
+                        .loading-spinner{
+                            animation: vjs-spinner-show 0s linear 0.3s forwards;
+                            animation-duration: 0s;
+                            animation-timing-function: linear;
+                            animation-delay: 0s;
+                            animation-iteration-count: 1;
+                            animation-direction: normal;
+                            animation-fill-mode: forwards;
+                            animation-play-state: running;
+                            animation-name: vjs-spinner-show;
+                        }
                     }
-                    .loading-spinner{
-                        animation: vjs-spinner-show 0s linear 0.3s forwards;
-                        animation-duration: 0s;
-                        animation-timing-function: linear;
-                        animation-delay: 0s;
-                        animation-iteration-count: 1;
-                        animation-direction: normal;
-                        animation-fill-mode: forwards;
-                        animation-play-state: running;
-                        animation-name: vjs-spinner-show;
-                    }
+                }
+                .gatsby-image-wrapper{
+                    border-color: transparent;
                 }
             }
         }
+    }
+
+    @media (hover: hover) {
+        &:hover{
+            .gatsby-image-wrapper{
+                border-color: $item-outline;
+            }
+        }
+    }
+
+    .gatsby-image-wrapper{
+        border: 0.125rem solid $transparent;
+        border-radius: 0.125rem;
     }
 
     .video{
         align-items: center;
         display: flex;
         justify-content: center;
+        position: relative;
+        border: 0.125rem solid $transparent;
+        border-radius: 0.125rem;
         &.video-small{
+            position: absolute;
+            top: 0.0625rem;
+            left: 0;
+            right: 0;
+            bottom: 0.0625rem;
+            transition: $transition-primary;
+        }
+
+        &.video-hero{
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            opacity: 0;
             transition: $transition-primary;
         }
 

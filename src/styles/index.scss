@@ -280,6 +280,29 @@ button{
                 }
             }
         }
+
+        .image-button{
+            &.video-button{
+                @media (hover: hover) {
+                    &:hover{
+                        .video{
+                            border-color: $item-outline-light;
+                        }
+                        .gatsby-image-wrapper{
+                            border-color: transparent;
+                        }
+                    }
+                }
+            }
+            @media (hover: hover) {
+                &:hover{
+                    .gatsby-image-wrapper{
+                        border-color: $item-outline-light;
+                    }
+                }
+            } 
+        }
+
         .nav{
             background: $background-color-light;
             .nav-inner-box{

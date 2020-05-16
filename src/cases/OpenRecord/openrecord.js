@@ -15,6 +15,7 @@ import OpenRecordHomepage from "./images/OpenRecordHomepage";
 import OpenRecordFeedback from "./images/OpenRecordFeedback";
 import OpenRecordAddSong from "./images/OpenRecordAddSong";
 import OpenRecordMobileQueue from "./images/OpenRecordMobileQueue";
+import OpenRecordAnchors from "./anchorsOpenRecord";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
@@ -65,13 +66,13 @@ const OpenRecord = () => {
     return (
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
-            {/* <OLBAnchors /> */}
+            <OpenRecordAnchors />
             <h1 id="openrecord">OpenRecord</h1>
             <div className="template-section">
                 <div className="hero">
-                    <button onClick={openLightbox1} key={1} className="image-button" type="button">
+                    <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroOpenRecord />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
                             <Player ytid="558t8VG-zzw" />
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button">
@@ -140,7 +141,7 @@ const OpenRecord = () => {
                 <div className={`template-text-block ${researchCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setResearchCollapsed(!researchCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="process">Research</h2>
+                        <h2 id="research">Research</h2>
                     </div>
                     <div className="template-text-body">
                         <p>At my job, we had a Slack channel where teammates would share music in a weekly playlist. These users were a perfect crew to ask about their music collection habits, so that’s exactly what we did. Those learnings translated to our first interaction mapping and technical information architecture (IA).</p>
@@ -210,7 +211,7 @@ const OpenRecord = () => {
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper flex-openrecord-working-design">
-                                        <button onClick={openLightbox8} className="image-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
+                                        <button onClick={openLightbox8} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
                                             <OpenRecordWorkingDesign />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
@@ -262,7 +263,7 @@ const OpenRecord = () => {
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper flex-openrecord-add-song">
-                                        <button onClick={openLightbox12} className="image-button" type="button" onMouseEnter={() => setIsHoveredTwelve(true)} onMouseLeave={() => setIsHoveredTwelve(false)}>
+                                        <button onClick={openLightbox12} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTwelve(true)} onMouseLeave={() => setIsHoveredTwelve(false)}>
                                             <OpenRecordAddSong />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredTwelve | videoExpanded & imageNumber === 12 ? <Player ytid="1PlqPOvsyA0" /> : null}

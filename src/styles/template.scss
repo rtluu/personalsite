@@ -110,35 +110,27 @@
                         &.flex-humble-team{
                             flex: 1.506;
                         }
-
                         &.flex-humble-cta{
                             flex: 1.84;
                         }
-
                         &.flex-olb-hero{
                             flex: 1.84;
                         }
-
                         &.flex-olb-footer{
                             flex: 1.506;
                         }
-
                         &.flex-neat-user-interview{
                             flex: 1.88;
                         }
-
                         &.flex-neat-user-flow{
                             flex: 1.42;
                         }
-                        
                         &.flex-neat-wireframe-listview{
                             flex: 1.5;
                         }
-
                         &.flex-neat-wireframe-login{
                             flex: 0.5;
                         }
-
                         &.flex-neat-wireframe-mobile{
                             flex: 0.5;
                         }
@@ -151,6 +143,39 @@
                         &.flex-neat-mobile{
                             flex: 0.4;
                         }
+                        &.flex-openrecord-user-interviews{
+                            flex: 1.22;
+                        }
+                        &.flex-openrecord-technical-ia{
+                            flex: 1.2;
+                        }
+                        &.flex-openrecord-landing-page{
+                            flex: 0.75;
+                        }
+                        &.flex-openrecord-collection-fire{
+                            flex: 1.85;
+                        }
+                        &.flex-openrecord-collection-mobile{
+                            flex: 0.56;
+                        }
+                        &.flex-openrecord-working-design{
+                            flex: 1.545;
+                        }
+                        &.flex-openrecord-live-mobile{
+                            flex: 0.455;
+                        }
+                        &.flex-openrecord-homepage{
+                            flex: 1.125;
+                        }
+                        &.flex-openrecord-feedback{
+                            flex: 1;
+                        }
+                        &.flex-openrecord-add-song{
+                            flex: 1.6;
+                        }
+                        &.flex-openrecord-mobile-queue{
+                            flex: 0.428;
+                        }
                     }
                 }
             }
@@ -161,43 +186,76 @@
 
 .image-button{
     height: 100%;
+    margin: -0.0625rem;
     width: 100%;
     cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
 
-    @media (hover: hover) {
-        &:hover{
-            .video{
-                .video-engage-instructions{
-                    .play-button{
-                        display: none;
+    &.video-button{
+        @media (hover: hover) {
+            &:hover{
+                .video{
+                    border-color: $item-outline;
+                    .video-engage-instructions{
+                        .play-button{
+                            display: none;
+                        }
+                        .loading-spinner{
+                            animation: vjs-spinner-show 0s linear 0.3s forwards;
+                            animation-duration: 0s;
+                            animation-timing-function: linear;
+                            animation-delay: 0s;
+                            animation-iteration-count: 1;
+                            animation-direction: normal;
+                            animation-fill-mode: forwards;
+                            animation-play-state: running;
+                            animation-name: vjs-spinner-show;
+                        }
                     }
-                    .loading-spinner{
-                        animation: vjs-spinner-show 0s linear 0.3s forwards;
-                        animation-duration: 0s;
-                        animation-timing-function: linear;
-                        animation-delay: 0s;
-                        animation-iteration-count: 1;
-                        animation-direction: normal;
-                        animation-fill-mode: forwards;
-                        animation-play-state: running;
-                        animation-name: vjs-spinner-show;
-                    }
+                }
+                .gatsby-image-wrapper{
+                    border-color: transparent;
                 }
             }
         }
+    }
+
+    @media (hover: hover) {
+        &:hover{
+            .gatsby-image-wrapper{
+                border-color: $item-outline;
+            }
+        }
+    }
+
+    .gatsby-image-wrapper{
+        border: 0.125rem solid $transparent;
+        border-radius: 0.125rem;
     }
 
     .video{
         align-items: center;
         display: flex;
         justify-content: center;
+        position: relative;
+        border: 0.125rem solid $transparent;
+        border-radius: 0.125rem;
         &.video-small{
+            position: absolute;
+            top: 0.0625rem;
+            left: 0;
+            right: 0;
+            bottom: 0.0625rem;
+            transition: $transition-primary;
+        }
+
+        &.video-hero{
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            opacity: 0;
             transition: $transition-primary;
         }
 

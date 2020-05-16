@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import ReactPlayer from 'react-player';
-import Lightbox from "./lightboxNeat";
-import HeroNeat from "./images/HeroNeat";
-import NeatAddLink from "./images/NeatAddLink";
-import NeatEmbed from "./images/NeatEmbed";
-import NeatGrid from "./images/NeatGrid";
-import NeatListView from "./images/NeatListView";
-import NeatMobile from "./images/NeatMobile";
-import NeatUserFlow from "./images/NeatUserFlow";
-import NeatUserInterview from "./images/NeatUserInterview";
-import NeatWireframeListView from "./images/NeatWireframeListView";
-import NeatWireframeLogin from "./images/NeatWireframeLogin";
-import NeatWireframeMobile from "./images/NeatWireframeMobile";
-import NeatAnchors from "./anchorsNeat";
+import Lightbox from "./lightboxOpenRecord";
+import HeroOpenRecord from "./images/HeroOpenRecord";
+import OpenRecordDiscovery from "./images/OpenRecordDiscovery";
+import OpenRecordUserInterviews from "./images/OpenRecordUserInterviews";
+import OpenRecordTechnicalIA from "./images/OpenRecordTechnicalIA";
+import OpenRecordCollectionFire from "./images/OpenRecordCollectionFire";
+import OpenRecordCollectionMobile from "./images/OpenRecordCollectionMobile";
+import OpenRecordLandingPage from "./images/OpenRecordLandingPage";
+import OpenRecordWorkingDesign from "./images/OpenRecordWorkingDesign";
+import OpenRecordLiveMobile from "./images/OpenRecordLiveMobile";
+import OpenRecordHomepage from "./images/OpenRecordHomepage";
+import OpenRecordFeedback from "./images/OpenRecordFeedback";
+import OpenRecordAddSong from "./images/OpenRecordAddSong";
+import OpenRecordMobileQueue from "./images/OpenRecordMobileQueue";
+import OpenRecordAnchors from "./anchorsOpenRecord";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
@@ -22,11 +24,11 @@ import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
 
-const Neat = () => {
+const OpenRecord = () => {
     //Lightbox
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
-    setImageGallery(11);
+    setImageGallery(13);
     function openLightbox1() { setImageNumber(1); update(!value); setVideoExpanded(true); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
@@ -34,15 +36,17 @@ const Neat = () => {
     function openLightbox5() { setImageNumber(5); update(!value); }
     function openLightbox6() { setImageNumber(6); update(!value); }
     function openLightbox7() { setImageNumber(7); update(!value); }
-    function openLightbox8() { setImageNumber(8); update(!value); }
+    function openLightbox8() { setImageNumber(8); update(!value); setVideoExpanded(true); }
     function openLightbox9() { setImageNumber(9); update(!value); }
-    function openLightbox10() { setImageNumber(10); update(!value); setVideoExpanded(true); }
-    function openLightbox11() { setImageNumber(11); update(!value); setVideoExpanded(true); }
+    function openLightbox10() { setImageNumber(10); update(!value); }
+    function openLightbox11() { setImageNumber(11); update(!value); }
+    function openLightbox12() { setImageNumber(12); update(!value); setVideoExpanded(true); }
+    function openLightbox13() { setImageNumber(13); update(!value); }
 
     //Video
     const [isHoveredOne, setIsHoveredOne] = React.useState();
-    const [isHoveredTen, setIsHoveredTen] = React.useState();
-    const [isHoveredEleven, setIsHoveredEleven] = React.useState();
+    const [isHoveredEight, setIsHoveredEight] = React.useState();
+    const [isHoveredTwelve, setIsHoveredTwelve] = React.useState();
     const [videoExpanded] = useGlobalState('videoExpanded');
     function lightboxExpanded() {
         setVideoExpanded(true);
@@ -62,14 +66,14 @@ const Neat = () => {
     return (
         <div className="template-content">
             <Lightbox currentImage={imageNumber} />
-            <NeatAnchors />
-            <h1 id="neat">Neat</h1>
+            <OpenRecordAnchors />
+            <h1 id="openrecord">OpenRecord</h1>
             <div className="template-section">
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
-                        <HeroNeat />
+                        <HeroOpenRecord />
                         <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            <Player ytid="XkhYtBU0GSo" />
+                            <Player ytid="558t8VG-zzw" />
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button">
                                     <PlayIcon />
@@ -81,11 +85,11 @@ const Neat = () => {
                 </div>
                 <div className="template-text-block">
                     <div className="template-text-body">
-                        <p><span className="bold-italic">Idea: </span>Visual Media Collection</p>
+                        <p><span className="bold-italic">Idea: </span>Collaborative Music Collections</p>
                         <p><span className="bold-italic">Role: </span>Creator, Product, Frontend</p>
-                        <p><span className="bold-italic">Team: </span>Osebo Akhigbe, Diego Quispe</p>
-                        <p><span className="bold-italic">Tools: </span>React, Redux, MySql, SCSS, Sketch</p>
-                        <p><span className="bold-italic">Timeline: </span>2016-2017</p>
+                        <p><span className="bold-italic">Team: </span>James McNamara, Osebo Akhigbe, Chas DeVeas</p>
+                        <p><span className="bold-italic">Tools: </span>React Hooks, Typescript, GraphQL, Node</p>
+                        <p><span className="bold-italic">Timeline: </span>2018</p>
                     </div>
                 </div>
             </div>
@@ -96,7 +100,7 @@ const Neat = () => {
                         <h2 id="background">Background</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>It started with a problem that Osebo experienced when trying to organize inspiration and digital resources in his design process. These assets were scattered across difficult services making them difficult to track and recall when needed.</p>
+                        <p>It started with a problem experienced while throwing a party with friends. I wanted to create a playlist of music for the event and asked everyone if they would contribute. Problem was, not everyone had a Spotify membership and most just ended up sharing various song names or YouTube links.</p>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ const Neat = () => {
                         <h2 id="problem">Problem</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Osebo is a visual learner and was seeking a better way to organize his design inspiration and useful resources for his design process.</p>
+                        <p>I wished there was a way to easily create party playlists with friends without having to log in, while still having access to all of the best music.</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +122,7 @@ const Neat = () => {
                         <h2 id="question">Question</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>How could we create a visual way for designers to collect and organize their digital resources?</p>
+                        <p>How could we make it simpler for music lovers to create playlists with others?</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +133,7 @@ const Neat = () => {
                         <h2 id="solution">Solution approach</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>A web app that enables designers to save any url, embedding the content and visuals for easy recall.</p>
+                        <p>I’ve used the react-player npm package before on other projects and knew it was capable of rendering YouTube and Soundcloud embeds. If we could query tap into those libraries we’d access endless content and could build a fluid UI on top.</p>
                     </div>
                 </div>
             </div>
@@ -140,24 +144,29 @@ const Neat = () => {
                         <h2 id="research">Research</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>To see if others had similar challenges, we interviewed designers asking them about the tools they use to organize their digital resources. The primary responses were bookmarks, Pinterest and Slack, so we did competitive discovery to understand the strengths and weaknesses of each.</p>
-                        <ul className="listtype-bullet listindent1 spacing" >
-                            <li><span className="bullet">&bull;</span><p><b className="bold-underline">Bookmarks</b> are universal and simple to use, but they lack visuals which can make them difficult to quickly recall.</p></li>
-                            <li><span className="bullet">&bull;</span><p><b className="bold-underline">Pinterest</b> pins are great for visual collections but limited to certain forms of content missing the ability to collect articles, webpages and 3d experiences that creators use in their workflows.</p></li>
-                            <li><span className="bullet">&bull;</span><p><b className="bold-underline">Slack</b> has a plethora of places for collecting resources, but content is easily lost across chats and channels due to the quick pace of conversations.</p></li>
-                        </ul>
-                        <p>Those learnings gave us the confidence to move into user flow mapping and information architecture.</p>
+                        <p>At my job, we had a Slack channel where teammates would share music in a weekly playlist. These users were a perfect crew to ask about their music collection habits, so that’s exactly what we did. Those learnings translated to our first interaction mapping and technical information architecture (IA).</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-neat-user-interview">
+                                    <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
-                                            <NeatUserInterview />
+                                            <OpenRecordDiscovery />
                                         </button>
                                     </div>
-                                    <div className="gallery-item-wrapper flex-neat-user-flow">
+                                </div>
+                            </div>
+                        </span>
+                        <span className="gallery">
+                            <div className="gallery-outer-wrapper second-gallery-row">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper flex-openrecord-user-interviews">
                                         <button onClick={openLightbox3} className="image-button" type="button">
-                                            <NeatUserFlow />
+                                            <OpenRecordUserInterviews />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-openrecord-technical-ia">
+                                        <button onClick={openLightbox4} className="image-button" type="button">
+                                            <OpenRecordTechnicalIA />
                                         </button>
                                     </div>
                                 </div>
@@ -173,44 +182,51 @@ const Neat = () => {
                         <h2 id="design">Design</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>During our design process we prioritized making saved items as visual as possible for ease of recall and appealing to our designer target audience. We also heard from early users that it can be frustrating to have to sign up or log to begin saving, so we built a way for users to create anonymous collections that would temporarily save their content to local storage and then signing in would permanently save the items to their account.</p>
+                        <p>We used Figma to mock out the UX, focusing on ease of starting collections and adding songs.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-neat-wireframe-listview">
-                                        <button onClick={openLightbox4} className="image-button" type="button">
-                                            <NeatWireframeListView />
-                                        </button>
-                                    </div>
-                                    <div className="gallery-item-wrapper flex-neat-wireframe-login">
+                                    <div className="gallery-item-wrapper flex-openrecord-landing-page">
                                         <button onClick={openLightbox5} className="image-button" type="button">
-                                            <NeatWireframeLogin />
+                                            <OpenRecordLandingPage />
                                         </button>
                                     </div>
-                                    <div className="gallery-item-wrapper flex-neat-wireframe-mobile">
+                                    <div className="gallery-item-wrapper flex-openrecord-collection-fire">
                                         <button onClick={openLightbox6} className="image-button" type="button">
-                                            <NeatWireframeMobile />
+                                            <OpenRecordCollectionFire />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-openrecord-collection-mobile">
+                                        <button onClick={openLightbox7} className="image-button" type="button">
+                                            <OpenRecordCollectionMobile />
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </span>
+                    </div>
+                    <div className="template-text-body">
+                        <p>After some tweaks and functionality slimming we had a working experience that enabled users to create collections with songs from Soundcloud and YouTube.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-neat-grid">
-                                        <button onClick={openLightbox7} className="image-button" type="button">
-                                            <NeatGrid />
+                                    <div className="gallery-item-wrapper flex-openrecord-working-design">
+                                        <button onClick={openLightbox8} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
+                                            <OpenRecordWorkingDesign />
+                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
+                                                {!videoExpanded && <div className="video-engage-instructions">
+                                                    <span className="play-button">
+                                                        <PlayIcon />
+                                                    </span>
+                                                    <div className="loading-spinner" />
+                                                </div>}
+                                            </div>
                                         </button>
                                     </div>
-                                    <div className="gallery-item-wrapper flex-neat-listview">
-                                        <button onClick={openLightbox8} className="image-button" type="button">
-                                            <NeatListView />
-                                        </button>
-                                    </div>
-                                    <div className="gallery-item-wrapper flex-neat-mobile">
+                                    <div className="gallery-item-wrapper flex-openrecord-live-mobile">
                                         <button onClick={openLightbox9} className="image-button" type="button">
-                                            <NeatMobile />
+                                            <OpenRecordLiveMobile />
                                         </button>
                                     </div>
                                 </div>
@@ -226,15 +242,31 @@ const Neat = () => {
                         <h2 id="development">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Enabling users to save and recall quickly was the focal point of our efforts. Users could drop any link into the tool and it would either pull the relevant image or take a screenshot of the webpage to be used as the primary image that users could refer back to in their collection. We also made returning to content extremely simple with everything from videos, music and full webpages all opening within an overlay so users never had to leave their collections to interact with content.</p>
+                        <p>Throughout development, we sought feedback from friends and teammates and work. Over time we refined the messaging and user experience to help users discover other collections and make each song stand out during playback with dynamic colored backgrounds.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox10} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTen(true)} onMouseLeave={() => setIsHoveredTen(false)}>
-                                            <NeatAddLink />
+                                    <div className="gallery-item-wrapper flex-openrecord-homepage">
+                                        <button onClick={openLightbox10} className="image-button" type="button">
+                                            <OpenRecordHomepage />
+                                        </button>
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-openrecord-feedback">
+                                        <button onClick={openLightbox11} className="image-button" type="button">
+                                            <OpenRecordFeedback />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <span className="gallery">
+                            <div className="gallery-outer-wrapper second-gallery-row">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper flex-openrecord-add-song">
+                                        <button onClick={openLightbox12} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTwelve(true)} onMouseLeave={() => setIsHoveredTwelve(false)}>
+                                            <OpenRecordAddSong />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                {isHoveredTen | videoExpanded & imageNumber === 10 ? <Player ytid="Royezt5RYpw" /> : null}
+                                                {isHoveredTwelve | videoExpanded & imageNumber === 12 ? <Player ytid="1PlqPOvsyA0" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
                                                     <span className="play-button">
                                                         <PlayIcon />
@@ -244,18 +276,9 @@ const Neat = () => {
                                             </div>
                                         </button>
                                     </div>
-                                    <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox11} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEleven(true)} onMouseLeave={() => setIsHoveredEleven(false)}>
-                                            <NeatEmbed />
-                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                {isHoveredEleven | videoExpanded & imageNumber === 11 ? <Player ytid="HW5FpK13uzg" /> : null}
-                                                {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
-                                                        <PlayIcon />
-                                                    </span>
-                                                    <div className="loading-spinner" />
-                                                </div>}
-                                            </div>
+                                    <div className="gallery-item-wrapper flex-openrecord-mobile-queue">
+                                        <button onClick={openLightbox13} className="image-button" type="button">
+                                            <OpenRecordMobileQueue />
                                         </button>
                                     </div>
                                 </div>
@@ -271,29 +294,26 @@ const Neat = () => {
                         <h2 id="reflection" >Reflection</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Although we had created a clean and intuitive experience, we ran into a blocker when we weren’t able to allow users to create multiple collections. Our backend wasn’t as sophisticated as it needed to be and our lead backend dev left before bringing that functionality to fruition. That led to collections get unruly and ultimately became the downfall of the experience.</p>
+                        <p>Open Record was my first open source project and I really enjoyed being able to rapidly share and get feedback from other creators. Further, working with more experienced developers pushed me to learn new languages/tools like Typescript, Hooks, and GraphQL.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>Despite the outcome, I’m very happy to have had the opportunity to work on Neat. It gave me the excuse to learn React/Redux, I was able to get more reps running through the product development lifecycle and most importantly I was able to collaborate with some awesome creators that remain close friends.</p>
+                        <p>Open source comes with its own set of challenges. Keeping everyone on the same page and working towards a clear goal is difficult when contributors are transient. Naturally, there are parts of the product that one person champions and it can be difficult for someone else to pick up and continue that work.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>A great experience all around and I’ll definitely be contributing to more open source projects soon.</p>
                     </div>
                 </div>
             </div>
             <div className="template-section">
                 <div className="template-text-body">
-                    <div className="case-end-links">
-                        <Link to="/ourluubeginning/" className="case-item">
-                            <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OurLuuBeginning</p>
-                        </Link>
-                        <Link to="/openrecord/" className="case-item next">
-                            <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
-                            <p>+OpenRecord<span className="case-arrow"><CaseArrowIcon /></span></p>
-                        </Link>
-                    </div>
+                    <Link to="/neat/" className="case-item">
+                        <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>
+                        <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Neat</p>
+                    </Link>
                 </div>
             </div>
         </div >
     )
 }
 
-export default Neat
+export default OpenRecord

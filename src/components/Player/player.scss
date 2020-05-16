@@ -4,6 +4,7 @@
     ////When Video is started from hover and expanded
     .video{
         &.video-expanded{
+            border: 0 !important;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -50,12 +51,15 @@
                             height: 100% !important;
                             max-height: calc(100vh - 16px - 16px - 64px)!important;
                             width: 100% !important;
+                            top: 50%;
+                            position: relative;
+                            transform: translateY(-50%);
                         }
                     }
                 }
             }
         }
-        &.video-small{
+        &.video-small,&.video-hero{
             opacity: 1;
             overflow: hidden;
             transition: $transition-primary;
@@ -64,11 +68,12 @@
                 cursor: pointer;
                 pointer-events: none;
                 position: absolute;
+                margin-top: -0.125rem;
                 bottom: -0.125rem;
-                opacity: 0;
                 left: -0.125rem;
                 right: -0.125rem;
                 top: -0.125rem;
+                opacity: 0;
                 transition: $transition-primary;
                 z-index: $player-container-small-z;
         
@@ -179,6 +184,9 @@
                         height: 100% !important;
                         max-height: calc(100vh - 16px - 16px - 64px)!important;
                         width: 100% !important;
+                        top: 50%;
+                        position: relative;
+                        transform: translateY(-50%);
                     }
                 }
             }

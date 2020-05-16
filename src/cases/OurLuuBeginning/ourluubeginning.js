@@ -169,7 +169,7 @@ const OurLuuBeginning = () => {
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox5} className="image-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
+                                        <button onClick={openLightbox5} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
                                             <OLBProposalPage />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="kEwzQi0bgc4" /> : null}
@@ -183,7 +183,7 @@ const OurLuuBeginning = () => {
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox6} className="image-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
+                                        <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
                                             <OLBProposalSlides />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="EHQywvZ6ILc" /> : null}

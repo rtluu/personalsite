@@ -145,6 +145,7 @@
                             max-width: 100%;
                             max-height: calc(100vh - 16px - 16px - 64px);
                             margin: 0 auto;
+                            object-fit: contain !important;
                             transition: $transition-img-max;
                             width: auto !important;
                         }

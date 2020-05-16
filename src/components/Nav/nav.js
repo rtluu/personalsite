@@ -105,6 +105,9 @@ const Nav = () => {
                     <h4>Link copied</h4>
                 </div>
             </div>
+
+            {/* For closing the menu when it's open at small screen sizes */}
+            <div className="menu-close" onClick={() => update(!value)} />
         </nav >
     )
 }

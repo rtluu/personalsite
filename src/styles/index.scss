@@ -410,6 +410,9 @@ button{
                     }
                     @media (max-width: $breakpoint-tablet) {           
                         width: 62%;
+                        @media (max-width: $breakpoint-phone) {           
+                            width: 100%;
+                        }
                     }
                 }
 

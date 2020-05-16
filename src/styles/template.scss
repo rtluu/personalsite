@@ -21,7 +21,7 @@
         }
         .full-on-phone{
             @media (max-width: $breakpoint-672){
-                width: 100%;
+                width: 100% !important;
             }             
         }
 

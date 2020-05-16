@@ -299,20 +299,21 @@
 
     &.next{
         .case-popup{
+            right: 0;
             .popup-container{
                 @media (max-width: $breakpoint-1000) {
-                    transform: translate(-5.5rem, calc(-100% - 0.5rem));
+                    transform: translate(calc(-100% + 1.25rem), calc(-100% - 0.5rem));
                 }
                 &::before{
                     @media (max-width: $breakpoint-1000) {
                         left: auto;
-                        right: 5rem;
+                        right: 3.5rem;
                     }
                 }
                 &::after{
                     @media (max-width: $breakpoint-1000) {
                         left: auto;
-                        right: 5rem;
+                        right: 3.5rem;
                     }
                 }
             }

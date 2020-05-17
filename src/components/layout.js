@@ -4,6 +4,7 @@ import "../styles/index.scss";
 import "../styles/template.scss";
 import Nav from "./Nav/nav";
 import Menu from "./Menu/menu";
+import Info from "./Info/info";
 import { useGlobalState } from '../state';
 
 const Layout = ({ children }) => {
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
           {children}
         </div>
       </main>
+      <Info />
     </div>
   )
 }

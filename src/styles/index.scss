@@ -178,7 +178,7 @@ button{
     @media (hover: hover) {
         &:hover{
             .tooltip{
-                display: block;
+                opacity: 1;
             }
         }
     }
@@ -278,6 +278,23 @@ button{
                         color: $text-color-light;
                     }
                 }
+            }
+        }
+
+        .info-container{
+            &.show{
+                svg{
+                    path{
+                        fill: $info-icon-light !important;
+                    }
+                }
+            }
+            .info-button{
+                background: $info-menu-light;
+            }
+            .info-inner{
+                background: $info-menu-light;
+                box-shadow: $modal-shadow-light;
             }
         }
 

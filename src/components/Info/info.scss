@@ -1,0 +1,61 @@
+@import "../../styles/media-queries.scss";
+
+.info-container{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: $info-z;
+
+    &.show{
+        .info-button{
+            .info-tip{
+                opacity: 0;
+            }
+            svg{
+                path{
+                    fill: $info-icon !important;
+                }
+            }
+        }
+        .info-inner{
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(calc(-100% - 2.5rem));
+        }
+    }
+
+    .icon{
+        &.info-button{
+            background: $background-color-opaque;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.325rem 0.0625rem 0.325rem;
+        }
+    }
+
+    .info-inner{
+        background: $info-menu;
+        border-radius: 0.25rem;
+        box-shadow: $modal-shadow;
+        min-width: 20rem;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        transform: translateY(calc(-100% - 0rem));
+        transition: $transition-primary;
+
+        .info-qa{  
+            padding: 0.75rem;
+
+            .question{
+                font-weight: 600;
+                line-height: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .answer{
+                line-height: 1.325rem;
+            }
+        }
+    }
+
+}

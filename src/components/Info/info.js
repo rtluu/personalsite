@@ -46,7 +46,7 @@ const Info = (props) => {
                 </div>
                 <div className="info-qa">
                     <h4 className="question">Why does this look familiar?</h4>
-                    <h5 className="answer">The design and features are inspired by Dropbox Paper. I use Paper daily to organize my ideas and document my process. It has an intuitive, seamless system for capturing and conveying info. So, I challenged myself to replicate that presentation for my portfolio.</h5>
+                    <h5 className="answer">The design and features are inspired by Dropbox Paper. It's my go to for organizing my ideas and documenting my process. I appreciate it's intuitive system for capturing and conveying info - so, I challenged myself to replicate that look and feel for my portfolio.</h5>
                 </div>
                 <div className="info-qa">
                     <h4 className="question">How was it built?</h4>

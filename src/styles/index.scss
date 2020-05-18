@@ -294,6 +294,27 @@ button{
             .info-inner{
                 background: $info-menu-light;
                 box-shadow: $modal-shadow-light;
+
+                .info-header{
+                    border-color: $border-color-light;
+                    color: $text-color-light;
+                }
+
+                .info-qa{
+                    .question{
+                        color: $text-color-light;
+                    }
+
+                    .answer{
+                        color: $text-color-secondary-light;
+                    }
+                }
+
+                .info-footer{
+                    .copyright{
+                        color: $copyright-color-light;
+                    }
+                }
             }
         }
 

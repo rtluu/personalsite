@@ -18,6 +18,7 @@ const Player = (props) => {
                         controls={true}
                         onStart={setReady}
                         loop={true}
+                        muted={true}
                         playsinline={true}
                         playing
                         rel={0}

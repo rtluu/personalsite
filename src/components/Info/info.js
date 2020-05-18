@@ -14,7 +14,7 @@ function useInfoActive(ref) {
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
                 console.log('info closed');
-                infoSwitch(!infoOpen);
+                infoSwitch(false);
             }
         }
         // Bind the event listener

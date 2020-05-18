@@ -296,24 +296,26 @@
 
 .case-item{
     display: inline-block;
+    position: relative;
 
     &.next{
         .case-popup{
-            right: 0;
+            transform: translate(calc(-100% + 3.5rem), calc(-100% - 0.5rem));
             .popup-container{
                 @media (max-width: $breakpoint-1000) {
-                    transform: translate(calc(-100% + 1.25rem), calc(-100% - 0.5rem));
+                    right: 0;
+                    transform: translate(33.33%, calc(-100% - 0.5rem));
                 }
                 &::before{
                     @media (max-width: $breakpoint-1000) {
                         left: auto;
-                        right: 3.5rem;
+                        right: 4rem;
                     }
                 }
                 &::after{
                     @media (max-width: $breakpoint-1000) {
                         left: auto;
-                        right: 3.5rem;
+                        right: 4rem;
                     }
                 }
             }

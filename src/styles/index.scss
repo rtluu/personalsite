@@ -67,7 +67,6 @@ h3{
     font-family: AtlasGrotesk-Medium;
     font-size: 1.25rem;
     line-height: 2rem;
-    margin-bottom: 1.5rem;
 }
 
 h5{
@@ -178,7 +177,7 @@ button{
     @media (hover: hover) {
         &:hover{
             .tooltip{
-                display: block;
+                opacity: 1;
             }
         }
     }
@@ -278,6 +277,23 @@ button{
                         color: $text-color-light;
                     }
                 }
+            }
+        }
+
+        .info-container{
+            &.show{
+                svg{
+                    path{
+                        fill: $info-icon-light !important;
+                    }
+                }
+            }
+            .info-button{
+                background: $info-menu-light;
+            }
+            .info-inner{
+                background: $info-menu-light;
+                box-shadow: $modal-shadow-light;
             }
         }
 

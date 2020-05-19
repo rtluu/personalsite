@@ -18,9 +18,10 @@ const Player = (props) => {
                         controls={true}
                         onStart={setReady}
                         loop={true}
+                        volume={0}
                         muted={true}
                         playsinline={true}
-                        playing
+                        playing={true}
                         rel={0}
                     />
                 </div>

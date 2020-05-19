@@ -29,7 +29,7 @@ const Lightbox = (props) => {
 
     function closeLightbox() {
         setVideoExpanded(false);
-        update(!value);
+        update(false);
     }
 
     var currentImage = props.currentImage;

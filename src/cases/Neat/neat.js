@@ -236,7 +236,7 @@ const Neat = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredTen | videoExpanded & imageNumber === 10 ? <Player ytid="Royezt5RYpw" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox10}>
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />
@@ -250,7 +250,7 @@ const Neat = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredEleven | videoExpanded & imageNumber === 11 ? <Player ytid="HW5FpK13uzg" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox11}>
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />

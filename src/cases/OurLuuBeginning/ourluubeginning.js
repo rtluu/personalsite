@@ -174,7 +174,7 @@ const OurLuuBeginning = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="kEwzQi0bgc4" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox5}>
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />
@@ -188,7 +188,7 @@ const OurLuuBeginning = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="EHQywvZ6ILc" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox6}>
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />

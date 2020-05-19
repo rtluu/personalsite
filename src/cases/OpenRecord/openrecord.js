@@ -75,7 +75,7 @@ const OpenRecord = () => {
                         <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
                             <Player ytid="558t8VG-zzw" />
                             {!videoExpanded && <div className="video-engage-instructions">
-                                <span className="play-button">
+                                <span className="play-button" onClick={openLightbox1}>
                                     <PlayIcon />
                                 </span>
                                 <div className="loading-spinner" />
@@ -216,7 +216,7 @@ const OpenRecord = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox8}>
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />
@@ -268,7 +268,7 @@ const OpenRecord = () => {
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredTwelve | videoExpanded & imageNumber === 12 ? <Player ytid="1PlqPOvsyA0" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button">
+                                                    <span className="play-button" onClick={openLightbox12} >
                                                         <PlayIcon />
                                                     </span>
                                                     <div className="loading-spinner" />

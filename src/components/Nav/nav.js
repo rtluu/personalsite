@@ -9,6 +9,7 @@ import LightModeIcon from "../../icons/light-mode-icon.inline.svg";
 import Tooltip from "../Tooltip/tooltip";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { BrowserView } from 'react-device-detect';
 
 import { setLightMode, useGlobalState } from '../../state';
 
@@ -22,6 +23,12 @@ const Nav = () => {
     const [pageLink, setPageLink] = useState('https://www.ryanluu.com');
     const [copied, setCopied] = useState(false);
     const [toastShow, setToastShow] = useState(false);
+
+    function closeMenu() {
+        if (window.innerWidth < 905) {
+            update(false);
+        }
+    }
 
 
     useEffect(() => {
@@ -67,14 +74,16 @@ const Nav = () => {
         <nav className={`nav ${value ? "open" : ""}`}>
             <div className="nav-inner-box left">
                 <div className={`button-box ${location.pathname === "/" ? "home" : ""}`}>
-                    {location.pathname !== "/" && (
-                        <Link to="/">
-                            <button className="icon back-arrow" onClick={() => window.history.back()}>
-                                <BackIcon />
-                                <Tooltip text='Back to previous page' class='back-tip left-point' />
-                            </button>
-                        </Link>
-                    )}
+                    <BrowserView>
+                        {location.pathname !== "/" && (
+                            <Link to="/">
+                                <button className="icon back-arrow" onClick={() => window.history.back()}>
+                                    <BackIcon />
+                                    <Tooltip text='Back to previous page' class='back-tip left-point' />
+                                </button>
+                            </Link>
+                        )}
+                    </BrowserView>
                     <button className='icon sidebar' onClick={() => update(!value)}>
                         <SidebarIcon />
                         <Tooltip text={`${value ? "Close" : "Open"} folder view`} class='folder-tip left-point' />
@@ -90,7 +99,7 @@ const Nav = () => {
             <div className="nav-inner-box right">
                 <div className="button-box">
                     <CopyToClipboard text={pageLink} onCopy={(pageLink, setPageLink)} >
-                        <button className="icon back-arrow" onClick={() => setToastShow(!toastShow)}>
+                        <button className="icon copy-link" onClick={() => setToastShow(!toastShow)}>
                             <LinkIcon />
                             <Tooltip text='Copy link' class='link-tip up-point' />
                         </button>

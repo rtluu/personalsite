@@ -16,8 +16,6 @@ const Menu = () => {
     function closeMenu() {
         if (window.innerWidth < 905) {
             update(false);
-        } else {
-            null
         }
     }
 

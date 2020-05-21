@@ -30,12 +30,14 @@ const Lightbox = (props) => {
     function closeLightbox() {
         setVideoExpanded(false);
         update(false);
+        console.log('closeLightbox');
     }
 
     var currentImage = props.currentImage;
 
     function nextImage() {
         setVideoExpanded(false);
+        console.log('showImageNext');
         if (imageNumber === imageGallery) {
             setImageNumber(1);
         } else {
@@ -44,6 +46,7 @@ const Lightbox = (props) => {
     }
     function prevImage() {
         setVideoExpanded(false);
+        console.log('showImagePrev');
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
         } else {

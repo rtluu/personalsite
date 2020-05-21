@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useCallback } from 'react';
 import "../../styles/lightbox.scss";
 import CloseIcon from "../../icons/close-icon.inline.svg";
 import BackIcon from "../../icons/back-icon.inline.svg";
@@ -25,31 +25,30 @@ const Lightbox = (props) => {
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
     const [imageGallery] = useGlobalState('imageGallery');
-    const [videoExpanded] = useGlobalState('videoExpanded');
+    const [videoExpanded, setVideoExpanded] = useGlobalState('videoExpanded');
 
-    function closeLightbox() {
-        console.log(setVideoExpanded(false));
+    const closeLightbox = useCallback(async () => {
+        setVideoExpanded(false);
         update(false);
-    }
+    }, [videoExpanded])
 
     var currentImage = props.currentImage;
 
-    function nextImage() {
-        console.log(setVideoExpanded(false));
+    const nextImage = useCallback(async () => {
         if (imageNumber === imageGallery) {
             setImageNumber(1);
         } else {
             setImageNumber(imageNumber + 1);
         }
-    }
-    function prevImage() {
-        console.log(setVideoExpanded(false));
+    }, [videoExpanded])
+
+    const prevImage = useCallback(async () => {
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
         } else {
             setImageNumber(imageNumber - 1);
         }
-    }
+    }, [videoExpanded])
 
     useEffect(() => {
         const handleKeyDown = event => {

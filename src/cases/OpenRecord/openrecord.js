@@ -28,7 +28,7 @@ const OpenRecord = () => {
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
     setImageGallery(13);
-    function openLightbox1() { setImageNumber(1); update(!value); setVideoExpanded(true); }
+    function openLightbox1() { setImageNumber(1); update(!value); console.log(setVideoExpanded(true)); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
     function openLightbox4() { setImageNumber(4); update(!value); }

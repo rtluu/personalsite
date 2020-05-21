@@ -27,30 +27,29 @@ const Lightbox = (props) => {
     const [imageGallery] = useGlobalState('imageGallery');
     const [videoExpanded, setVideoExpanded] = useGlobalState('videoExpanded');
 
-    const closeLightbox = useCallback(async () => {
+    function closeLightbox() {
         setVideoExpanded(false);
-        update(false);
-    }, [videoExpanded])
+        update(!value);
+    }
 
     var currentImage = props.currentImage;
 
-    const nextImage = useCallback(async () => {
+    function nextImage() {
         setVideoExpanded(false);
         if (imageNumber === imageGallery) {
             setImageNumber(1);
         } else {
             setImageNumber(imageNumber + 1);
         }
-    }, [videoExpanded])
-
-    const prevImage = useCallback(async () => {
+    }
+    function prevImage() {
         setVideoExpanded(false);
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
         } else {
             setImageNumber(imageNumber - 1);
         }
-    }, [videoExpanded])
+    }
 
     useEffect(() => {
         const handleKeyDown = event => {

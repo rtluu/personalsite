@@ -23,7 +23,6 @@ import Popup from "../../components/Popup/popup";
 import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
-
 const OpenRecord = () => {
     //Lightbox
     const [value, update] = useGlobalState('lightboxActive');

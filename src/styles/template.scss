@@ -107,11 +107,24 @@
                         min-width: 0;
                         transition: $transition-primary;
 
+                        //For adjusting video captions
+                        &.video-wrapper{
+                            .caption{
+                                margin-top: 0;
+                            }
+                        }
+
                         &.flex-humble-team{
                             flex: 1.506;
                         }
                         &.flex-humble-cta{
                             flex: 1.84;
+                        }
+                        &.flex-neat-services{
+                            flex: 1.025;
+                        }
+                        &.flex-neat-portfolio{
+                            flex: 0.99;
                         }
                         &.flex-olb-hero{
                             flex: 1.84;
@@ -141,28 +154,28 @@
                             flex: 1.25;
                         }
                         &.flex-neat-mobile{
-                            flex: 0.4;
+                            flex: 0.42;
                         }
                         &.flex-openrecord-user-interviews{
-                            flex: 1.22;
+                            flex: 1.02;
                         }
                         &.flex-openrecord-technical-ia{
-                            flex: 1.2;
+                            flex: 1;
                         }
                         &.flex-openrecord-landing-page{
-                            flex: 0.75;
+                            flex: 0.76;
                         }
                         &.flex-openrecord-collection-fire{
                             flex: 1.85;
                         }
                         &.flex-openrecord-collection-mobile{
-                            flex: 0.56;
+                            flex: 0.57;
                         }
                         &.flex-openrecord-working-design{
                             flex: 1.545;
                         }
                         &.flex-openrecord-live-mobile{
-                            flex: 0.455;
+                            flex: 0.46;
                         }
                         &.flex-openrecord-homepage{
                             flex: 1.125;
@@ -174,7 +187,7 @@
                             flex: 1.6;
                         }
                         &.flex-openrecord-mobile-queue{
-                            flex: 0.428;
+                            flex: 0.435;
                         }
                     }
                 }
@@ -185,7 +198,6 @@
 }
 
 .image-button{
-    height: 100%;
     margin: -0.0625rem;
     width: 100%;
     cursor: zoom-in;

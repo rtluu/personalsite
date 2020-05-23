@@ -18,6 +18,7 @@ import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
+import Caption from "../../components/Caption/caption";
 import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
@@ -148,16 +149,18 @@ const Neat = () => {
                         </ul>
                         <p>Those learnings gave us the confidence to move into user flow mapping and information architecture.</p>
                         <span className="gallery">
-                            <div className="gallery-outer-wrapper second-gallery-row">
+                            <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper flex-neat-user-interview">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <NeatUserInterview />
+                                            <Caption caption="user interview" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-user-flow">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <NeatUserFlow />
+                                            <Caption caption="interaction mapping" />
                                         </button>
                                     </div>
                                 </div>
@@ -180,16 +183,19 @@ const Neat = () => {
                                     <div className="gallery-item-wrapper flex-neat-wireframe-listview">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <NeatWireframeListView />
+                                            <Caption caption="wireframe list view" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-wireframe-login">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <NeatWireframeLogin />
+                                            <Caption caption="wireframe login" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-wireframe-mobile">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <NeatWireframeMobile />
+                                            <Caption caption="wireframe collection" />
                                         </button>
                                     </div>
                                 </div>
@@ -201,16 +207,19 @@ const Neat = () => {
                                     <div className="gallery-item-wrapper flex-neat-grid">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <NeatGrid />
+                                            <Caption caption="grid" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-listview">
                                         <button onClick={openLightbox8} className="image-button" type="button">
                                             <NeatListView />
+                                            <Caption caption="list view" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-mobile">
                                         <button onClick={openLightbox9} className="image-button" type="button">
                                             <NeatMobile />
+                                            <Caption caption="mobile" />
                                         </button>
                                     </div>
                                 </div>
@@ -243,6 +252,7 @@ const Neat = () => {
                                                 </div>}
                                             </div>
                                         </button>
+                                        <Caption caption="add link to collection" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox11} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEleven(true)} onMouseLeave={() => setIsHoveredEleven(false)}>
@@ -257,6 +267,7 @@ const Neat = () => {
                                                 </div>}
                                             </div>
                                         </button>
+                                        <Caption caption="embed rich media" />
                                     </div>
                                 </div>
                             </div>

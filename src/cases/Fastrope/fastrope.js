@@ -10,6 +10,7 @@ import FastropeAnchors from "./anchorsFastrope";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
+import Caption from "../../components/Caption/caption";
 import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
 
@@ -107,11 +108,13 @@ const Fastrope = () => {
                                     <div className="gallery-item-wrapper ">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <FastropeTeam />
+                                            <Caption caption="team" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <FastropeContact />
+                                            <Caption caption="contact page" />
                                         </button>
                                     </div>
                                 </div>
@@ -120,14 +123,16 @@ const Fastrope = () => {
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper ">
+                                    <div className="gallery-item-wrapper flex-neat-services">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <FastropeServices />
+                                            <Caption caption="services" />
                                         </button>
                                     </div>
-                                    <div className="gallery-item-wrapper">
+                                    <div className="gallery-item-wrapper flex-neat-portfolio">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <FastropePortfolio />
+                                            <Caption caption="client work" />
                                         </button>
                                     </div>
                                 </div>

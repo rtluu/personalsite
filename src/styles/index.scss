@@ -396,6 +396,12 @@ button{
             }
         }
 
+        .caption{
+            .caption-text{
+                color: $text-color-secondary-light;
+            }
+        }
+
         .popup-container{
             &::before{
                 border-top-color: $popup-text-background-light;
@@ -436,7 +442,7 @@ button{
 
             @media (max-width: $breakpoint-phone) {
                 margin: 4.5rem auto 7.5rem;
-                padding: 2.5rem 1.75rem;
+                padding: 2.5rem 1.25rem;
             }
 
             &.menu-open{
@@ -463,13 +469,4 @@ button{
     }
 }
 
-.caption{
-    font-style: italic;
-    margin: 0.625rem auto;
-    text-align: center;
-}
 
-.caption-emoji{
-    font-size: 1rem;
-    font-style: normal;
-}

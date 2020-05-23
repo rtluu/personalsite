@@ -20,6 +20,7 @@ import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
+import Caption from "../../components/Caption/caption";
 import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
@@ -143,13 +144,14 @@ const OpenRecord = () => {
                         <h2 id="research">Research</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>At my job, we had a Slack channel where teammates would share music in a weekly playlist. These users were a perfect crew to ask about their music collection habits, so that’s exactly what we did. Those learnings translated to our first interaction mapping and technical information architecture (IA).</p>
+                        <p>When I worked at Ad Hoc, the team had a Slack channel where we'd share music in themed weekly playlist. It was the perfect crew to ask about their music collection habits, so that’s what we did. Those discussions drove our initial user flows and information architecture.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <OpenRecordDiscovery />
+                                            <Caption caption="weekly slack thread" />
                                         </button>
                                     </div>
                                 </div>
@@ -161,11 +163,13 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-user-interviews">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <OpenRecordUserInterviews />
+                                            <Caption caption="brainstorming development approaches" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-technical-ia">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <OpenRecordTechnicalIA />
+                                            <Caption caption="whiteboarding" />
                                         </button>
                                     </div>
                                 </div>
@@ -188,16 +192,19 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-landing-page">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <OpenRecordLandingPage />
+                                            <Caption caption="homepage mock" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-collection-fire">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <OpenRecordCollectionFire />
+                                            <Caption caption="collection mock" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-collection-mobile">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <OpenRecordCollectionMobile />
+                                            <Caption caption="mobile mock" />
                                         </button>
                                     </div>
                                 </div>
@@ -207,25 +214,29 @@ const OpenRecord = () => {
                     <div className="template-text-body">
                         <p>After some tweaks and functionality slimming we had a working experience that enabled users to create collections with songs from Soundcloud and YouTube.</p>
                         <span className="gallery">
-                            <div className="gallery-outer-wrapper second-gallery-row">
+                            <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-openrecord-working-design">
+                                    <div className="gallery-item-wrapper video-wrapper flex-openrecord-working-design">
                                         <button onClick={openLightbox8} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
-                                            <OpenRecordWorkingDesign />
-                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
-                                                {!videoExpanded && <div className="video-engage-instructions">
-                                                    <span className="play-button" onClick={openLightbox8}>
-                                                        <PlayIcon />
-                                                    </span>
-                                                    <div className="loading-spinner" />
-                                                </div>}
+                                            <div className="video-inner">
+                                                <OpenRecordWorkingDesign />
+                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                    {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
+                                                    {!videoExpanded && <div className="video-engage-instructions">
+                                                        <span className="play-button" onClick={openLightbox8}>
+                                                            <PlayIcon />
+                                                        </span>
+                                                        <div className="loading-spinner" />
+                                                    </div>}
+                                                </div>
                                             </div>
                                         </button>
+                                        <Caption caption="local version of collection" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-live-mobile">
                                         <button onClick={openLightbox9} className="image-button" type="button">
                                             <OpenRecordLiveMobile />
+                                            <Caption caption="local mobile web" />
                                         </button>
                                     </div>
                                 </div>
@@ -243,16 +254,18 @@ const OpenRecord = () => {
                     <div className="template-text-body">
                         <p>Throughout development, we sought feedback from friends and teammates and work. Over time we refined the messaging and user experience to help users discover other collections and make each song stand out during playback with dynamic colored backgrounds.</p>
                         <span className="gallery">
-                            <div className="gallery-outer-wrapper second-gallery-row">
+                            <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper flex-openrecord-homepage">
                                         <button onClick={openLightbox10} className="image-button" type="button">
                                             <OpenRecordHomepage />
+                                            <Caption caption="homepage" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-feedback">
                                         <button onClick={openLightbox11} className="image-button" type="button">
                                             <OpenRecordFeedback />
+                                            <Caption caption="about page" />
                                         </button>
                                     </div>
                                 </div>
@@ -261,7 +274,7 @@ const OpenRecord = () => {
                         <span className="gallery">
                             <div className="gallery-outer-wrapper second-gallery-row">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-openrecord-add-song">
+                                    <div className="gallery-item-wrapper video-wrapper flex-openrecord-add-song">
                                         <button onClick={openLightbox12} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTwelve(true)} onMouseLeave={() => setIsHoveredTwelve(false)}>
                                             <OpenRecordAddSong />
                                             <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
@@ -274,10 +287,12 @@ const OpenRecord = () => {
                                                 </div>}
                                             </div>
                                         </button>
+                                        <Caption caption="collection demo" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-mobile-queue">
                                         <button onClick={openLightbox13} className="image-button" type="button">
                                             <OpenRecordMobileQueue />
+                                            <Caption caption="collection mobile" />
                                         </button>
                                     </div>
                                 </div>

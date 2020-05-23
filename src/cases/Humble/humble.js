@@ -10,6 +10,7 @@ import HumbleCTA from "./images/HumbleCTA";
 import HumbleAnchors from "./anchorsHumble";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
+import Caption from "../../components/Caption/caption";
 import Popup from "../../components/Popup/popup";
 import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
@@ -109,16 +110,19 @@ const Humble = () => {
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <HumbleAbout />
+                                            <Caption caption="hero message" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <HumbleApproach />
+                                            <Caption caption="investment approach" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <HumblePortfolio />
+                                            <Caption caption="porfolio companies" />
                                         </button>
                                     </div>
                                 </div>
@@ -130,11 +134,13 @@ const Humble = () => {
                                     <div className="gallery-item-wrapper flex-humble-team">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <HumbleTeam />
+                                            <Caption caption="team" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-humble-cta">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <HumbleCTA />
+                                            <Caption caption="call to action" />
                                         </button>
                                     </div>
                                 </div>

@@ -15,6 +15,7 @@ import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
+import Caption from "../../components/Caption/caption";
 import Player from "../../components/Player/player";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
@@ -128,11 +129,13 @@ const OurLuuBeginning = () => {
                                     <div className="gallery-item-wrapper flex-olb-hero">
                                         <button onClick={openLightbox1} className="image-button" type="button">
                                             <HeroOLB />
+                                            <Caption caption="hero banner" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-olb-footer">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <OLBFooter />
+                                            <Caption caption="home footer" />
                                         </button>
                                     </div>
                                 </div>
@@ -144,11 +147,13 @@ const OurLuuBeginning = () => {
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <OLBSchedule />
+                                            <Caption caption="wedding schedule" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <OLBAccommodations />
+                                            <Caption caption="accommodations" />
                                         </button>
                                     </div>
                                 </div>
@@ -181,6 +186,7 @@ const OurLuuBeginning = () => {
                                                 </div>}
                                             </div>
                                         </button>
+                                        <Caption caption="proposal page" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
@@ -195,6 +201,7 @@ const OurLuuBeginning = () => {
                                                 </div>}
                                             </div>
                                         </button>
+                                        <Caption caption="proposal pics" />
                                     </div>
                                 </div>
                             </div>
@@ -205,11 +212,13 @@ const OurLuuBeginning = () => {
                                     <div className="gallery-item-wrapper ">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <OLBGrid />
+                                            <Caption caption="picture gallery" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox8} className="image-button" type="button">
                                             <OLBExpanded />
+                                            <Caption caption="expanded picture" />
                                         </button>
                                     </div>
                                 </div>

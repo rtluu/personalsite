@@ -2,12 +2,8 @@
 
 .popup-container{
     position: absolute;
-    transform: translate(-33.33%, calc(-100% - 0.5rem));
+    transform: translateY(calc(-100% - 0.75rem));
     z-index: $popup-z;
-
-    @media (max-width: $breakpoint-1000) {
-        transform: translate(-1.5rem, calc(-100% - 0.5rem));
-    }
 
     &::before{
         border-top: 0;

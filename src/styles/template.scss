@@ -304,6 +304,20 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+
+    &.too-wide{
+        @media (max-width: $breakpoint-phone) {
+            flex-direction: column;
+        } 
+        .case-item{
+            &:nth-child(2){
+                @media (max-width: $breakpoint-phone) {
+                    margin-top: 0.75rem;
+                    text-align: right;
+                } 
+            }
+        }
+    }
 }
 
 .case-item{
@@ -312,23 +326,21 @@
 
     &.next{
         .case-popup{
-            transform: translate(calc(-100% + 3.5rem), calc(-100% - 0.5rem));
             .popup-container{
+                left: auto;
+                right: -1rem;
+               
                 @media (max-width: $breakpoint-1000) {
-                    right: 0;
-                    transform: translate(33.33%, calc(-100% - 0.5rem));
+                    right: -0.5rem;
                 }
+
                 &::before{
-                    @media (max-width: $breakpoint-1000) {
-                        left: auto;
-                        right: 4rem;
-                    }
+                    left: auto;
+                    right: 3rem;
                 }
                 &::after{
-                    @media (max-width: $breakpoint-1000) {
-                        left: auto;
-                        right: 4rem;
-                    }
+                    left: auto;
+                    right: 3rem;
                 }
             }
         }
@@ -346,10 +358,27 @@
     }
 
     .case-popup{
-        position: absolute;
+        position: relative;
         opacity: 0;
         pointer-events: none;
         transition: $transition-primary;
+
+        .popup-container{
+            left: -1rem;
+            
+              @media (max-width: $breakpoint-1000) {
+                  left: -0.5rem;
+              }
+
+              &::before{
+                  left: 3rem;
+                  right: auto;
+              }
+              &::after{
+                  left: 3rem;
+                  right: auto;
+              }
+        }
     }
 
     .case-arrow{

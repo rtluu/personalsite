@@ -10,9 +10,10 @@ import { useGlobalState } from '../state';
 const Layout = ({ children }) => {
   const [value] = useGlobalState('menuActive');
   const [lightMode] = useGlobalState('lightMode');
+  const [lightboxActive] = useGlobalState('lightboxActive');
 
   return (
-    <div className={`layout ${value ? "menu-open" : ""} ${lightMode ? "light-mode" : ""}`}>
+    <div className={`layout ${value ? "menu-open" : ""} ${lightMode ? "light-mode" : ""} ${lightboxActive ? "style=overflow: hidden;" : ''}`}>
       <Menu />
       <main className="main-container">
         <Nav />

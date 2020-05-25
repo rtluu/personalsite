@@ -30,7 +30,7 @@ $loading-spinner-color: rgba(43,51,63,1);
 $loading-spinner-opaque: rgba(43,51,63,0.7);
 $loading-spinner-white: #FFFFFF;
 $modal-shadow: 0 0 0 1px #3f4755, 0 0 0 2px rgba(0, 0, 0, 0.5), 0px 8px 13px rgba(14, 19, 27, 0.32);
-$overlay-background: rgba(14,19,27,0.95);
+$overlay-background: rgba(14,19,27,0.99);
 $paper-color: #0070e0;
 $play-button: #0F1D74;
 $popup-text-background: #111418;
@@ -68,9 +68,10 @@ $text-color-light: #1b2733;
 $text-color-secondary-light: #637282;
 
 //Z-Index
-$expanded-player-container-z: 25;
-$expanded-video-z: 24;
-$lightbox-header-z: 23;
+$expanded-player-container-z: 26;
+$expanded-video-z: 25;
+$lightbox-header-z: 24;
+$lightbox-mobile-buttons: 23;
 $lightbox-player-container-z: 22;
 $lightbox-loading-spinner-z: 21;
 $lightbox-media-box-z: 20;

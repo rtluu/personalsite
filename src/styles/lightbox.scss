@@ -23,6 +23,16 @@
         }
     }
 
+    &.mobile{
+        .light-box-header{
+            position: fixed;
+        }
+        
+        .lightbox-item{
+            top: 0;
+        }
+    }
+
     .invisible-close{
         display: none;
         position: fixed;
@@ -39,7 +49,7 @@
         flex-direction: row;
         justify-content: flex-start;
         height: 4rem;
-        position: relative;
+        position: absolute;
         width: 100%;
         z-index: $lightbox-header-z;
         pointer-events: none;
@@ -48,35 +58,65 @@
             box-sizing: content-box;
             height: 2rem;
             margin-top: 0.125rem;
-            width: 3.75rem;
+            width: 3rem;
             pointer-events: all;
         }
+    }
+
+    .web-button-box{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mobile-button-box{
+        bottom: 0;
+        display: flex; 
+        position: fixed;
+        align-items: center;
+        margin: 1.25rem 0;
+        justify-content: center;
+        width: 100%;
+        z-index: $lightbox-mobile-buttons;
+
+        .close{
+            background: $overlay-background;
+            left: 1.5rem;
+            padding: 0.625rem;
+            position: absolute;
+        }
+
 
         .gallery-arrows{
-            align-items: center;
-            border-left: 0.0625rem solid $border-color;
-            display: flex;
-            flex-direction: row;
-            height: 2rem;
-            pointer-events: all;
-
-            .arrow{
-                align-items: center;
-                display: flex;
-                height: 2rem;
-                justify-content: center;
-                width: 2.5rem;
-            }
-
-            .gallery-counter{
-                margin: 0.125rem 0.825rem;
-            }
-        }  
+            background: $overlay-background;
+            padding: 0.5rem;
+            border-left: 0;
+        }
     }
+
+    .gallery-arrows{
+        align-items: center;
+        border-left: 0.0625rem solid $border-color;
+        display: flex;
+        flex-direction: row;
+        height: 2rem;
+        pointer-events: all;
+
+        .arrow{
+            align-items: center;
+            display: flex;
+            height: 2rem;
+            justify-content: center;
+            width: 2.5rem;
+        }
+
+        .gallery-counter{
+            margin: 0.125rem 0.825rem;
+        }
+    }  
 
     .lightbox-item{
         align-items: center;
-        position: relative;
+        position: absolute;
         box-sizing: border-box;
         margin: 1rem 1rem 1rem;
         display: flex;
@@ -84,13 +124,22 @@
         flex: 1 0;
         justify-content: center;
         transition: $transition-margin;
-        height: calc(100vh - 16px - 16px - 64px);
+        height: calc(100vh - 6rem);
+        bottom: 0;
         pointer-events: none;
+        width: calc(100% - 2rem);
         z-index: $lightbox-item-z;
+        
+        @media (max-width: $breakpoint-phone) {
+            height: calc(100vh - 4rem);
+            margin: 0;
+            width: 100%;
+        }
 
         .center-children{
             align-items: center;
             display: flex;
+            justify-content: center;
             position: relative;
             flex: 1 0;
             transition: $transition-primary;
@@ -100,7 +149,6 @@
                 height: 100%;
                 opacity: 1;
                 width: 100%;
-               
             }
 
             &.hide{
@@ -110,15 +158,16 @@
                 width: 0;
             }
 
-            &.center-children>*{
-                margin: auto;
-            }
 
             .lightbox-image-wrapper{
                 position: relative;
                 display: block;
                 margin: auto;
                 width: 100%;
+
+                &.headshot{
+                    width: 90%;
+                }
                     
                 .gatsby-image-wrapper{
                     width: 100%;

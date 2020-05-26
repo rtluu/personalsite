@@ -5,6 +5,7 @@ import "../styles/template.scss";
 import Nav from "./Nav/nav";
 import Menu from "./Menu/menu";
 import Info from "./Info/info";
+import Lightbox from "./Lightbox/lightbox";
 import { useGlobalState } from '../state';
 
 const Layout = ({ children }) => {
@@ -13,7 +14,7 @@ const Layout = ({ children }) => {
   const [lightboxActive] = useGlobalState('lightboxActive');
 
   return (
-    <div className={`layout ${value ? "menu-open" : ""} ${lightMode ? "light-mode" : ""} ${lightboxActive ? "style=overflow: hidden;" : ''}`}>
+    <div className={`layout ${value ? "menu-open" : ""} ${lightMode ? "light-mode" : ""}`}>
       <Menu />
       <main className="main-container">
         <Nav />
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
         </div>
       </main>
       <Info />
+      <Lightbox />
     </div>
   )
 }

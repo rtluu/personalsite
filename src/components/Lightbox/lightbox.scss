@@ -1,40 +1,33 @@
-@import "./media-queries.scss";
+@import "../../styles/media-queries.scss";
 
 .lightbox{
     background: $overlay-background;
-    bottom: 0;
-    left: 0;
+    height: 3rem;
+    left: 50%;
     overflow-y: scroll;
     overflow-x: hidden;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: all;
     position: fixed;
-    right: 0;
-    top: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: $transition-primary;
+    width: 3rem;
+    z-index: $lightbox-z;
 
     &.show{
-        opacity: 1;
-        pointer-events: all;
-        z-index: $lightbox-z;
-
-        .invisible-close{
-            display: block;
-        }
-    }
-
-    &.mobile{
-        .light-box-header{
-            position: fixed;
-        }
-        
-        .lightbox-item{
-            top: 0;
-        }
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform: translate(0,0);
+        $transition-delay-lightbox: 0.2s;
     }
 
     .invisible-close{
-        display: none;
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
@@ -43,51 +36,69 @@
         z-index: $lightbox-invisible-close-z;
     }
 
+    .mobile-close{
+        position: fixed;
+        background: $overlay-background;
+        left: 1.5rem;
+        padding: 0.625rem;
+    }
+
     .lightbox-header{
         align-items: center;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         height: 4rem;
-        position: absolute;
+        position: fixed;
         width: 100%;
         z-index: $lightbox-header-z;
         pointer-events: none;
 
+        @media (max-width: $breakpoint-phone) {
+            height: 4rem;
+        }
+
         .close{
             box-sizing: content-box;
-            height: 2rem;
-            margin-top: 0.125rem;
+            height: 3rem;
             width: 3rem;
             pointer-events: all;
+
+            @media (max-width: $breakpoint-phone) {
+                margin-left: 0.5rem;
+            }
+        }
+
+        .lightbox-caption-wrapper{
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
         }
     }
 
-    .web-button-box{
-        display: flex;
-        flex-direction: row;
+    .browser-arrow-box{
+        @media (max-width: $breakpoint-phone) {
+           display: none;
+        }
     }
-
-    .mobile-button-box{
+    
+    .mobile-arrow-box{
         bottom: 0;
-        display: flex; 
+        display: none;
         position: fixed;
         align-items: center;
-        margin: 1.25rem 0;
+        padding: 1rem 0;
         justify-content: center;
         width: 100%;
-        z-index: $lightbox-mobile-buttons;
+        z-index: $lightbox-mobile-arrows;
 
-        .close{
-            background: $overlay-background;
-            left: 1.5rem;
-            padding: 0.625rem;
-            position: absolute;
-        }
-
+        @media (max-width: $breakpoint-phone) {
+            display: flex; 
+         }
 
         .gallery-arrows{
             background: $overlay-background;
+            border-radius: 0.125rem;
             padding: 0.5rem;
             border-left: 0;
         }
@@ -158,6 +169,13 @@
                 width: 0;
             }
 
+            .lightbox-caption{
+                position: fixed;
+                height: 4rem;
+                left: 50%;
+                right: 50%;
+                transform: translate(-50%, -50%);
+            }
 
             .lightbox-image-wrapper{
                 position: relative;

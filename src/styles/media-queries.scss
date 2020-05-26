@@ -68,10 +68,11 @@ $text-color-light: #1b2733;
 $text-color-secondary-light: #637282;
 
 //Z-Index
-$expanded-player-container-z: 26;
-$expanded-video-z: 25;
-$lightbox-header-z: 24;
-$lightbox-mobile-buttons: 23;
+
+$lightbox-header-z: 26;
+$lightbox-mobile-arrows: 25;
+$expanded-player-container-z: 24;
+$expanded-video-z: 23;
 $lightbox-player-container-z: 22;
 $lightbox-loading-spinner-z: 21;
 $lightbox-media-box-z: 20;
@@ -98,5 +99,6 @@ $image-z: 1;
 $transition-primary: 0.2s all;
 $transition-delay-player: 0.5s;
 $transition-delay-popup: 0.3s;
+$transition-delay-lightbox: 0.2s;
 $transition-margin: margin 200ms;
 $transition-img-max: max-width 200ms,max-height 200ms;

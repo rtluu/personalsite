@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import "../../styles/lightbox.scss";
+import React, { Fragment, useState, useEffect, useLayoutEffect } from 'react';
+import "./lightbox.scss";
 import { useLocation } from "@reach/router"
 import CloseIcon from "../../icons/close-icon.inline.svg";
 import BackIcon from "../../icons/back-icon.inline.svg";
@@ -7,12 +7,18 @@ import NextIcon from "../../icons/next-icon.inline.svg";
 import { setImageNumber, setVideoExpanded, useGlobalState, } from '../../state';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
-import LightboxAbout from "../About/lightboxAbout";
-import LightboxOLB from "../../cases/OurLuuBeginning/lightboxOurLuuBeginning";
-import LightboxFastrope from "../../cases/Fastrope/lightboxFastrope";
-import LightboxOpenRecord from "../../cases/OpenRecord/lightboxOpenRecord";
-import LightboxNeat from "../../cases/Neat/lightboxNeat";
-import LightboxHumble from "../../cases/Humble/lightboxHumble";
+import LightboxAboutImages from "../About/lightboxAboutImages";
+import LightboxAboutCaptions from "../About/lightboxAboutCaptions";
+import LightboxOLBImages from "../../cases/OurLuuBeginning/lightboxOurLuuBeginningImages";
+import LightboxOLBCaptions from "../../cases/OurLuuBeginning/lightboxOurLuuBeginningCaptions";
+import LightboxFastropeImages from "../../cases/Fastrope/lightboxFastropeImages";
+import LightboxFastropeCaptions from "../../cases/Fastrope/lightboxFastropeCaptions";
+import LightboxOpenRecordImages from "../../cases/OpenRecord/lightboxOpenRecordImages";
+import LightboxOpenRecordCaptions from "../../cases/OpenRecord/lightboxOpenRecordCaptions";
+import LightboxNeatImages from "../../cases/Neat/lightboxNeatImages";
+import LightboxNeatCaptions from "../../cases/Neat/lightboxNeatCaptions";
+import LightboxHumbleImages from "../../cases/Humble/lightboxHumbleImages";
+import LightboxHumbleCaptions from "../../cases/Humble/lightboxHumbleCaptions";
 
 
 const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
@@ -26,7 +32,7 @@ const Lightbox = (props) => {
 
     function closeLightbox() {
         setVideoExpanded(false);
-        update(!value);
+        update(false);
     }
 
     function nextImage() {
@@ -80,47 +86,59 @@ const Lightbox = (props) => {
 
     }, [])
 
+    // Hook
+    useLayoutEffect(() => {
+        if (value) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'scroll';
+        }
+    }, [value]); // Empty array ensures effect is only run on mount and unmount
+
+
     return (
         <Fragment>
-            <div className={`lightbox ${value ? "show" : ""} ${isMobile ? "mobile" : ""}`} >
-                <div className="invisible-close" onClick={closeLightbox} />
-                <div className="lightbox-header">
-                    <BrowserView>
-                        <div className="web-button-box">
-                            <button className="icon close" type="button" onClick={closeLightbox} >
-                                <CloseIcon />
-                            </button>
+            {value &&
+                <div className={`lightbox ${value ? "show" : "hide"} ${isMobile ? "mobile" : ""}`} >
+                    <div className="invisible-close" onClick={closeLightbox} />
+                    <div className="lightbox-header">
+                        <button className="icon close" type="button" onClick={closeLightbox} >
+                            <CloseIcon />
+                        </button>
+                        <div className="browser-arrow-box">
                             <div className="gallery-arrows">
                                 <button className="arrow" onClick={prevImage}><BackIcon /></button>
                                 <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
                                 <button className="arrow" onClick={nextImage}><NextIcon /></button>
                             </div>
                         </div>
-                    </BrowserView>
-                </div>
-                <span className="lightbox-item">
-                    <div className="center-children">
-                        {lightboxImages === "about" && <LightboxAbout />}
-                        {lightboxImages === "ourluubeginning" && <LightboxOLB />}
-                        {lightboxImages === "fastrope" && <LightboxFastrope />}
-                        {lightboxImages === "openrecord" && <LightboxOpenRecord />}
-                        {lightboxImages === "neat" && <LightboxNeat />}
-                        {lightboxImages === "humble" && <LightboxHumble />}
+                        {lightboxImages === "about" && <LightboxAboutCaptions />}
+                        {lightboxImages === "ourluubeginning" && <LightboxOLBCaptions />}
+                        {lightboxImages === "fastrope" && <LightboxFastropeCaptions />}
+                        {lightboxImages === "openrecord" && <LightboxOpenRecordCaptions />}
+                        {lightboxImages === "neat" && <LightboxNeatCaptions />}
+                        {lightboxImages === "humble" && <LightboxHumbleCaptions />}
                     </div>
-                </span>
-                <MobileView>
-                    <div className="mobile-button-box">
-                        <button className="icon close" type="button" onClick={closeLightbox} >
-                            <CloseIcon />
-                        </button>
+                    <span className="lightbox-item">
+                        <div className="center-children">
+                            {lightboxImages === "about" && <LightboxAboutImages />}
+                            {lightboxImages === "ourluubeginning" && <LightboxOLBImages />}
+                            {lightboxImages === "fastrope" && <LightboxFastropeImages />}
+                            {lightboxImages === "openrecord" && <LightboxOpenRecordImages />}
+                            {lightboxImages === "neat" && <LightboxNeatImages />}
+                            {lightboxImages === "humble" && <LightboxHumbleImages />}
+                        </div>
+                    </span>
+                    <div className="mobile-arrow-box">
                         <div className="gallery-arrows">
                             <button className="arrow" onClick={prevImage}><BackIcon /></button>
                             <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
                             <button className="arrow" onClick={nextImage}><NextIcon /></button>
                         </div>
                     </div>
-                </MobileView>
-            </div>
+                </div>
+            }
+
         </Fragment>
     );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Lightbox from "./lightboxFastrope"
 import HeroFastrope from "./images/HeroFastrope";
 import FastropeContact from "./images/FastropeContact";
 import FastropePortfolio from "./images/FastropePortfolio";
@@ -34,7 +33,6 @@ const Fastrope = () => {
 
     return (
         <div className="template-content">
-            <Lightbox currentImage={imageNumber} />
             <FastropeAnchors />
             <h1 id="fastrope">Fastrope Labs</h1>
             <div className="template-section">

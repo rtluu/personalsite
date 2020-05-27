@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import ReactPlayer from 'react-player';
-import Lightbox from "./lightboxNeat";
+import Lightbox from "../../components/Lightbox/lightbox";
 import HeroNeat from "./images/HeroNeat";
 import NeatAddLink from "./images/NeatAddLink";
 import NeatEmbed from "./images/NeatEmbed";
@@ -45,10 +45,6 @@ const Neat = () => {
     const [isHoveredTen, setIsHoveredTen] = React.useState();
     const [isHoveredEleven, setIsHoveredEleven] = React.useState();
     const [videoExpanded] = useGlobalState('videoExpanded');
-    function lightboxExpanded() {
-        setVideoExpanded(true);
-    }
-
 
     //Collapse
     const [backgroundCollapsed, setBackgroundCollapsed] = useState(false);
@@ -62,7 +58,6 @@ const Neat = () => {
 
     return (
         <div className="template-content">
-            <Lightbox currentImage={imageNumber} />
             <NeatAnchors />
             <h1 id="neat">Neat</h1>
             <div className="template-section">

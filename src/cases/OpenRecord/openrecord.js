@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import ReactPlayer from 'react-player';
-import Lightbox from "./lightboxOpenRecord";
 import HeroOpenRecord from "./images/HeroOpenRecord";
 import OpenRecordDiscovery from "./images/OpenRecordDiscovery";
 import OpenRecordUserInterviews from "./images/OpenRecordUserInterviews";
@@ -48,10 +47,6 @@ const OpenRecord = () => {
     const [isHoveredEight, setIsHoveredEight] = React.useState();
     const [isHoveredTwelve, setIsHoveredTwelve] = React.useState();
     const [videoExpanded] = useGlobalState('videoExpanded');
-    function lightboxExpanded() {
-        setVideoExpanded(true);
-    }
-
 
     //Collapse
     const [backgroundCollapsed, setBackgroundCollapsed] = useState(false);
@@ -65,7 +60,6 @@ const OpenRecord = () => {
 
     return (
         <div className="template-content">
-            <Lightbox currentImage={imageNumber} />
             <OpenRecordAnchors />
             <h1 id="openrecord">OpenRecord</h1>
             <div className="template-section">
@@ -259,13 +253,13 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-homepage">
                                         <button onClick={openLightbox10} className="image-button" type="button">
                                             <OpenRecordHomepage />
-                                            <Caption caption="homepage" />
+                                            <Caption caption="openrecord homepage" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-feedback">
                                         <button onClick={openLightbox11} className="image-button" type="button">
                                             <OpenRecordFeedback />
-                                            <Caption caption="about page" />
+                                            <Caption caption="openrecord about" />
                                         </button>
                                     </div>
                                 </div>

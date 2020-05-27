@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import ReactPlayer from 'react-player';
-import Lightbox from "./lightboxOurLuuBeginning";
 import HeroOLB from "./images/HeroOLB";
 import OLBAccommodations from "./images/OLBAccommodations";
 import OLBExpanded from "./images/OLBExpanded";
@@ -38,10 +37,6 @@ const OurLuuBeginning = () => {
     const [isHoveredFive, setIsHoveredFive] = React.useState();
     const [isHoveredSix, setIsHoveredSix] = React.useState();
     const [videoExpanded] = useGlobalState('videoExpanded');
-    // function lightboxExpanded() {
-    //     setVideoExpanded(true);
-    // }
-
 
     //Collapse
     const [objectiveCollapsed, setObjectiveCollapsed] = useState(false);
@@ -53,7 +48,6 @@ const OurLuuBeginning = () => {
 
     return (
         <div className="template-content">
-            <Lightbox currentImage={imageNumber} />
             <OLBAnchors />
             <h1 id="ourluubeginning">OurLuuBeginning</h1>
             <div className="template-section">
@@ -186,7 +180,7 @@ const OurLuuBeginning = () => {
                                                 </div>}
                                             </div>
                                         </button>
-                                        <Caption caption="proposal page" />
+                                        <Caption caption="proposal poem" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
@@ -212,13 +206,13 @@ const OurLuuBeginning = () => {
                                     <div className="gallery-item-wrapper ">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <OLBGrid />
-                                            <Caption caption="picture gallery" />
+                                            <Caption caption="image gallery" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox8} className="image-button" type="button">
                                             <OLBExpanded />
-                                            <Caption caption="expanded picture" />
+                                            <Caption caption="image expanded" />
                                         </button>
                                     </div>
                                 </div>

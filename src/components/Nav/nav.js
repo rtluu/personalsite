@@ -73,7 +73,7 @@ const Nav = () => {
     return (
         <nav className={`nav ${value ? "open" : ""}`}>
             <div className="nav-inner-box left">
-                <div className={`button-box ${location.pathname === "/" ? "home" : ""}`}>
+                <div className="button-box">
                     <BrowserView>
                         {location.pathname !== "/" && (
                             <Link to="/">

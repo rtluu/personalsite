@@ -224,6 +224,11 @@ button{
         }
     }
 
+    //Lightbox Active
+    &.lightbox-active{
+        overflow: hidden;
+    }
+
     //LightMode Styling
     &.light-mode{
         background-color: $background-color-light;

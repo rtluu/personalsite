@@ -12,7 +12,6 @@
             pointer-events: none;
             top: 0;
             z-index: $expanded-video-z;
-            transition: $transition-primary;
 
             .player-container{
                 align-items: center;
@@ -29,6 +28,10 @@
                 transform: translate(-50%, -50%);
                 width: calc(100% - 3.5rem);
                 z-index: $expanded-player-container-z;
+
+                @media (max-width: $breakpoint-phone) {
+                    width: 100%;
+                }
 
                 .player-holder{
                     padding-bottom: 55.5%;
@@ -134,10 +137,14 @@
         max-width: 76.5rem;
         left: 50%;
         overflow: hidden;
-        top: calc(50% + 32px);
+        top: calc(50% + 2rem);
         transform: translate(-50%, -50%);
         width: calc(100% - 3.5rem);
         z-index: $lightbox-media-box-z;
+
+        @media (max-width: $breakpoint-phone) {
+            width: 100%;
+        }
 
         .loading-spinner{
             visibility: visible;

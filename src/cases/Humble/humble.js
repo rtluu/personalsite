@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Lightbox from "./lightboxHumble"
 import HeroHumble from "./images/HeroHumble";
 import HumbleAbout from "./images/HumbleAbout";
 import HumbleApproach from "./images/HumbleApproach";
@@ -37,7 +36,6 @@ const Humble = () => {
 
     return (
         <div className="template-content">
-            <Lightbox currentImage={imageNumber} />
             <HumbleAnchors />
             <h1 id="humblevc">Humble Venture Capital</h1>
             <div className="template-section">
@@ -110,7 +108,7 @@ const Humble = () => {
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <HumbleAbout />
-                                            <Caption caption="hero message" />
+                                            <Caption caption="about message" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper">
@@ -134,7 +132,7 @@ const Humble = () => {
                                     <div className="gallery-item-wrapper flex-humble-team">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <HumbleTeam />
-                                            <Caption caption="team" />
+                                            <Caption caption="humble team" />
                                         </button>
                                     </div>
                                     <div className="gallery-item-wrapper flex-humble-cta">

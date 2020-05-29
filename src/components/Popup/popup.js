@@ -10,7 +10,8 @@ import NeatPopup from "../../cases/Neat/images/NeatPopup";
 import NeatPopupLight from "../../cases/Neat/images/NeatPopupLight";
 import OpenRecordPopup from "../../cases/OpenRecord/images/OpenRecordPopup";
 import OpenRecordPopupLight from "../../cases/OpenRecord/images/OpenRecordPopupLight";
-
+import VumblePopup from "../../cases/Vumble/images/VumblePopup";
+import VumblePopupLight from "../../cases/Vumble/images/VumblePopupLight";
 
 import { useGlobalState } from '../../state';
 
@@ -25,6 +26,7 @@ const Popup = (props) => {
                     {props.imgsrc === "OLBPopup" && [(lightMode ? <OLBPopupLight /> : <OLBPopup />)]}
                     {props.imgsrc === "NeatPopup" && [(lightMode ? <NeatPopupLight /> : <NeatPopup />)]}
                     {props.imgsrc === "OpenRecordPopup" && [(lightMode ? <OpenRecordPopupLight /> : <OpenRecordPopup />)]}
+                    {props.imgsrc === "VumblePopup" && [(lightMode ? <VumblePopupLight /> : <VumblePopup />)]}
                 </div>
                 <div className="popup-text">
                     <h6 className="popup-message">{props.text}</h6>

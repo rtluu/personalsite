@@ -56,6 +56,10 @@ const Nav = () => {
             setPageName('OpenRecord');
             setAnchorNav('#openrecord');
             setPageLink('https://www.ryanluu.com/openrecord');
+        } else if (location.pathname === "/vumble/") {
+            setPageName('Vumble');
+            setAnchorNav('#vumble');
+            setPageLink('https://www.ryanluu.com/vumble');
         }
 
     }, [])

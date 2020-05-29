@@ -2,6 +2,15 @@
 
 .template-content{
 
+    .home-headline{
+        display: flex;
+        flex-direction: row;
+       
+        @media (max-width: $breakpoint-phone) {
+            margin-bottom: 1rem;
+        }
+    }
+
     .template-section{
         display: flex;
         flex-direction: column;
@@ -57,6 +66,10 @@
                     }
                 }
 
+                @media (max-width: $breakpoint-phone) {
+                    left: -1.3125rem;
+                }
+
 
                 .collapse-expand{
                     display: inline-block;
@@ -64,6 +77,11 @@
                     opacity: 0;
                     position: relative;
                     transform: rotate(90deg);
+
+                    @media (max-width: $breakpoint-phone) {
+                        margin-left: 0.25rem;
+                        padding: 0.5rem 0.25rem;
+                    }
                 }
             }
             .template-text-body{
@@ -189,10 +207,93 @@
                         &.flex-openrecord-mobile-queue{
                             flex: 0.435;
                         }
+                        &.flex-vumble-beta-build{
+                            flex: 1.18;
+                        }
+                        &.flex-vumble-instant-playback{
+                            flex: 1.1;
+                        }
+                        &.flex-vumble-reddit-infused{
+                            flex: 1;
+                        }
+                        &.flex-vumble-mobile-prototype{
+                            flex: 1.285;
+                        }
+                        &.flex-vumble-hover-feature{
+                            flex: 1.208;
+                        }
+                        &.flex-vumble-async-comments{
+                            flex: 1;
+                        }
+                        &.flex-vumble-arrows-autoplay{
+                            flex: 1.4;
+                        }
+                        &.flex-vumble-clip-post{
+                            flex: 1;
+                        }
                     }
                 }
             }
            
+        }
+
+        .side-pic-box{
+            max-width: 15.5rem;
+            right: 0;
+            position: absolute;
+            width: 40%;
+            z-index: $image-z;
+            @media (max-width: $breakpoint-tablet) {
+                margin-top: 1rem;
+                width: 35%;
+            }
+            @media (max-width: $breakpoint-phone) {
+                position: relative;
+                margin-top: -1rem;
+                max-width: none;
+                width: 100%;
+            }
+
+            @media (hover: hover) {
+                .side-pic{
+                    &:hover{
+                        cursor: pointer;
+                        .gatsby-image-wrapper{
+                            border-color: $item-outline;
+                        }
+                    }
+                }
+            }
+
+            .gatsby-image-wrapper{
+                border: 0.125rem solid $transparent;
+                border-radius: 0.125rem;
+            }
+
+            &.headshot-top{
+                display: none;
+                top: -4rem;
+                @media (max-width: $breakpoint-phone) {
+                    display: inline-block;
+                }
+            }
+        
+            &.headshot-side{
+                display: inline-block;
+
+                .side-pic{
+                    border-radius: 50%;
+                    overflow: hidden;
+                    cursor: zoom-in;
+                }
+                @media (max-width: $breakpoint-phone) {
+                    display: none;
+                }
+            }
+        
+            &.hide{
+                display: none;
+            }
         }
     }
 }

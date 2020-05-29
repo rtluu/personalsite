@@ -19,6 +19,8 @@ import LightboxNeatImages from "../../cases/Neat/lightboxNeatImages";
 import LightboxNeatCaptions from "../../cases/Neat/lightboxNeatCaptions";
 import LightboxHumbleImages from "../../cases/Humble/lightboxHumbleImages";
 import LightboxHumbleCaptions from "../../cases/Humble/lightboxHumbleCaptions";
+import LightboxVumbleImages from "../../cases/Vumble/lightboxVumbleImages";
+import LightboxVumbleCaptions from "../../cases/Vumble/lightboxVumbleCaptions";
 
 
 const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
@@ -82,6 +84,8 @@ const Lightbox = (props) => {
             setLightboxImages('neat');
         } else if (location.pathname === "/openrecord/") {
             setLightboxImages('openrecord');
+        } else if (location.pathname === "/vumble/") {
+            setLightboxImages('vumble');
         }
 
     }, [])
@@ -118,6 +122,7 @@ const Lightbox = (props) => {
                         {lightboxImages === "openrecord" && <LightboxOpenRecordCaptions />}
                         {lightboxImages === "neat" && <LightboxNeatCaptions />}
                         {lightboxImages === "humble" && <LightboxHumbleCaptions />}
+                        {lightboxImages === "vumble" && <LightboxVumbleCaptions />}
                     </div>
                     <span className="lightbox-item">
                         <div className="center-children">
@@ -127,6 +132,7 @@ const Lightbox = (props) => {
                             {lightboxImages === "openrecord" && <LightboxOpenRecordImages />}
                             {lightboxImages === "neat" && <LightboxNeatImages />}
                             {lightboxImages === "humble" && <LightboxHumbleImages />}
+                            {lightboxImages === "vumble" && <LightboxVumbleImages />}
                         </div>
                     </span>
                     <div className="mobile-arrow-box">

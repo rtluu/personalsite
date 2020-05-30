@@ -106,14 +106,14 @@ const Fastrope = () => {
                                     <div className="gallery-item-wrapper ">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <FastropeTeam />
-                                            <Caption caption="team" />
                                         </button>
+                                        <Caption caption="team" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <FastropeContact />
-                                            <Caption caption="contact page" />
                                         </button>
+                                        <Caption caption="contact page" />
                                     </div>
                                 </div>
                             </div>
@@ -124,14 +124,14 @@ const Fastrope = () => {
                                     <div className="gallery-item-wrapper flex-neat-services">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <FastropeServices />
-                                            <Caption caption="services" />
                                         </button>
+                                        <Caption caption="services" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-portfolio">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <FastropePortfolio />
-                                            <Caption caption="client work" />
                                         </button>
+                                        <Caption caption="client work" />
                                     </div>
                                 </div>
                             </div>

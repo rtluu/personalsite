@@ -107,21 +107,21 @@ const Humble = () => {
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
-                                            <HumbleAbout />
-                                            <Caption caption="about message" />
+                                            <HumbleAbout /><Caption caption="about message" />
                                         </button>
+                                        <Caption caption="about message" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <HumbleApproach />
-                                            <Caption caption="investment approach" />
                                         </button>
+                                        <Caption caption="investment approach" />
                                     </div>
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <HumblePortfolio />
-                                            <Caption caption="porfolio companies" />
                                         </button>
+                                        <Caption caption="porfolio companies" />
                                     </div>
                                 </div>
                             </div>
@@ -132,14 +132,14 @@ const Humble = () => {
                                     <div className="gallery-item-wrapper flex-humble-team">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <HumbleTeam />
-                                            <Caption caption="humble team" />
                                         </button>
+                                        <Caption caption="humble team" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-humble-cta">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <HumbleCTA />
-                                            <Caption caption="call to action" />
                                         </button>
+                                        <Caption caption="call to action" />
                                     </div>
                                 </div>
                             </div>

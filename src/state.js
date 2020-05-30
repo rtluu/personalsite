@@ -4,7 +4,7 @@ const { setGlobalState, useGlobalState } = createGlobalState({
     menuActive: false,
     lightMode: false,
     lightboxActive: false,
-    imageNumber: 0,
+    imageNumber: 1,
     imageGallery: 0,
     videoExpanded: false,
     infoOpen: false,

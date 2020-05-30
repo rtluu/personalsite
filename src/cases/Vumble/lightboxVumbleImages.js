@@ -30,7 +30,7 @@ const LightboxImagesVumble = (props) => {
             {imageNumber === 7 && (<VumbleRedditTV />)}
             {imageNumber === 8 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleRedditInfused /><Player ytid="qJqZRtZ7Ees" /></div> : null}
             {imageNumber === 9 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleMobilePrototype /><Player ytid="YNHtCqzv0TA" /></div> : null}
-            {imageNumber === 10 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleHoverFeature /><Player ytid="qJqZRtZ7Ees" /></div> : null}
+            {imageNumber === 10 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleHoverFeature /><Player ytid="1HO9F9TEhW4" /></div> : null}
             {imageNumber === 11 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleAsyncComments /><Player ytid="nd_Uv7FC2JM" /></div> : null}
             {imageNumber === 12 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleArrowsAutoplay /><Player ytid="2RnP4mm_YaI" /></div> : null}
             {imageNumber === 13 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><VumbleClipPost /><Player ytid="PS0_u8hZxuw" /></div> : null}

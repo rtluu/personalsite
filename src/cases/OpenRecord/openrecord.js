@@ -66,8 +66,8 @@ const OpenRecord = () => {
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroOpenRecord />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            <Player ytid="558t8VG-zzw" />
+                        <div className={`video vert-openrecord-hero ${videoExpanded ? "video-expanded" : "video-hero"}`}>
+                            {imageNumber === 1 ? <Player ytid="558t8VG-zzw" /> : null}
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button" onClick={openLightbox1}>
                                     <PlayIcon />
@@ -145,8 +145,8 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <OpenRecordDiscovery />
-                                            <Caption caption="weekly slack thread" />
                                         </button>
+                                        <Caption caption="weekly slack thread" />
                                     </div>
                                 </div>
                             </div>
@@ -157,14 +157,14 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-user-interviews">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <OpenRecordUserInterviews />
-                                            <Caption caption="brainstorming development approaches" />
                                         </button>
+                                        <Caption caption="brainstorming development approaches" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-technical-ia">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <OpenRecordTechnicalIA />
-                                            <Caption caption="whiteboarding" />
                                         </button>
+                                        <Caption caption="whiteboarding" />
                                     </div>
                                 </div>
                             </div>
@@ -186,20 +186,20 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-landing-page">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <OpenRecordLandingPage />
-                                            <Caption caption="homepage mock" />
                                         </button>
+                                        <Caption caption="homepage mock" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-collection-fire">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <OpenRecordCollectionFire />
-                                            <Caption caption="collection mock" />
                                         </button>
+                                        <Caption caption="collection mock" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-collection-mobile">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <OpenRecordCollectionMobile />
-                                            <Caption caption="mobile mock" />
                                         </button>
+                                        <Caption caption="mobile mock" />
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +214,7 @@ const OpenRecord = () => {
                                         <button onClick={openLightbox8} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
                                             <div className="video-inner">
                                                 <OpenRecordWorkingDesign />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-openrecord-working-design ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="ghqab6X17pE" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox8}>
@@ -230,8 +230,8 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-live-mobile">
                                         <button onClick={openLightbox9} className="image-button" type="button">
                                             <OpenRecordLiveMobile />
-                                            <Caption caption="local mobile web" />
                                         </button>
+                                        <Caption caption="local mobile web" />
                                     </div>
                                 </div>
                             </div>
@@ -253,14 +253,14 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-homepage">
                                         <button onClick={openLightbox10} className="image-button" type="button">
                                             <OpenRecordHomepage />
-                                            <Caption caption="openrecord homepage" />
                                         </button>
+                                        <Caption caption="openrecord homepage" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-openrecord-feedback">
                                         <button onClick={openLightbox11} className="image-button" type="button">
                                             <OpenRecordFeedback />
-                                            <Caption caption="openrecord about" />
                                         </button>
+                                        <Caption caption="openrecord about" />
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +271,7 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper video-wrapper flex-openrecord-add-song">
                                         <button onClick={openLightbox12} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredTwelve(true)} onMouseLeave={() => setIsHoveredTwelve(false)}>
                                             <OpenRecordAddSong />
-                                            <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                            <div className={`video vert-openrecord-add-song ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                 {isHoveredTwelve | videoExpanded & imageNumber === 12 ? <Player ytid="1PlqPOvsyA0" /> : null}
                                                 {!videoExpanded && <div className="video-engage-instructions">
                                                     <span className="play-button" onClick={openLightbox12} >
@@ -286,8 +286,8 @@ const OpenRecord = () => {
                                     <div className="gallery-item-wrapper flex-openrecord-mobile-queue">
                                         <button onClick={openLightbox13} className="image-button" type="button">
                                             <OpenRecordMobileQueue />
-                                            <Caption caption="collection mobile" />
                                         </button>
+                                        <Caption caption="collection mobile" />
                                     </div>
                                 </div>
                             </div>

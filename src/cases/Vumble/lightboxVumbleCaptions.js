@@ -17,8 +17,8 @@ const LightboxCaptionsVumble = () => {
             {imageNumber === 9 && (<Caption caption="mobile prototype" />)}
             {imageNumber === 10 && (<Caption caption="hover to play" />)}
             {imageNumber === 11 && (<Caption caption="async comments" />)}
-            {imageNumber === 12 && (<Caption caption="arrows & autoplay" />)}
-            {imageNumber === 13 && (<Caption caption="clip & post" />)}
+            {imageNumber === 12 && (<Caption caption="left/right arrows" />)}
+            {imageNumber === 13 && (<Caption caption="trim and post to subreddits" />)}
             {imageNumber === 14 && (<Caption caption="vumble v2" />)}
         </div>
     );

@@ -35,6 +35,7 @@ const Lightbox = (props) => {
     function closeLightbox() {
         setVideoExpanded(false);
         update(false);
+        setImageNumber(1);
     }
 
     function nextImage() {

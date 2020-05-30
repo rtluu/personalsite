@@ -61,6 +61,30 @@
                     }
                 }
             }
+            &.vert-vumble-beta-build{.player-container{.player-holder{
+                padding-bottom: 62.5%;}}
+            }
+            &.vert-vumble-instant-playback{.player-container{.player-holder{
+                padding-bottom: 67.15%;}}
+            }
+            &.vert-vumble-reddit-research{.player-container{.player-holder{
+                padding-bottom: 69.25%;}}
+            }
+            &.vert-vumble-reddit-infused{.player-container{.player-holder{
+                padding-bottom: 74%;}}
+            }
+            &.vert-vumble-clip-post{.player-container{.player-holder{
+                padding-bottom: 75%;}}
+            }
+            &.vert-openrecord-hero{.player-container{.player-holder{
+                padding-bottom: 56.8%;}}
+            }
+            &.vert-openrecord-working-design{.player-container{.player-holder{
+                    padding-bottom: 58.7%;}}
+            }
+            &.vert-openrecord-add-song{.player-container{.player-holder{
+                padding-bottom: 53.8;}}
+            }
         }
         &.video-small,&.video-hero{
             opacity: 1;
@@ -108,6 +132,32 @@
                         }
                     }
                 }
+            }
+
+            //Unique Video Vertical Sizing
+            &.vert-vumble-beta-build{.player-container{.player-holder{
+                padding-bottom: 70%;}}
+            }
+            &.vert-vumble-instant-playback{.player-container{.player-holder{
+                padding-bottom: 90%;}}
+            }
+            &.vert-vumble-reddit-research{.player-container{.player-holder{
+                padding-bottom: 80%;}}
+            }
+            &.vert-vumble-reddit-infused{.player-container{.player-holder{
+                padding-bottom: 72%;}}
+            }
+            &.vert-vumble-clip-post{.player-container{.player-holder{
+                padding-bottom: 90%;}}
+            }
+            &.vert-openrecord-hero{.player-container{.player-holder{
+                padding-bottom: 75%;}}
+            }
+            &.vert-openrecord-working-design{.player-container{.player-holder{
+                padding-bottom: 80%;}}
+            }
+            &.vert-openrecord-add-song{.player-container{.player-holder{
+                padding-bottom: 80%;}}
             }
         }
     } 

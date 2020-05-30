@@ -149,14 +149,14 @@ const Neat = () => {
                                     <div className="gallery-item-wrapper flex-neat-user-interview">
                                         <button onClick={openLightbox2} className="image-button" type="button">
                                             <NeatUserInterview />
-                                            <Caption caption="user interview" />
                                         </button>
+                                        <Caption caption="user interview" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-user-flow">
                                         <button onClick={openLightbox3} className="image-button" type="button">
                                             <NeatUserFlow />
-                                            <Caption caption="interaction mapping" />
                                         </button>
+                                        <Caption caption="interaction mapping" />
                                     </div>
                                 </div>
                             </div>
@@ -178,20 +178,20 @@ const Neat = () => {
                                     <div className="gallery-item-wrapper flex-neat-wireframe-listview">
                                         <button onClick={openLightbox4} className="image-button" type="button">
                                             <NeatWireframeListView />
-                                            <Caption caption="wireframe list view" />
                                         </button>
+                                        <Caption caption="wireframe list view" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-wireframe-login">
                                         <button onClick={openLightbox5} className="image-button" type="button">
                                             <NeatWireframeLogin />
-                                            <Caption caption="wireframe login" />
                                         </button>
+                                        <Caption caption="wireframe login" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-wireframe-mobile">
                                         <button onClick={openLightbox6} className="image-button" type="button">
                                             <NeatWireframeMobile />
-                                            <Caption caption="wireframe collection" />
                                         </button>
+                                        <Caption caption="wireframe collection" />
                                     </div>
                                 </div>
                             </div>
@@ -202,20 +202,20 @@ const Neat = () => {
                                     <div className="gallery-item-wrapper flex-neat-grid">
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <NeatGrid />
-                                            <Caption caption="grid" />
                                         </button>
+                                        <Caption caption="grid" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-listview">
                                         <button onClick={openLightbox8} className="image-button" type="button">
                                             <NeatListView />
-                                            <Caption caption="list view" />
                                         </button>
+                                        <Caption caption="list view" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-mobile">
                                         <button onClick={openLightbox9} className="image-button" type="button">
                                             <NeatMobile />
-                                            <Caption caption="mobile" />
                                         </button>
+                                        <Caption caption="mobile" />
                                     </div>
                                 </div>
                             </div>

@@ -15,6 +15,7 @@ import VumbleAsyncComments from "./images/VumbleAsyncComments";
 import VumbleArrowsAutoplay from "./images/VumbleArrowsAutoplay";
 import VumbleClipPost from "./images/VumbleClipPost";
 import VumbleV2 from "./images/VumbleV2";
+import VumbleAnchors from "./anchorsVumble";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import PlayIcon from "../../icons/play-icon.inline.svg";
@@ -71,7 +72,7 @@ const Vumble = () => {
 
     return (
         <div className="template-content">
-            {/* <OpenRecordAnchors /> */}
+            <VumbleAnchors />
             <h1 id="openrecord">Vumble</h1>
             <div className="template-section">
                 <div className="hero">
@@ -186,7 +187,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox4} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFour(true)} onMouseLeave={() => setIsHoveredFour(false)}>
                                             <div className="video-inner">
                                                 <VumbleBetaBuild />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-beta-build ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredFour | videoExpanded & imageNumber === 4 ? <Player ytid="W30MgciYZ1U" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox4}>
@@ -203,7 +204,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox5} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
                                             <div className="video-inner">
                                                 <VumbleInstantPlayback />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-instant-playback ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredFive | videoExpanded & imageNumber === 5 ? <Player ytid="1avDDfHt6Tg" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox5}>
@@ -237,7 +238,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
                                             <div className="video-inner">
                                                 <VumbleRedditResearch />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-reddit-research ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="rzJSss3aMW0" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox6}>
@@ -277,7 +278,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox8} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredEight(true)} onMouseLeave={() => setIsHoveredEight(false)}>
                                             <div className="video-inner">
                                                 <VumbleRedditInfused />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-reddit-infused ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredEight | videoExpanded & imageNumber === 8 ? <Player ytid="qJqZRtZ7Ees" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox6}>
@@ -320,7 +321,7 @@ const Vumble = () => {
                         <h2 id="features">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Understanding your user and their desires is vital in creating a valuable product. We focused on the Reddit community and soliciting their feedback allowed us to simplify video discovery while providing the key information and interactions that enable them to have a fulfilling experience.</p>
+                        <p>Understanding your user and their desires is vital in creating a valuable product. We focused on the Reddit community and soliciting their feedback allowed us to simplify video interaction while providing the key info from the Reddit post for a full experience.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
@@ -329,7 +330,7 @@ const Vumble = () => {
                                             <div className="video-inner">
                                                 <VumbleHoverFeature />
                                                 <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                    {isHoveredTen | videoExpanded & imageNumber === 10 ? <Player ytid="qJqZRtZ7Ees" /> : null}
+                                                    {isHoveredTen | videoExpanded & imageNumber === 10 ? <Player ytid="1HO9F9TEhW4" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox10}>
                                                             <PlayIcon />
@@ -379,13 +380,13 @@ const Vumble = () => {
                                                 </div>
                                             </div>
                                         </button>
-                                        <Caption caption="arrows & autoplay" />
+                                        <Caption caption="left/right arrows" />
                                     </div>
                                     <div className="gallery-item-wrapper video-wrapper flex-vumble-clip-post">
-                                        <button onClick={openLightbox12} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredThirteen(true)} onMouseLeave={() => setIsHoveredThirteen(false)}>
+                                        <button onClick={openLightbox13} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredThirteen(true)} onMouseLeave={() => setIsHoveredThirteen(false)}>
                                             <div className="video-inner">
                                                 <VumbleClipPost />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-clip-post ${videoExpanded ? "video-expanded " : "video-small "}`}>
                                                     {isHoveredThirteen | videoExpanded & imageNumber === 13 ? <Player ytid="PS0_u8hZxuw" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox13}>
@@ -396,7 +397,7 @@ const Vumble = () => {
                                                 </div>
                                             </div>
                                         </button>
-                                        <Caption caption="clip & post" />
+                                        <Caption caption="trim and post to subreddits" />
                                     </div>
                                 </div>
                             </div>
@@ -414,7 +415,7 @@ const Vumble = () => {
                         <p>My experience building Vumble defined the course of my professional career. It helped me identify my passion for leading product development and was the impetus for learning to code.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>In the process of starting a business, participating in a startup accelerator and connecting with users I had the opportunity to collaborate with some amazing people that continue to impact my life. I want to thank my teammates, mentors and supporters who believed in us.</p>
+                        <p>In the process of starting a business, participating in a startup accelerator and connecting with users, I had the opportunity to collaborate with some amazing people that continue to impact my life. I want to thank my teammates, mentors and supporters who believed in us.</p>
                     </div>
                     <div className="template-text-body">
                         <p>---</p>
@@ -428,7 +429,7 @@ const Vumble = () => {
                         <h2 id="current">Vumble in 2020</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Back in 2017, Vumble’s original codebase fell out of date and stopped working. At that point I had a full time job and didn’t have the time to maintain it. At the end of 2019, I decided to rebuild a lightweight version in React. Check it out at vumble.com.</p>
+                        <p>Back in 2017, Vumble’s original codebase fell out of date and stopped working. At that point I had a full time job and didn’t have the time to maintain it. At the end of 2019, I decided to rebuild a lightweight version in React. Check it out at  <a href="https://vumble.com">vumble.com</a>.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">

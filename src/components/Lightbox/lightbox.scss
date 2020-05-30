@@ -27,6 +27,7 @@
     }
 
     .invisible-close{
+        cursor: zoom-out;
         display: block;
         position: fixed;
         top: 0;
@@ -71,6 +72,7 @@
 
         .lightbox-caption-wrapper{
             left: 50%;
+            pointer-events: all;
             position: absolute;
             transform: translateX(-50%);
         }
@@ -181,10 +183,15 @@
                 position: relative;
                 display: block;
                 margin: auto;
+                pointer-events: all;
                 width: 100%;
 
                 &.headshot{
                     width: 90%;
+                }
+
+                &.video-wrapper{
+                    pointer-events: none;
                 }
                     
                 .gatsby-image-wrapper{

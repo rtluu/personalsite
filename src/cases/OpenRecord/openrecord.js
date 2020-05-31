@@ -67,7 +67,7 @@ const OpenRecord = () => {
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroOpenRecord />
                         <div className={`video vert-openrecord-hero ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            {imageNumber === 1 ? <Player ytid="558t8VG-zzw" /> : null}
+                            {!value | imageNumber === 1 ? <Player ytid="558t8VG-zzw" /> : null}
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button" onClick={openLightbox1}>
                                     <PlayIcon />

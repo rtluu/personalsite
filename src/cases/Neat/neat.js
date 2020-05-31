@@ -64,8 +64,8 @@ const Neat = () => {
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroNeat />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            <Player ytid="XkhYtBU0GSo" />
+                        <div className={`video vert-neat-hero ${videoExpanded ? "video-expanded" : "video-hero"}`}>
+                            {!value | imageNumber === 1 ? <Player ytid="XkhYtBU0GSo" /> : null}
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button">
                                     <PlayIcon />

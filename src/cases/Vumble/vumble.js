@@ -78,8 +78,8 @@ const Vumble = () => {
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroVumble />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            <Player ytid="oeSBy4Hksns" />
+                        <div className={`video vert-vumble-hero ${videoExpanded ? "video-expanded" : "video-hero"}`}>
+                            {!value | imageNumber === 1 ? <Player ytid="oeSBy4Hksns" /> : null}
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button" onClick={openLightbox1}>
                                     <PlayIcon />
@@ -153,7 +153,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox3} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredThree(true)} onMouseLeave={() => setIsHoveredThree(false)}>
                                             <div className="video-inner">
                                                 <VumblePowerpointPrototype />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-powerpoint-prototype ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredThree | videoExpanded & imageNumber === 3 ? <Player ytid="w3MviB2DxrU" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox3}>

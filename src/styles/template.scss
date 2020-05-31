@@ -272,9 +272,17 @@
 
             &.headshot-top{
                 display: none;
-                top: -4rem;
+                position: absolute;
+                margin-top: 0;
+                max-width: none;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 30%;
                 @media (max-width: $breakpoint-phone) {
                     display: inline-block;
+                }
+                @media (max-width: 29rem) {
+                    width: 35%;
                 }
             }
         

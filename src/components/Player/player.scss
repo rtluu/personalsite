@@ -61,6 +61,13 @@
                     }
                 }
             }
+            
+            &.vert-vumble-hero{.player-container{.player-holder{
+                padding-bottom: 56%;}}            
+            }
+            &.vert-vumble-powerpoint-prototype{.player-container{.player-holder{
+                padding-bottom: 56.25%;}}
+            }
             &.vert-vumble-beta-build{.player-container{.player-holder{
                 padding-bottom: 62.5%;}}
             }
@@ -71,7 +78,7 @@
                 padding-bottom: 69.25%;}}
             }
             &.vert-vumble-reddit-infused{.player-container{.player-holder{
-                padding-bottom: 74%;}}
+                padding-bottom: 69.5;}}
             }
             &.vert-vumble-clip-post{.player-container{.player-holder{
                 padding-bottom: 75%;}}
@@ -83,7 +90,10 @@
                     padding-bottom: 58.7%;}}
             }
             &.vert-openrecord-add-song{.player-container{.player-holder{
-                padding-bottom: 53.8;}}
+                padding-bottom: 53.1%;}}
+            }
+            &.vert-neat-hero{.player-container{.player-holder{
+                padding-bottom: 55.5%;}}
             }
         }
         &.video-small,&.video-hero{
@@ -135,8 +145,14 @@
             }
 
             //Unique Video Vertical Sizing
+            &.vert-vumble-hero{.player-container{.player-holder{
+                padding-bottom: 62%;
+                .player-inner{
+                    bottom: -0.1875rem;
+                }}}
+             }
             &.vert-vumble-beta-build{.player-container{.player-holder{
-                padding-bottom: 70%;}}
+                padding-bottom: 62%;}}
             }
             &.vert-vumble-instant-playback{.player-container{.player-holder{
                 padding-bottom: 90%;}}
@@ -157,7 +173,10 @@
                 padding-bottom: 80%;}}
             }
             &.vert-openrecord-add-song{.player-container{.player-holder{
-                padding-bottom: 80%;}}
+                padding-bottom: 60%;}}
+            }
+            &.vert-neat-hero{.player-container{.player-holder{
+                padding-bottom: 65%;}}
             }
         }
     } 
@@ -247,6 +266,40 @@
                     }
                 }
             }
+        }
+
+        &.vert-vumble-hero{.player-container{.player-holder{
+           padding-bottom: 56%; }}
+        }
+        &.vert-vumble-powerpoint-prototype{.player-container{.player-holder{
+            padding-bottom: 56.25%;}}
+        }
+        &.vert-vumble-beta-build{.player-container{.player-holder{
+            padding-bottom: 62.5%;}}
+        }
+        &.vert-vumble-instant-playback{.player-container{.player-holder{
+            padding-bottom: 67.15%;}}
+        }
+        &.vert-vumble-reddit-research{.player-container{.player-holder{
+            padding-bottom: 69.25%;}}
+        }
+        &.vert-vumble-reddit-infused{.player-container{.player-holder{
+            padding-bottom: 69.5%;}}
+        }
+        &.vert-vumble-clip-post{.player-container{.player-holder{
+            padding-bottom: 69.5%;}}
+        }
+        &.vert-openrecord-hero{.player-container{.player-holder{
+            padding-bottom: 56.8%;}}
+        }
+        &.vert-openrecord-working-design{.player-container{.player-holder{
+                padding-bottom: 58.7%;}}
+        }
+        &.vert-openrecord-add-song{.player-container{.player-holder{
+            padding-bottom: 53.1%;}}
+        }
+        &.vert-neat-hero{.player-container{.player-holder{
+            padding-bottom: 55.5%;}}
         }
     }
 

@@ -107,7 +107,7 @@ const Humble = () => {
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
                                         <button onClick={openLightbox2} className="image-button" type="button">
-                                            <HumbleAbout /><Caption caption="about message" />
+                                            <HumbleAbout />
                                         </button>
                                         <Caption caption="about message" />
                                     </div>

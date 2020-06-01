@@ -78,8 +78,8 @@ const Vumble = () => {
                 <div className="hero">
                     <button onClick={openLightbox1} key={1} className="image-button video-button" type="button">
                         <HeroVumble />
-                        <div className={`video ${videoExpanded ? "video-expanded" : "video-hero"}`}>
-                            <Player ytid="oeSBy4Hksns" />
+                        <div className={`video vert-vumble-hero ${videoExpanded ? "video-expanded" : "video-hero"}`}>
+                            {!value | imageNumber === 1 ? <Player ytid="oeSBy4Hksns" /> : null}
                             {!videoExpanded && <div className="video-engage-instructions">
                                 <span className="play-button" onClick={openLightbox1}>
                                     <PlayIcon />
@@ -153,7 +153,7 @@ const Vumble = () => {
                                         <button onClick={openLightbox3} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredThree(true)} onMouseLeave={() => setIsHoveredThree(false)}>
                                             <div className="video-inner">
                                                 <VumblePowerpointPrototype />
-                                                <div className={`video ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                <div className={`video vert-vumble-powerpoint-prototype ${videoExpanded ? "video-expanded" : "video-small"}`}>
                                                     {isHoveredThree | videoExpanded & imageNumber === 3 ? <Player ytid="w3MviB2DxrU" /> : null}
                                                     {!videoExpanded && <div className="video-engage-instructions">
                                                         <span className="play-button" onClick={openLightbox3}>
@@ -173,34 +173,50 @@ const Vumble = () => {
                 </div>
             </div>
             <div className="template-section">
-                <div className={`template-text-block ${researchCollapsed ? "collapsed" : ""}`}>
+                <div className={`template-text-block two-column ${researchCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setResearchCollapsed(!researchCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="research">Research</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Our first iteration allowed us to identify a friction with the preview experience, interrupting users and forcing them to make a decision. This led us to pivot to an immediate playback approach that a ‘click to expand’ iteration for continuing playback.</p>
+                        <p>The original idea was to clip 6 seconds out of longer videos and use them as previews for the full clip. We built a beta and shared it with our friends. We led us to identify a major friction within the experience. Being interrupted right at the climatic part of a clip and prompted to make a decision about whether or not to watch the full clip was disruptive.</p>
+                    </div>
+                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""}`}>
+                        <div className="side-pic">
+                            <span className="gallery">
+                                <div className="gallery-outer-wrapper">
+                                    <div className="gallery-wrapper">
+                                        <div className="gallery-item-wrapper video-wrapper">
+                                            <button onClick={openLightbox4} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFour(true)} onMouseLeave={() => setIsHoveredFour(false)}>
+                                                <div className="video-inner">
+                                                    <VumbleBetaBuild />
+                                                    <div className={`video vert-vumble-beta-build ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                        {isHoveredFour | videoExpanded & imageNumber === 4 ? <Player ytid="W30MgciYZ1U" /> : null}
+                                                        {!videoExpanded && <div className="video-engage-instructions">
+                                                            <span className="play-button" onClick={openLightbox4}>
+                                                                <PlayIcon />
+                                                            </span>
+                                                            <div className="loading-spinner" />
+                                                        </div>}
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <Caption caption="first beta build" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className={`template-text-block ${researchCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-body">
+                        <p>This learning pushed us to find ways to make the experience less interruptive and after some experimentation, we started using mouse hover to initiate playback. This interaction pattern allows users to preview a clip before fully committing - and if it does intrigue them, they can click and the video will open without disrupting playback. <span className="italic">(Videos on this site work like this. Try it out!)</span></p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper video-wrapper flex-vumble-beta-build">
-                                        <button onClick={openLightbox4} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFour(true)} onMouseLeave={() => setIsHoveredFour(false)}>
-                                            <div className="video-inner">
-                                                <VumbleBetaBuild />
-                                                <div className={`video vert-vumble-beta-build ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                    {isHoveredFour | videoExpanded & imageNumber === 4 ? <Player ytid="W30MgciYZ1U" /> : null}
-                                                    {!videoExpanded && <div className="video-engage-instructions">
-                                                        <span className="play-button" onClick={openLightbox4}>
-                                                            <PlayIcon />
-                                                        </span>
-                                                        <div className="loading-spinner" />
-                                                    </div>}
-                                                </div>
-                                            </div>
-                                        </button>
-                                        <Caption caption="first beta build" />
-                                    </div>
-                                    <div className="gallery-item-wrapper video-wrapper flex-vumble-instant-playback">
+                                    <div className="gallery-item-wrapper video-wrapper">
                                         <button onClick={openLightbox5} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredFive(true)} onMouseLeave={() => setIsHoveredFive(false)}>
                                             <div className="video-inner">
                                                 <VumbleInstantPlayback />
@@ -224,42 +240,53 @@ const Vumble = () => {
                 </div>
             </div>
             <div className="template-section">
-                <div className={`template-text-block ${solutionCollapsed ? "collapsed" : ""}`}>
+                <div className={`template-text-block two-column ${solutionCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setSolutionCollapsed(!solutionCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="solution">Solution approach</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>We identified Reddit as an ideal opportunity to bring our video viewing experience to scale. There were thousands of people sharing YouTube videos in subreddits, and the viewing experience on Reddit was less than ideal. And at the same time, Reddit announced that it was shutting down its video service RedditTV.</p>
-                        <span className="gallery">
-                            <div className="gallery-outer-wrapper">
-                                <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper video-wrapper flex-vumble-reddit-research">
-                                        <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
-                                            <div className="video-inner">
-                                                <VumbleRedditResearch />
-                                                <div className={`video vert-vumble-reddit-research ${videoExpanded ? "video-expanded" : "video-small"}`}>
-                                                    {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="rzJSss3aMW0" /> : null}
-                                                    {!videoExpanded && <div className="video-engage-instructions">
-                                                        <span className="play-button" onClick={openLightbox6}>
-                                                            <PlayIcon />
-                                                        </span>
-                                                        <div className="loading-spinner" />
-                                                    </div>}
+                        <p>Now that we had a unique value proposition, we needed a community that would benefit from a faster video discovery. We identified Reddit as an ideal opportunity to bring our video viewing experience to scale. There were thousands of people sharing YouTube videos in subreddits, but at that point the viewing experience on Reddit was less than optimal.</p>
+                    </div>
+                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""}`}>
+                        <div className="side-pic">
+                            <span className="gallery">
+                                <div className="gallery-outer-wrapper">
+                                    <div className="gallery-wrapper">
+                                        <div className="gallery-item-wrapper video-wrapper">
+                                            <button onClick={openLightbox6} className="image-button video-button" type="button" onMouseEnter={() => setIsHoveredSix(true)} onMouseLeave={() => setIsHoveredSix(false)}>
+                                                <div className="video-inner">
+                                                    <VumbleRedditResearch />
+                                                    <div className={`video vert-vumble-reddit-research ${videoExpanded ? "video-expanded" : "video-small"}`}>
+                                                        {isHoveredSix | videoExpanded & imageNumber === 6 ? <Player ytid="rzJSss3aMW0" /> : null}
+                                                        {!videoExpanded && <div className="video-engage-instructions">
+                                                            <span className="play-button" onClick={openLightbox6}>
+                                                                <PlayIcon />
+                                                            </span>
+                                                            <div className="loading-spinner" />
+                                                        </div>}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </button>
-                                        <Caption caption="reddit research" />
-                                    </div>
-                                    <div className="gallery-item-wrapper flex-vumble-reddittv">
-                                        <button onClick={openLightbox7} className="image-button" type="button">
-                                            <VumbleRedditTV />
-                                        </button>
-                                        <Caption caption="reddit tv shutdown" />
+                                            </button>
+                                            <Caption caption="reddit research" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className={`template-text-block two-column ${solutionCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-body two-column">
+                        <p>Soon after we identified Reddit as the ideal community to target, Reddit announced that it was shutting down its own internal video service - RedditTV. This was the perfect opportunity for us, leaving a gap for those video focused Reddit users. We leveraged that moment to <a className="hover-underine" href="https://www.reddit.com/r/Entrepreneur/comments/3savcn/we_revamped_reddittv_and_its_just_the_beginning/?utm_source=share&utm_medium=web2x">launch</a> Vumble so we could begin collect feedback from Reddit users.</p>
+                    </div>
+                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""}`}>
+                        <div className="gallery-item-wrapper">
+                            <button onClick={openLightbox7} className="image-button" type="button">
+                                <VumbleRedditTV />
+                            </button>
+                            <Caption caption="reddit tv shutdown" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -415,7 +442,7 @@ const Vumble = () => {
                         <p>My experience building Vumble defined the course of my professional career. It helped me identify my passion for leading product development and was the impetus for learning to code.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>In the process of starting a business, participating in a startup accelerator and connecting with users, I had the opportunity to collaborate with some amazing people that continue to impact my life. I want to thank my teammates, mentors and supporters who believed in us.</p>
+                        <p>In the process of starting a business, participating in a startup accelerator and connecting with users - I had the opportunity to collaborate with some amazing people that continue to impact my life. I want to thank my teammates, mentors and supporters who believed in me.</p>
                     </div>
                     <div className="template-text-body">
                         <p>---</p>
@@ -458,10 +485,16 @@ const Vumble = () => {
             </div>
             <div className="template-section">
                 <div className="template-text-body">
-                    <Link to="/openrecord/" className="case-item">
-                        <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
-                        <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OpenRecord</p>
-                    </Link>
+                    <div className="case-end-links">
+                        <Link to="/openrecord/" className="case-item">
+                            <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
+                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OpenRecord</p>
+                        </Link>
+                        <Link to="/adhoc/" className="case-item next">
+                            <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>
+                            <p>+AdHoc<span className="case-arrow"><CaseArrowIcon /></span></p>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div >

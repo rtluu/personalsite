@@ -21,6 +21,7 @@ const Nav = () => {
     const [pageName, setPageName] = useState('Ryan Luu');
     const [anchorNav, setAnchorNav] = useState('#ryanluu');
     const [pageLink, setPageLink] = useState('https://www.ryanluu.com');
+    const [homeName, setHomeName] = useState('Personal Site');
     const [copied, setCopied] = useState(false);
     const [toastShow, setToastShow] = useState(false);
 
@@ -36,30 +37,42 @@ const Nav = () => {
             setPageName('Ryan Luu');
             setAnchorNav('#ryanluu');
             setPageLink('https://www.ryanluu.com');
+            setHomeName('Personal Site');
         } else if (location.pathname === "/ourluubeginning/") {
             setPageName('OurLuuBeginning');
             setAnchorNav('#ourluubeginning');
             setPageLink('https://www.ryanluu.com/ourluubeginning');
+            setHomeName('Ryan Luu');
         } else if (location.pathname === "/fastropelabs/") {
             setPageName('Fastrope Labs');
             setAnchorNav('#fastrope');
             setPageLink('https://www.ryanluu.com/fastrope');
+            setHomeName('Ryan Luu');
         } else if (location.pathname === "/humblevc/") {
             setPageName('Humble Venture Capital');
             setAnchorNav('#humblevc');
             setPageLink('https://www.ryanluu.com/humblevc');
+            setHomeName('Ryan Luu');
         } else if (location.pathname === "/neat/") {
             setPageName('Neat');
             setAnchorNav('#neat');
             setPageLink('https://www.ryanluu.com/neat');
+            setHomeName('Ryan Luu');
         } else if (location.pathname === "/openrecord/") {
             setPageName('OpenRecord');
             setAnchorNav('#openrecord');
             setPageLink('https://www.ryanluu.com/openrecord');
+            setHomeName('Ryan Luu');
         } else if (location.pathname === "/vumble/") {
             setPageName('Vumble');
             setAnchorNav('#vumble');
             setPageLink('https://www.ryanluu.com/vumble');
+            setHomeName('Ryan Luu');
+        } else if (location.pathname === "/adhoc/") {
+            setPageName('AdHoc');
+            setAnchorNav('#adhoc');
+            setPageLink('https://www.ryanluu.com/adhoc');
+            setHomeName('Ryan Luu');
         }
 
     }, [])
@@ -97,7 +110,7 @@ const Nav = () => {
             <div className="nav-inner-box center">
                 <div className="nav-link-box">
                     <AnchorLink offset='140' href={anchorNav} ><h6 className="nav-anchor">{pageName}</h6></AnchorLink>
-                    <Link to="/"><h6 className="nav-link">Personal Site</h6></Link>
+                    <Link to="/"><h6 className="nav-link">{homeName}</h6></Link>
                 </div>
             </div>
             <div className="nav-inner-box right">

@@ -50,9 +50,8 @@ const Info = (props) => {
                 </div>
                 <div className="info-qa">
                     <h4 className="question">How was it built?</h4>
-                    <h5 className="answer">It's built with React Hooks + Gatsby and includes some custom features like hovering over videos to initiate playback.</h5>
+                    <h5 className="answer">The site is completely custom coded with React Hooks + Gatsby. I included a few unique features that I enjoy, like hovering over videos to initiate playback.</h5>
                 </div>
-
                 <div className="info-footer">
                     <h6 className="copyright">© {new Date().getFullYear()} Ryan Luu</h6>
                 </div>

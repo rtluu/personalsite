@@ -38,7 +38,7 @@ const About = () => {
                         <h2 id="about">About</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I create projects with cool people. Currently residing in DC with my fiancée and playing basketball 🏀 whenever I get the chance.</p>
+                        <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I work on tech projects with creative people. Currently residing in DC with my fiancée and playing basketball 🏀 whenever I get the chance.</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>
@@ -57,7 +57,10 @@ const About = () => {
                         <p>Product management is a special combo of leadership and coordination. I get to be involved with projects from the first day of planning all the way through multiple iterations.</p>
                         <ul className="listtype-casestudy" >
                             <li><p><Link to="/washingtonpost/">+Washington Post</Link></p></li>
-                            <li><p><Link to="/adhoc">+Ad Hoc</Link></p></li>
+                            <Link to="/adhoc/" className="case-item">
+                                <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>
+                                <p>+AdHoc</p>
+                            </Link>
                             <li>
                                 <Link to="/vumble/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: Vumble" imgsrc="VumblePopup" /></div>
@@ -75,7 +78,7 @@ const About = () => {
                         <h2 id="development">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>When I'm not leading product teams, I'm hacking on digital projects with friends or building experiences for cool companies.</p>
+                        <p>When I'm not leading product teams, I'm hacking on digital projects with friends or building experiences for exciting organizations.</p>
                         <ul className="listtype-casestudy" >
                             <li>
                                 <Link to="/openrecord/" className="case-item">

@@ -2,10 +2,10 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from "gatsby-image";
 
-const AdHocVaGovBackground = () => {
+const AdHocPopup = () => {
     const data = useStaticQuery(graphql`
       query {
-        imageSource: file(relativePath: { eq: "adhoc/adhoc-vagov-background.png" }) {
+        imageSource: file(relativePath: { eq: "adhoc/adhoc-popup.png" }) {
           childImageSharp {
             fluid(maxWidth: 1400) {
               ...GatsbyImageSharpFluid
@@ -16,4 +16,4 @@ const AdHocVaGovBackground = () => {
     `)
     return <Img fluid={data.imageSource.childImageSharp.fluid} objectFit="cover" />
 }
-export default AdHocVaGovBackground;
+export default AdHocPopup;

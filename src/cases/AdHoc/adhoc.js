@@ -311,11 +311,15 @@ const AdHoc = () => {
                     <div className="case-end-links">
                         <Link to="/vumble/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: Vumble" imgsrc="VumblePopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Vumble</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+Vumble</p>
                         </Link>
                         <span className="case-item next">
-                            <p>+Washington Post<span className="case-arrow"><CaseArrowIcon /></span></p>
-                            <p className="coming-soon">(coming soon)</p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <div className="coming-soon">
+                                <p>+Washington Post</p>
+                                <span className="coming-soon-text">(coming soon)</span>
+                            </div>
                         </span>
                     </div>
                 </div>

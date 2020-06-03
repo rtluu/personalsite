@@ -141,6 +141,12 @@ ul{
 
 li{
     list-style-type: none;
+
+    &.link-coming-soon{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 ol{
@@ -217,7 +223,11 @@ button{
 
 .italic{
     font-style: italic;
-    opacity: 0.7;
+    opacity: 0.6;
+}
+
+.space-left{
+    margin-left: 0.25rem;
 }
 
 .layout{
@@ -293,6 +303,13 @@ button{
                         }
                     }
                     li{
+                        .wapo{
+                            svg{
+                                path{
+                                    fill: $icon-color-light;
+                                }
+                            }
+                        }
                         &.active{
                             background: $highlight-background-light;
                         } 

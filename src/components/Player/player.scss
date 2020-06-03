@@ -30,6 +30,7 @@
                 z-index: $expanded-player-container-z;
 
                 @media (max-width: $breakpoint-phone) {
+                    top: 50%;
                     width: 100%;
                 }
 

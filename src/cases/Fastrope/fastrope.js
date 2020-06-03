@@ -155,11 +155,13 @@ const Fastrope = () => {
                     <div className="case-end-links">
                         <Link to="/humblevc/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" imgsrc="HumblePopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Humble Venture Capital</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+Humble Venture Capital</p>
                         </Link>
                         <Link to="/ourluubeginning/" className="case-item next">
                             <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
-                            <p>+OurLuuBeginning<span className="case-arrow"><CaseArrowIcon /></span></p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <p>+OurLuuBeginning</p>
                         </Link>
                     </div>
                 </div>

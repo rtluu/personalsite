@@ -317,11 +317,13 @@ const OpenRecord = () => {
                     <div className="case-end-links">
                         <Link to="/neat/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Neat</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+Neat</p>
                         </Link>
                         <Link to="/vumble/" className="case-item next">
                             <div className="case-popup"><Popup text="Case Study: Vumble" imgsrc="VumblePopup" /></div>
-                            <p>+Vumble<span className="case-arrow"><CaseArrowIcon /></span></p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <p>+Vumble</p>
                         </Link>
                     </div>
                 </div>

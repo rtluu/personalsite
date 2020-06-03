@@ -35,12 +35,10 @@ const Menu = () => {
                     <h4 className="bold">Product</h4>
                 </div>
                 <ul className="folder-list">
-                    <Link to="/washingtonpost/">
-                        <li className={location.pathname === "/washingtonpost/" && ('active')} onClick={closeMenu}>
-                            <span className="paper-icon"><PaperIcon /></span>
-                            <h5>Washington Post</h5>
-                        </li>
-                    </Link>
+                    <li className={location.pathname === "/washingtonpost/" && ('active')} onClick={closeMenu}>
+                        <span className="paper-icon wapo"><PaperIcon /></span>
+                        <h5>WaPo<span className="italic space-left">(coming soon)</span></h5>
+                    </li>
                     <Link to="/adhoc/">
                         <li className={location.pathname === "/adhoc/" && ('active')} onClick={closeMenu}>
                             <span className="paper-icon"><PaperIcon /></span>

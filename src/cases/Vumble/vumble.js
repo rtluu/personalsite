@@ -181,7 +181,7 @@ const Vumble = () => {
                     <div className="template-text-body">
                         <p>The original idea was to clip 6 seconds out of longer videos and use them as previews for the full clip. We built a beta and shared it with our friends. We led us to identify a major friction within the experience. Being interrupted right at the climatic part of a clip and prompted to make a decision about whether or not to watch the full clip was disruptive.</p>
                     </div>
-                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""}`}>
+                    <div className={`side-pic-box section ${researchCollapsed ? "hide" : ""} ${videoExpanded ? "side-video-expanded" : ""}`}>
                         <div className="side-pic">
                             <span className="gallery">
                                 <div className="gallery-outer-wrapper">
@@ -248,7 +248,7 @@ const Vumble = () => {
                     <div className="template-text-body">
                         <p>Now that we had a unique value proposition, we needed a community that would benefit from a faster video discovery. We identified Reddit as an ideal opportunity to bring our video viewing experience to scale. There were thousands of people sharing YouTube videos in subreddits, but at that point the viewing experience on Reddit was less than optimal.</p>
                     </div>
-                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""}`}>
+                    <div className={`side-pic-box section ${solutionCollapsed ? "hide" : ""} ${videoExpanded ? "side-video-expanded" : ""}`}>
                         <div className="side-pic">
                             <span className="gallery">
                                 <div className="gallery-outer-wrapper">
@@ -488,11 +488,13 @@ const Vumble = () => {
                     <div className="case-end-links">
                         <Link to="/openrecord/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OpenRecord</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+OpenRecord</p>
                         </Link>
                         <Link to="/adhoc/" className="case-item next">
                             <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>
-                            <p>+AdHoc<span className="case-arrow"><CaseArrowIcon /></span></p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <p>+AdHoc</p>
                         </Link>
                     </div>
                 </div>

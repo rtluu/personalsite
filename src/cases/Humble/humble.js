@@ -173,7 +173,8 @@ const Humble = () => {
                 <div className="template-text-body">
                     <Link to="/fastropelabs/" className="case-item">
                         <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
-                        <p>+Fastrope Labs<span className="case-arrow"><CaseArrowIcon /></span></p>
+                        <span className="case-arrow"><CaseArrowIcon /></span>
+                        <p>+Fastrope Labs</p>
                     </Link>
                 </div>
             </div>

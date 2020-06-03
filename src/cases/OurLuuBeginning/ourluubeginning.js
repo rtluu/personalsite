@@ -237,11 +237,13 @@ const OurLuuBeginning = () => {
                     <div className="case-end-links">
                         <Link to="/fastropelabs/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+Fastrope Labs</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+Fastrope Labs</p>
                         </Link>
                         <Link to="/neat/" className="case-item next">
                             <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>
-                            <p>+Neat<span className="case-arrow"><CaseArrowIcon /></span></p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <p>+Neat</p>
                         </Link>
                     </div>
                 </div>

@@ -203,7 +203,7 @@ const Neat = () => {
                                         <button onClick={openLightbox7} className="image-button" type="button">
                                             <NeatGrid />
                                         </button>
-                                        <Caption caption="grid" />
+                                        <Caption caption="grid view" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-neat-listview">
                                         <button onClick={openLightbox8} className="image-button" type="button">
@@ -289,11 +289,13 @@ const Neat = () => {
                     <div className="case-end-links">
                         <Link to="/ourluubeginning/" className="case-item">
                             <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
-                            <p><span className="case-arrow previous"><CaseArrowIcon /></span>+OurLuuBeginning</p>
+                            <span className="case-arrow previous"><CaseArrowIcon /></span>
+                            <p>+OurLuuBeginning</p>
                         </Link>
                         <Link to="/openrecord/" className="case-item next">
                             <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
-                            <p>+OpenRecord<span className="case-arrow"><CaseArrowIcon /></span></p>
+                            <span className="case-arrow"><CaseArrowIcon /></span>
+                            <p>+OpenRecord</p>
                         </Link>
                     </div>
                 </div>

@@ -19,6 +19,7 @@ import PlayIcon from "../../icons/play-icon.inline.svg";
 import Popup from "../../components/Popup/popup";
 import Caption from "../../components/Caption/caption";
 import Player from "../../components/Player/player";
+import AdHocAnchors from "./anchorsAdHoc";
 import { setImageNumber, setImageGallery, setVideoExpanded, useGlobalState } from '../../state';
 
 
@@ -27,8 +28,8 @@ const AdHoc = () => {
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
-    setImageGallery(10);
-    function openLightbox1() { setImageNumber(1); update(!value); }
+    setImageGallery(12);
+    function openLightbox1() { setImageNumber(1); update(!value); setVideoExpanded(true); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
     function openLightbox4() { setImageNumber(4); update(!value); }
@@ -38,6 +39,8 @@ const AdHoc = () => {
     function openLightbox8() { setImageNumber(8); update(!value); }
     function openLightbox9() { setImageNumber(9); update(!value); }
     function openLightbox10() { setImageNumber(10); update(!value); }
+    function openLightbox11() { setImageNumber(11); update(!value); }
+    function openLightbox12() { setImageNumber(12); update(!value); }
 
     //Collapse - Fastrope
     const [backgroundCollapsed, setBackgroundCollapsed] = useState(false);
@@ -51,7 +54,7 @@ const AdHoc = () => {
 
     return (
         <div className="template-content">
-            {/* <FastropeAnchors /> */}
+            <AdHocAnchors />
             <h1 id="adhoc">Ad Hoc</h1>
             <div className="template-section">
                 <div className="hero">
@@ -149,7 +152,7 @@ const AdHoc = () => {
                 <div className={`template-text-block ${objectiveCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setObjectiveCollapsed(!objectiveCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="question">Objective</h2>
+                        <h2 id="objective">Objective</h2>
                     </div>
                     <div className="template-text-body">
                         <p>Build the tools and system for development teams from different consulting agencies to create VA applications together.</p>
@@ -232,7 +235,7 @@ const AdHoc = () => {
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper">
-                                        <button onClick={openLightbox5} className="image-button" type="button">
+                                        <button onClick={openLightbox9} className="image-button" type="button">
                                             <AdHocDigitalLifecycle />
                                         </button>
                                         <Caption caption="product development lifecycle" />
@@ -256,7 +259,7 @@ const AdHoc = () => {
                         </ul>
                     </div>
                     <div className={`side-pic-box section hide-mobile ${solutionCollapsed ? "hide" : ""}`}>
-                        <div className="side-pic" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
+                        <div className="side-pic" onClick={openLightbox10} onKeyDown={openLightbox10} key={2} type="button">
                             <AdHocChecklist />
                             <Caption caption="support process" />
                         </div>
@@ -267,7 +270,7 @@ const AdHoc = () => {
                 <div className={`template-text-block ${resultsCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setResultsCollapsed(!resultsCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="question">Results</h2>
+                        <h2 id="results">Results</h2>
                     </div>
                     <div className="template-text-body">
                         <p>In the first 6 months of launching the VA Platform, we helped six teams from five different VA groups deployed new applications and features on Va.gov.</p>
@@ -278,13 +281,13 @@ const AdHoc = () => {
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
                                     <div className="gallery-item-wrapper flex-adhoc-results">
-                                        <button onClick={openLightbox9} className="image-button" type="button">
+                                        <button onClick={openLightbox11} className="image-button" type="button">
                                             <AdHocResults />
                                         </button>
                                         <Caption caption="initial cohort of dev teams" />
                                     </div>
                                     <div className="gallery-item-wrapper flex-adhoc-contract">
-                                        <button onClick={openLightbox10} className="image-button" type="button">
+                                        <button onClick={openLightbox12} className="image-button" type="button">
                                             <AdHocContract />
                                         </button>
                                         <Caption caption="platform contract proposal" />

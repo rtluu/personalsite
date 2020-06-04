@@ -6,7 +6,7 @@ import AdHocChecklist from "./images/AdHocChecklist";
 import AdHocContract from "./images/AdHocContract";
 import AdHocDesignSystem from "./images/AdHocDesignSystem";
 import AdHocDigitalLifecycle from "./images/AdHocDigitalLifecycle";
-import AdHocDevDocs from "./images/AdHocFeDocs";
+import AdHocDevDocs from "./images/AdHocDevDocs";
 import AdHocHandbook from "./images/AdHocHandbook";
 import AdHocIsolatedTeams from "./images/AdHocIsolatedTeams";
 import AdHocResearchTeams from "./images/AdHocResearchTeams";
@@ -27,9 +27,11 @@ const LightboxImagesVumble = (props) => {
             {imageNumber === 5 && (<AdHocResearchTeams />)}
             {imageNumber === 6 && (<AdHocHandbook />)}
             {imageNumber === 7 && (<AdHocDevDocs />)}
-            {imageNumber === 8 && (<VumbleYouTube />)}
-            {imageNumber === 9 && (<VumbleYouTube />)}
-            {imageNumber === 10 && (<VumbleYouTube />)}
+            {imageNumber === 8 && (<AdHocDesignSystem />)}
+            {imageNumber === 9 && (<AdHocDigitalLifecycle />)}
+            {imageNumber === 10 && (<AdHocChecklist />)}
+            {imageNumber === 11 && (<AdHocResults />)}
+            {imageNumber === 12 && (<AdHocContract />)}
         </div>
     );
 }

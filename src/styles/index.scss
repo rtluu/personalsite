@@ -143,9 +143,9 @@ li{
     list-style-type: none;
 
     &.link-coming-soon{
-        align-items: center;
-        display: flex;
-        flex-direction: row;
+       p{
+           display: inline-block;
+       }
     }
 }
 
@@ -224,10 +224,6 @@ button{
 .italic{
     font-style: italic;
     opacity: 0.6;
-}
-
-.space-left{
-    margin-left: 0.25rem;
 }
 
 .layout{

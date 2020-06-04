@@ -56,7 +56,7 @@ const About = () => {
                     <div className="template-text-body">
                         <p>Product management is a special combo of leadership and coordination. I get to be involved with projects from the first day of planning all the way through multiple iterations.</p>
                         <ul className="listtype-casestudy" >
-                            <li className="link-coming-soon"><p>+Washington Post</p><span className="italic space-left">(case study coming soon)</span></li>
+                            <li className="link-coming-soon"><p>+Washington Post <span className="italic">(coming soon)</span></p></li>
                             <li>
                                 <Link to="/adhoc/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>

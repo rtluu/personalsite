@@ -326,7 +326,9 @@
             }
 
             &.headshot-top{
+                border-radius: 50%;
                 display: none;
+                overflow: hidden;
                 position: absolute;
                 margin-top: 0;
                 max-width: none;
@@ -342,7 +344,9 @@
             }
         
             &.headshot-side{
+                border-radius: 50%;
                 display: inline-block;
+                overflow: hidden;
 
                 .side-pic{
                     border-radius: 50%;

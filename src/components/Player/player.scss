@@ -221,6 +221,13 @@
             z-index: $lightbox-loading-spinner-z;
         }
 
+        &.image-box{
+            transform: translate(-50%, 0);
+            .gatsby-image-wrapper{
+                position: relative !important;
+            }
+        }
+
         .gatsby-image-wrapper{
             position: absolute !important;
         }

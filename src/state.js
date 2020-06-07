@@ -8,6 +8,7 @@ const { setGlobalState, useGlobalState } = createGlobalState({
     imageGallery: 0,
     videoExpanded: false,
     infoOpen: false,
+    socialOpen: false,
 });
 
 export const menuSwitch = () => {
@@ -24,6 +25,10 @@ export const lightboxSwitch = () => {
 
 export const infoSwitch = () => {
     setGlobalState('infoOpen', (v) => !v);
+};
+
+export const socialSwitch = () => {
+    setGlobalState('socialOpen', (v) => !v);
 };
 
 export const lightboxOpen = () => {

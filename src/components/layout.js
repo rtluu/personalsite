@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "../styles/index.scss";
 import "../styles/template.scss";
 import Nav from "./Nav/nav";
+import Footer from "./Footer/footer";
 import Menu from "./Menu/menu";
 import Info from "./Info/info";
 import Lightbox from "./Lightbox/lightbox";
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
         <div className={`template ${value ? "menu-open" : ""}`}>
           {children}
         </div>
+        <Footer />
       </main>
       <Info />
       <Lightbox />

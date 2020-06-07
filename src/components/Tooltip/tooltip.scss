@@ -76,17 +76,37 @@
         &::before{
             bottom: -0.5rem;
             border-top-color: inherit;
-            right: 0.625rem;
-            margin-left: -0.3125rem;
             border-left-color: transparent;
         }
         &::after{
             bottom: -0.5625rem;
             border-top-color: #3F4755;
-            right: 0.625rem;
-            margin-left: -0.3125rem;
             border-left-color: transparent;
             border-bottom-color: transparent;
+        }
+
+        &.left-side{
+            &::before{
+                left: 1rem;
+                margin-right: 0.5rem;
+            }
+
+            &::after{
+                left: 1rem;
+                margin-right: -0.5rem;
+            }
+        }
+
+        &.right-side{
+            &::before{
+                right: 0.625rem;
+                margin-left: -0.3125rem;
+            }
+
+            &::after{
+                right: 0.625rem;
+                margin-left: -0.3125rem;
+            }
         }
     }
 
@@ -116,6 +136,11 @@
     &.info-tip{
         top: -1.875rem;
         left: -2.25rem;
+    }
+
+    &.social-tip{
+        top: -1.875rem;
+        right: -2.75rem;
     }
 
     &::before{

@@ -305,7 +305,7 @@ const AdHoc = () => {
                         <h2 id="reflection" >Reflection</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Working at Ad Hoc was an incredible experience. I learned so much from running multiple product teams across different verticals within the VA ecosystem. I helped create a whole new model of development in government with the VA platform and had the pleasure of working alongside some incredibly smart people. Beyond that, the outcomes of my work impact Veterans by enabling them to received the benefits they deserve. I treasure being able to contribute positively towards improving someone's life through technology and my experience at AdHox is a perfect example of that coming to fruition.</p>
+                        <p>Working at Ad Hoc was an incredible experience. I learned so much from running multiple product teams across different verticals within the VA ecosystem. I helped create a whole new model of development in government with the VA platform and had the pleasure of working alongside some incredibly smart people. Beyond that, the outcomes of my work impact Veterans by enabling them to received the benefits they deserve. I treasure being able to contribute positively towards improving someone's life through technology and my experience at AdHoc is a perfect example of that coming to fruition.</p>
                     </div>
                 </div>
             </div>

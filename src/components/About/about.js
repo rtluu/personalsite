@@ -123,12 +123,7 @@ const About = () => {
                         <h2 id="lets-talk">Let's talk</h2>
                     </div>
                     <div className="template-text-body">
-                        <ul className="listtype-casestudy" >
-                            <li><a href="mailto:rluu34@gmail.com"><p>Email</p></a></li>
-                            <li><a href="https://linkedin.com/in/ryanluu"><p>LinkedIn</p></a></li>
-                            <li><a href="https://twitter.com/rtluu"><p>Twitter</p></a></li>
-                            <li><a href="https://github.com/rtluu"><p>Github</p></a></li>
-                        </ul>
+                        <p>Connection breeds opportunity - if there is something I can help with or you just want to start a convo; shoot me a message at <a href="mailto:ryan@ryanluu.com">ryan@ryanluu.com</a>.</p>
                     </div>
                 </div>
             </div>

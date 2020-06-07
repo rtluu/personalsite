@@ -15,25 +15,25 @@ import AdHocVeterans from "./images/AdHocVeterans";
 import AdHocVetsdotgov from "./images/AdHocVetsgov";
 import AdHocWBC from "./images/AdHocWBC";
 
-const LightboxImagesVumble = (props) => {
+const LightboxImagesAdHoc = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
         <div className={`lightbox-image-wrapper ${imageNumber === 1 ? "video-wrapper" : ""}`}>
             {imageNumber === 1 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><HeroAdHoc /><Player ytid="FcSqajktRFw" /></div> : null}
-            {imageNumber === 2 && (<div className="media-box image-box"><AdHocVetsdotgov /></div>)}
-            {imageNumber === 3 && (<div className="media-box image-box"><AdHocWBC /></div>)}
-            {imageNumber === 4 && (<div className="media-box image-box"><AdHocIsolatedTeams /></div>)}
-            {imageNumber === 5 && (<div className="media-box image-box"><AdHocResearchTeams /></div>)}
-            {imageNumber === 6 && (<div className="media-box image-box"><AdHocHandbook /></div>)}
-            {imageNumber === 7 && (<div className="media-box image-box"><AdHocDevDocs /></div>)}
-            {imageNumber === 8 && (<div className="media-box image-box"><AdHocDesignSystem /></div>)}
-            {imageNumber === 9 && (<div className="media-box image-box"><AdHocDigitalLifecycle /></div>)}
-            {imageNumber === 10 && (<div className="media-box image-box"><AdHocChecklist /></div>)}
-            {imageNumber === 11 && (<div className="media-box image-box"><AdHocResults /></div>)}
-            {imageNumber === 12 && (<div className="media-box image-box"><AdHocContract /></div>)}
+            {imageNumber === 2 && (<AdHocVetsdotgov />)}
+            {imageNumber === 3 && (<AdHocWBC />)}
+            {imageNumber === 4 && (<AdHocIsolatedTeams />)}
+            {imageNumber === 5 && (<AdHocResearchTeams />)}
+            {imageNumber === 6 && (<AdHocHandbook />)}
+            {imageNumber === 7 && (<AdHocDevDocs />)}
+            {imageNumber === 8 && (<AdHocDesignSystem />)}
+            {imageNumber === 9 && (<AdHocDigitalLifecycle />)}
+            {imageNumber === 10 && (<AdHocChecklist />)}
+            {imageNumber === 11 && (<AdHocResults />)}
+            {imageNumber === 12 && (<AdHocContract />)}
         </div>
     );
 }
 
-export default LightboxImagesVumble
+export default LightboxImagesAdHoc

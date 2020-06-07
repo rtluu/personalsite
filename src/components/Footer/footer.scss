@@ -1,0 +1,44 @@
+@import "../../styles/media-queries.scss";
+
+.footer{
+    margin-top: 8rem;
+    position: relative;
+    margin-bottom: 1.3125rem;
+
+    @media (max-width: $breakpoint-phone) {
+        margin-top: 6rem;
+        margin-bottom: 1.3125rem;
+    }
+
+
+    .footer-inner {
+        position: relative;
+
+        &.left{
+            display: inline-block;
+            left: 1rem;
+        }
+
+        &.center{
+            left: 50%;
+            position: absolute;
+            text-align: center;
+            top: calc(50% + 0.0625rem);
+            transform: translate(-50%, -50%);
+        }
+
+        a{
+            @media (hover: hover) {
+                &:hover{
+                    .copyright{
+                        color: $link-hover;
+                    }
+                }
+            }
+        }
+        
+        .copyright{
+            color: $copyright-color;
+        }
+    }
+}

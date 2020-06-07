@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./social.scss";
-import SocialIcon from "../../icons/web-icon.inline.svg";
+import WebIcon from "../../icons/web-icon.inline.svg";
+import TwitterIcon from "../../icons/twitter-icon.inline.svg";
+import LinkedinIcon from "../../icons/linkedin-icon.inline.svg";
+import GithubIcon from "../../icons/github-icon.inline.svg";
 import Tooltip from "../Tooltip/tooltip";
 
 import { useGlobalState, socialSwitch, socialOpen } from '../../state';
@@ -34,24 +37,33 @@ const Social = () => {
     return (
         <div ref={socialRef} className={`social-container ${socialOpen ? "show" : ""}`}>
             <button className='icon social-button' onClick={() => socialSwitch(!socialOpen)}>
-                <SocialIcon />
+                <WebIcon />
                 <Tooltip text='Web links' class='social-tip down-point left-side' />
             </button>
 
             <div className="social-inner">
                 <h3 className="social-header">Web Links</h3>
-                <div className="info-qa">
-                    <h4 className="question">What is this?</h4>
-                    <h5 className="answer">Ryan Luu's Portfolio & Blog</h5>
-                </div>
-                <div className="info-qa">
-                    <h4 className="question">Why does this look familiar?</h4>
-                    <h5 className="answer">The design mimics Dropbox Paper. It's what I use to organize my daily process, so I thought it would be a fun challenge to recreate it's ux from scatch for my personal site.</h5>
-                </div>
-                <div className="info-qa">
-                    <h4 className="question">How was it built?</h4>
-                    <h5 className="answer">This site was custom coded with React Hooks and Gatsby. I included a few unique features that I enjoy, like hovering over videos to initiate playback.</h5>
-                </div>
+                <ul className="social-list">
+                    <a to="/adhoc/">
+                        {/* onClick={closeMenu} */}
+                        <li className="" >
+                            <span className="social-icon"><TwitterIcon /></span>
+                            <h5>Twitter</h5>
+                        </li>
+                    </a>
+                    <a href="https://linkedin.com/in/ryanluu">
+                        <li className="">
+                            <span className="social-icon"><LinkedinIcon /></span>
+                            <h5>LinkedIn</h5>
+                        </li>
+                    </a>
+                    <a href="https://github/rtluu">
+                        <li className="">
+                            <span className="social-icon"><GithubIcon /></span>
+                            <h5>Github</h5>
+                        </li>
+                    </a>
+                </ul>
             </div>
         </div>
     )

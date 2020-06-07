@@ -346,10 +346,47 @@ button{
                         color: $text-color-secondary-light;
                     }
                 }
+            }
+        }
 
-                .info-footer{
-                    .copyright{
-                        color: $copyright-color-light;
+        .social-container{
+            &.show{
+                .icon{
+                    svg{
+                        path{
+                            fill: $info-icon-light !important;
+                        }
+                    }
+                }
+            }
+            .social-inner{
+                background: $info-menu-light;
+                box-shadow: $modal-shadow-light;
+
+                .social-header{
+                    border-color: $border-color-light;
+                    color: $text-color-light;
+                }
+
+                .social-list{
+                    a{
+                        @media (hover: hover) {
+                            &:hover{
+                                li{ 
+                                    svg{
+                                        path{
+                                            fill: $link-hover-light;
+                                        }
+                                    }
+                                    h5{
+                                        color: $link-hover-light;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    h5{
+                        color: $text-color-secondary-light;
                     }
                 }
             }
@@ -407,6 +444,25 @@ button{
                 background: $overlay-background-light
             }
         }
+
+        .footer{
+            .footer-inner{
+                a{
+                    @media (hover: hover) {
+                        &:hover{
+                            .copyright{
+                                color: $link-hover-light;
+                            }
+                        }
+                    }
+                }
+
+                .copyright{
+                    color: $copyright-color-light;
+                }
+            }
+        }
+
         .anchor-set{
             .anchor{
                 &:before{

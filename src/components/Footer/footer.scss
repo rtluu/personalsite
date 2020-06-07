@@ -26,10 +26,19 @@
             top: calc(50% + 0.0625rem);
             transform: translate(-50%, -50%);
         }
+
+        a{
+            @media (hover: hover) {
+                &:hover{
+                    .copyright{
+                        color: $link-hover;
+                    }
+                }
+            }
+        }
         
         .copyright{
             color: $copyright-color;
         }
-        
     }
 }

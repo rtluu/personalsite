@@ -38,13 +38,51 @@
         left: 0rem;
         transform: translateY(calc(-100% - 0rem));
         transition: $transition-primary;
-        width: 14rem;
+        width: 12rem;
 
         .social-header{
             color: $text-color;
             border-bottom: 0.0625rem solid $border-color;
             padding-bottom: 0.125rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-list{
+            display: flex;
+            flex-direction: column;
+
+            a{
+                cursor: pointer;
+                @media (hover: hover) {
+                    &:hover{
+                        li{ 
+                            svg{
+                                path{
+                                    fill: $link-hover;
+                                }
+                            }
+                            h5{
+                                color: $link-hover;
+                            }
+                        }
+                    }
+                }
+            }
+
+            li{
+                align-items: center;
+                border-radius: 0.25rem;
+                display: flex;
+                flex-direction: row;
+                padding: 0.75rem 0.875rem 0.5625rem 0.25rem;
+                width: 100%;
+
+                h5{ 
+                    margin-left: 0.75rem;
+                    color: $white;
+                    position: relative;
+                }
+            }
         }
     }
 }

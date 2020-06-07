@@ -481,13 +481,13 @@ button{
         width: 100%;
 
         .template{
-            margin: 6rem auto 8rem;
+            margin: 6rem auto 0rem;
             max-width: $max-width;
-            padding: 2.5rem;
+            padding: 2.5rem 2.5rem 0 2.5rem;
 
             @media (max-width: $breakpoint-phone) {
-                margin: 4.5rem auto 7.5rem;
-                padding: 2.5rem 1.25rem;
+                margin: 4.5rem auto 0;
+                padding: 2.5rem 1.25rem 0 1.25rem;
             }
 
             &.menu-open{

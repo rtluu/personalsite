@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./info.scss";
-import InfoIcon from "../../icons/info-icon.inline.svg";
+import "./social.scss";
+import SocialIcon from "../../icons/web-icon.inline.svg";
 import Tooltip from "../Tooltip/tooltip";
 
-import { useGlobalState, infoSwitch, infoOpen } from '../../state';
+import { useGlobalState, socialSwitch, socialOpen } from '../../state';
 
-function useInfoActive(ref) {
-    const [infoOpen, infoSwitch] = useGlobalState('infoOpen');
+function useSocialActive(ref) {
+    const [socialOpen, socialSwitch] = useGlobalState('socialOpen');
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                console.log('info closed');
-                infoSwitch(false);
+                console.log('social closed');
+                socialSwitch(false);
             }
         }
         // Bind the event listener
@@ -26,20 +26,20 @@ function useInfoActive(ref) {
     }, [ref]);
 }
 
-const Info = (props) => {
-    const [infoOpen, infoSwitch] = useGlobalState('infoOpen');
-    const infoRef = useRef(null);
-    useInfoActive(infoRef);
+const Social = () => {
+    const [socialOpen, socialSwitch] = useGlobalState('socialOpen');
+    const socialRef = useRef(null);
+    useSocialActive(socialRef);
 
     return (
-        <div ref={infoRef} className={`info-container ${infoOpen ? "show" : ""}`} >
-            <button className='icon info-button' onClick={() => infoSwitch(!infoOpen)}>
-                <InfoIcon />
-                <Tooltip text='Site info' class='info-tip down-point right-side' />
+        <div ref={socialRef} className={`social-container ${socialOpen ? "show" : ""}`}>
+            <button className='icon social-button' onClick={() => socialSwitch(!socialOpen)}>
+                <SocialIcon />
+                <Tooltip text='Web links' class='social-tip down-point left-side' />
             </button>
 
-            <div className="info-inner">
-                <h3 className="info-header">Site Info</h3>
+            <div className="social-inner">
+                <h3 className="social-header">Web Links</h3>
                 <div className="info-qa">
                     <h4 className="question">What is this?</h4>
                     <h5 className="answer">Ryan Luu's Portfolio & Blog</h5>
@@ -57,7 +57,4 @@ const Info = (props) => {
     )
 }
 
-export default Info
-
-
-// onClick={() => setLightMode(!lightMode)}
+export default Social

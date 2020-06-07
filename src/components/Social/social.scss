@@ -1,0 +1,50 @@
+@import "../../styles/media-queries.scss";
+
+.social-container{
+    display: inline-block;
+    position: relative;
+
+    &.show{
+        .social-button{
+            .social-tip{
+                opacity: 0
+            }
+            svg{
+                path{
+                    fill: $info-icon !important;
+                }
+            }
+        }
+        .social-inner{
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(calc(-100% - 2.5rem));
+        }
+    }
+
+    .social-button{
+        box-sizing: content-box;
+        padding: 0.25rem 0.325rem 0.0625rem 0.325rem;
+    }
+
+    .social-inner{
+        background: $info-menu;
+        border-radius: 0.25rem;
+        box-shadow: $modal-shadow;
+        opacity: 0;
+        padding: 1.25rem 1.5rem 0.5rem 1.5rem;
+        pointer-events: none;
+        position: absolute;
+        left: 0rem;
+        transform: translateY(calc(-100% - 0rem));
+        transition: $transition-primary;
+        width: 14rem;
+
+        .social-header{
+            color: $text-color;
+            border-bottom: 0.0625rem solid $border-color;
+            padding-bottom: 0.125rem;
+            margin-bottom: 1rem;
+        }
+    }
+}

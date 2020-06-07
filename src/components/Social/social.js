@@ -44,8 +44,7 @@ const Social = () => {
             <div className="social-inner">
                 <h3 className="social-header">Web Links</h3>
                 <ul className="social-list">
-                    <a to="/adhoc/">
-                        {/* onClick={closeMenu} */}
+                    <a href="https://twitter.com/rtluu">
                         <li className="" >
                             <span className="social-icon"><TwitterIcon /></span>
                             <h5>Twitter</h5>
@@ -57,7 +56,7 @@ const Social = () => {
                             <h5>LinkedIn</h5>
                         </li>
                     </a>
-                    <a href="https://github/rtluu">
+                    <a href="https://github.com/rtluu">
                         <li className="">
                             <span className="social-icon"><GithubIcon /></span>
                             <h5>Github</h5>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./info.scss";
 import InfoIcon from "../../icons/info-icon.inline.svg";
 import Tooltip from "../Tooltip/tooltip";
@@ -7,13 +7,15 @@ import { useGlobalState, infoSwitch, infoOpen } from '../../state';
 
 function useInfoActive(ref) {
     const [infoOpen, infoSwitch] = useGlobalState('infoOpen');
+    const [, updateState] = React.useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                console.log('info closed');
+                forceUpdate;
                 infoSwitch(false);
             }
         }

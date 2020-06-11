@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useLayoutEffect } from 'react';
+import React, { Fragment, useState, useEffect, useCallback, useLayoutEffect } from 'react';
 import "./lightbox.scss";
 import { useLocation } from "@reach/router"
 import CloseIcon from "../../icons/close-icon.inline.svg";
@@ -33,6 +33,8 @@ const Lightbox = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [imageGallery] = useGlobalState('imageGallery');
     const [lightboxImages, setLightboxImages] = useState('about');
+    const [, updateState] = React.useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
 
     function closeLightbox() {
         setVideoExpanded(false);
@@ -41,6 +43,7 @@ const Lightbox = (props) => {
     }
 
     function nextImage() {
+        forceUpdate;
         setVideoExpanded(false);
         if (imageNumber === imageGallery) {
             setImageNumber(1);
@@ -49,6 +52,7 @@ const Lightbox = (props) => {
         }
     }
     function prevImage() {
+        forceUpdate;
         setVideoExpanded(false);
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
@@ -92,7 +96,6 @@ const Lightbox = (props) => {
         } else if (location.pathname === "/adhoc/") {
             setLightboxImages('adhoc');
         }
-
     }, [])
 
     // Hook

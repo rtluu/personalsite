@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./social.scss";
 import WebIcon from "../../icons/web-icon.inline.svg";
 import TwitterIcon from "../../icons/twitter-icon.inline.svg";
@@ -10,13 +10,15 @@ import { useGlobalState, socialSwitch, socialOpen } from '../../state';
 
 function useSocialActive(ref) {
     const [socialOpen, socialSwitch] = useGlobalState('socialOpen');
+    const [, updateState] = React.useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                console.log('social closed');
+                forceUpdate;
                 socialSwitch(false);
             }
         }

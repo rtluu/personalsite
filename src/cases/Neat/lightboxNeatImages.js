@@ -17,7 +17,7 @@ const LightboxImagesNeat = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
-        <div className={`lightbox-image-wrapper ${imageNumber === 1 | imageNumber === 10 | imageNumber === 11 ? "video-wrapper" : ""}`}>
+        <div className={`${imageNumber === 1 | imageNumber === 10 | imageNumber === 11 ? "lightbox-video-wrapper" : "lightbox-image-wrapper"}`}>
             {imageNumber === 1 && !videoExpanded ? <div className="media-box vert-neat-hero"><div className="loading-spinner" /><HeroNeat /><Player ytid="XkhYtBU0GSo" /></div> : null}
             {imageNumber === 2 && (<NeatUserInterview />)}
             {imageNumber === 3 && (<NeatUserFlow />)}

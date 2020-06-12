@@ -19,7 +19,7 @@ const LightboxImagesAdHoc = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
-        <div className={`lightbox-image-wrapper ${imageNumber === 1 ? "video-wrapper" : ""}`}>
+        <div className={`${imageNumber === 1 ? "lightbox-video-wrapper" : "lightbox-image-wrapper"}`}>
             {imageNumber === 1 && !videoExpanded ? <div className="media-box"><div className="loading-spinner" /><HeroAdHoc /><Player ytid="FcSqajktRFw" /></div> : null}
             {imageNumber === 2 && (<AdHocVetsdotgov />)}
             {imageNumber === 3 && (<AdHocWBC />)}

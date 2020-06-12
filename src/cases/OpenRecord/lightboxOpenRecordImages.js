@@ -19,7 +19,7 @@ const LightboxImagesOpenRecord = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
-        <div className={`lightbox-image-wrapper ${imageNumber === 1 | imageNumber === 8 | imageNumber === 12 ? "video-wrapper" : ""}`}>
+        <div className={`${imageNumber === 1 | imageNumber === 8 | imageNumber === 12 ? "lightbox-video-wrapper" : "lightbox-image-wrapper"}`}>
             {imageNumber === 1 && !videoExpanded ? <div className="media-box vert-openrecord-hero"><div className="loading-spinner" /><HeroOpenRecord /><Player ytid="558t8VG-zzw" /></div> : null}
             {imageNumber === 2 && (<OpenRecordDiscovery />)}
             {imageNumber === 3 && (<OpenRecordUserInterviews />)}

@@ -15,7 +15,7 @@ const LightboxImagesOLB = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
-        <div className={`lightbox-image-wrapper ${imageNumber === 5 | imageNumber === 6 ? "video-wrapper" : ""}`}>
+        <div className={`${imageNumber === 5 | imageNumber === 6 ? "lightbox-video-wrapper" : "lightbox-image-wrapper"}`}>
             {imageNumber === 1 && (<HeroOLB />)}
             {imageNumber === 2 && (<OLBFooter />)}
             {imageNumber === 3 && (<OLBSchedule />)}

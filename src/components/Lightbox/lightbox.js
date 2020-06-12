@@ -45,7 +45,6 @@ const Lightbox = (props) => {
 
     const nextImage = useCallback(() => {
         forceUpdate;
-        console.log(videoExpanded);
         if (imageNumber === imageGallery) {
             setImageNumber(1);
         } else {
@@ -55,7 +54,6 @@ const Lightbox = (props) => {
 
     const prevImage = useCallback(() => {
         forceUpdate;
-        console.log(videoExpanded);
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
         } else {

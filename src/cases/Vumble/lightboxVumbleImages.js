@@ -20,7 +20,7 @@ const LightboxImagesVumble = (props) => {
     const [imageNumber] = useGlobalState('imageNumber');
     const [videoExpanded] = useGlobalState('videoExpanded');
     return (
-        <div className={`lightbox-image-wrapper ${imageNumber === 1 | imageNumber === 3 | imageNumber === 4 | imageNumber === 5 | imageNumber === 6 | imageNumber === 8 | imageNumber === 9 | imageNumber === 10 | imageNumber === 11 | imageNumber === 12 | imageNumber === 13 | imageNumber === 14 ? "video-wrapper" : ""}`}>
+        <div className={`${imageNumber === 1 | imageNumber === 3 | imageNumber === 4 | imageNumber === 5 | imageNumber === 6 | imageNumber === 8 | imageNumber === 9 | imageNumber === 10 | imageNumber === 11 | imageNumber === 12 | imageNumber === 13 | imageNumber === 14 ? "lightbox-video-wrapper" : "lightbox-image-wrapper"}`}>
             {imageNumber === 1 && !videoExpanded ? <div className="media-box vert-vumble-hero"><div className="loading-spinner" /><HeroVumble /><Player ytid="oeSBy4Hksns" /></div> : null}
             {imageNumber === 2 && (<VumbleYouTube />)}
             {imageNumber === 3 && !videoExpanded ? <div className="media-box vert-vumble-powerpoint-prototype"><div className="loading-spinner" /><VumblePowerpointPrototype /><Player ytid="w3MviB2DxrU" /></div> : null}

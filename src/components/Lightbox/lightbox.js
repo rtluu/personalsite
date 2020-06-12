@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router"
 import CloseIcon from "../../icons/close-icon.inline.svg";
 import BackIcon from "../../icons/back-icon.inline.svg";
 import NextIcon from "../../icons/next-icon.inline.svg";
-import { setImageNumber, setVideoExpanded, useGlobalState, } from '../../state';
+import { setImageNumber, useGlobalState, } from '../../state';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
 import LightboxAboutImages from "../About/lightboxAboutImages";
@@ -32,6 +32,7 @@ const Lightbox = (props) => {
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
     const [imageGallery] = useGlobalState('imageGallery');
+    const [videoExpanded, setVideoExpanded] = useGlobalState('videoExpanded');
     const [lightboxImages, setLightboxImages] = useState('about');
     const [, updateState] = React.useState();
     const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -42,24 +43,25 @@ const Lightbox = (props) => {
         setImageNumber(1);
     }
 
-    function nextImage() {
+    const nextImage = useCallback(() => {
         forceUpdate;
-        setVideoExpanded(false);
+        console.log(videoExpanded);
         if (imageNumber === imageGallery) {
             setImageNumber(1);
         } else {
             setImageNumber(imageNumber + 1);
         }
-    }
-    function prevImage() {
+    }, [imageNumber]);
+
+    const prevImage = useCallback(() => {
         forceUpdate;
-        setVideoExpanded(false);
+        console.log(videoExpanded);
         if (imageNumber === 1) {
             setImageNumber(imageGallery);
         } else {
             setImageNumber(imageNumber - 1);
         }
-    }
+    }, [imageNumber]);
 
     useEffect(() => {
         const handleKeyDown = event => {
@@ -119,9 +121,9 @@ const Lightbox = (props) => {
                         </button>
                         <div className="browser-arrow-box">
                             <div className="gallery-arrows">
-                                <button className="arrow" onClick={prevImage}><BackIcon /></button>
+                                <button className="arrow" onClick={() => { setVideoExpanded(false); prevImage() }} ><BackIcon /></button>
                                 <h4 className="gallery-counter">{imageNumber} of {imageGallery}</h4>
-                                <button className="arrow" onClick={nextImage}><NextIcon /></button>
+                                <button className="arrow" onClick={() => { setVideoExpanded(false); nextImage() }}><NextIcon /></button>
                             </div>
                         </div>
                         {lightboxImages === "about" && <LightboxAboutCaptions />}

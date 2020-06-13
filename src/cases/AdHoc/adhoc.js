@@ -189,7 +189,7 @@ const AdHoc = () => {
                         <h2 id="solution">Solution approach</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>We identified two areas necessary elements for bringing new teams onboard, Documentation and Support. I was put in charge of two product teams to drive the VA platform: one to produce the platform documentation and one to support new teams in launching apps on the platform.</p>
+                        <p>We identified two necessary elements for onboarding and guiding teams through the process of launching new applications - Documentation and Support. I was put in charge of two product teams to drive the VA platform: one to produce the platform documentation and one to support new teams in launching apps on the platform.</p>
                     </div>
                     <div className="template-text-body">
                         <p className="bold">Documentation</p>

@@ -116,7 +116,7 @@ const OurLuuBeginning = () => {
                         <h2 id="design">Design</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>K and I wanted the site to reflect our connection as a couple and prefer a minimalist design ease in readability. I laid out the mocks in Figma, iterating through different designs and color patterns. We landed on a cursive primary font and outline icons tied together with a smooth blue background.</p>
+                        <p>K and I wanted the site to reflect our connection as a couple and prefer a minimalist design. I laid out the mocks in Figma; iterating through different designs and color patterns. We landed on a cursive primary font and outline icons tied together with a smooth blue background.</p>
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
@@ -228,7 +228,7 @@ const OurLuuBeginning = () => {
                         <h2 id="reflection" >Reflection</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>It has been a very fun project and I loved collaborating with K to tell our story. Creating the site from scratch allow us to really craft the design to fit our aesthetic and I got some good practice on both the design and development fronts. Can’t wait for the wedding!</p>
+                        <p>It has been a very fun project and I loved collaborating with K to tell our story. Creating the site from scratch allows us to craft the design to fit our aesthetic and I got some good practice in both design and development. Can’t wait for the wedding!</p>
                     </div>
                 </div>
             </div>

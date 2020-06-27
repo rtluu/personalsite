@@ -86,24 +86,13 @@ const Neat = () => {
                 </div>
             </div>
             <div className="template-section">
-                <div className={`template-text-block ${backgroundCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setBackgroundCollapsed(!backgroundCollapsed)}>
-                        <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="background">Background</h2>
-                    </div>
-                    <div className="template-text-body">
-                        <p>It started with a problem that Osebo experienced when trying to organize inspiration and digital resources in his design process. These assets were scattered across difficult services making them difficult to track and recall when needed.</p>
-                    </div>
-                </div>
-            </div>
-            <div className="template-section">
                 <div className={`template-text-block ${problemCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setProblemCollapsed(!problemCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="problem">Problem</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Osebo is a visual learner and was seeking a better way to organize his design inspiration and useful resources for his design process.</p>
+                        <p>It started with a problem that my friend Osebo experienced in 2016. Osebo is a digital designer and was having trouble keeping track of his design inspiration and digital resources. His saved content wass scattered across multiple different services making them difficult to recall when needed.</p>
                     </div>
                 </div>
             </div>

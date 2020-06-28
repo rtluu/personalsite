@@ -92,7 +92,7 @@ const Neat = () => {
                         <h2 id="problem">Problem</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>It started with a problem that my friend Osebo experienced in 2016. Osebo is a digital designer and was having trouble keeping track of his design inspiration and digital resources. His saved content wass scattered across multiple different services making them difficult to recall when needed.</p>
+                        <p>It started with a problem that my friend Osebo experienced in 2016. Osebo is a digital designer and was having trouble keeping track of his design inspiration and digital resources. His saved content was scattered across multiple different services making them difficult to recall when needed.</p>
                     </div>
                 </div>
             </div>

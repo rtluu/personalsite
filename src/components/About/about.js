@@ -38,7 +38,7 @@ const About = () => {
                         <h2 id="about">About</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I work on tech projects with creative people. Currently residing in DC with my fiancée and playing basketball 🏀 whenever I get the chance.</p>
+                        <p>Laughing, learning, and loving. By day, I solve problems as a Senior PM at The Washington Post and at night I work on tech projects with creative people. Currently residing in DC with my wife and playing basketball 🏀 whenever I get the chance.</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>
@@ -123,7 +123,7 @@ const About = () => {
                         <h2 id="lets-talk">Let's talk</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Connection breeds opportunity - if there is something I can help with or you just want to start a convo; shoot me a message at <a href="mailto:ryan@ryanluu.com">ryan@ryanluu.com</a>.</p>
+                        <p>Connection breeds opportunity! If there is something I can help with or you just want to start a convo; shoot me a message at <a href="mailto:ryan@ryanluu.com">ryan@ryanluu.com</a>.</p>
                     </div>
                 </div>
             </div>

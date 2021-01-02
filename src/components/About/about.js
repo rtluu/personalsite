@@ -17,6 +17,7 @@ const About = () => {
     const [productCollapsed, setProductCollapsed] = useState(false);
     const [developmentCollapsed, setDevelopmentCollapsed] = useState(false);
     const [connectCollapsed, setConnectCollapsed] = useState(false);
+    const [writingCollapsed, setWritingCollapsed] = useState(false);
 
     return (
         <div className="template-content">
@@ -110,6 +111,25 @@ const About = () => {
                                 <Link to="/humblevc/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" imgsrc="HumblePopup" /></div>
                                     <p>+Humble VC</p>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="template-section">
+                <div className={`template-text-block ${writingCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setWritingCollapsed(!writingCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="lets-talk">Writing</h2>
+                    </div>
+                    <div className="template-text-body">
+                        <p>I'm always looking to improve. So I started a blog to capture my learnings and help others.</p>
+                        <ul className="listtype-casestudy" >
+                            <li>
+                                <Link to="/journaldaily/" className="case-item">
+                                    <div className="case-popup"><Popup text="Blog Post: Journal Lessons" imgsrc="AdHocPopup" /></div>
+                                    <p>+3 Lessons From Journaling Daily</p>
                                 </Link>
                             </li>
                         </ul>

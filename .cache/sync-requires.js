@@ -14,6 +14,7 @@ exports.components = {
   "component---src-pages-neat-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/neat.js"))),
   "component---src-pages-openrecord-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/openrecord.js"))),
   "component---src-pages-ourluubeginning-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/ourluubeginning.js"))),
-  "component---src-pages-vumble-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/vumble.js")))
+  "component---src-pages-vumble-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/vumble.js"))),
+  "component---src-pages-journaldaily-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/src/personalsite/src/pages/journaldaily.js")))
 }
 

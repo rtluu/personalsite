@@ -155,13 +155,13 @@ const JournalDaily = () => {
                         </div>
                     </div>
                     <div className="template-text-body">
-                        <p>Past - Keeping a record of each day makes it easy to reflect on moments of the past. What did I do last Wednesday? Do you remember that time we visited the Hirshhorn Museum for your birthday? Each memory is saved in reverse chronological order allowing me to jump back and reminisce on my experiences and mindset at any point in time. It’s as close to being able to time travel as you can get.</p>
+                        <p><span className="bold underline">Past</span> - Keeping a record of each day makes it easy to reflect on moments of the past. What did I do last Wednesday? Do you remember that time we visited the Hirshhorn Museum for your birthday? Each memory is saved in reverse chronological order allowing me to jump back and reminisce on my experiences and mindset at any point in time. It’s as close to being able to time travel as you can get.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>Present - Journaling forces me to acknowledge my thoughts each day. What’s happening in my life? How am I feeling? Am I being productive? These questions focus my attention on the present and push me to live in the now. It’s helped me build my awareness of the current moment and embrace the agency I have over my life.</p>
+                        <p><span className="bold underline">Present</span> - Journaling forces me to acknowledge my thoughts each day. What’s happening in my life? How am I feeling? Am I being productive? These questions focus my attention on the present and push me to live in the now. It’s helped me build my awareness of the current moment and embrace the agency I have over my life.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>Future - A destination provides direction; a target to compel you forward. Taking time to envision my future and set goals enables me to identify what steps to take on my journey. I use my journal as a way to lay out my objectives and hold myself accountable as I work toward my ambitions.</p>
+                        <p><span className="bold underline">Future</span> - A destination provides direction; a target to compel you forward. Taking time to envision my future and set goals enables me to identify what steps to take on my journey. I use my journal as a way to lay out my objectives and hold myself accountable as I work toward my ambitions.</p>
                     </div>
                     <div className="template-text-body">
                         <p>My journal is a time machine, serving as as a portal to the past, grounding me in the present and bringing clarity to where I’m headed.</p>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import JournalAnchors from "./anchorsJournalDaily";
 import MindPrism from "./images/MindPrism";
+import TreasureMap from "./images/TreasureMap";
+import TinyGains from "./images/TinyGains";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import Caption from "../../components/Caption/caption";
@@ -9,10 +12,10 @@ import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
 
 const JournalDaily = () => {
-    //Lightbox - Humble
+    //Lightbox - Journal
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
-    setImageGallery(6);
+    setImageGallery(3);
     function openLightbox1() { setImageNumber(1); update(!value); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
@@ -20,11 +23,13 @@ const JournalDaily = () => {
     //Collapse - Journal
     const [writeCollapsed, setWriteCollapsed] = useState(false);
     const [frictionCollapsed, setFrictionCollapsed] = useState(false);
+    const [journeyCollapsed, setJourneyCollapsed] = useState(false);
+    const [takeawayCollapsed, setTakeawayCollapsed] = useState(false);
 
     return (
         <div className="template-content">
-            {/* <JournalAnchors /> */}
-            <h1 id="journal">3 Learnings from Journaling Daily in 2020</h1>
+            <JournalAnchors />
+            <h1 id="journaldaily">3 Learnings from Journaling Daily in 2020</h1>
             <div className="template-section">
                 <div className="template-text-block">
                     <div className="template-text-body">
@@ -51,11 +56,10 @@ const JournalDaily = () => {
                     <div className="template-text-body">
                         <p>There is only one rule. “<i>Write something for every day.</i>" 1 word, 1 pic, 1 link, 1 video…. something. ‘For’ is actually a key word in that last sentence. It’s not about writing something down on the exact day that it happened, but rather writing down something for each day. There are days when I may miss writing something down and that’s totally fine. I’ll just go back the next day and fill in whatever happened. I live a dynamic life and instead of being overly stringent about journaling every day, I journal when it works best for me.</p>
                     </div>
-
                     <div className="template-text-body side-by-side">
                         <p>The true importance is that I reflect on each day, and capture something to cement that moment in time. I’ve learned that the saying “a picture is worth a thousand words” is true in the context of journaling. It’s amazing how much of a day I can remember from one image. That one cue unlocks a slew of surrounding memories. It could be anything. A screenshot, selfie, food pic, or even a random snap with no posing at all: the imagery provides context that helps me recollect the deeper details of any particular experience.</p>
                         <div className={`side-pic-box inline section ${writeCollapsed ? "hide" : ""}`}>
-                            <div className="side-pic" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
+                            <div className="side-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
                                 <MindPrism />
                             </div>
                         </div>
@@ -66,10 +70,10 @@ const JournalDaily = () => {
                 </div>
             </div>
 
-            {/* Write Something */}
+            {/* When friction is low, habits are easy */}
             <div className="template-section">
                 <div className={`template-text-block ${frictionCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setWriteCollapsed(!frictionCollapsed)}>
+                    <div className="template-text-header" onClick={() => setFrictionCollapsed(!frictionCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="friction">2. When friction is low, habits are easy</h2>
                     </div>
@@ -135,17 +139,56 @@ const JournalDaily = () => {
                 </div>
             </div>
 
-
-
-            {/* <div className="template-section">
-                <div className="template-text-body">
-                    <Link to="/fastropelabs/" className="case-item">
-                        <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
-                        <span className="case-arrow"><CaseArrowIcon /></span>
-                        <p>+Fastrope Labs</p>
-                    </Link>
+            {/* It's the journey AND the destination */}
+            <div className="template-section">
+                <div className={`template-text-block ${journeyCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setJourneyCollapsed(!journeyCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="journey">3. It’s the journey AND the destination</h2>
+                    </div>
+                    <div className="template-text-body side-by-side">
+                        <p>When you look at life, there are three perspectives you can take: reflecting on the past, living in the present or planning for the future. There are varying opinions about which frame of time to focus on, but I’m not going to go into any of that. They are all important. I’m going to focus on how journaling serves as the ideal medium for creating balance across these different perspectives of time.</p>
+                        <div className={`side-pic-box inline section ${journeyCollapsed ? "hide" : ""}`}>
+                            <div className="side-pic" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
+                                <TreasureMap />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="template-text-body">
+                        <p>Past - Keeping a record of each day makes it easy to reflect on moments of the past. What did I do last Wednesday? Do you remember that time we visited the Hirshhorn Museum for your birthday? Each memory is saved in reverse chronological order allowing me to jump back and reminisce on my experiences and mindset at any point in time. It’s as close to being able to time travel as you can get.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>Present - Journaling forces me to acknowledge my thoughts each day. What’s happening in my life? How am I feeling? Am I being productive? These questions focus my attention on the present and push me to live in the now. It’s helped me build my awareness of the current moment and embrace the agency I have over my life.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>Future - A destination provides direction; a target to compel you forward. Taking time to envision my future and set goals enables me to identify what steps to take on my journey. I use my journal as a way to lay out my objectives and hold myself accountable as I work toward my ambitions.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>My journal is a time machine, serving as as a portal to the past, grounding me in the present and bringing clarity to where I’m headed.</p>
+                    </div>
                 </div>
-            </div> */}
+            </div>
+
+            {/* Takeaway */}
+            <div className="template-section">
+                <div className={`template-text-block ${takeawayCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setTakeawayCollapsed(!TakeawayCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="takeaway">Takeaway</h2>
+                    </div>
+                    <div className="template-text-body">
+                        <p>If you’re looking to try journaling out for yourself, I encourage you to go for it! Start small and look for ways to make it easy in your daily flow. If you have any questions about journaling or have your own tips to share - hit me up on twitter @rtluu.</p>
+                    </div>
+                    <div className="template-text-body side-by-side">
+                        <p><i>Extra Note:</i><br />One more note on habits. Good habits breed better habits and their value compounds over time. After I started journaling daily, it led me to pick up other positive habits such as intermittent fasting and an at-home workout routine. Start small and watch the investment in yourself grow across the different facets of your life!</p>
+                        <div className={`side-pic-box inline section ${takeawayCollapsed ? "hide" : ""}`}>
+                            <div className="side-pic" onClick={openLightbox3} onKeyDown={openLightbox3} key={3} type="button">
+                                <TinyGains />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

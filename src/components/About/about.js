@@ -128,8 +128,8 @@ const About = () => {
                         <ul className="listtype-casestudy" >
                             <li>
                                 <Link to="/journaldaily/" className="case-item">
-                                    <div className="case-popup"><Popup text="Blog Post: Journal Lessons" imgsrc="AdHocPopup" /></div>
-                                    <p>+3 Lessons From Journaling Daily</p>
+                                    <div className="case-popup"><Popup text="Blog Post: Journal Daily" imgsrc="JournalPopup" /></div>
+                                    <p>+3 Learnings From Journaling Daily in 2020</p>
                                 </Link>
                             </li>
                         </ul>

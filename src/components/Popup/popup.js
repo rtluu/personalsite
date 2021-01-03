@@ -14,6 +14,8 @@ import VumblePopup from "../../cases/Vumble/images/VumblePopup";
 import VumblePopupLight from "../../cases/Vumble/images/VumblePopupLight";
 import AdHocPopup from "../../cases/AdHoc/images/AdHocPopup";
 import AdHocPopupLight from "../../cases/AdHoc/images/AdHocPopupLight";
+import JournalPopup from "../../blog/01JournalDaily/images/JournalPopup";
+import JournalPopupLight from "../../blog/01JournalDaily/images/JournalPopupLight";
 
 import { useGlobalState } from '../../state';
 
@@ -30,6 +32,7 @@ const Popup = (props) => {
                     {props.imgsrc === "OpenRecordPopup" && [(lightMode ? <OpenRecordPopupLight /> : <OpenRecordPopup />)]}
                     {props.imgsrc === "VumblePopup" && [(lightMode ? <VumblePopupLight /> : <VumblePopup />)]}
                     {props.imgsrc === "AdHocPopup" && [(lightMode ? <AdHocPopupLight /> : <AdHocPopup />)]}
+                    {props.imgsrc === "JournalPopup" && [(lightMode ? <JournalPopupLight /> : <JournalPopup />)]}
                 </div>
                 <div className="popup-text">
                     <h6 className="popup-message">{props.text}</h6>

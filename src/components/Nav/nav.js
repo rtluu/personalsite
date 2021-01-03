@@ -74,7 +74,7 @@ const Nav = () => {
             setPageLink('https://www.ryanluu.com/adhoc');
             setHomeName('Ryan Luu');
         } else if (location.pathname === "/journaldaily/") {
-            setPageName('AdHoc');
+            setPageName('Journal Daily');
             setAnchorNav('#journaldaily');
             setPageLink('https://www.ryanluu.com/journaldaily');
             setHomeName('Ryan Luu');

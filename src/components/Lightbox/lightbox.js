@@ -23,6 +23,8 @@ import LightboxVumbleImages from "../../cases/Vumble/lightboxVumbleImages";
 import LightboxVumbleCaptions from "../../cases/Vumble/lightboxVumbleCaptions";
 import LightboxAdHocImages from "../../cases/AdHoc/lightboxAdHocImages";
 import LightboxAdHocCaptions from "../../cases/AdHoc/lightboxAdHocCaptions";
+import LightboxJournalDailyImages from "../../blog/01JournalDaily/lightboxJournalDailyImages";
+import LightboxJournalDailyCaptions from "../../blog/01JournalDaily/lightboxJournalDailyCaptions";
 
 
 const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
@@ -95,6 +97,8 @@ const Lightbox = (props) => {
             setLightboxImages('vumble');
         } else if (location.pathname === "/adhoc/") {
             setLightboxImages('adhoc');
+        } else if (location.pathname === "/journaldaily/") {
+            setLightboxImages('journaldaily');
         }
     }, [])
 
@@ -132,6 +136,7 @@ const Lightbox = (props) => {
                         {lightboxImages === "humble" && <LightboxHumbleCaptions />}
                         {lightboxImages === "vumble" && <LightboxVumbleCaptions />}
                         {lightboxImages === "adhoc" && <LightboxAdHocCaptions />}
+                        {lightboxImages === "journaldaily" && <LightboxJournalDailyCaptions />}
                     </div>
                     <span className="lightbox-item">
                         <div className="center-children">
@@ -143,6 +148,7 @@ const Lightbox = (props) => {
                             {lightboxImages === "humble" && <LightboxHumbleImages />}
                             {lightboxImages === "vumble" && <LightboxVumbleImages />}
                             {lightboxImages === "adhoc" && <LightboxAdHocImages />}
+                            {lightboxImages === "journaldaily" && <LightboxJournalDailyImages />}
                         </div>
                     </span>
                     <div className="mobile-arrow-box">

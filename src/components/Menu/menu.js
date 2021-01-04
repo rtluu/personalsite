@@ -99,8 +99,8 @@ const Menu = () => {
                     <h4 className="bold">Writing</h4>
                 </div>
                 <ul className="folder-list">
-                    <Link to="/adhoc/">
-                        <li className={location.pathname === "/adhoc/" && ('active')} onClick={closeMenu}>
+                    <Link to="/journaldaily/">
+                        <li className={location.pathname === "/journaldaily/" && ('active')} onClick={closeMenu}>
                             <span className="paper-icon"><PaperIcon /></span>
                             <h5>Journal Daily</h5>
                         </li>

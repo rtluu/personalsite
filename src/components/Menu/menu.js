@@ -92,6 +92,21 @@ const Menu = () => {
                     </Link>
                 </ul>
             </div>
+
+            <div className="folder-group">
+                <div className="folder-title">
+                    <FolderIcon />
+                    <h4 className="bold">Writing</h4>
+                </div>
+                <ul className="folder-list">
+                    <Link to="/adhoc/">
+                        <li className={location.pathname === "/adhoc/" && ('active')} onClick={closeMenu}>
+                            <span className="paper-icon"><PaperIcon /></span>
+                            <h5>Journal Daily</h5>
+                        </li>
+                    </Link>
+                </ul>
+            </div>
         </div>
     )
 }

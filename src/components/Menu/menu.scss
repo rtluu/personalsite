@@ -9,6 +9,7 @@
     min-width: 14.5rem;
     bottom: 0;
     opacity: 0;
+    overflow-y: scroll;
     transition: $transition-primary;
     z-index: $menu-z;
 

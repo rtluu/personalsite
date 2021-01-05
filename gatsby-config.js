@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: ``,
-    description: `My personal website, built in Gatsby.`,
+    description: `Hi, I'm Ryan. I'm a tech creator currently building media products at The Washington Post. I also write about product management and self-improvement.`,
     author: `Ryan Luu`,
   },
   plugins: [

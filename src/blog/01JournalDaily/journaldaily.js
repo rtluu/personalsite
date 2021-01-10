@@ -33,7 +33,7 @@ const JournalDaily = () => {
             <div className="template-section">
                 <div className="template-text-block">
                     <div className="template-text-body">
-                        <p>What a wild year it’s been. 2020 was such a mess, but I picked up a new habit at the end of 2019 that helped me keep my head on straight. I decided to start using Dropbox Paper to capture my daily thoughts and experiences though 2020. It took some getting used to at first, but became a valuable habit.</p>
+                        <p>What a wild year it’s been. 2020 was such a mess, but I picked up a new habit at the end of 2019 that helped me keep my head on straight. I decided to start using Dropbox Paper to capture my daily thoughts and experiences through 2020. It took some getting used to at first, but became a valuable habit.</p>
                     </div>
                     <div className="template-text-body">
                         <p>Here are 3 things I’ve learned from documenting the past year of my life that I’m going to break down to help you get started with journaling, should you want to try it yourself.</p>

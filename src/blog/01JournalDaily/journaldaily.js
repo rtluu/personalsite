@@ -172,7 +172,7 @@ const JournalDaily = () => {
             {/* Takeaway */}
             <div className="template-section">
                 <div className={`template-text-block ${takeawayCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setTakeawayCollapsed(!TakeawayCollapsed)}>
+                    <div className="template-text-header" onClick={() => setTakeawayCollapsed(!takeawayCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="takeaway">Takeaway</h2>
                     </div>

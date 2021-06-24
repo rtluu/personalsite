@@ -48,7 +48,7 @@ const Info = (props) => {
                 </div>
                 <div className="info-qa">
                     <h4 className="question">Why does this look familiar?</h4>
-                    <h5 className="answer">The design mimics Dropbox Paper. It's what I use to organize my daily process, so I thought it would be a fun challenge to recreate it's ux from scatch for my personal site.</h5>
+                    <h5 className="answer">The design mimics Dropbox Paper. It's what I use to organize my daily process, so I thought it would be a fun challenge to recreate its ux from scatch for my personal site.</h5>
                 </div>
                 <div className="info-qa">
                     <h4 className="question">How was it built?</h4>

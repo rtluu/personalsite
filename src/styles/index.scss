@@ -245,6 +245,14 @@ button{
     opacity: 0.6;
 }
 
+.divider{
+    background-color: $divider-color; 
+    display: block;
+    height: 0.0625rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
 .layout{
     background-color: $background-color;
     color: $text-color;
@@ -304,6 +312,10 @@ button{
             &.top-table-row{
                 background: $table-top-row-light;
             }
+        }
+
+        .divider{
+            background-color: $divider-color-light;
         }
 
         .menu{

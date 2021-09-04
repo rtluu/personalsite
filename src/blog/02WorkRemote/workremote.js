@@ -5,13 +5,18 @@ import MindPrism from "../01JournalDaily/images/MindPrism";
 import TreasureMap from "../01JournalDaily/images/TreasureMap";
 import TinyGains from "../01JournalDaily/images/TinyGains";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
+import Map from "./images/Map";
+import DeskCali from "./images/DeskCali";
+import DeskChicago from "./images/DeskChicago";
+import DeskMiami from "./images/DeskMiami";
+import Posture from "./images/Posture";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import Caption from "../../components/Caption/caption";
 import Popup from "../../components/Popup/popup";
 import { setImageNumber, setImageGallery, useGlobalState } from '../../state';
 
 
-const JournalDaily = () => {
+const WorkRemote = () => {
     //Lightbox - Journal
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
@@ -21,7 +26,7 @@ const JournalDaily = () => {
     function openLightbox3() { setImageNumber(3); update(!value); }
 
     //Collapse - Journal
-    const [writeCollapsed, setWriteCollapsed] = useState(false);
+    const [planCollapsed, setPlanCollapsed] = useState(false);
     const [frictionCollapsed, setFrictionCollapsed] = useState(false);
     const [journeyCollapsed, setJourneyCollapsed] = useState(false);
     const [takeawayCollapsed, setTakeawayCollapsed] = useState(false);
@@ -29,40 +34,82 @@ const JournalDaily = () => {
     return (
         <div className="template-content">
             {/* <JournalAnchors /> */}
-            <h1 id="journaldaily">Work Remote Tips & Tricks</h1>
+            <h1 id="remotework">Strategies for Remote Life</h1>
             <div className="template-section">
                 <div className="template-text-block">
                     <div className="template-text-body">
-                        <p>During COVID, my wife and I decided to take advantage of my ability to work remotely by embarking on a 6 month, 6 city road trip across the US. It was the most transformative experience of my life. In this post, I’ll share a few things I learned that might help if you’re considering doing something similar or just looking at working remotely in general.</p>
-                    </div>
-                    <div className="template-text-body">
-                        <p>Before we go further, I’d like to clarify one thing right from the get go. Working remotely is not vacation. Vacation is an extended period of leisure spent away from home. Living remotely is forgoing a conventional home and working while traveling. Later in this post, I’ll dive into some techniques I used to establish boundaries for work and play that kept me on track during my journey.</p>                    
-                    </div>
-                </div>
-            </div>
-
-            <span className="divider"/>
-
-            {/* Planning */}
-            <div className="template-section">
-                <div className={`template-text-block ${writeCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setWriteCollapsed(!writeCollapsed)}>
-                        <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="write">1. Write Something</h2>
-                    </div>
-                    <div className="template-text-body">
-                        <p>There is only one rule. “<i>Write something for every day.</i>" 1 word, 1 pic, 1 link, 1 video…. something. ‘For’ is actually a key word in that last sentence. It’s not about writing something down on the exact day that it happened, but rather writing down something for each day. There are days when I may miss writing something down and that’s totally fine. I’ll just go back the next day and fill in whatever happened. I live a dynamic life and instead of being overly stringent about journaling every day, I journal when it works best for me.</p>
+                        <p>COVID changed the way we work. Remote became essential and we all adapted to video calls and Slack for collaborating. That said, our inability to be together untied us from the office and unlocked a freedom to travel.</p>
                     </div>
                     <div className="template-text-body side-by-side">
-                        <p>The true importance is that I reflect on each day, and capture something to cement that moment in time. I’ve learned that the saying “a picture is worth a thousand words” is true in the context of journaling. It’s amazing how much of a day I can remember from one image. That one cue unlocks a slew of surrounding memories. It could be anything. A screenshot, selfie, food pic, or even a random snap with no posing at all: the imagery provides context that helps me recollect the deeper details of any particular experience.</p>
-                        <div className={`side-pic-box inline section ${writeCollapsed ? "hide" : ""}`}>
+                        <div className="template-text-body multi-p">
+                            <p className="first-p">So at the start of the year, my wife and I took advantage of this new found flexibility and embarked on a 6 month road trip across the country. We visited 6 of the largest cities in the US staying in Airbnbs for a month at a time and picked up some helpful tricks for working remotely that I’ll dive into in this post.</p>                    
+                            <div className="inline-pic-box">
+                                <Map />
+                                <Caption caption="our cross-country route" />
+                            </div>
+                            <p>I’ve broken down the tips into 3 areas:</p>                
+                            <ol className="listtype-numbered" >
+                                <li><p>Planning your travel</p></li>
+                                <li><p>Remote friendly accommodations</p></li>
+                                <li><p>Remote life ≠ vacation</p></li>
+                            </ol>
+                        </div>
+                        <div className={`side-pic-box inline section hide-mobile`}>
                             <div className="side-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
-                                <MindPrism />
+                                <Map />
+                                <Caption caption="our cross-country route" />
                             </div>
                         </div>
                     </div>
+                   
+                </div>
+            </div>
+
+            {/* Planning */}
+            <div className="template-section">
+                <div className={`template-text-block ${planCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setPlanCollapsed(!planCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="plan">1. Planning your travel</h2>
+                    </div>
                     <div className="template-text-body">
-                        <p>This goes a step further with a video or audio recordings. I cherish coming across a funny clip of a friend dancing like a goofball or listening to an insightful audio recording from a deep conversation. The richer the media, the richer the recall - and the combo of text, visuals and sound is the best of all.</p>
+                        <p>There are a lot of questions at the outset. Where do you want to go? For how long? How will you’ll get there? Your answers should stem from your priorities. Maybe you love hiking and want to spend time in the mountains. Or maybe you’re a beach bum and want to soak up the sun. Anything is possible, as long as you can maintain your company’s working hours and a strong wifi connection.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>Another important thing to plan around is your method of transportation. My assumption is you’ll either be flying or driving; each one has it’s pros and cons. Planes are great for traveling long distances quickly, but you can only bring what fits in your suitcase. Cars are great for packing and flexibility, but take more effort/time to transition between destinations.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>My wife and I chose the car route because it allowed us to bring things to support the remote work lifestyle such a desk, a folding office chair, and a monitor set up. Here is the desk setup that I brought in the car and set up in different Airbnbs.</p>
+                        <span className="gallery">
+                            <div className="gallery-outer-wrapper">
+                                <div className="gallery-wrapper">
+                                    <div className="gallery-item-wrapper flex-remote-desk-cali">
+                                        <button className="image-button" type="button">
+                                            <DeskCali />
+                                        </button>
+                                        <Caption caption="cali setup" />
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-remote-desk-chicago">
+                                        <button  className="image-button" type="button">
+                                            <DeskChicago />
+                                        </button>
+                                        <Caption caption="chicago setup" />
+                                    </div>
+                                    <div className="gallery-item-wrapper flex-remote-desk-miami">
+                                        <button className="image-button" type="button">
+                                            <DeskMiami />
+                                        </button>
+                                        <Caption caption="miami setup" />
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div className="template-text-body">
+                        <p>Having a car also gave us the freedom to explore each city to the fullest after work and on the weekends, without having to worry about public transit or Ubering everywhere. If you do choose to fly, it might be worth renting a car at your destination, especially in places that don’t have great public transit.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>But at the end of the day, your travel plans will depend on your priorities and circumstances. Just remember, where ever you go, you’ll need to create the time and space to get work done. And the best work gets done when you have remote friendly accommodations.</p>
                     </div>
                 </div>
             </div>
@@ -72,66 +119,64 @@ const JournalDaily = () => {
                 <div className={`template-text-block ${frictionCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setFrictionCollapsed(!frictionCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="friction">2. When friction is low, habits are easy</h2>
+                        <h2 id="friction">2. Remote friendly accommodations</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>I recently read a book called, “Atomic Habits” by James Clear that explains the techniques for building good habits. One of the messages that stuck with me from the book was, “When friction is low, habits are easy.” So true.</p>
+                        <p>After figuring out where you’re going and how you’ll get there, the next big question is - what type of accommodations will you need? This will vary greatly based on your plan, but with remote work there are some baselines for maintaining productivity such as strong wifi, a work setup, and reasonably quiet conditions. Also, depending on your length of stay, you may have to orchestrate the basic day to day aspects of life like grocery shopping, doing laundry, cooking, etc.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>Here’s an example. Say there are two people who want to create a new habit of running everyday. One has a treadmill at home and the other runs on a treadmill at the gym. Each goes through a set of steps before they can start running.</p>
+                        <p>In our process of finding accommodations, we came up with a list of non-negotiables and nice to haves. Here is a simplified version:</p>
                     </div>
                     <div className="template-text-body">
                         <table>
                             <tr className="top-table-row">
-                                <td></td>
-                                <td><i>Run at home</i></td>
-                                <td><i>Run at gym</i></td>
+                                <td><i>Non-negotiables</i></td>
+                                <td><i>Nice to haves</i></td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>Put on running clothes</td>
-                                <td>Put on running clothes</td>
+                                <td>Bedroom separate from the living area</td>
+                                <td>Dedicated parking</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Start treadmill</td>
-                                <td>Get in car</td>
+                                <td>Full kitchen</td>
+                                <td>Washer/Dryer</td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>Start running</td>
-                                <td>Drive to gym</td>
+                                <td>Wifi</td>
+                                <td>Dishwasher</td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td></td>
-                                <td>Put gymbag in locker</td>
+                                <td>Private bathroom</td>
+                                <td>TV</td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td></td>
-                                <td>Wait for open treadmill</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td></td>
-                                <td>Start treadmill</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td></td>
-                                <td>Start running</td>
+                                <td>AC/Heat</td>
+                                <td>Hot Tub (haha)</td>
                             </tr>
                         </table>
                     </div>
                     <div className="template-text-body">
-                        <p>The person running at the gym has to take over twice as many steps to start running. Now it’s not impossible for the person at the gym to create a daily running habit, but those extra steps require additional time and effort making it more difficult to stay consistent. The same principle applies to journaling. The easier to start, the easier to stay consistent.</p>
+                        <p>Because we were planning to stay in each city for a month at a time, we were looking for apartments rather than hotels. We found the most cost effective approach was renting month long Airbnbs in each city.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>Ease of use is why I decided to use Dropbox Paper for my digital journal. Paper is available on my phone, tablet, and computer; making it easy to capture what I’m doing no matter where my day takes me. Paper’s integration with Dropbox is another key element. I use Dropbox for my file management making it simple for me to add files into my Paper doc; and they elegantly embed as photos, videos, urls etc.</p>
+                        <div className="quote-box">
+                            <p className="quote"><b><u>PRO TIP</u></b><i>: When you stay at an Airbnb for 4 weeks or more, Airbnb goes from charging a daily rate to a monthly rate with large discounts.</i></p>
+                        </div>
                     </div>
                     <div className="template-text-body">
-                        <p>While the Dropbox ecosystem works well for me, I encourage you to choose whatever system that has the least friction for your daily routine.</p>
+                        <p>Airbnb’s filters are quite dynamic, allowing you to pinpoint accommodations that encompass all of your essentials. But do keep in mind that the price you see in the list of results doesn’t include cleaning and service fees.</p>
+                    </div>
+                    <div className="template-text-body side-by-side">
+                            <p>If I could recommend one thing for your remote work experience it’s to find a way to elevate your computer screen. It helps you avoid straining your neck/back, makes you look more polished on video calls and contributes to a more productive work day.</p>
+                            <div className={`side-pic-box inline section`}>
+                                <div className="side-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
+                                    <Posture />
+                                    <Caption caption="posture comparison" />
+                                </div>
+                            </div>
+                        </div>
+                    <div className="template-text-body">
+                        <p>And now that you’ve figured out what type of accommodations you’ll be staying in, you’re ready to start packing for your remote work journey.</p>
                     </div>
                 </div>
             </div>
@@ -190,4 +235,4 @@ const JournalDaily = () => {
     )
 }
 
-export default JournalDaily
+export default WorkRemote

@@ -15,7 +15,7 @@ exports.components = {
   "component---src-pages-neat-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/neat.js"))),
   "component---src-pages-openrecord-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/openrecord.js"))),
   "component---src-pages-ourluubeginning-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/ourluubeginning.js"))),
-  "component---src-pages-vumble-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/vumble.js"))),
-  "component---src-pages-workremote-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/workremote.js")))
+  "component---src-pages-remotework-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/remotework.js"))),
+  "component---src-pages-vumble-js": hot(preferDefault(require("/Users/ryanluu/Dropbox/My Mac (Ryans-MacBook-Pro.local)/Documents/src/personalsite/src/pages/vumble.js")))
 }
 

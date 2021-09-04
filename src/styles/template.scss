@@ -125,6 +125,34 @@
                         }
                     }
                 }
+
+                &.multi-p{
+                    width: 65%;
+                    margin-bottom: 0;
+                    @media (max-width: $breakpoint-750) {
+                        width: 100%;
+                    }
+
+                    p{
+                        width: 100%;
+
+                        &.first-p{
+                            margin-bottom: 2rem;
+                            @media (max-width: $breakpoint-750) {
+                                margin-bottom: 0.75rem;
+                            }
+                        }
+                    }
+                }
+
+                .quote-box{
+                    border-left: 1px solid $quote-line;
+                    
+                    .quote{
+                        margin-left: 1.5rem;
+                    }
+                }
+
             }
         }
 
@@ -295,6 +323,15 @@
                         &.flex-adhoc-contract{
                             flex: 1;
                         }
+                        &.flex-remote-desk-cali{
+                            flex: 1.17;
+                        }
+                        &.flex-remote-desk-chicago{
+                            flex: 1.265;
+                        }
+                        &.flex-remote-desk-miami{
+                            flex: 1;
+                        }
                     }
                 }
             }
@@ -333,6 +370,7 @@
             @media (max-width: $breakpoint-tablet) {
                 width: 35%;
             }
+
             @media (max-width: $breakpoint-phone) {
                 position: relative;
                 margin-top: -1rem;
@@ -395,14 +433,18 @@
             }
 
             &.hide-mobile{
-                @media (max-width: $breakpoint-phone) {
+                @media (max-width: $breakpoint-750) {
                     display: none;
                 }
             }
         }
 
         .inline-pic-box{
-
+            display: none;
+            margin-bottom: 2rem;
+            @media (max-width: $breakpoint-750) {
+                display: block;
+            }
         }
     }
 }

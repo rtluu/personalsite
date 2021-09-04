@@ -3,11 +3,11 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import WorkRemoteBlog from "../blog/02WorkRemote/workremote"
 
-const WorkRemote = () => (
+const RemoteWork = () => (
     <Layout>
-        <SEO title="Work Remote | Ryan Luu" />
+        <SEO title="Remote Work | Ryan Luu" />
         <WorkRemoteBlog />
     </Layout>
 )
 
-export default WorkRemote
+export default RemoteWork

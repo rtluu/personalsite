@@ -105,6 +105,12 @@ const Menu = () => {
                             <h5>Journal Daily</h5>
                         </li>
                     </Link>
+                    <Link to="/remotework/">
+                        <li className={location.pathname === "/remotework/" && ('active')} onClick={closeMenu}>
+                            <span className="paper-icon"><PaperIcon /></span>
+                            <h5>Remote Work</h5>
+                        </li>
+                    </Link>
                 </ul>
             </div>
         </div>

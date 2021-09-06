@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import JournalAnchors from "../01JournalDaily/anchorsJournalDaily";
-import MindPrism from "../01JournalDaily/images/MindPrism";
-import TreasureMap from "../01JournalDaily/images/TreasureMap";
-import TinyGains from "../01JournalDaily/images/TinyGains";
+import WorkRemoteAnchors from "../02WorkRemote/anchorsWorkRemote";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
 import Map from "./images/Map";
 import DeskCali from "./images/DeskCali";
 import DeskChicago from "./images/DeskChicago";
 import DeskMiami from "./images/DeskMiami";
 import Posture from "./images/Posture";
+import Packing from "./images/Packing";
 import CaseArrowIcon from "../../icons/case-arrow-icon.inline.svg";
 import Caption from "../../components/Caption/caption";
 import Popup from "../../components/Popup/popup";
@@ -20,20 +18,23 @@ const WorkRemote = () => {
     //Lightbox - Journal
     const [value, update] = useGlobalState('lightboxActive');
     const [imageNumber] = useGlobalState('imageNumber');
-    setImageGallery(3);
+    setImageGallery(6);
     function openLightbox1() { setImageNumber(1); update(!value); }
     function openLightbox2() { setImageNumber(2); update(!value); }
     function openLightbox3() { setImageNumber(3); update(!value); }
+    function openLightbox4() { setImageNumber(4); update(!value); }
+    function openLightbox5() { setImageNumber(5); update(!value); }
+    function openLightbox6() { setImageNumber(6); update(!value); }
 
     //Collapse - Journal
     const [planCollapsed, setPlanCollapsed] = useState(false);
-    const [frictionCollapsed, setFrictionCollapsed] = useState(false);
-    const [journeyCollapsed, setJourneyCollapsed] = useState(false);
+    const [accommodationsCollapsed, setAccommodationsCollapsed] = useState(false);
+    const [vacationCollapsed, setVacationCollapsed] = useState(false);
     const [takeawayCollapsed, setTakeawayCollapsed] = useState(false);
 
     return (
         <div className="template-content">
-            {/* <JournalAnchors /> */}
+            <WorkRemoteAnchors />
             <h1 id="remotework">Strategies for Remote Life</h1>
             <div className="template-section">
                 <div className="template-text-block">
@@ -43,7 +44,7 @@ const WorkRemote = () => {
                     <div className="template-text-body side-by-side">
                         <div className="template-text-body multi-p">
                             <p className="first-p">So at the start of the year, my wife and I took advantage of this new found flexibility and embarked on a 6 month road trip across the country. We visited 6 of the largest cities in the US staying in Airbnbs for a month at a time and picked up some helpful tricks for working remotely that I’ll dive into in this post.</p>                    
-                            <div className="inline-pic-box">
+                            <div className="inline-pic-box" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
                                 <Map />
                                 <Caption caption="our cross-country route" />
                             </div>
@@ -65,15 +66,15 @@ const WorkRemote = () => {
                 </div>
             </div>
 
-            {/* Planning */}
+            {/* 1. Planning your travel */}
             <div className="template-section">
                 <div className={`template-text-block ${planCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setPlanCollapsed(!planCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="plan">1. Planning your travel</h2>
+                        <h2 id="planning">1. Planning your travel</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>There are a lot of questions at the outset. Where do you want to go? For how long? How will you’ll get there? Your answers should stem from your priorities. Maybe you love hiking and want to spend time in the mountains. Or maybe you’re a beach bum and want to soak up the sun. Anything is possible, as long as you can maintain your company’s working hours and a strong wifi connection.</p>
+                        <p>Remote life is a blast. If you have the flexibility to work remotely, I urge you to go for it! With good planning, you’ll be able to find an approach that works well for you. Just remember to maintain a balance between work and play so you can continue to deliver results while on the road.</p>
                     </div>
                     <div className="template-text-body">
                         <p>Another important thing to plan around is your method of transportation. My assumption is you’ll either be flying or driving; each one has it’s pros and cons. Planes are great for traveling long distances quickly, but you can only bring what fits in your suitcase. Cars are great for packing and flexibility, but take more effort/time to transition between destinations.</p>
@@ -83,19 +84,19 @@ const WorkRemote = () => {
                         <span className="gallery">
                             <div className="gallery-outer-wrapper">
                                 <div className="gallery-wrapper">
-                                    <div className="gallery-item-wrapper flex-remote-desk-cali">
+                                    <div className="gallery-item-wrapper flex-remote-desk-cali" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
                                         <button className="image-button" type="button">
                                             <DeskCali />
                                         </button>
                                         <Caption caption="cali setup" />
                                     </div>
-                                    <div className="gallery-item-wrapper flex-remote-desk-chicago">
+                                    <div className="gallery-item-wrapper flex-remote-desk-chicago" onClick={openLightbox3} onKeyDown={openLightbox3} key={3} type="button">
                                         <button  className="image-button" type="button">
                                             <DeskChicago />
                                         </button>
                                         <Caption caption="chicago setup" />
                                     </div>
-                                    <div className="gallery-item-wrapper flex-remote-desk-miami">
+                                    <div className="gallery-item-wrapper flex-remote-desk-miami" onClick={openLightbox4} onKeyDown={openLightbox4} key={4} type="button">
                                         <button className="image-button" type="button">
                                             <DeskMiami />
                                         </button>
@@ -114,12 +115,12 @@ const WorkRemote = () => {
                 </div>
             </div>
 
-            {/* When friction is low, habits are easy */}
+            {/* 2. Remote friendly accommodations */}
             <div className="template-section">
-                <div className={`template-text-block ${frictionCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setFrictionCollapsed(!frictionCollapsed)}>
+                <div className={`template-text-block ${accommodationsCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setAccommodationsCollapsed(!accommodationsCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="friction">2. Remote friendly accommodations</h2>
+                        <h2 id="accommodations">2. Remote friendly accommodations</h2>
                     </div>
                     <div className="template-text-body">
                         <p>After figuring out where you’re going and how you’ll get there, the next big question is - what type of accommodations will you need? This will vary greatly based on your plan, but with remote work there are some baselines for maintaining productivity such as strong wifi, a work setup, and reasonably quiet conditions. Also, depending on your length of stay, you may have to orchestrate the basic day to day aspects of life like grocery shopping, doing laundry, cooking, etc.</p>
@@ -169,7 +170,7 @@ const WorkRemote = () => {
                     <div className="template-text-body side-by-side">
                             <p>If I could recommend one thing for your remote work experience it’s to find a way to elevate your computer screen. It helps you avoid straining your neck/back, makes you look more polished on video calls and contributes to a more productive work day.</p>
                             <div className={`side-pic-box inline section`}>
-                                <div className="side-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
+                                <div className="side-pic" onClick={openLightbox5} onKeyDown={openLightbox5} key={5} type="button">
                                     <Posture />
                                     <Caption caption="posture comparison" />
                                 </div>
@@ -183,30 +184,34 @@ const WorkRemote = () => {
 
             {/* It's the journey AND the destination */}
             <div className="template-section">
-                <div className={`template-text-block ${journeyCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setJourneyCollapsed(!journeyCollapsed)}>
+                <div className={`template-text-block ${vacationCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setVacationCollapsed(!vacationCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="journey">3. It’s the journey AND the destination</h2>
-                    </div>
-                    <div className="template-text-body side-by-side">
-                        <p>When you look at life, there are three perspectives you can take: reflecting on the past, living in the present or planning for the future. There are varying opinions about which frame of time to focus on, but I’m not going to go into any of that. They are all important. I’m going to focus on how journaling serves as the ideal medium for creating balance across these different perspectives of time.</p>
-                        <div className={`side-pic-box inline section ${journeyCollapsed ? "hide" : ""}`}>
-                            <div className="side-pic" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
-                                <TreasureMap />
-                            </div>
-                        </div>
+                        <h2 id="not-vacation">3. Remote life ≠ vacation</h2>
                     </div>
                     <div className="template-text-body">
-                        <p><span className="bold underline">Past</span> - Keeping a record of each day makes it easy to reflect on moments of the past. What did I do last Wednesday? Do you remember that time we visited the Hirshhorn Museum for your birthday? Each memory is saved in reverse chronological order allowing me to jump back and reminisce on my experiences and mindset at any point in time. It’s as close to being able to time travel as you can get.</p>
+                        <p>During remote work, it’s all too easy to fall into the vacation mindset. Novel places trick our brains into thinking, “It’s break time!” Now, I’m not saying it’s bad to enjoy your travels, I encourage you too, but there is a balance to find between having fun while being remote and remaining productive. How do you reach that equilibrium?</p>
                     </div>
                     <div className="template-text-body">
-                        <p><span className="bold underline">Present</span> - Journaling forces me to acknowledge my thoughts each day. What’s happening in my life? How am I feeling? Am I being productive? These questions focus my attention on the present and push me to live in the now. It’s helped me build my awareness of the current moment and embrace the agency I have over my life.</p>
+                        <p>One technique I leveraged throughout my travels was maintaining routines. For me, I’m a big fan of my morning routine. After I wake up, I brush my teeth, drink water and start an at home workout routine while listening to audio books. This set of activities wakes me up and gets me into a rhythm as I start my day.</p>
                     </div>
                     <div className="template-text-body">
-                        <p><span className="bold underline">Future</span> - A destination provides direction; a target to compel you forward. Taking time to envision my future and set goals enables me to identify what steps to take on my journey. I use my journal as a way to lay out my objectives and hold myself accountable as I work toward my ambitions.</p>
+                        <p>There are other routines that have been helpful like cooking, journaling and sharing gratitude with my wife - all things that keep me grounded no matter where I am.</p>
                     </div>
                     <div className="template-text-body">
-                        <p>My journal is a time machine, serving as as a portal to the past, grounding me in the present and bringing clarity to where I’m headed.</p>
+                        <p>Your routine is unique to you, but whatever that looks like, do your best to keep up with those habits while working remotely.</p>
+                    </div>
+                    <div className="template-text-body">
+                        <p>A few tricks to make remote work sustainable:</p>
+                        <ol className="listtype-numbered" >
+                            <li><p><u>At home workouts</u> - I’d recommend <a className="hover-underine" href="https://www.youtube.com/channel/UCK9JEqf7LBBx3tkrPx2xvbQ">BullyJuice</a> and <a className="hover-underine" href="https://www.youtube.com/channel/UCpQ34afVgk8cRQBjSJ1xuJQ">MadFit</a> because they both have bodyweight and dumbbell exercises that you can do anywhere.</p></li>
+                            <li><p><u>Cooking meals</u> - A great way to eat healthy and save money. Choose lodging with a full kitchen, some may even come stocked with basic ingredients to make this even easier.</p></li>
+                            <li><p><u>Bring some basics</u> - Depending on your travel situation, bringing a set of things you're bound to need is very helpful. We took advantage of having a car and brought a filtered water pitcher, a Keurig, crock pot, yoga mats, and all were extremely useful.</p></li>
+                        </ol>
+                    </div>
+                    <div className="template-text-body full-img" onClick={openLightbox6} onKeyDown={openLightbox6} key={6} type="button">
+                        <Packing />
+                        <Caption className="full-img" caption="packing for our transition between denver & chicago" />
                     </div>
                 </div>
             </div>
@@ -219,15 +224,7 @@ const WorkRemote = () => {
                         <h2 id="takeaway">Takeaway</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>If you’re looking to try journaling out for yourself, I encourage you to go for it! Start small and look for ways to make it easy in your daily flow. If you have any questions about journaling or have your own tips to share - hit me up on twitter @rtluu.</p>
-                    </div>
-                    <div className="template-text-body side-by-side">
-                        <p><i>Extra Note:</i><br />One more note on habits. Good habits breed better habits and their value compounds over time. After I started journaling daily, it led me to pick up other positive habits such as intermittent fasting and an at-home workout routine. Start small and watch the investment in yourself grow across the different facets of your life!</p>
-                        <div className={`side-pic-box inline section ${takeawayCollapsed ? "hide" : ""}`}>
-                            <div className="side-pic" onClick={openLightbox3} onKeyDown={openLightbox3} key={3} type="button">
-                                <TinyGains />
-                            </div>
-                        </div>
+                        <p>Remote life is a blast. If you have the flexibility to work remotely, I urge you to go for it! With good planning, you’ll be able to find an approach that works well for you. Just remember to maintain a balance between work and play so you can continue to deliver results while on the road.</p>
                     </div>
                 </div>
             </div>

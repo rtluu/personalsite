@@ -25,6 +25,8 @@ import LightboxAdHocImages from "../../cases/AdHoc/lightboxAdHocImages";
 import LightboxAdHocCaptions from "../../cases/AdHoc/lightboxAdHocCaptions";
 import LightboxJournalDailyImages from "../../blog/01JournalDaily/lightboxJournalDailyImages";
 import LightboxJournalDailyCaptions from "../../blog/01JournalDaily/lightboxJournalDailyCaptions";
+import LightboxWorkRemoteImages from "../../blog/02WorkRemote/lightboxWorkRemoteImages";
+import LightboxWorkRemoteCaptions from "../../blog/02WorkRemote/lightboxWorkRemoteCaptions";
 
 
 const ALLOWED_KEYS = ['ArrowLeft', 'ArrowRight', 'Escape']
@@ -83,22 +85,24 @@ const Lightbox = (props) => {
     useEffect(() => {
         if (location.pathname === "/") {
             setLightboxImages('about');
-        } else if (location.pathname === "/ourluubeginning/") {
+        } else if (location.pathname === "/ourluubeginning") {
             setLightboxImages('ourluubeginning');
-        } else if (location.pathname === "/fastropelabs/") {
+        } else if (location.pathname === "/fastropelabs") {
             setLightboxImages('fastrope');
-        } else if (location.pathname === "/humblevc/") {
+        } else if (location.pathname === "/humblevc") {
             setLightboxImages('humble');
-        } else if (location.pathname === "/neat/") {
+        } else if (location.pathname === "/neat") {
             setLightboxImages('neat');
-        } else if (location.pathname === "/openrecord/") {
+        } else if (location.pathname === "/openrecord") {
             setLightboxImages('openrecord');
-        } else if (location.pathname === "/vumble/") {
+        } else if (location.pathname === "/vumble") {
             setLightboxImages('vumble');
-        } else if (location.pathname === "/adhoc/") {
+        } else if (location.pathname === "/adhoc") {
             setLightboxImages('adhoc');
-        } else if (location.pathname === "/journaldaily/") {
+        } else if (location.pathname === "/journaldaily") {
             setLightboxImages('journaldaily');
+        } else if (location.pathname === "/remotework") {
+            setLightboxImages('remotework');
         }
     }, [])
 
@@ -137,6 +141,7 @@ const Lightbox = (props) => {
                         {lightboxImages === "vumble" && <LightboxVumbleCaptions />}
                         {lightboxImages === "adhoc" && <LightboxAdHocCaptions />}
                         {lightboxImages === "journaldaily" && <LightboxJournalDailyCaptions />}
+                        {lightboxImages === "remotework" && <LightboxWorkRemoteCaptions />}
                     </div>
                     <span className="lightbox-item">
                         <div className="center-children">
@@ -149,6 +154,7 @@ const Lightbox = (props) => {
                             {lightboxImages === "vumble" && <LightboxVumbleImages />}
                             {lightboxImages === "adhoc" && <LightboxAdHocImages />}
                             {lightboxImages === "journaldaily" && <LightboxJournalDailyImages />}
+                            {lightboxImages === "remotework" && <LightboxWorkRemoteImages />}
                         </div>
                     </span>
                     <div className="mobile-arrow-box">

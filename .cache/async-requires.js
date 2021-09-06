@@ -12,6 +12,7 @@ exports.components = {
   "component---src-pages-neat-js": () => import("./../src/pages/neat.js" /* webpackChunkName: "component---src-pages-neat-js" */),
   "component---src-pages-openrecord-js": () => import("./../src/pages/openrecord.js" /* webpackChunkName: "component---src-pages-openrecord-js" */),
   "component---src-pages-ourluubeginning-js": () => import("./../src/pages/ourluubeginning.js" /* webpackChunkName: "component---src-pages-ourluubeginning-js" */),
+  "component---src-pages-remotework-js": () => import("./../src/pages/remotework.js" /* webpackChunkName: "component---src-pages-remotework-js" */),
   "component---src-pages-vumble-js": () => import("./../src/pages/vumble.js" /* webpackChunkName: "component---src-pages-vumble-js" */)
 }
 

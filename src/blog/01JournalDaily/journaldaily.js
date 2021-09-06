@@ -61,6 +61,7 @@ const JournalDaily = () => {
                         <div className={`side-pic-box inline section ${writeCollapsed ? "hide" : ""}`}>
                             <div className="side-pic" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
                                 <MindPrism />
+                                <Caption caption="mind prism" />
                             </div>
                         </div>
                     </div>
@@ -151,6 +152,7 @@ const JournalDaily = () => {
                         <div className={`side-pic-box inline section ${journeyCollapsed ? "hide" : ""}`}>
                             <div className="side-pic" onClick={openLightbox2} onKeyDown={openLightbox2} key={2} type="button">
                                 <TreasureMap />
+                                <Caption caption="treasure map" />
                             </div>
                         </div>
                     </div>
@@ -184,6 +186,7 @@ const JournalDaily = () => {
                         <div className={`side-pic-box inline section ${takeawayCollapsed ? "hide" : ""}`}>
                             <div className="side-pic" onClick={openLightbox3} onKeyDown={openLightbox3} key={3} type="button">
                                 <TinyGains />
+                                <Caption caption="tiny gains" />
                             </div>
                         </div>
                     </div>

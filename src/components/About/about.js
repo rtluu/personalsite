@@ -121,7 +121,7 @@ const About = () => {
                 <div className={`template-text-block ${writingCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setWritingCollapsed(!writingCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="lets-talk">Writing</h2>
+                        <h2 id="writing">Writing</h2>
                     </div>
                     <div className="template-text-body">
                         <p>I'm always looking to improve. So I started a blog to capture my learnings and help others.</p>
@@ -129,7 +129,13 @@ const About = () => {
                             <li>
                                 <Link to="/journaldaily/" className="case-item">
                                     <div className="case-popup"><Popup text="Blog Post: Journal Daily" imgsrc="JournalPopup" /></div>
-                                    <p>+3 Learnings From Journaling Daily in 2020</p>
+                                    <p>+Learnings From Journaling Daily</p>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/remotework/" className="case-item">
+                                    <div className="case-popup"><Popup text="Blog Post: Remote Work" imgsrc="RemotePopup" /></div>
+                                    <p>+Strategies For Remote Life</p>
                                 </Link>
                             </li>
                         </ul>

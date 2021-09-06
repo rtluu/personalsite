@@ -85,23 +85,23 @@ const Lightbox = (props) => {
     useEffect(() => {
         if (location.pathname === "/") {
             setLightboxImages('about');
-        } else if (location.pathname === "/ourluubeginning") {
+        } else if (location.pathname === "/ourluubeginning/") {
             setLightboxImages('ourluubeginning');
-        } else if (location.pathname === "/fastropelabs") {
+        } else if (location.pathname === "/fastropelabs/") {
             setLightboxImages('fastrope');
-        } else if (location.pathname === "/humblevc") {
+        } else if (location.pathname === "/humblevc/") {
             setLightboxImages('humble');
-        } else if (location.pathname === "/neat") {
+        } else if (location.pathname === "/neat/") {
             setLightboxImages('neat');
-        } else if (location.pathname === "/openrecord") {
+        } else if (location.pathname === "/openrecord/") {
             setLightboxImages('openrecord');
-        } else if (location.pathname === "/vumble") {
+        } else if (location.pathname === "/vumble/") {
             setLightboxImages('vumble');
-        } else if (location.pathname === "/adhoc") {
+        } else if (location.pathname === "/adhoc/") {
             setLightboxImages('adhoc');
-        } else if (location.pathname === "/journaldaily") {
+        } else if (location.pathname === "/journaldaily/") {
             setLightboxImages('journaldaily');
-        } else if (location.pathname === "/remotework") {
+        } else if (location.pathname === "/remotework/") {
             setLightboxImages('remotework');
         }
     }, [])

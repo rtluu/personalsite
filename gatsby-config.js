@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: ``,
-    description: `Hi, I'm Ryan. I'm a tech creator currently building media products at The Washington Post. I also write about product management and self-improvement.`,
+    description: `Hi, I'm Ryan. I'm a tech creator leading product strategy at The Washington Post. I also write about product management and self-improvement.`,
     author: `Ryan Luu`,
   },
   plugins: [

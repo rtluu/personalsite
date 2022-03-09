@@ -85,7 +85,7 @@ const JournalDaily = () => {
                         <p>Here’s an example. Say there are two people who want to create a new habit of running everyday. One has a treadmill at home and the other runs on a treadmill at the gym. Each goes through a set of steps before they can start running.</p>
                     </div>
                     <div className="template-text-body">
-                        <table>
+                        <table className="number-table">
                             <tr className="top-table-row">
                                 <td></td>
                                 <td><i>Run at home</i></td>

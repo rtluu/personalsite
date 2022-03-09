@@ -169,6 +169,22 @@ img{
 table{
     border-collapse: collapse;
     width: 100%;
+
+    &.number-table{
+        tr {
+            td:first-child{
+            min-width: 1.5rem;
+            width: 5%;
+            }
+
+            td:nth-child(2){
+                width: 47.5%;
+            }
+            td:nth-child(3){
+                width: 47.5%;
+            }
+        }
+    }
 }
 
 table, th, td {

@@ -39,7 +39,7 @@ const About = () => {
                         <h2 id="about">About</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Laughing, learning, and loving. By day, I solve problems as a Principal PM at The Washington Post and at night I work on tech projects with creative people. Recently moved to Los Angeles with my wife and our new pup Sadie. Looking for food recommendations, pickup 🏀, and new friends in SoCal!</p>
+                        <p>Laughing, learning, and loving. By day, I solve problems as a Group PM at The Washington Post and at night I work on tech projects with creative people. Recently moved to Los Angeles with my wife and our new pup Sadie. Looking for food recommendations, pickup 🏀, and fun people!</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>

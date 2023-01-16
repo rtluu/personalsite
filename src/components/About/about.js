@@ -24,7 +24,10 @@ const About = () => {
             <AboutAnchors />
             <div className="template-section row">
                 <div className="home-headline">
-                    <h1 id="ryanluu">Ryan Luu</h1>
+                    <div className="headline">
+                        <h1 id="ryanluu">Ryan Luu</h1>
+                        <h4><b>Product Leader | Speaker | Mentor</b></h4>
+                    </div>
                     <div className="side-pic-box headshot-top">
                         <div className="side-pic about" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
                             <Headshot />
@@ -39,7 +42,9 @@ const About = () => {
                         <h2 id="about">About</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Laughing, learning, and loving. By day, I solve problems as a Group PM at The Washington Post and at night I work on tech projects with creative people. Recently moved to Los Angeles with my wife and our new pup Sadie. Looking for food recommendations, pickup 🏀, and fun people!</p>
+                        {/* <p>Sharing stories of the product leaders, designers, and engineers behind the products that shape our world.</p>
+                        <br></br> */}
+                        <p>Currently, Director of Product at The Washington Post. Living in LA 🌴</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>
@@ -48,14 +53,50 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
             <div className="template-section">
-                <div className={`template-text-block full-on-phone ${!aboutCollapsed ? "two-column" : ""} ${productCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setProductCollapsed(!productCollapsed)}>
+                <div className={`template-text-block ${connectCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setConnectCollapsed(!connectCollapsed)}>
                         <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="product">Product</h2>
+                        <h2 id="lets-talk">Speaking</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>Product management is a special combo of leadership and coordination. I get to be involved with projects from the first day of planning all the way through multiple iterations.</p>
+                        <p>I'm always eager to share knowledge and insights with others through speaking engagements such as conferences and podcasts. Let's collaborate to inspire, educate, and engage audiences everywhere - <a href="mailto:rytluu@gmail.com">rytluu@gmail.com</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="template-section">
+                <div className={`template-text-block ${writingCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setWritingCollapsed(!writingCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="writing">Writing</h2>
+                    </div>
+                    <div className="template-text-body">
+                        <ul className="listtype-casestudy" >
+                            <li>
+                                <Link to="/journaldaily/" className="case-item">
+                                    <div className="case-popup"><Popup text="Blog Post: Journal Daily" imgsrc="JournalPopup" /></div>
+                                    <p>+Learnings From Journaling Daily</p>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/remotework/" className="case-item">
+                                    <div className="case-popup"><Popup text="Blog Post: Remote Work" imgsrc="RemotePopup" /></div>
+                                    <p>+Strategies For Remote Life</p>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div className="template-section">
+                <div className={`template-text-block ${productCollapsed ? "collapsed" : ""}`}>
+                    <div className="template-text-header" onClick={() => setProductCollapsed(!productCollapsed)}>
+                        <button className="collapse-expand"><ArrowIcon /></button>
+                        <h2 id="product">Product Management</h2>
+                    </div>
+                    <div className="template-text-body">
                         <ul className="listtype-casestudy" >
                             <li className="link-coming-soon"><p>+Washington Post <span className="italic">(coming soon)</span></p></li>
                             <li>
@@ -81,7 +122,6 @@ const About = () => {
                         <h2 id="development">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>When I'm not leading product teams, I'm hacking on digital projects with friends or building experiences for exciting organizations.</p>
                         <ul className="listtype-casestudy" >
                             <li>
                                 <Link to="/openrecord/" className="case-item">
@@ -117,42 +157,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className="template-section">
-                <div className={`template-text-block ${writingCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setWritingCollapsed(!writingCollapsed)}>
-                        <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="writing">Writing</h2>
-                    </div>
-                    <div className="template-text-body">
-                        <p>I'm always looking to improve. So I started a blog to capture my learnings and help others.</p>
-                        <ul className="listtype-casestudy" >
-                            <li>
-                                <Link to="/journaldaily/" className="case-item">
-                                    <div className="case-popup"><Popup text="Blog Post: Journal Daily" imgsrc="JournalPopup" /></div>
-                                    <p>+Learnings From Journaling Daily</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/remotework/" className="case-item">
-                                    <div className="case-popup"><Popup text="Blog Post: Remote Work" imgsrc="RemotePopup" /></div>
-                                    <p>+Strategies For Remote Life</p>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className="template-section">
-                <div className={`template-text-block ${connectCollapsed ? "collapsed" : ""}`}>
-                    <div className="template-text-header" onClick={() => setConnectCollapsed(!connectCollapsed)}>
-                        <button className="collapse-expand"><ArrowIcon /></button>
-                        <h2 id="lets-talk">Let's talk</h2>
-                    </div>
-                    <div className="template-text-body">
-                        <p>Connection breeds opportunity! If there is something I can help with or you just want to start a convo; shoot me a message at <a href="mailto:ryan@ryanluu.com">ryan@ryanluu.com</a>.</p>
-                    </div>
-                </div>
-            </div>
+            
+            
         </div >
     )
 }

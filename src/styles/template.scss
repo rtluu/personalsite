@@ -5,9 +5,22 @@
     .home-headline{
         display: flex;
         flex-direction: row;
+
+        .headline{
+            margin-bottom: 2rem;
+            h1{
+                margin-bottom: 0.75rem;
+            }
+        }
        
         @media (max-width: $breakpoint-phone) {
             margin-bottom: 1rem;
+            .headline{
+                margin-bottom: 1rem;
+                h1{
+                    margin-bottom: 0.75rem;
+                }
+            }
         }
     }
 
@@ -40,12 +53,26 @@
 
             &.two-column{
                 .template-text-body{
-                    width: 62%;
+                    width: 80%;
 
                     &.full-width{
                         width: 100%;
                     }
                 }
+
+                @media (max-width: $breakpoint-tablet){
+                    .template-text-body{
+                        width: 75%;
+                    }
+                    
+                }   
+
+                @media (max-width: $breakpoint-750){
+                    .template-text-body{
+                        width: 70%;
+                    }
+                    
+                }  
                
                 @media (max-width: $breakpoint-phone){
                     .template-text-body{
@@ -350,6 +377,7 @@
             top: 0;
             position: absolute;
             width: 35%;
+            margin-top: -6.5rem;
             z-index: $image-z;
 
             &.inline{

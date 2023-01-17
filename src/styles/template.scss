@@ -11,6 +11,15 @@
             h1{
                 margin-bottom: 0.75rem;
             }
+
+            &.headline-length{
+                .full-headline{
+                    display: block;
+                }
+                .short-headline{
+                    display: none;
+                }
+            }
         }
        
         @media (max-width: $breakpoint-phone) {
@@ -19,6 +28,15 @@
                 margin-bottom: 1rem;
                 h1{
                     margin-bottom: 0.75rem;
+                }
+
+                &.headline-length{
+                    .full-headline{
+                        display: none;
+                    }
+                    .short-headline{
+                        display: block;
+                    }
                 }
             }
         }

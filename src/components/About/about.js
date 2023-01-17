@@ -24,9 +24,10 @@ const About = () => {
             <AboutAnchors />
             <div className="template-section row">
                 <div className="home-headline">
-                    <div className="headline">
+                    <div className="headline headline-length">
                         <h1 id="ryanluu">Ryan Luu</h1>
-                        <h4><b>Product Leader | Speaker | Mentor</b></h4>
+                        <h4 className="full-headline"><b>Product Leader | Speaker | Mentor</b></h4>
+                        <h4 className="short-headline"><b>PM | Speaker | Mentor</b></h4>
                     </div>
                     <div className="side-pic-box headshot-top">
                         <div className="side-pic about" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">

@@ -395,7 +395,6 @@
             top: 0;
             position: absolute;
             width: 35%;
-            margin-top: -6.5rem;
             z-index: $image-z;
 
             &.inline{
@@ -469,6 +468,7 @@
                 border-radius: 50%;
                 display: inline-block;
                 overflow: hidden;
+                margin-top: -6.5rem;
 
                 .side-pic{
                     border-radius: 50%;

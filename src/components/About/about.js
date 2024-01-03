@@ -45,7 +45,7 @@ const About = () => {
                     <div className="template-text-body">
                         {/* <p>Sharing stories of the product leaders, designers, and engineers behind the products that shape our world.</p>
                         <br></br> */}
-                        <p>Currently, Director of Product at The Washington Post. Living in LA 🌴</p>
+                        <p>Senior Director of Product at Yahoo. Living in LA 🌴</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>
@@ -62,7 +62,7 @@ const About = () => {
                         <h2 id="lets-talk">Speaking</h2>
                     </div>
                     <div className="template-text-body">
-                        <p>I'm always eager to share knowledge and insights with others through speaking engagements such as conferences and podcasts. Let's collaborate to inspire, educate, and engage audiences everywhere - <a href="mailto:rytluu@gmail.com">rytluu@gmail.com</a>.</p>
+                        <p> Excited to share firsthand experiences and valuable insights on product management leadership in engaging and informative speaking engagements - <a href="mailto:rytluu@gmail.com">rytluu@gmail.com</a>.</p>
                     </div>
                 </div>
             </div>

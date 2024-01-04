@@ -42,7 +42,7 @@ const About = () => {
                         <button className="collapse-expand"><ArrowIcon /></button>
                         <h2 id="about">About</h2>
                     </div>
-                    <div className="template-text-body">
+                    <div className="template-text-body text-intro">
                         {/* <p>Sharing stories of the product leaders, designers, and engineers behind the products that shape our world.</p>
                         <br></br> */}
                         <p>Senior Director of Product at Yahoo. Living in LA 🌴</p>

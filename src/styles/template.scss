@@ -71,23 +71,27 @@
 
             &.two-column{
                 .template-text-body{
-                    width: 80%;
+                    width: 63%;
 
                     &.full-width{
                         width: 100%;
+                    }
+
+                    &.text-intro{
+                        width: 80%;
                     }
                 }
 
                 @media (max-width: $breakpoint-tablet){
                     .template-text-body{
-                        width: 75%;
+                        width: 62%;
                     }
                     
                 }   
 
                 @media (max-width: $breakpoint-750){
                     .template-text-body{
-                        width: 70%;
+                        width: 60%;
                     }
                     
                 }  

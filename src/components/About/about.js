@@ -99,7 +99,13 @@ const About = () => {
                     </div>
                     <div className="template-text-body">
                         <ul className="listtype-casestudy" >
-                            <li className="link-coming-soon"><p>+Washington Post <span className="italic">(coming soon)</span></p></li>
+                           
+                            <li>
+                                <Link to="/washingtonpost/" className="case-item">
+                                    <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>
+                                    <p>+Washington Post</p>
+                                </Link>
+                            </li>
                             <li>
                                 <Link to="/adhoc/" className="case-item">
                                     <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>

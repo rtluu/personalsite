@@ -5,6 +5,7 @@
 [build.environment]
   NODE_OPTIONS = "--openssl-legacy-provider"
   NODE_VERSION = "16"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"

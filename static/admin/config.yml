@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 
 # Media files will be stored in the repo under static/uploads
 media_folder: "static/uploads"

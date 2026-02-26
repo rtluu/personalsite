@@ -4,8 +4,7 @@
 
 [build.environment]
   NODE_OPTIONS = "--openssl-legacy-provider"
-  NODE_VERSION = "16"
-  NPM_FLAGS = "--legacy-peer-deps"
+  NODE_VERSION = "20"
 
 # Redirect /admin to the CMS
 [[redirects]]

@@ -7,9 +7,6 @@
   NODE_VERSION = "16"
   NPM_FLAGS = "--legacy-peer-deps"
 
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-
 # Redirect /admin to the CMS
 [[redirects]]
   from = "/admin"

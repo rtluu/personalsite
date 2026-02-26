@@ -1,3 +1,6 @@
 .cache/
-.node_modules/
+node_modules/
 public/
+static/uploads/
+.env
+.env.local

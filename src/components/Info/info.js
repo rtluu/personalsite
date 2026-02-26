@@ -1,37 +1,44 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import "./info.scss";
 import InfoIcon from "../../icons/info-icon.inline.svg";
 import Tooltip from "../Tooltip/tooltip";
 
-import { useGlobalState, infoSwitch, infoOpen } from '../../state';
+import { useGlobalState } from '../../state';
 
 function useInfoActive(ref) {
     const [infoOpen, infoSwitch] = useGlobalState('infoOpen');
-    const [, updateState] = React.useState();
-    const forceUpdate = React.useCallback(() => updateState({}), []);
     useEffect(() => {
-        /**
-         * Alert if clicked on outside of element
-         */
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                forceUpdate;
                 infoSwitch(false);
             }
         }
-        // Bind the event listener
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-            // Unbind the event listener on clean up
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [ref]);
 }
 
-const Info = (props) => {
+const Info = () => {
     const [infoOpen, infoSwitch] = useGlobalState('infoOpen');
     const infoRef = useRef(null);
     useInfoActive(infoRef);
+
+    const data = useStaticQuery(graphql`
+        query {
+            allSiteJson {
+                nodes {
+                    infoTitle
+                    infoFamiliar
+                    infoBuilt
+                }
+            }
+        }
+    `)
+
+    const site = data.allSiteJson.nodes[0]
 
     return (
         <div ref={infoRef} className={`info-container ${infoOpen ? "show" : ""}`} >
@@ -44,15 +51,15 @@ const Info = (props) => {
                 <h3 className="info-header">Site Info</h3>
                 <div className="info-qa">
                     <h4 className="question">What is this?</h4>
-                    <h5 className="answer">Ryan Luu's Portfolio & Blog</h5>
+                    <h5 className="answer">{site.infoTitle}</h5>
                 </div>
                 <div className="info-qa">
                     <h4 className="question">Why does this look familiar?</h4>
-                    <h5 className="answer">The design mimics Dropbox Paper. It's what I use to organize my daily process, so I thought it would be a fun challenge to recreate its ux from scatch for my personal site.</h5>
+                    <h5 className="answer">{site.infoFamiliar}</h5>
                 </div>
                 <div className="info-qa">
                     <h4 className="question">How was it built?</h4>
-                    <h5 className="answer">This site was custom coded with React Hooks and Gatsby. I included a few unique features that I enjoy, like hovering over videos to initiate playback.</h5>
+                    <h5 className="answer">{site.infoBuilt}</h5>
                 </div>
             </div>
         </div>
@@ -60,6 +67,3 @@ const Info = (props) => {
 }
 
 export default Info
-
-
-// onClick={() => setLightMode(!lightMode)}

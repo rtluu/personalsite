@@ -1,0 +1,180 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files will be stored in the repo under static/uploads
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  # ─────────────────────────────────────────────────────────────
+  # SITE CONFIG — bio, speaking, info panel text
+  # ─────────────────────────────────────────────────────────────
+  - name: "site-config"
+    label: "Site Config"
+    files:
+      - name: "site"
+        label: "Site Info"
+        file: "content/config/site.json"
+        format: "json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Full Headline", name: "headline", widget: "string" }
+          - { label: "Short Headline", name: "shortHeadline", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "Contact Email", name: "email", widget: "string" }
+          - { label: "Site URL", name: "siteUrl", widget: "string" }
+          - { label: "Speaking Text", name: "speakingText", widget: "text" }
+          - { label: "SEO Description", name: "seoDescription", widget: "text" }
+          - { label: "Info Panel — Title", name: "infoTitle", widget: "string" }
+          - { label: "Info Panel — Familiar", name: "infoFamiliar", widget: "text" }
+          - { label: "Info Panel — Built With", name: "infoBuilt", widget: "text" }
+
+      - name: "social"
+        label: "Social Links"
+        file: "content/config/social.json"
+        format: "json"
+        fields:
+          - name: "social_links"
+            label: "Social Links"
+            widget: "list"
+            fields:
+              - { label: "Platform (twitter/linkedin/github)", name: "platform", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+      - name: "navigation"
+        label: "Navigation"
+        file: "content/config/navigation.json"
+        format: "json"
+        fields:
+          - name: "nav_folders"
+            label: "Nav Folders"
+            widget: "list"
+            fields:
+              - { label: "Folder Title", name: "title", widget: "string" }
+              - name: "items"
+                label: "Items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Path (e.g. /adhoc/)", name: "path", widget: "string" }
+                  - { label: "Anchor ID", name: "anchorId", widget: "string" }
+                  - label: "Status"
+                    name: "status"
+                    widget: "select"
+                    options: ["published", "coming-soon", "draft"]
+                  - { label: "Popup Text", name: "popupText", widget: "string", required: false }
+                  - { label: "Popup Image Key", name: "popupImage", widget: "string", required: false }
+                  - { label: "Home Label", name: "homeLabel", widget: "string", required: false }
+
+  # ─────────────────────────────────────────────────────────────
+  # WRITING — blog posts
+  # ─────────────────────────────────────────────────────────────
+  - name: "writing"
+    label: "Writing"
+    folder: "content/writing"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (URL path name)", name: "slug", widget: "string" }
+      - { label: "Path (e.g. /journaldaily/)", name: "path", widget: "string" }
+      - { label: "SEO Title", name: "seoTitle", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: false }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["published", "draft"]
+        default: "draft"
+      - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+      - { label: "Intro Text", name: "intro", widget: "text", required: false }
+      - name: "sections"
+        label: "Sections"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Section ID (anchor)", name: "id", widget: "string" }
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Text", name: "text", widget: "text" }
+
+  # ─────────────────────────────────────────────────────────────
+  # PRODUCT — case studies
+  # ─────────────────────────────────────────────────────────────
+  - name: "product"
+    label: "Product Case Studies"
+    folder: "content/product"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (URL path name)", name: "slug", widget: "string" }
+      - { label: "Path (e.g. /adhoc/)", name: "path", widget: "string" }
+      - { label: "SEO Title", name: "seoTitle", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["published", "coming-soon", "draft"]
+        default: "draft"
+      - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+      - { label: "Idea", name: "idea", widget: "string", required: false }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Team", name: "team", widget: "string", required: false }
+      - { label: "Tools", name: "tools", widget: "string", required: false }
+      - { label: "Timeline", name: "timeline", widget: "string", required: false }
+      - { label: "YouTube ID", name: "ytid", widget: "string", required: false }
+      - { label: "Prev Page Title", name: "prevTitle", widget: "string", required: false }
+      - { label: "Prev Page Path", name: "prevPath", widget: "string", required: false }
+      - { label: "Prev Popup Image", name: "prevPopup", widget: "string", required: false }
+      - { label: "Next Page Title", name: "nextTitle", widget: "string", required: false }
+      - { label: "Next Page Path", name: "nextPath", widget: "string", required: false }
+      - { label: "Next Coming Soon?", name: "nextComingSoon", widget: "boolean", default: false }
+      - name: "sections"
+        label: "Sections"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Section ID (anchor)", name: "id", widget: "string" }
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Text", name: "text", widget: "text" }
+
+  # ─────────────────────────────────────────────────────────────
+  # DEVELOPMENT — dev case studies
+  # ─────────────────────────────────────────────────────────────
+  - name: "development"
+    label: "Development Case Studies"
+    folder: "content/development"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (URL path name)", name: "slug", widget: "string" }
+      - { label: "Path (e.g. /openrecord/)", name: "path", widget: "string" }
+      - { label: "SEO Title", name: "seoTitle", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["published", "coming-soon", "draft"]
+        default: "draft"
+      - { label: "Order", name: "order", widget: "number", value_type: "int", required: false }
+      - { label: "Idea", name: "idea", widget: "string", required: false }
+      - { label: "Client", name: "client", widget: "string", required: false }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Team", name: "team", widget: "string", required: false }
+      - { label: "Tools", name: "tools", widget: "string", required: false }
+      - { label: "Timeline", name: "timeline", widget: "string", required: false }
+      - { label: "YouTube ID", name: "ytid", widget: "string", required: false }
+      - { label: "Prev Page Title", name: "prevTitle", widget: "string", required: false }
+      - { label: "Prev Page Path", name: "prevPath", widget: "string", required: false }
+      - { label: "Prev Popup Image", name: "prevPopup", widget: "string", required: false }
+      - { label: "Next Page Title", name: "nextTitle", widget: "string", required: false }
+      - { label: "Next Page Path", name: "nextPath", widget: "string", required: false }
+      - { label: "Next Coming Soon?", name: "nextComingSoon", widget: "boolean", default: false }
+      - name: "sections"
+        label: "Sections"
+        widget: "list"
+        allow_add: true
+        fields:
+          - { label: "Section ID (anchor)", name: "id", widget: "string" }
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Text", name: "text", widget: "text" }

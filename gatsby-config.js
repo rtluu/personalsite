@@ -23,6 +23,36 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `config`,
+        path: `${__dirname}/content/config`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `writing`,
+        path: `${__dirname}/content/writing`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `product`,
+        path: `${__dirname}/content/product`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `development`,
+        path: `${__dirname}/content/development`,
+      },
+    },
+    `gatsby-transformer-json`,
+    `gatsby-transformer-remark`,
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {

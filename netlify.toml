@@ -1,0 +1,34 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_OPTIONS = "--openssl-legacy-provider"
+  NODE_VERSION = "16"
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+# Redirect /admin to the CMS
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# Gatsby handles its own 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Language = []}
+
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+# Netlify Identity — enable in Netlify dashboard:
+# Site settings → Identity → Enable Identity
+# Then: Identity → Services → Git Gateway → Enable Git Gateway
+# Then: Identity → Registration → Invite only (recommended for portfolio sites)

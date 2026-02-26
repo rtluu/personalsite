@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "@reach/router"
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import "./nav.scss";
 import BackIcon from "../../icons/back-icon.inline.svg";
 import SidebarIcon from "../../icons/sidebar-icon.inline.svg";
@@ -11,7 +11,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { BrowserView } from 'react-device-detect';
 
-import { setLightMode, useGlobalState } from '../../state';
+import { useGlobalState } from '../../state';
 
 const Nav = () => {
     const location = useLocation();
@@ -25,67 +25,52 @@ const Nav = () => {
     const [copied, setCopied] = useState(false);
     const [toastShow, setToastShow] = useState(false);
 
+    const data = useStaticQuery(graphql`
+        query {
+            allNavigationJson {
+                nodes {
+                    title
+                    items {
+                        title
+                        path
+                        anchorId
+                    }
+                }
+            }
+            allSiteJson {
+                nodes {
+                    siteUrl
+                }
+            }
+        }
+    `)
+
+    // Flatten all nav items into one list for easy lookup
+    const allItems = data.allNavigationJson.nodes.flatMap(folder => folder.items)
+    const siteUrl = data.allSiteJson.nodes[0]?.siteUrl || 'https://www.ryanluu.com'
+
     function closeMenu() {
         if (window.innerWidth < 905) {
             update(false);
         }
     }
 
-
     useEffect(() => {
         if (location.pathname === "/") {
             setPageName('Ryan Luu');
             setAnchorNav('#ryanluu');
-            setPageLink('https://www.ryanluu.com');
+            setPageLink(siteUrl);
             setHomeName('Personal Site');
-        } else if (location.pathname === "/ourluubeginning/") {
-            setPageName('OurLuuBeginning');
-            setAnchorNav('#ourluubeginning');
-            setPageLink('https://www.ryanluu.com/ourluubeginning');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/fastropelabs/") {
-            setPageName('Fastrope Labs');
-            setAnchorNav('#fastrope');
-            setPageLink('https://www.ryanluu.com/fastrope');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/humblevc/") {
-            setPageName('Humble Venture Capital');
-            setAnchorNav('#humblevc');
-            setPageLink('https://www.ryanluu.com/humblevc');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/neat/") {
-            setPageName('Neat');
-            setAnchorNav('#neat');
-            setPageLink('https://www.ryanluu.com/neat');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/openrecord/") {
-            setPageName('OpenRecord');
-            setAnchorNav('#openrecord');
-            setPageLink('https://www.ryanluu.com/openrecord');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/vumble/") {
-            setPageName('Vumble');
-            setAnchorNav('#vumble');
-            setPageLink('https://www.ryanluu.com/vumble');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/adhoc/") {
-            setPageName('AdHoc');
-            setAnchorNav('#adhoc');
-            setPageLink('https://www.ryanluu.com/adhoc');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/journaldaily/") {
-            setPageName('Journal Daily');
-            setAnchorNav('#journaldaily');
-            setPageLink('https://www.ryanluu.com/journaldaily');
-            setHomeName('Ryan Luu');
-        } else if (location.pathname === "/remotework/") {
-            setPageName('Remote Work');
-            setAnchorNav('#remotework');
-            setPageLink('https://www.ryanluu.com/remotework');
-            setHomeName('Ryan Luu');
+        } else {
+            const currentItem = allItems.find(item => item.path === location.pathname)
+            if (currentItem) {
+                setPageName(currentItem.title);
+                setAnchorNav(`#${currentItem.anchorId}`);
+                setPageLink(`${siteUrl}${location.pathname}`);
+                setHomeName('Ryan Luu');
+            }
         }
-        
-    }, [])
+    }, [location.pathname])
 
     useEffect(() => {
         const timer = window.setInterval(() => {
@@ -94,7 +79,6 @@ const Nav = () => {
         return () => {
             window.clearInterval(timer);
         };
-
     }, [toastShow])
 
     return (
@@ -147,6 +131,5 @@ const Nav = () => {
         </nav >
     )
 }
-
 
 export default Nav

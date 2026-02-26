@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import Headshot from "./images/Headshot";
 import AboutAnchors from "./anchorsAbout";
 import ArrowIcon from "../../icons/arrow-icon.inline.svg";
@@ -19,15 +19,53 @@ const About = () => {
     const [connectCollapsed, setConnectCollapsed] = useState(false);
     const [writingCollapsed, setWritingCollapsed] = useState(false);
 
+    const data = useStaticQuery(graphql`
+        query {
+            allSiteJson {
+                nodes {
+                    name
+                    headline
+                    shortHeadline
+                    bio
+                    email
+                    speakingText
+                }
+            }
+            allNavigationJson {
+                nodes {
+                    title
+                    items {
+                        title
+                        path
+                        status
+                        popupText
+                        popupImage
+                        homeLabel
+                    }
+                }
+            }
+        }
+    `)
+
+    const site = data.allSiteJson.nodes[0]
+    const folders = data.allNavigationJson.nodes
+
+    // Helper: get items for a folder by title
+    const getFolder = title => folders.find(f => f.title === title)
+
+    const writingItems = getFolder("Writing")?.items || []
+    const productItems = getFolder("Product")?.items || []
+    const devItems = getFolder("Development")?.items || []
+
     return (
         <div className="template-content">
             <AboutAnchors />
             <div className="template-section row">
                 <div className="home-headline">
                     <div className="headline headline-length">
-                        <h1 id="ryanluu">Ryan Luu</h1>
-                        <h4 className="full-headline"><b>Product Leader | Speaker | Mentor</b></h4>
-                        <h4 className="short-headline"><b>PM | Speaker | Mentor</b></h4>
+                        <h1 id="ryanluu">{site.name}</h1>
+                        <h4 className="full-headline"><b>{site.headline}</b></h4>
+                        <h4 className="short-headline"><b>{site.shortHeadline}</b></h4>
                     </div>
                     <div className="side-pic-box headshot-top">
                         <div className="side-pic about" onClick={openLightbox1} onKeyDown={openLightbox1} key={1} type="button">
@@ -43,9 +81,7 @@ const About = () => {
                         <h2 id="about">About</h2>
                     </div>
                     <div className="template-text-body text-intro">
-                        {/* <p>Sharing stories of the product leaders, designers, and engineers behind the products that shape our world.</p>
-                        <br></br> */}
-                        <p>Senior Director of Product at Yahoo. Living in LA 🌴</p>
+                        <p>{site.bio}</p>
                     </div>
                 </div>
                 <div className={`side-pic-box headshot-side ${aboutCollapsed ? "hide" : ""}`}>
@@ -62,10 +98,11 @@ const About = () => {
                         <h2 id="lets-talk">Speaking</h2>
                     </div>
                     <div className="template-text-body">
-                        <p> Excited to share firsthand experiences and valuable insights on product management leadership in engaging and informative speaking engagements - <a href="mailto:rytluu@gmail.com">rytluu@gmail.com</a>.</p>
+                        <p>{site.speakingText} — <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
                     </div>
                 </div>
             </div>
+
             <div className="template-section">
                 <div className={`template-text-block ${writingCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setWritingCollapsed(!writingCollapsed)}>
@@ -73,19 +110,17 @@ const About = () => {
                         <h2 id="writing">Writing</h2>
                     </div>
                     <div className="template-text-body">
-                        <ul className="listtype-casestudy" >
-                            <li>
-                                <Link to="/journaldaily/" className="case-item">
-                                    <div className="case-popup"><Popup text="Blog Post: Journal Daily" imgsrc="JournalPopup" /></div>
-                                    <p>+Learnings From Journaling Daily</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/remotework/" className="case-item">
-                                    <div className="case-popup"><Popup text="Blog Post: Remote Work" imgsrc="RemotePopup" /></div>
-                                    <p>+Strategies For Remote Life</p>
-                                </Link>
-                            </li>
+                        <ul className="listtype-casestudy">
+                            {writingItems.map(item => (
+                                <li key={item.path}>
+                                    <Link to={item.path} className="case-item">
+                                        <div className="case-popup">
+                                            <Popup text={item.popupText} imgsrc={item.popupImage} />
+                                        </div>
+                                        <p>{item.homeLabel}</p>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -98,24 +133,28 @@ const About = () => {
                         <h2 id="product">Product Management</h2>
                     </div>
                     <div className="template-text-body">
-                        <ul className="listtype-casestudy" >
-                            <li className="link-coming-soon"><p>+Washington Post <span className="italic">(coming soon)</span></p></li>
-                            <li>
-                                <Link to="/adhoc/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: AdHoc" imgsrc="AdHocPopup" /></div>
-                                    <p>+AdHoc</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/vumble/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: Vumble" imgsrc="VumblePopup" /></div>
-                                    <p>+Vumble</p>
-                                </Link>
-                            </li>
+                        <ul className="listtype-casestudy">
+                            {productItems.map(item => (
+                                item.status === "coming-soon" ? (
+                                    <li key={item.path} className="link-coming-soon">
+                                        <p>{item.homeLabel} <span className="italic">(coming soon)</span></p>
+                                    </li>
+                                ) : (
+                                    <li key={item.path}>
+                                        <Link to={item.path} className="case-item">
+                                            <div className="case-popup">
+                                                <Popup text={item.popupText} imgsrc={item.popupImage} />
+                                            </div>
+                                            <p>{item.homeLabel}</p>
+                                        </Link>
+                                    </li>
+                                )
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
+
             <div className="template-section">
                 <div className={`template-text-block ${developmentCollapsed ? "collapsed" : ""}`}>
                     <div className="template-text-header" onClick={() => setDevelopmentCollapsed(!developmentCollapsed)}>
@@ -123,44 +162,22 @@ const About = () => {
                         <h2 id="development">Development</h2>
                     </div>
                     <div className="template-text-body">
-                        <ul className="listtype-casestudy" >
-                            <li>
-                                <Link to="/openrecord/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: OpenRecord" imgsrc="OpenRecordPopup" /></div>
-                                    <p>+OpenRecord</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/neat/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: Neat" imgsrc="NeatPopup" /></div>
-                                    <p>+Neat</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/ourluubeginning/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: OurLuuBeginning" imgsrc="OLBPopup" /></div>
-                                    <p>+OurLuuBeginning</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/fastropelabs/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: Fastrope Labs" imgsrc="FastropePopup" /></div>
-                                    <p>+Fastrope Labs</p>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/humblevc/" className="case-item">
-                                    <div className="case-popup"><Popup text="Case Study: Humble Venture Capital" imgsrc="HumblePopup" /></div>
-                                    <p>+Humble VC</p>
-                                </Link>
-                            </li>
+                        <ul className="listtype-casestudy">
+                            {devItems.map(item => (
+                                <li key={item.path}>
+                                    <Link to={item.path} className="case-item">
+                                        <div className="case-popup">
+                                            <Popup text={item.popupText} imgsrc={item.popupImage} />
+                                        </div>
+                                        <p>{item.homeLabel}</p>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
-            
-            
-        </div >
+        </div>
     )
 }
 

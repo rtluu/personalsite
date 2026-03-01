@@ -38,11 +38,7 @@ const Social = () => {
     const data = useStaticQuery(graphql`
         query {
             allSocialJson {
-                nodes {
-                    platform
-                    label
-                    url
-                }
+                nodes { platform label url }
             }
         }
     `)

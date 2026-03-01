@@ -33,29 +33,19 @@ const About = () => {
             }
             allNavigationJson {
                 nodes {
-                    title
-                    items {
-                        title
-                        path
-                        status
-                        popupText
-                        popupImage
-                        homeLabel
-                    }
+                    section
+                    items { title path status popupText popupImage homeLabel }
                 }
             }
         }
     `)
 
     const site = data.allSiteJson.nodes[0]
-    const folders = data.allNavigationJson.nodes
-
-    // Helper: get items for a folder by title
-    const getFolder = title => folders.find(f => f.title === title)
-
-    const writingItems = getFolder("Writing")?.items || []
-    const productItems = getFolder("Product")?.items || []
-    const devItems = getFolder("Development")?.items || []
+    const nodes = data.allNavigationJson.nodes
+    const getSection = s => nodes.find(n => n.section === s)?.items || []
+    const writingItems = getSection("writing")
+    const productItems = getSection("product")
+    const devItems     = getSection("development")
 
     return (
         <div className="template-content">

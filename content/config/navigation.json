@@ -1,106 +1,106 @@
 [
   {
-    "title": "Writing",
+    "section": "writing",
     "items": [
       {
         "title": "Journal Daily",
         "path": "/journaldaily/",
         "anchorId": "journaldaily",
         "status": "published",
+        "homeLabel": "+Learnings From Journaling Daily",
         "popupText": "Blog Post: Journal Daily",
-        "popupImage": "JournalPopup",
-        "homeLabel": "+Learnings From Journaling Daily"
+        "popupImage": "JournalPopup"
       },
       {
         "title": "Remote Work",
         "path": "/remotework/",
         "anchorId": "remotework",
         "status": "published",
+        "homeLabel": "+Strategies For Remote Life",
         "popupText": "Blog Post: Remote Work",
-        "popupImage": "RemotePopup",
-        "homeLabel": "+Strategies For Remote Life"
+        "popupImage": "RemotePopup"
       }
     ]
   },
   {
-    "title": "Product",
+    "section": "product",
     "items": [
       {
         "title": "Washington Post",
         "path": "/washingtonpost/",
         "anchorId": "washingtonpost",
         "status": "coming-soon",
+        "homeLabel": "+Washington Post",
         "popupText": "Case Study: Washington Post",
-        "popupImage": "",
-        "homeLabel": "+Washington Post"
+        "popupImage": ""
       },
       {
         "title": "Ad Hoc",
         "path": "/adhoc/",
         "anchorId": "adhoc",
         "status": "published",
+        "homeLabel": "+AdHoc",
         "popupText": "Case Study: AdHoc",
-        "popupImage": "AdHocPopup",
-        "homeLabel": "+AdHoc"
+        "popupImage": "AdHocPopup"
       },
       {
         "title": "Vumble",
         "path": "/vumble/",
         "anchorId": "vumble",
         "status": "published",
+        "homeLabel": "+Vumble",
         "popupText": "Case Study: Vumble",
-        "popupImage": "VumblePopup",
-        "homeLabel": "+Vumble"
+        "popupImage": "VumblePopup"
       }
     ]
   },
   {
-    "title": "Development",
+    "section": "development",
     "items": [
       {
         "title": "OpenRecord",
         "path": "/openrecord/",
         "anchorId": "openrecord",
         "status": "published",
+        "homeLabel": "+OpenRecord",
         "popupText": "Case Study: OpenRecord",
-        "popupImage": "OpenRecordPopup",
-        "homeLabel": "+OpenRecord"
+        "popupImage": "OpenRecordPopup"
       },
       {
         "title": "Neat",
         "path": "/neat/",
         "anchorId": "neat",
         "status": "published",
+        "homeLabel": "+Neat",
         "popupText": "Case Study: Neat",
-        "popupImage": "NeatPopup",
-        "homeLabel": "+Neat"
+        "popupImage": "NeatPopup"
       },
       {
         "title": "OurLuuBeginning",
         "path": "/ourluubeginning/",
         "anchorId": "ourluubeginning",
         "status": "published",
+        "homeLabel": "+OurLuuBeginning",
         "popupText": "Case Study: OurLuuBeginning",
-        "popupImage": "OLBPopup",
-        "homeLabel": "+OurLuuBeginning"
+        "popupImage": "OLBPopup"
       },
       {
         "title": "Fastrope Labs",
         "path": "/fastropelabs/",
         "anchorId": "fastropelabs",
         "status": "published",
+        "homeLabel": "+Fastrope Labs",
         "popupText": "Case Study: Fastrope Labs",
-        "popupImage": "FastropePopup",
-        "homeLabel": "+Fastrope Labs"
+        "popupImage": "FastropePopup"
       },
       {
         "title": "Humble Venture Capital",
         "path": "/humblevc/",
         "anchorId": "humblevc",
         "status": "published",
+        "homeLabel": "+Humble VC",
         "popupText": "Case Study: Humble Venture Capital",
-        "popupImage": "HumblePopup",
-        "homeLabel": "+Humble VC"
+        "popupImage": "HumblePopup"
       }
     ]
   }

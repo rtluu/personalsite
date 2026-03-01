@@ -17,18 +17,20 @@ const Menu = () => {
         query {
             allNavigationJson {
                 nodes {
-                    title
-                    items {
-                        title
-                        path
-                        status
-                    }
+                    section
+                    items { title path status }
                 }
             }
         }
     `)
 
-    const folders = data.allNavigationJson.nodes
+    const nodes = data.allNavigationJson.nodes
+    const getSection = s => nodes.find(n => n.section === s)?.items || []
+    const folders = [
+        { title: "Writing",     items: getSection("writing")     },
+        { title: "Product",     items: getSection("product")     },
+        { title: "Development", items: getSection("development") },
+    ]
 
     function closeMenu() {
         if (window.innerWidth < 905) {

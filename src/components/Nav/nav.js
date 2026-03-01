@@ -29,24 +29,17 @@ const Nav = () => {
         query {
             allNavigationJson {
                 nodes {
-                    title
-                    items {
-                        title
-                        path
-                        anchorId
-                    }
+                    items { title path anchorId }
                 }
             }
             allSiteJson {
-                nodes {
-                    siteUrl
-                }
+                nodes { siteUrl }
             }
         }
     `)
 
     // Flatten all nav items into one list for easy lookup
-    const allItems = data.allNavigationJson.nodes.flatMap(folder => folder.items)
+    const allItems = data.allNavigationJson.nodes.flatMap(n => n.items || [])
     const siteUrl = data.allSiteJson.nodes[0]?.siteUrl || 'https://www.ryanluu.com'
 
     function closeMenu() {

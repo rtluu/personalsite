@@ -2,7 +2,6 @@ const fs = require("fs")
 const path = require("path")
 
 // Pages already handled by static files in src/pages/
-// These are NOT created programmatically to avoid Gatsby conflicts
 const STATIC_PAGES = [
   "/",
   "/adhoc/",
@@ -17,8 +16,7 @@ const STATIC_PAGES = [
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SCHEMA
-// Explicitly define types so Gatsby never infers wrong shapes from the JSON
+// SCHEMA — explicit types so Gatsby never infers wrong shapes
 // ─────────────────────────────────────────────────────────────────────────────
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -62,41 +60,46 @@ exports.createSchemaCustomization = ({ actions }) => {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SOURCE NODES
-// Manually source the config JSON files so they can be plain objects (not
-// arrays). gatsby-transformer-json only creates nodes from top-level arrays,
-// but Decap CMS files collections require root-level objects to prefill fields.
+// SOURCE NODES — read homepage.json and fan out into the same GraphQL node
+// types (SiteJson, NavigationJson, SocialJson) that all components query.
+// homepage.json is the single source of truth for all homepage content.
 // ─────────────────────────────────────────────────────────────────────────────
 
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
   const configDir = path.join(__dirname, "content/config")
 
-  // site.json → one SiteJson node
-  const site = JSON.parse(
-    fs.readFileSync(path.join(configDir, "site.json"), "utf8")
+  const hp = JSON.parse(
+    fs.readFileSync(path.join(configDir, "homepage.json"), "utf8")
   )
+
+  // ── SiteJson (bio, headline, contact, info panel) ─────────────────────────
+  const siteFields = [
+    "name", "headline", "shortHeadline", "bio", "email",
+    "siteUrl", "speakingText", "seoDescription",
+    "infoTitle", "infoFamiliar", "infoBuilt",
+  ]
+  const siteData = {}
+  siteFields.forEach(k => { siteData[k] = hp[k] || "" })
+
   createNode({
-    ...site,
+    ...siteData,
     id: createNodeId("site-config"),
     parent: null,
     children: [],
     internal: {
       type: "SiteJson",
-      contentDigest: createContentDigest(site),
+      contentDigest: createContentDigest(siteData),
     },
   })
 
-  // navigation.json → one NavigationJson node per section
-  // File format: { section_writing: { section, items }, section_product: { ... }, ... }
-  const nav = JSON.parse(
-    fs.readFileSync(path.join(configDir, "navigation.json"), "utf8")
-  )
-  Object.values(nav).forEach(sectionData => {
+  // ── NavigationJson (one node per section: writing, product, development) ───
+  ;["writing", "product", "development"].forEach(section => {
+    const sectionData = hp[`section_${section}`] || { section, items: [] }
     createNode({
-      section: sectionData.section,
-      items: sectionData.items,
-      id: createNodeId(`nav-${sectionData.section}`),
+      section: sectionData.section || section,
+      items: sectionData.items || [],
+      id: createNodeId(`nav-${section}`),
       parent: null,
       children: [],
       internal: {
@@ -106,19 +109,16 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
     })
   })
 
-  // social.json → one SocialJson node
-  // File format: { items: [{ platform, label, url }] }
-  const social = JSON.parse(
-    fs.readFileSync(path.join(configDir, "social.json"), "utf8")
-  )
+  // ── SocialJson ─────────────────────────────────────────────────────────────
+  const socialData = hp.social || { items: [] }
   createNode({
-    items: social.items,
+    items: socialData.items || [],
     id: createNodeId("social-config"),
     parent: null,
     children: [],
     internal: {
       type: "SocialJson",
-      contentDigest: createContentDigest(social),
+      contentDigest: createContentDigest(socialData),
     },
   })
 }
@@ -157,8 +157,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   result.data.allMarkdownRemark.nodes.forEach(node => {
     const { path: pagePath, category } = node.frontmatter
-
-    // Skip pages already handled by static files in src/pages/
     if (STATIC_PAGES.includes(pagePath)) return
 
     const template =
@@ -167,10 +165,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: pagePath,
       component: template,
-      context: {
-        id: node.id,
-        slug: node.frontmatter.slug,
-      },
+      context: { id: node.id, slug: node.frontmatter.slug },
     })
   })
 }

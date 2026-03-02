@@ -4,105 +4,82 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
+  <style>
+    /* ── Draggable divider injected into the CMS parent page ── */
+    #cms-drag-divider {
+      background: #1a1f27;
+      border-left: 1px solid #3f4755;
+      border-right: 1px solid #3f4755;
+      cursor: col-resize;
+      flex: 0 0 8px !important;
+      position: relative;
+      transition: background 0.15s, border-color 0.15s;
+      z-index: 1000;
+    }
+    #cms-drag-divider:hover,
+    #cms-drag-divider.dragging {
+      background: #283241;
+      border-color: #72b6ec;
+    }
+    #cms-drag-divider .divider-pill {
+      background: #3f4755;
+      border-radius: 3px;
+      height: 40px;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.15s, background 0.15s;
+      width: 3px;
+    }
+    #cms-drag-divider:hover .divider-pill,
+    #cms-drag-divider.dragging .divider-pill {
+      background: #72b6ec;
+      opacity: 1;
+    }
+    #drag-overlay {
+      bottom: 0; cursor: col-resize; left: 0;
+      position: fixed; right: 0; top: 0; z-index: 9999;
+    }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // Inject the site's CSS into the preview iframe so the preview looks
-    // exactly like ryanluu.com.
+    // ── Inject site CSS into the preview iframe ────────────────────────────────
     CMS.registerPreviewStyle('/admin/preview.css');
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // HELPER: split a text string on \n\n and render each chunk as a <p>
-    // ─────────────────────────────────────────────────────────────────────────
-    function renderParagraphs(text) {
+    // ── Helpers ───────────────────────────────────────────────────────────────
+    function paras(text) {
       if (!text) return null;
-      return (text + '').split('\n\n').map(function(para, i) {
-        return h('p', { key: i }, para);
+      return String(text).split('\n\n').filter(Boolean).map(function(t, i) {
+        return h('p', { key: i }, t);
       });
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // 1. PROFILE & BIO
-    //    Mirrors: src/components/About/about.js
-    //    — name h1, headline h4, About section, Speaking section
-    // ─────────────────────────────────────────────────────────────────────────
-    var ProfilePreview = createClass({
+    // ── 1. HOMEPAGE ───────────────────────────────────────────────────────────
+    // Complete homepage preview: nav bar, headshot, all sections, links.
+    // Mirrors the exact HTML structure of About.js + Layout.js.
+    var HomepagePreview = createClass({
       render: function() {
-        var entry        = this.props.entry;
-        var name         = entry.getIn(['data', 'name'])         || '';
-        var headline     = entry.getIn(['data', 'headline'])     || '';
-        var bio          = entry.getIn(['data', 'bio'])          || '';
-        var speakingText = entry.getIn(['data', 'speakingText']) || '';
-        var email        = entry.getIn(['data', 'email'])        || '';
+        var e = this.props.entry;
+        var name         = e.getIn(['data', 'name'])         || '';
+        var headline     = e.getIn(['data', 'headline'])     || '';
+        var bio          = e.getIn(['data', 'bio'])          || '';
+        var speakingText = e.getIn(['data', 'speakingText']) || '';
+        var email        = e.getIn(['data', 'email'])        || '';
+        var writingItems = e.getIn(['data', 'section_writing',     'items']);
+        var productItems = e.getIn(['data', 'section_product',     'items']);
+        var devItems     = e.getIn(['data', 'section_development', 'items']);
 
-        return h('div', { className: 'template-content' },
-
-          // ── Name + headline row (matches .home-headline in About) ──────────
-          h('div', { className: 'template-section row' },
-            h('div', { className: 'home-headline' },
-              h('div', { className: 'headline headline-length' },
-                h('h1', { id: 'ryanluu' }, name),
-                h('h4', { className: 'full-headline' }, h('b', {}, headline))
-              ),
-              // Circular headshot placeholder (real site shows a photo here)
-              h('div', { className: 'headshot-side-placeholder' }, 'RL')
-            )
-          ),
-
-          // ── About section ─────────────────────────────────────────────────
-          h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block two-column' },
-              h('div', { className: 'template-text-header' },
-                h('button', { className: 'collapse-expand' }, '\u25B6'),
-                h('h2', { id: 'about' }, 'About')
-              ),
-              h('div', { className: 'template-text-body text-intro' },
-                h('p', {}, bio)
-              )
-            )
-          ),
-
-          // ── Speaking section ──────────────────────────────────────────────
-          h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block' },
-              h('div', { className: 'template-text-header' },
-                h('button', { className: 'collapse-expand' }, '\u25B6'),
-                h('h2', { id: 'lets-talk' }, 'Speaking')
-              ),
-              h('div', { className: 'template-text-body' },
-                h('p', {},
-                  speakingText,
-                  email ? ' \u2014 ' : null,
-                  email ? h('a', { href: 'mailto:' + email }, email) : null,
-                  '.'
-                )
-              )
-            )
-          )
-        );
-      }
-    });
-    CMS.registerPreviewTemplate('profile', ProfilePreview);
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // 2. PAGE SECTIONS (Writing / Product / Development lists)
-    //    Mirrors: the three section blocks inside About.js
-    // ─────────────────────────────────────────────────────────────────────────
-    var PageSectionsPreview = createClass({
-      render: function() {
-        var entry        = this.props.entry;
-        var writingItems = entry.getIn(['data', 'section_writing',     'items']);
-        var productItems = entry.getIn(['data', 'section_product',     'items']);
-        var devItems     = entry.getIn(['data', 'section_development', 'items']);
-
-        function renderSection(sectionTitle, sectionId, items, checkComingSoon) {
+        function sectionList(title, id, items, checkComingSoon) {
           return h('div', { className: 'template-section' },
             h('div', { className: 'template-text-block' },
               h('div', { className: 'template-text-header' },
                 h('button', { className: 'collapse-expand' }, '\u25B6'),
-                h('h2', { id: sectionId }, sectionTitle)
+                h('h2', { id: id }, title)
               ),
               h('div', { className: 'template-text-body' },
                 h('ul', { className: 'listtype-casestudy' },
@@ -110,287 +87,395 @@
                     var status    = item.get('status') || 'published';
                     var homeLabel = item.get('homeLabel') || item.get('title') || '';
                     if (status === 'draft') return null;
-
                     if (checkComingSoon && status === 'coming-soon') {
                       return h('li', { key: i, className: 'link-coming-soon' },
-                        h('p', {},
-                          homeLabel,
-                          h('span', { className: 'italic' }, ' (coming soon)')
+                        h('p', {}, homeLabel,
+                          h('span', { className: 'italic' }, '\u00A0(coming soon)')
                         )
                       );
                     }
-
                     return h('li', { key: i },
-                      h('a', { href: '#', className: 'case-item' },
-                        h('p', {}, homeLabel)
-                      )
+                      h('a', { href: '#', className: 'case-item' }, h('p', {}, homeLabel))
                     );
-                  }).toArray() : h('li', {},
-                    h('p', { style: { color: '#a5a9af', fontStyle: 'italic' } }, 'No items yet')
-                  )
+                  }).toArray() : null
                 )
               )
             )
           );
         }
 
-        return h('div', { className: 'template-content' },
-          renderSection('Writing',            'writing',     writingItems, false),
-          renderSection('Product Management', 'product',     productItems, true),
-          renderSection('Development',        'development', devItems,     false)
-        );
-      }
-    });
-    CMS.registerPreviewTemplate('page-sections', PageSectionsPreview);
+        return h('div', {},
+          // Simulated nav bar
+          h('nav', { className: 'preview-nav' },
+            h('div', { className: 'preview-nav-left' },
+              h('div', { className: 'preview-nav-icon' }, '\u2630')
+            ),
+            h('div', { className: 'preview-nav-center' },
+              h('div', { className: 'preview-nav-title' }, name || 'Ryan Luu'),
+              h('div', { className: 'preview-nav-sub' }, 'Personal Site')
+            ),
+            h('div', { className: 'preview-nav-right' },
+              h('div', { className: 'preview-nav-icon' }, '\uD83D\uDD17'),
+              h('div', { className: 'preview-nav-icon' }, '\u263C')
+            )
+          ),
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // 3. SOCIAL LINKS
-    //    Mirrors: src/components/Social/social.js popup content
-    // ─────────────────────────────────────────────────────────────────────────
-    var SocialPreview = createClass({
-      render: function() {
-        var entry = this.props.entry;
-        var items = entry.getIn(['data', 'items']);
+          // Page body
+          h('div', { className: 'preview-body' },
+            h('div', { className: 'template-content' },
 
-        return h('div', { className: 'template-content' },
-          h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block' },
-              h('div', { className: 'template-text-header' },
-                h('button', { className: 'collapse-expand' }, '\u25B6'),
-                h('h2', {}, 'Web Links')
-              ),
-              h('div', { className: 'template-text-body' },
-                h('ul', { className: 'listtype-casestudy' },
-                  items ? items.map(function(item, i) {
-                    return h('li', { key: i },
-                      h('a', { href: item.get('url'), target: '_blank', rel: 'noreferrer', className: 'case-item' },
-                        h('p', {},
-                          h('span', { style: { color: '#a5a9af', marginRight: '0.375rem' } },
-                            item.get('platform') + ':'
-                          ),
-                          item.get('label') || item.get('url')
-                        )
-                      )
-                    );
-                  }).toArray() : h('li', {},
-                    h('p', { style: { color: '#a5a9af', fontStyle: 'italic' } }, 'No links yet')
+              // Name + headline + headshot
+              h('div', { className: 'template-section row' },
+                h('div', { className: 'home-headline' },
+                  h('div', { className: 'headline headline-length' },
+                    h('h1', { id: 'ryanluu' }, name),
+                    h('h4', { className: 'full-headline' }, h('b', {}, headline))
+                  ),
+                  h('div', { className: 'headshot-side-box' },
+                    h('img', {
+                      src: '/admin/images/headshot.png',
+                      alt: name,
+                      className: 'headshot-img'
+                    })
                   )
                 )
-              )
+              ),
+
+              // About
+              h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-block two-column' },
+                  h('div', { className: 'template-text-header' },
+                    h('button', { className: 'collapse-expand' }, '\u25B6'),
+                    h('h2', { id: 'about' }, 'About')
+                  ),
+                  h('div', { className: 'template-text-body text-intro' },
+                    h('p', {}, bio)
+                  )
+                )
+              ),
+
+              // Speaking
+              h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-block' },
+                  h('div', { className: 'template-text-header' },
+                    h('button', { className: 'collapse-expand' }, '\u25B6'),
+                    h('h2', { id: 'lets-talk' }, 'Speaking')
+                  ),
+                  h('div', { className: 'template-text-body' },
+                    h('p', {},
+                      speakingText,
+                      email ? ' \u2014 ' : null,
+                      email ? h('a', { href: 'mailto:' + email }, email) : null,
+                      '.'
+                    )
+                  )
+                )
+              ),
+
+              sectionList('Writing',            'writing',     writingItems, false),
+              sectionList('Product Management', 'product',     productItems, true),
+              sectionList('Development',        'development', devItems,     false)
             )
           )
         );
       }
     });
-    CMS.registerPreviewTemplate('social', SocialPreview);
+    CMS.registerPreviewTemplate('homepage', HomepagePreview);
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // 4. WRITING POSTS
-    //    Mirrors: src/templates/blog-post.js exactly
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── 2. WRITING ────────────────────────────────────────────────────────────
     var WritingPreview = createClass({
       render: function() {
-        var entry    = this.props.entry;
-        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
-        var intro    = entry.getIn(['data', 'intro'])    || '';
-        var sections = entry.getIn(['data', 'sections']);
-
-        return h('div', { className: 'template-content' },
-
-          h('h1', {}, title),
-
-          // Optional intro block (no section header, just text)
-          intro ? h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block' },
-              h('div', { className: 'template-text-body' },
-                renderParagraphs(intro)
-              )
+        var e        = this.props.entry;
+        var title    = e.getIn(['data', 'title'])    || 'Untitled';
+        var intro    = e.getIn(['data', 'intro'])    || '';
+        var sections = e.getIn(['data', 'sections']);
+        return h('div', {},
+          h('nav', { className: 'preview-nav' },
+            h('div', { className: 'preview-nav-center' },
+              h('div', { className: 'preview-nav-title' }, title),
+              h('div', { className: 'preview-nav-sub' }, 'Ryan Luu')
             )
-          ) : null,
-
-          // Collapsible sections
-          sections ? sections.map(function(section, i) {
-            return h('div', { className: 'template-section', key: i },
-              h('div', { className: 'template-text-block' },
-                h('div', { className: 'template-text-header' },
-                  h('button', { className: 'collapse-expand' }, '\u25B6'),
-                  h('h2', {}, section.get('title') || '')
-                ),
-                h('div', { className: 'template-text-body' },
-                  renderParagraphs(section.get('text'))
+          ),
+          h('div', { className: 'preview-body' },
+            h('div', { className: 'template-content' },
+              h('h1', {}, title),
+              intro ? h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-block' },
+                  h('div', { className: 'template-text-body' }, paras(intro))
                 )
-              )
-            );
-          }).toArray() : null
+              ) : null,
+              sections ? sections.map(function(s, i) {
+                return h('div', { className: 'template-section', key: i },
+                  h('div', { className: 'template-text-block' },
+                    h('div', { className: 'template-text-header' },
+                      h('button', { className: 'collapse-expand' }, '\u25B6'),
+                      h('h2', {}, s.get('title') || '')
+                    ),
+                    h('div', { className: 'template-text-body' }, paras(s.get('text')))
+                  )
+                );
+              }).toArray() : null
+            )
+          )
         );
       }
     });
     CMS.registerPreviewTemplate('writing', WritingPreview);
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // 5. PRODUCT CASE STUDIES
-    //    Mirrors: src/templates/case-study.js exactly
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── 3. PRODUCT ────────────────────────────────────────────────────────────
     var ProductPreview = createClass({
       render: function() {
-        var entry         = this.props.entry;
-        var title         = entry.getIn(['data', 'title'])         || 'Untitled';
-        var role          = entry.getIn(['data', 'role'])          || '';
-        var team          = entry.getIn(['data', 'team'])          || '';
-        var tools         = entry.getIn(['data', 'tools'])         || '';
-        var timeline      = entry.getIn(['data', 'timeline'])      || '';
-        var prevTitle     = entry.getIn(['data', 'prevTitle'])     || '';
-        var prevPath      = entry.getIn(['data', 'prevPath'])      || '';
-        var nextTitle     = entry.getIn(['data', 'nextTitle'])     || '';
-        var nextPath      = entry.getIn(['data', 'nextPath'])      || '';
-        var nextComingSoon = entry.getIn(['data', 'nextComingSoon']) || false;
-        var sections      = entry.getIn(['data', 'sections']);
+        var e             = this.props.entry;
+        var title         = e.getIn(['data', 'title'])         || 'Untitled';
+        var role          = e.getIn(['data', 'role'])          || '';
+        var team          = e.getIn(['data', 'team'])          || '';
+        var tools         = e.getIn(['data', 'tools'])         || '';
+        var timeline      = e.getIn(['data', 'timeline'])      || '';
+        var prevTitle     = e.getIn(['data', 'prevTitle'])     || '';
+        var prevPath      = e.getIn(['data', 'prevPath'])      || '';
+        var nextTitle     = e.getIn(['data', 'nextTitle'])     || '';
+        var nextPath      = e.getIn(['data', 'nextPath'])      || '';
+        var nextComingSoon = e.getIn(['data', 'nextComingSoon']) || false;
+        var sections      = e.getIn(['data', 'sections']);
 
-        return h('div', { className: 'template-content' },
-
-          h('h1', {}, title),
-
-          // Metadata block (same structure as case-study template)
-          h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block' },
-              h('div', { className: 'template-text-body' },
-                role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
-                team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
-                tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
-                timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
-              )
+        return h('div', {},
+          h('nav', { className: 'preview-nav' },
+            h('div', { className: 'preview-nav-center' },
+              h('div', { className: 'preview-nav-title' }, title),
+              h('div', { className: 'preview-nav-sub' }, 'Ryan Luu')
             )
           ),
-
-          // Collapsible content sections
-          sections ? sections.map(function(section, i) {
-            return h('div', { className: 'template-section', key: i },
-              h('div', { className: 'template-text-block' },
-                h('div', { className: 'template-text-header' },
-                  h('button', { className: 'collapse-expand' }, '\u25B6'),
-                  h('h2', {}, section.get('title') || '')
-                ),
-                h('div', { className: 'template-text-body' },
-                  renderParagraphs(section.get('text'))
+          h('div', { className: 'preview-body' },
+            h('div', { className: 'template-content' },
+              h('h1', {}, title),
+              h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-block' },
+                  h('div', { className: 'template-text-body' },
+                    role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
+                    team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
+                    tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
+                    timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
+                  )
                 )
-              )
-            );
-          }).toArray() : null,
-
-          // Prev / Next navigation links
-          (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-body' },
-              h('div', { className: 'case-end-links' },
-                prevTitle && prevPath
-                  ? h('a', { href: '#', className: 'case-item' },
+              ),
+              sections ? sections.map(function(s, i) {
+                return h('div', { className: 'template-section', key: i },
+                  h('div', { className: 'template-text-block' },
+                    h('div', { className: 'template-text-header' },
+                      h('button', { className: 'collapse-expand' }, '\u25B6'),
+                      h('h2', {}, s.get('title') || '')
+                    ),
+                    h('div', { className: 'template-text-body' }, paras(s.get('text')))
+                  )
+                );
+              }).toArray() : null,
+              (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-body' },
+                  h('div', { className: 'case-end-links' },
+                    prevTitle ? h('a', { href: '#', className: 'case-item' },
                       h('span', { className: 'case-arrow previous' }, '\u2039'),
                       h('p', {}, '+' + prevTitle)
-                    )
-                  : h('span', {}),
-                nextTitle && nextPath
-                  ? (nextComingSoon
+                    ) : h('span', {}),
+                    nextTitle ? (nextComingSoon
                       ? h('span', { className: 'case-item next' },
-                          h('div', { className: 'coming-soon' },
-                            h('p', {}, '+' + nextTitle),
-                            h('span', { className: 'coming-soon-text' }, '(coming soon)')
-                          ),
+                          h('p', {}, '+' + nextTitle),
+                          h('span', { className: 'coming-soon-text' }, '(coming soon)'),
                           h('span', { className: 'case-arrow' }, '\u203A')
                         )
                       : h('a', { href: '#', className: 'case-item next' },
                           h('p', {}, '+' + nextTitle),
                           h('span', { className: 'case-arrow' }, '\u203A')
                         )
-                    )
-                  : h('span', {})
-              )
+                    ) : h('span', {})
+                  )
+                )
+              ) : null
             )
-          ) : null
+          )
         );
       }
     });
     CMS.registerPreviewTemplate('product', ProductPreview);
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // 6. DEVELOPMENT CASE STUDIES
-    //    Same structure as Product but includes Client field
-    // ─────────────────────────────────────────────────────────────────────────
+    // ── 4. DEVELOPMENT ────────────────────────────────────────────────────────
     var DevelopmentPreview = createClass({
       render: function() {
-        var entry          = this.props.entry;
-        var title          = entry.getIn(['data', 'title'])          || 'Untitled';
-        var client         = entry.getIn(['data', 'client'])         || '';
-        var role           = entry.getIn(['data', 'role'])           || '';
-        var team           = entry.getIn(['data', 'team'])           || '';
-        var tools          = entry.getIn(['data', 'tools'])          || '';
-        var timeline       = entry.getIn(['data', 'timeline'])       || '';
-        var prevTitle      = entry.getIn(['data', 'prevTitle'])      || '';
-        var prevPath       = entry.getIn(['data', 'prevPath'])       || '';
-        var nextTitle      = entry.getIn(['data', 'nextTitle'])      || '';
-        var nextPath       = entry.getIn(['data', 'nextPath'])       || '';
-        var nextComingSoon = entry.getIn(['data', 'nextComingSoon']) || false;
-        var sections       = entry.getIn(['data', 'sections']);
+        var e             = this.props.entry;
+        var title         = e.getIn(['data', 'title'])          || 'Untitled';
+        var client        = e.getIn(['data', 'client'])         || '';
+        var role          = e.getIn(['data', 'role'])           || '';
+        var team          = e.getIn(['data', 'team'])           || '';
+        var tools         = e.getIn(['data', 'tools'])          || '';
+        var timeline      = e.getIn(['data', 'timeline'])       || '';
+        var prevTitle     = e.getIn(['data', 'prevTitle'])      || '';
+        var prevPath      = e.getIn(['data', 'prevPath'])       || '';
+        var nextTitle     = e.getIn(['data', 'nextTitle'])      || '';
+        var nextPath      = e.getIn(['data', 'nextPath'])       || '';
+        var nextComingSoon = e.getIn(['data', 'nextComingSoon']) || false;
+        var sections      = e.getIn(['data', 'sections']);
 
-        return h('div', { className: 'template-content' },
-
-          h('h1', {}, title),
-
-          h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-block' },
-              h('div', { className: 'template-text-body' },
-                client   ? h('p', {}, h('span', { className: 'bold-italic' }, 'Client: '),   client)   : null,
-                role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
-                team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
-                tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
-                timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
-              )
+        return h('div', {},
+          h('nav', { className: 'preview-nav' },
+            h('div', { className: 'preview-nav-center' },
+              h('div', { className: 'preview-nav-title' }, title),
+              h('div', { className: 'preview-nav-sub' }, 'Ryan Luu')
             )
           ),
-
-          sections ? sections.map(function(section, i) {
-            return h('div', { className: 'template-section', key: i },
-              h('div', { className: 'template-text-block' },
-                h('div', { className: 'template-text-header' },
-                  h('button', { className: 'collapse-expand' }, '\u25B6'),
-                  h('h2', {}, section.get('title') || '')
-                ),
-                h('div', { className: 'template-text-body' },
-                  renderParagraphs(section.get('text'))
+          h('div', { className: 'preview-body' },
+            h('div', { className: 'template-content' },
+              h('h1', {}, title),
+              h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-block' },
+                  h('div', { className: 'template-text-body' },
+                    client   ? h('p', {}, h('span', { className: 'bold-italic' }, 'Client: '),   client)   : null,
+                    role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
+                    team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
+                    tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
+                    timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
+                  )
                 )
-              )
-            );
-          }).toArray() : null,
-
-          (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
-            h('div', { className: 'template-text-body' },
-              h('div', { className: 'case-end-links' },
-                prevTitle && prevPath
-                  ? h('a', { href: '#', className: 'case-item' },
+              ),
+              sections ? sections.map(function(s, i) {
+                return h('div', { className: 'template-section', key: i },
+                  h('div', { className: 'template-text-block' },
+                    h('div', { className: 'template-text-header' },
+                      h('button', { className: 'collapse-expand' }, '\u25B6'),
+                      h('h2', {}, s.get('title') || '')
+                    ),
+                    h('div', { className: 'template-text-body' }, paras(s.get('text')))
+                  )
+                );
+              }).toArray() : null,
+              (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
+                h('div', { className: 'template-text-body' },
+                  h('div', { className: 'case-end-links' },
+                    prevTitle ? h('a', { href: '#', className: 'case-item' },
                       h('span', { className: 'case-arrow previous' }, '\u2039'),
                       h('p', {}, '+' + prevTitle)
-                    )
-                  : h('span', {}),
-                nextTitle && nextPath
-                  ? (nextComingSoon
+                    ) : h('span', {}),
+                    nextTitle ? (nextComingSoon
                       ? h('span', { className: 'case-item next' },
-                          h('div', { className: 'coming-soon' },
-                            h('p', {}, '+' + nextTitle),
-                            h('span', { className: 'coming-soon-text' }, '(coming soon)')
-                          ),
+                          h('p', {}, '+' + nextTitle),
+                          h('span', { className: 'coming-soon-text' }, '(coming soon)'),
                           h('span', { className: 'case-arrow' }, '\u203A')
                         )
                       : h('a', { href: '#', className: 'case-item next' },
                           h('p', {}, '+' + nextTitle),
                           h('span', { className: 'case-arrow' }, '\u203A')
                         )
-                    )
-                  : h('span', {})
-              )
+                    ) : h('span', {})
+                  )
+                )
+              ) : null
             )
-          ) : null
+          )
         );
       }
     });
     CMS.registerPreviewTemplate('development', DevelopmentPreview);
+
+    // ── DRAGGABLE DIVIDER ─────────────────────────────────────────────────────
+    // Injects a draggable resize handle between the editor and preview panes.
+    // Works by finding the flex container that holds the two panels, then
+    // inserting a handle between them.
+    (function() {
+      var done = false;
+
+      function findSplit() {
+        // Find the preview iframe — it lives in the right pane
+        var iframes = document.querySelectorAll('iframe');
+        for (var i = 0; i < iframes.length; i++) {
+          var el = iframes[i].parentElement;
+          // Walk up until we find a flex container with exactly 2 children
+          // that both have meaningful width (ruling out wrappers)
+          while (el && el !== document.body) {
+            var kids = Array.from(el.children);
+            if (kids.length === 2) {
+              var r0 = kids[0].getBoundingClientRect();
+              var r1 = kids[1].getBoundingClientRect();
+              if (r0.width > 150 && r1.width > 150 && r0.height > 200) {
+                return { container: el, left: kids[0], right: kids[1] };
+              }
+            }
+            el = el.parentElement;
+          }
+        }
+        return null;
+      }
+
+      function inject() {
+        if (done) return;
+        var found = findSplit();
+        if (!found) return;
+
+        done = true;
+        var container = found.container;
+        var leftPane  = found.left;
+        var rightPane = found.right;
+
+        // Ensure flex layout
+        container.style.display        = 'flex';
+        container.style.flexDirection  = 'row';
+        container.style.overflow       = 'hidden';
+
+        // Fix left pane width, let right pane fill remainder
+        var startW = Math.round(container.getBoundingClientRect().width * 0.5);
+        leftPane.style.cssText  += '; flex: 0 0 ' + startW + 'px !important; min-width: 260px; overflow-y: auto;';
+        rightPane.style.cssText += '; flex: 1 1 0 !important; min-width: 260px; overflow: hidden;';
+
+        // Build the divider element
+        var divider = document.createElement('div');
+        divider.id  = 'cms-drag-divider';
+        var pill = document.createElement('div');
+        pill.className = 'divider-pill';
+        divider.appendChild(pill);
+        container.insertBefore(divider, rightPane);
+
+        // Drag state
+        var dragging  = false;
+        var originX   = 0;
+        var originW   = 0;
+
+        divider.addEventListener('mousedown', function(evt) {
+          dragging = true;
+          originX  = evt.clientX;
+          originW  = leftPane.getBoundingClientRect().width;
+          divider.classList.add('dragging');
+
+          // Transparent overlay keeps mouse capture while dragging over the iframe
+          var overlay = document.createElement('div');
+          overlay.id  = 'drag-overlay';
+          document.body.appendChild(overlay);
+          evt.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(evt) {
+          if (!dragging) return;
+          var containerW = container.getBoundingClientRect().width - 8;
+          var newW = Math.max(260, Math.min(containerW - 260, originW + (evt.clientX - originX)));
+          leftPane.style.flex = '0 0 ' + newW + 'px !important';
+        });
+
+        document.addEventListener('mouseup', function() {
+          if (!dragging) return;
+          dragging = false;
+          divider.classList.remove('dragging');
+          var ov = document.getElementById('drag-overlay');
+          if (ov) ov.parentNode.removeChild(ov);
+        });
+      }
+
+      // Poll until the split pane appears (CMS renders asynchronously)
+      var observer = new MutationObserver(function() {
+        if (!done) requestAnimationFrame(inject);
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Fallback timers in case MutationObserver fires too early
+      [500, 1200, 2500, 4000].forEach(function(ms) {
+        setTimeout(inject, ms);
+      });
+    })();
   </script>
 </body>
 </html>

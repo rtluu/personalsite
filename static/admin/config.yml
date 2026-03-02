@@ -13,23 +13,26 @@ public_folder: "/uploads"
 
 collections:
 
-  # ── 1. HOMEPAGE ─────────────────────────────────────────────────────────────
-  # Everything visible on the home page (ryanluu.com)
+  # ── 1. HOMEPAGE ──────────────────────────────────────────────────────────────
+  # All homepage content in one place: bio, sections, social links.
+  # The live preview on the right shows the complete homepage as it will appear.
   - name: "homepage"
     label: "🏠 Homepage"
-    description: "Edit everything that appears on the home page — your bio, section lists, and speaking info."
+    description: "Everything on the home page — bio, section lists, social links."
     files:
 
-      - name: "profile"
-        label: "Profile & Bio"
-        description: "Your name, headline, and bio text at the top of the home page."
-        file: "content/config/site.json"
+      - name: "homepage"
+        label: "Homepage"
+        description: "Edit your name, bio, speaking info, all section lists, and social links."
+        file: "content/config/homepage.json"
         format: "json"
         fields:
+
+          # ── Profile ──────────────────────────────────────────────────────────
           - label: "Your Name"
             name: "name"
             widget: "string"
-            hint: "Appears as the large h1 heading at the top of the page."
+            hint: "Large h1 heading at the top of the page."
           - label: "Full Headline"
             name: "headline"
             widget: "string"
@@ -37,7 +40,7 @@ collections:
           - label: "Short Headline"
             name: "shortHeadline"
             widget: "string"
-            hint: "Shown on mobile where space is limited. Example: PM | Speaker | Mentor"
+            hint: "Shown on mobile. Example: PM | Speaker | Mentor"
           - label: "Bio"
             name: "bio"
             widget: "text"
@@ -57,11 +60,11 @@ collections:
           - label: "Site URL"
             name: "siteUrl"
             widget: "string"
-            hint: "The full production URL (e.g. https://www.ryanluu.com). Used for the copy-link button in the nav bar."
+            hint: "Full production URL, e.g. https://www.ryanluu.com. Used for the copy-link button."
           - label: "Info Panel — Title"
             name: "infoTitle"
             widget: "string"
-            hint: "Answer to 'What is this?' in the ℹ️ info panel (bottom right button)."
+            hint: "Answer to 'What is this?' in the ℹ️ info panel."
           - label: "Info Panel — Why Familiar?"
             name: "infoFamiliar"
             widget: "text"
@@ -71,16 +74,11 @@ collections:
             widget: "text"
             hint: "Answer to 'How was it built?' in the ℹ️ info panel."
 
-      - name: "page-sections"
-        label: "Page Sections (Writing / Product / Development)"
-        description: "The three home page sections. Each section has a list of pages. Drag items within a section to reorder them."
-        file: "content/config/navigation.json"
-        format: "json"
-        fields:
+          # ── Section lists ─────────────────────────────────────────────────────
           - name: "section_writing"
             label: "Writing Section"
             widget: "object"
-            hint: "The Writing section items. This entry must not be deleted."
+            hint: "The Writing section items on the home page."
             fields:
               - { label: "Section Key", name: "section", widget: "hidden", default: "writing" }
               - name: "items"
@@ -91,11 +89,11 @@ collections:
                   - label: "Home Page Label"
                     name: "homeLabel"
                     widget: "string"
-                    hint: "Text shown as a link on the home page. Convention is to start with +."
+                    hint: "Text shown as a link on the home page. Convention: start with +."
                   - label: "Nav Title"
                     name: "title"
                     widget: "string"
-                    hint: "Shown in the sidebar menu and top nav bar when on this page."
+                    hint: "Shown in the sidebar and top nav bar when on this page."
                   - label: "URL Path"
                     name: "path"
                     widget: "string"
@@ -122,10 +120,11 @@ collections:
                     widget: "string"
                     required: false
                     hint: "Image key for hover preview. Leave blank if none."
+
           - name: "section_product"
             label: "Product Management Section"
             widget: "object"
-            hint: "The Product Management section items. This entry must not be deleted."
+            hint: "The Product Management section items on the home page."
             fields:
               - { label: "Section Key", name: "section", widget: "hidden", default: "product" }
               - name: "items"
@@ -133,10 +132,11 @@ collections:
                 widget: "list"
                 summary: "{{fields.homeLabel}}"
                 fields: *page_item_fields
+
           - name: "section_development"
             label: "Development Section"
             widget: "object"
-            hint: "The Development section items. This entry must not be deleted."
+            hint: "The Development section items on the home page."
             fields:
               - { label: "Section Key", name: "section", widget: "hidden", default: "development" }
               - name: "items"
@@ -145,40 +145,39 @@ collections:
                 summary: "{{fields.homeLabel}}"
                 fields: *page_item_fields
 
-      - name: "social"
-        label: "Social Links"
-        description: "The social links shown at the bottom of the sidebar."
-        file: "content/config/social.json"
-        format: "json"
-        fields:
-          - name: "items"
+          # ── Social links ──────────────────────────────────────────────────────
+          - name: "social"
             label: "Social Links"
-            widget: "list"
-            summary: "{{fields.label}} — {{fields.url}}"
+            widget: "object"
+            hint: "The social links in the web links panel."
             fields:
-              - label: "Platform"
-                name: "platform"
-                widget: "select"
-                options:
-                  - { label: "Twitter / X", value: "twitter" }
-                  - { label: "LinkedIn", value: "linkedin" }
-                  - { label: "GitHub", value: "github" }
-                hint: "Controls which icon is shown."
-              - label: "Link Label"
-                name: "label"
-                widget: "string"
-                hint: "The visible text of the link. Example: Twitter"
-              - label: "URL"
-                name: "url"
-                widget: "string"
-                hint: "The full URL. Example: https://twitter.com/ryanluu"
+              - name: "items"
+                label: "Links"
+                widget: "list"
+                summary: "{{fields.label}} — {{fields.url}}"
+                fields:
+                  - label: "Platform"
+                    name: "platform"
+                    widget: "select"
+                    options:
+                      - { label: "Twitter / X", value: "twitter" }
+                      - { label: "LinkedIn",    value: "linkedin" }
+                      - { label: "GitHub",       value: "github" }
+                    hint: "Controls which icon is shown."
+                  - label: "Link Label"
+                    name: "label"
+                    widget: "string"
+                    hint: "The visible text of the link. Example: Twitter"
+                  - label: "URL"
+                    name: "url"
+                    widget: "string"
+                    hint: "Full URL. Example: https://twitter.com/ryanluu"
 
-  # ── 2. WRITING ───────────────────────────────────────────────────────────────
-  # Blog post content (text/sections only — existing pages have custom image layouts)
+  # ── 2. WRITING ────────────────────────────────────────────────────────────────
   - name: "writing"
     label: "✍️ Writing"
     label_singular: "Post"
-    description: "Blog post content. Add new posts or edit section text. Note: existing posts (Journal Daily, Remote Work) use custom layouts — editing sections here updates their text content."
+    description: "Blog posts. Editing sections here updates their text content."
     folder: "content/writing"
     create: true
     slug: "{{slug}}"
@@ -207,13 +206,13 @@ collections:
         fields:
           - { label: "Section Title", name: "title", widget: "string" }
           - { label: "Section Text", name: "text", widget: "text" }
-          - { label: "Section ID (anchor)", name: "id", widget: "string", hint: "Used for anchor links. Lowercase, no spaces. Example: key-takeaways" }
+          - { label: "Section ID (anchor)", name: "id", widget: "string", hint: "Lowercase, no spaces. Example: key-takeaways" }
 
-  # ── 3. PRODUCT ───────────────────────────────────────────────────────────────
+  # ── 3. PRODUCT ────────────────────────────────────────────────────────────────
   - name: "product"
     label: "📋 Product Case Studies"
     label_singular: "Case Study"
-    description: "Product management case studies. Editing sections here updates text content. Images and custom layouts live in the React components."
+    description: "Product management case studies."
     folder: "content/product"
     create: true
     slug: "{{slug}}"
@@ -223,8 +222,8 @@ collections:
       - label: "URL Path"
         name: "path"
         widget: "string"
-        hint: "Must start and end with /. Example: /adhoc/ — also add this to the Product Section list on the Homepage."
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe version of the title. Example: adhoc" }
+        hint: "Must start and end with /. Example: /adhoc/ — also add this to the Product Section on the Homepage."
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe version. Example: adhoc" }
       - { label: "SEO Title", name: "seoTitle", widget: "string" }
       - label: "Status"
         name: "status"
@@ -238,11 +237,11 @@ collections:
       - { label: "Team", name: "team", widget: "string", required: false }
       - { label: "Tools", name: "tools", widget: "string", required: false }
       - { label: "Timeline", name: "timeline", widget: "string", required: false }
-      - { label: "YouTube Video ID", name: "ytid", widget: "string", required: false, hint: "The ID from the YouTube URL. Example: dQw4w9WgXcQ" }
+      - { label: "YouTube Video ID", name: "ytid", widget: "string", required: false }
       - { label: "← Prev Page Title", name: "prevTitle", widget: "string", required: false }
-      - { label: "← Prev Page Path", name: "prevPath", widget: "string", required: false }
+      - { label: "← Prev Page Path",  name: "prevPath",  widget: "string", required: false }
       - { label: "→ Next Page Title", name: "nextTitle", widget: "string", required: false }
-      - { label: "→ Next Page Path", name: "nextPath", widget: "string", required: false }
+      - { label: "→ Next Page Path",  name: "nextPath",  widget: "string", required: false }
       - { label: "Next Page is Coming Soon?", name: "nextComingSoon", widget: "boolean", default: false }
       - name: "sections"
         label: "Sections"
@@ -251,14 +250,14 @@ collections:
         allow_add: true
         fields:
           - { label: "Section Title", name: "title", widget: "string" }
-          - { label: "Section Text", name: "text", widget: "text" }
+          - { label: "Section Text",  name: "text",  widget: "text" }
           - { label: "Section ID (anchor)", name: "id", widget: "string", hint: "Lowercase, no spaces. Example: background" }
 
-  # ── 4. DEVELOPMENT ───────────────────────────────────────────────────────────
+  # ── 4. DEVELOPMENT ────────────────────────────────────────────────────────────
   - name: "development"
     label: "💻 Development Case Studies"
     label_singular: "Case Study"
-    description: "Development case studies. Same structure as Product — editing sections updates text content."
+    description: "Development case studies."
     folder: "content/development"
     create: true
     slug: "{{slug}}"
@@ -268,8 +267,8 @@ collections:
       - label: "URL Path"
         name: "path"
         widget: "string"
-        hint: "Must start and end with /. Example: /openrecord/ — also add this to the Development Section list on the Homepage."
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe version of the title. Example: openrecord" }
+        hint: "Must start and end with /. Example: /openrecord/ — also add this to the Development Section on the Homepage."
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe version. Example: openrecord" }
       - { label: "SEO Title", name: "seoTitle", widget: "string" }
       - label: "Status"
         name: "status"
@@ -279,16 +278,16 @@ collections:
           - { label: "Coming Soon", value: "coming-soon" }
           - { label: "Draft (not linked yet)", value: "draft" }
         default: "draft"
-      - { label: "Client", name: "client", widget: "string", required: false }
-      - { label: "Role", name: "role", widget: "string", required: false }
-      - { label: "Team", name: "team", widget: "string", required: false }
-      - { label: "Tools", name: "tools", widget: "string", required: false }
+      - { label: "Client",   name: "client",   widget: "string", required: false }
+      - { label: "Role",     name: "role",     widget: "string", required: false }
+      - { label: "Team",     name: "team",     widget: "string", required: false }
+      - { label: "Tools",    name: "tools",    widget: "string", required: false }
       - { label: "Timeline", name: "timeline", widget: "string", required: false }
-      - { label: "YouTube Video ID", name: "ytid", widget: "string", required: false, hint: "The ID from the YouTube URL. Example: dQw4w9WgXcQ" }
+      - { label: "YouTube Video ID", name: "ytid", widget: "string", required: false }
       - { label: "← Prev Page Title", name: "prevTitle", widget: "string", required: false }
-      - { label: "← Prev Page Path", name: "prevPath", widget: "string", required: false }
+      - { label: "← Prev Page Path",  name: "prevPath",  widget: "string", required: false }
       - { label: "→ Next Page Title", name: "nextTitle", widget: "string", required: false }
-      - { label: "→ Next Page Path", name: "nextPath", widget: "string", required: false }
+      - { label: "→ Next Page Path",  name: "nextPath",  widget: "string", required: false }
       - { label: "Next Page is Coming Soon?", name: "nextComingSoon", widget: "boolean", default: false }
       - name: "sections"
         label: "Sections"
@@ -297,5 +296,5 @@ collections:
         allow_add: true
         fields:
           - { label: "Section Title", name: "title", widget: "string" }
-          - { label: "Section Text", name: "text", widget: "text" }
+          - { label: "Section Text",  name: "text",  widget: "text" }
           - { label: "Section ID (anchor)", name: "id", widget: "string", hint: "Lowercase, no spaces. Example: background" }

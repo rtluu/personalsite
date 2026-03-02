@@ -303,6 +303,62 @@
       { title: 'Humble VC',        path: '/humblevc/',        status: 'published' }
     ];
 
+    // ── Info portal helpers (DOM-inject into iframe body to bypass any CSS-transform containment) ──
+    var _INFO_PORTAL_ID = 'cms-info-portal';
+
+    function _buildInfoHTML(isOpen, infoTitle, infoFamiliar, infoBuilt) {
+      var t = (infoTitle    || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var f = (infoFamiliar || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var b = (infoBuilt    || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var innerStyle = isOpen ? 'opacity:1;pointer-events:all;transform:translateY(calc(-100% - 3.5rem))' : '';
+      return (
+        '<button class="icon info-button" id="cms-info-toggle" style="pointer-events:all">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">' +
+            '<path fill-rule="evenodd" clip-rule="evenodd" d="M22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11ZM11 20.0299C15.987 20.0299 20.0299 15.987 20.0299 11C20.0299 6.01295 15.987 1.97015 11 1.97015C6.01295 1.97015 1.97015 6.01295 1.97015 11C1.97015 15.987 6.01295 20.0299 11 20.0299Z" fill="#A5A9AF"/>' +
+            '<path d="M12.5979 8.55109C12.5979 9.25078 12.2797 9.64683 11.7495 10.0825L11.0336 10.6766C10.331 11.2706 10.1454 11.4687 10.1454 12.3136V13.1585H11.7097V12.5644C11.7097 12.1023 11.829 11.9835 12.2002 11.6799L12.9558 11.0594C13.7645 10.3861 14.3478 9.72604 14.3478 8.45868C14.3478 7.01969 13.3933 5.73913 11.1131 5.73913C8.89922 5.73913 7.6133 7.16491 7.65307 9.22437H9.36322C9.34996 7.77219 10.0791 7.16491 11.0999 7.16491C12.0411 7.16491 12.5979 7.73258 12.5979 8.55109Z" fill="#A5A9AF"/>' +
+            '<path d="M11.9483 16.2609V14.4126H9.89349V16.2609H11.9483Z" fill="#A5A9AF"/>' +
+          '</svg>' +
+        '</button>' +
+        '<div class="info-inner"' + (innerStyle ? ' style="' + innerStyle + '"' : '') + '>' +
+          '<h3 class="info-header">Site Info</h3>' +
+          '<div class="info-qa"><h4 class="question">What is this?</h4><h5 class="answer">' + t + '</h5></div>' +
+          '<div class="info-qa"><h4 class="question">Why does this look familiar?</h4><h5 class="answer">' + f + '</h5></div>' +
+          '<div class="info-qa"><h4 class="question">How was it built?</h4><h5 class="answer">' + b + '</h5></div>' +
+        '</div>'
+      );
+    }
+
+    function _infoPortalMount(self) {
+      if (document.getElementById(_INFO_PORTAL_ID)) return;
+      var el = document.createElement('div');
+      el.id        = _INFO_PORTAL_ID;
+      el.className = 'info-container';
+      el.style.cssText = 'bottom:0;left:0;pointer-events:none;position:fixed;width:100%;z-index:9999';
+      document.body.appendChild(el);
+      self._isInfoPortalOwner = true;
+      _infoPortalUpdate(self);
+    }
+
+    function _infoPortalUpdate(self) {
+      var el = document.getElementById(_INFO_PORTAL_ID);
+      if (!el) return;
+      var isOpen = !!(self.state && self.state.infoOpen);
+      var t = self._infoTitle    || STATIC_INFO_TITLE;
+      var f = self._infoFamiliar || STATIC_INFO_FAMILIAR;
+      var b = self._infoBuilt    || STATIC_INFO_BUILT;
+      el.className     = 'info-container' + (isOpen ? ' show' : '');
+      el.style.cssText = 'bottom:0;left:0;pointer-events:none;position:fixed;width:100%;z-index:9999';
+      el.innerHTML     = _buildInfoHTML(isOpen, t, f, b);
+      var btn = document.getElementById('cms-info-toggle');
+      if (btn) btn.onclick = function() { self.setState({ infoOpen: !self.state.infoOpen }); };
+    }
+
+    function _infoPortalUnmount(self) {
+      if (!self._isInfoPortalOwner) return;
+      var el = document.getElementById(_INFO_PORTAL_ID);
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    }
+
     // ── HomepagePreview ───────────────────────────────────────────────────────
     var HomepagePreview = createClass({
       getInitialState: function() {
@@ -322,6 +378,10 @@
         var upd = {}; upd[key] = !this.state[key];
         this.setState(upd);
       },
+
+      componentDidMount:    function() { _infoPortalMount(this); },
+      componentDidUpdate:   function() { _infoPortalUpdate(this); },
+      componentWillUnmount: function() { _infoPortalUnmount(this); },
 
       render: function() {
         var e  = this.props.entry;
@@ -347,6 +407,10 @@
         var infoBuilt    = e.getIn(['data', 'infoBuilt'])    || STATIC_INFO_BUILT;
 
         var self = this;
+        // Cache for portal access in componentDidUpdate
+        self._infoTitle    = infoTitle;
+        self._infoFamiliar = infoFamiliar;
+        self._infoBuilt    = infoBuilt;
         var layoutClass = 'layout' + (s.menuOpen ? ' menu-open' : '');
 
         return h('div', { className: layoutClass },
@@ -523,11 +587,6 @@
             )
           ), // main-container
 
-          renderInfo(
-            s.infoOpen,
-            function(){ self.toggle('infoOpen'); },
-            infoTitle, infoFamiliar, infoBuilt
-          )
         ); // layout
       }
     });
@@ -535,6 +594,10 @@
     // ── WritingPreview (blog posts) ───────────────────────────────────────────
     var WritingPreview = createClass({
       getInitialState: function() { return { menuOpen: true, socialOpen: false, infoOpen: false }; },
+
+      componentDidMount:    function() { _infoPortalMount(this); },
+      componentDidUpdate:   function() { _infoPortalUpdate(this); },
+      componentWillUnmount: function() { _infoPortalUnmount(this); },
 
       render: function() {
         var e    = this.props.entry;
@@ -592,13 +655,7 @@
               function(){ self.setState({ socialOpen: !s.socialOpen }); },
               STATIC_SOCIAL
             )
-          ), // main-container
-
-          renderInfo(
-            s.infoOpen,
-            function(){ self.setState({ infoOpen: !s.infoOpen }); },
-            STATIC_INFO_TITLE, STATIC_INFO_FAMILIAR, STATIC_INFO_BUILT
-          )
+          ) // main-container
         );
       }
     });
@@ -607,6 +664,10 @@
     function makeCasePreview(category) {
       return createClass({
         getInitialState: function() { return { menuOpen: true, socialOpen: false, infoOpen: false }; },
+
+        componentDidMount:    function() { _infoPortalMount(this); },
+        componentDidUpdate:   function() { _infoPortalUpdate(this); },
+        componentWillUnmount: function() { _infoPortalUnmount(this); },
 
         render: function() {
           var e    = this.props.entry;
@@ -702,13 +763,7 @@
                 function(){ self.setState({ socialOpen: !s.socialOpen }); },
                 STATIC_SOCIAL
               )
-            ), // main-container
-
-            renderInfo(
-              s.infoOpen,
-              function(){ self.setState({ infoOpen: !s.infoOpen }); },
-              STATIC_INFO_TITLE, STATIC_INFO_FAMILIAR, STATIC_INFO_BUILT
-            )
+            ) // main-container
           );
         }
       });

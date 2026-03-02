@@ -329,27 +329,38 @@ button {
   width: 30%;
 }
 
-/* Desktop circular headshot (right of About text) */
+/* Desktop circular headshot (right of About text)
+   position:relative overrides the position:absolute from .side-pic-box base.
+   All dimensions are explicit (not % chains) so they survive CMS re-renders. */
 .side-pic-box.headshot-side {
   border-radius: 50%;
-  display: inline-block;
+  flex-shrink: 0;
   height: 9rem;
-  margin-top: -6.5rem;
+  margin-left: 1.5rem;
+  margin-top: -0.5rem;
   overflow: hidden;
+  position: relative;
   width: 9rem;
 }
 
+/* Any wrapper div or img inside the headshot circle */
 .side-pic-box.headshot-side .about-pic {
-  border-radius: 50%;
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
+  display: block;
+  height: 9rem;
+  width: 9rem;
+}
+
+.side-pic-box.headshot-side img {
+  display: block;
+  height: 9rem;
+  object-fit: cover;
+  width: 9rem;
 }
 
 .side-pic-box.hide { display: none; }
 
+/* Generic fallback (also used by headshot-top on mobile) */
 .headshot-img {
-  border-radius: 50%;
   display: block;
   height: 100%;
   object-fit: cover;

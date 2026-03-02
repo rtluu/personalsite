@@ -4,9 +4,211 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
+  <style>
+    /* Preview pane base styles that approximate the real site */
+    .preview-wrap {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 32px;
+      max-width: 720px;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    .preview-wrap h1 { font-size: 28px; font-weight: 700; margin: 0 0 6px; }
+    .preview-wrap h2 { font-size: 20px; font-weight: 600; margin: 28px 0 8px; border-bottom: 1px solid #e8e8e8; padding-bottom: 6px; }
+    .preview-wrap h4 { font-size: 13px; color: #666; margin: 0 0 24px; font-weight: 400; }
+    .preview-wrap p  { margin: 0 0 16px; }
+    .preview-wrap ul { list-style: none; padding: 0; margin: 0; }
+    .preview-wrap li { margin-bottom: 6px; }
+    .preview-wrap a  { color: #0066cc; }
+    .preview-meta { display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+    .preview-meta span { font-size: 13px; color: #555; }
+    .preview-meta strong { color: #1a1a1a; }
+    .preview-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; background: #f0f0f0; }
+    .preview-tag.coming-soon { background: #fff3cd; color: #856404; }
+    .preview-tag.draft { background: #f8f9fa; color: #999; }
+    .preview-section-list li { padding: 4px 0; }
+    .preview-section-list li a { text-decoration: none; color: inherit; }
+    .preview-section-list li .status-badge { margin-left: 8px; font-size: 11px; color: #999; font-style: italic; }
+  </style>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────────────────
+    // PREVIEW TEMPLATES
+    // These render a styled approximation of the real site in the CMS preview
+    // pane so you can see your edits in context.
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // ── Profile & Bio ─────────────────────────────────────────────────────────
+    var ProfilePreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var name         = entry.getIn(['data', 'name'])         || 'Your Name';
+        var headline     = entry.getIn(['data', 'headline'])     || 'Your Headline';
+        var bio          = entry.getIn(['data', 'bio'])          || '';
+        var speakingText = entry.getIn(['data', 'speakingText']) || '';
+        var email        = entry.getIn(['data', 'email'])        || '';
+
+        return h('div', { className: 'preview-wrap' },
+          h('h1', {}, name),
+          h('h4', {}, headline),
+          h('h2', {}, 'About'),
+          h('p',  {}, bio),
+          h('h2', {}, 'Speaking'),
+          h('p',  {},
+            speakingText,
+            email ? h('span', {}, ' — ') : null,
+            email ? h('a', { href: 'mailto:' + email }, email) : null
+          )
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('profile', ProfilePreview);
+
+    // ── Page Sections (navigation) ────────────────────────────────────────────
+    var PageSectionsPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+
+        var renderSection = function (label, items) {
+          return h('div', {},
+            h('h2', {}, label),
+            h('ul', { className: 'preview-section-list' },
+              items ? items.map(function (item, i) {
+                var status = item.get('status') || 'published';
+                var homeLabel = item.get('homeLabel') || item.get('title') || '';
+                return h('li', { key: i },
+                  h('span', {}, homeLabel),
+                  status !== 'published'
+                    ? h('span', { className: 'status-badge' }, '(' + status + ')')
+                    : null
+                );
+              }).toArray() : h('li', { style: { color: '#999' } }, 'No items yet')
+            )
+          );
+        };
+
+        var writingItems = entry.getIn(['data', 'section_writing', 'items']);
+        var productItems = entry.getIn(['data', 'section_product', 'items']);
+        var devItems     = entry.getIn(['data', 'section_development', 'items']);
+
+        return h('div', { className: 'preview-wrap' },
+          renderSection('Writing', writingItems),
+          renderSection('Product Management', productItems),
+          renderSection('Development', devItems)
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('page-sections', PageSectionsPreview);
+
+    // ── Social Links ──────────────────────────────────────────────────────────
+    var SocialPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var items = entry.getIn(['data', 'items']);
+
+        return h('div', { className: 'preview-wrap' },
+          h('h2', {}, 'Web Links'),
+          h('ul', {},
+            items ? items.map(function (item, i) {
+              return h('li', { key: i },
+                h('strong', {}, item.get('platform') + ': '),
+                h('a', { href: item.get('url'), target: '_blank', rel: 'noreferrer' },
+                  item.get('label') || item.get('url')
+                )
+              );
+            }).toArray() : h('li', { style: { color: '#999' } }, 'No links yet')
+          )
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('social', SocialPreview);
+
+    // ── Writing posts ─────────────────────────────────────────────────────────
+    var WritingPreview = createClass({
+      render: function () {
+        var entry    = this.props.entry;
+        var title    = entry.getIn(['data', 'title'])  || 'Untitled';
+        var intro    = entry.getIn(['data', 'intro'])  || '';
+        var sections = entry.getIn(['data', 'sections']);
+
+        return h('div', { className: 'preview-wrap' },
+          h('h1', {}, title),
+          intro ? h('p', { style: { color: '#555', fontStyle: 'italic' } }, intro) : null,
+          sections ? sections.map(function (section, i) {
+            return h('div', { key: i },
+              h('h2', {}, section.get('title')),
+              h('p',  {}, section.get('text'))
+            );
+          }).toArray() : null
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('writing', WritingPreview);
+
+    // ── Product case studies ──────────────────────────────────────────────────
+    var ProductPreview = createClass({
+      render: function () {
+        var entry    = this.props.entry;
+        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
+        var role     = entry.getIn(['data', 'role'])     || '';
+        var team     = entry.getIn(['data', 'team'])     || '';
+        var tools    = entry.getIn(['data', 'tools'])    || '';
+        var timeline = entry.getIn(['data', 'timeline']) || '';
+        var sections = entry.getIn(['data', 'sections']);
+
+        return h('div', { className: 'preview-wrap' },
+          h('h1', {}, title),
+          h('div', { className: 'preview-meta' },
+            role     ? h('span', {}, h('strong', {}, 'Role: '),     role)     : null,
+            team     ? h('span', {}, h('strong', {}, 'Team: '),     team)     : null,
+            tools    ? h('span', {}, h('strong', {}, 'Tools: '),    tools)    : null,
+            timeline ? h('span', {}, h('strong', {}, 'Timeline: '), timeline) : null
+          ),
+          sections ? sections.map(function (section, i) {
+            return h('div', { key: i },
+              h('h2', {}, section.get('title')),
+              h('p',  {}, section.get('text'))
+            );
+          }).toArray() : null
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('product', ProductPreview);
+
+    // ── Development case studies ──────────────────────────────────────────────
+    var DevelopmentPreview = createClass({
+      render: function () {
+        var entry    = this.props.entry;
+        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
+        var client   = entry.getIn(['data', 'client'])   || '';
+        var role     = entry.getIn(['data', 'role'])     || '';
+        var team     = entry.getIn(['data', 'team'])     || '';
+        var tools    = entry.getIn(['data', 'tools'])    || '';
+        var timeline = entry.getIn(['data', 'timeline']) || '';
+        var sections = entry.getIn(['data', 'sections']);
+
+        return h('div', { className: 'preview-wrap' },
+          h('h1', {}, title),
+          h('div', { className: 'preview-meta' },
+            client   ? h('span', {}, h('strong', {}, 'Client: '),   client)   : null,
+            role     ? h('span', {}, h('strong', {}, 'Role: '),     role)     : null,
+            team     ? h('span', {}, h('strong', {}, 'Team: '),     team)     : null,
+            tools    ? h('span', {}, h('strong', {}, 'Tools: '),    tools)    : null,
+            timeline ? h('span', {}, h('strong', {}, 'Timeline: '), timeline) : null
+          ),
+          sections ? sections.map(function (section, i) {
+            return h('div', { key: i },
+              h('h2', {}, section.get('title')),
+              h('p',  {}, section.get('text'))
+            );
+          }).toArray() : null
+        );
+      }
+    });
+    CMS.registerPreviewTemplate('development', DevelopmentPreview);
+  </script>
 </body>
 </html>

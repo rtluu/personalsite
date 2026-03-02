@@ -1,5 +1,5 @@
-[
-  {
+{
+  "section_writing": {
     "section": "writing",
     "items": [
       {
@@ -22,7 +22,7 @@
       }
     ]
   },
-  {
+  "section_product": {
     "section": "product",
     "items": [
       {
@@ -54,7 +54,7 @@
       }
     ]
   },
-  {
+  "section_development": {
     "section": "development",
     "items": [
       {
@@ -104,4 +104,4 @@
       }
     ]
   }
-]
+}

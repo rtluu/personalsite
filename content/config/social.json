@@ -1,17 +1,19 @@
-[
-  {
-    "platform": "twitter",
-    "label": "Twitter",
-    "url": "https://twitter.com/rtluu"
-  },
-  {
-    "platform": "linkedin",
-    "label": "LinkedIn",
-    "url": "https://linkedin.com/in/ryanluu"
-  },
-  {
-    "platform": "github",
-    "label": "Github",
-    "url": "https://github.com/rtluu"
-  }
-]
+{
+  "items": [
+    {
+      "platform": "twitter",
+      "label": "Twitter",
+      "url": "https://twitter.com/rtluu"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/ryanluu"
+    },
+    {
+      "platform": "github",
+      "label": "Github",
+      "url": "https://github.com/rtluu"
+    }
+  ]
+}

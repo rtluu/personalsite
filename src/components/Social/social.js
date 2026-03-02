@@ -38,12 +38,12 @@ const Social = () => {
     const data = useStaticQuery(graphql`
         query {
             allSocialJson {
-                nodes { platform label url }
+                nodes { items { platform label url } }
             }
         }
     `)
 
-    const links = data.allSocialJson.nodes
+    const links = data.allSocialJson.nodes[0]?.items || []
 
     return (
         <div ref={socialRef} className={`social-container ${socialOpen ? "show" : ""}`}>

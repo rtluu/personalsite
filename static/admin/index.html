@@ -112,6 +112,95 @@
       h('line', { x1: '21', y1: '12',    x2: '23', y2: '12',    stroke: '#a5a9af', strokeWidth: '1.5' })
     );
 
+    // Globe / Web icon (matches web-icon.inline.svg)
+    var WebIconSVG = h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '22', height: '22', viewBox: '0 0 22 22', fill: 'none' },
+      h('path', { d: 'M21.1646 10.3038H0.556965V11.4177H21.1646V10.3038Z', fill: '#A5A9AF' }),
+      h('path', { d: 'M11.4177 21.1646L11.4177 0.55696H10.3038L10.3038 21.1646H11.4177Z', fill: '#A5A9AF' }),
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M11 1.11392C16.4599 1.11392 20.8861 5.54007 20.8861 11C20.8861 16.4599 16.4599 20.8861 11 20.8861C5.54007 20.8861 1.11392 16.4599 1.11392 11C1.11392 5.54007 5.54007 1.11392 11 1.11392ZM22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22C17.0751 22 22 17.0751 22 11Z', fill: '#A5A9AF' }),
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M7.52837 4.43637C8.3266 2.6226 9.45699 1.42493 10.8484 1.09927L10.5946 0.0146542C8.71389 0.454819 7.37277 2.02455 6.50881 3.98768C5.63981 5.96226 5.20453 8.43438 5.18672 10.8915C5.16892 13.3489 5.56834 15.8376 6.40909 17.8464C7.24502 19.8436 8.56193 21.4621 10.4338 21.9798L10.7308 20.9062C9.33048 20.5189 8.21068 19.2656 7.43664 17.4163C6.66742 15.5785 6.28362 13.246 6.30062 10.8996C6.31762 8.55296 6.73519 6.23869 7.52837 4.43637Z', fill: '#A5A9AF' }),
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M14.3667 4.43637C13.5684 2.6226 12.438 1.42493 11.0466 1.09927L11.3004 0.0146542C13.1811 0.454819 14.5223 2.02455 15.3862 3.98768C16.2552 5.96226 16.6905 8.43438 16.7083 10.8915C16.7261 13.3489 16.3267 15.8376 15.4859 17.8464C14.65 19.8436 13.3331 21.4621 11.4612 21.9798L11.1643 20.9062C12.5645 20.5189 13.6843 19.2656 14.4584 17.4163C15.2276 15.5785 15.6114 13.246 15.5944 10.8996C15.5774 8.55296 15.1598 6.23869 14.3667 4.43637Z', fill: '#A5A9AF' }),
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M15.6117 16.5551C16.9873 16.9 18.1207 17.3882 18.8695 17.981L19.5609 17.1076C18.6388 16.3776 17.3355 15.8389 15.8827 15.4746C14.4216 15.1082 12.7686 14.908 11.1134 14.8813C9.4584 14.8545 7.78645 15.0009 6.28786 15.336C4.79629 15.6696 3.43898 16.1985 2.44529 16.9626L3.12432 17.8456C3.94076 17.2178 5.12459 16.7376 6.53096 16.4231C7.93032 16.1101 9.51311 15.9695 11.0954 15.9951C12.6776 16.0206 14.2446 16.2122 15.6117 16.5551Z', fill: '#A5A9AF' }),
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M10.9995 6.01958C14.0007 6.01707 16.9472 5.36118 18.9155 4.10491L19.5148 5.04388C17.3059 6.45371 14.1259 7.13089 11.0005 7.13351C7.875 7.13613 4.69543 6.46427 2.4868 5.06547L3.08281 4.1244C5.0514 5.37118 7.99841 6.0221 10.9995 6.01958Z', fill: '#A5A9AF' })
+    );
+
+    // Twitter icon (matches twitter-icon.inline.svg — simplified bird shape)
+    var TwitterIconSVG = h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '14', height: '12', viewBox: '0 0 14 12', fill: '#A5A9AF' },
+      h('path', { d: 'M14 1.42c-.52.23-1.07.39-1.65.46a2.88 2.88 0 0 0 1.26-1.58 5.8 5.8 0 0 1-1.82.7A2.87 2.87 0 0 0 9.67 0C8.03 0 6.7 1.33 6.7 2.97c0 .23.03.46.07.67A8.17 8.17 0 0 1 .98.52a2.97 2.97 0 0 0-.39 1.5c0 1.03.52 1.97 1.31 2.5a2.85 2.85 0 0 1-1.3-.36v.04c0 1.44 1.02 2.64 2.38 2.91a2.88 2.88 0 0 1-1.3.05c.37 1.14 1.44 1.97 2.7 1.99A5.77 5.77 0 0 1 0 10.92a8.16 8.16 0 0 0 4.42 1.3c5.3 0 8.2-4.4 8.2-8.2 0-.12 0-.25-.01-.37.56-.41 1.05-.92 1.39-1.23z', fill: '#A5A9AF' })
+    );
+
+    // LinkedIn icon (matches linkedin-icon.inline.svg)
+    var LinkedinIconSVG = h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '14', height: '14', viewBox: '0 0 14 14', fill: '#A5A9AF' },
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M1.03469 0C0.463422 0 0 0.449312 0 1.00286V12.9975C0 13.5511 0.463477 14 1.03469 14H12.9653C13.5368 14 14 13.551 14 12.9973V1.00286C14 0.449312 13.5368 0 12.9653 0H1.03469ZM4.32464 5.52365V11.8998H2.22383V5.52365H4.32464ZM4.46311 3.55176C4.46311 4.16364 4.00711 4.65325 3.27467 4.65325L3.27451 4.6532H3.26091C2.55583 4.6532 2.1 4.16359 2.1 3.55171C2.1 2.92595 2.56959 2.45 3.2886 2.45C4.00711 2.45 4.4494 2.92595 4.46311 3.55176ZM7.5881 11.8998H5.48746L5.48741 11.9C5.48741 11.9 5.51499 6.12203 5.48757 5.52388H7.58827V6.42639C7.86752 5.99202 8.36731 5.37417 9.48162 5.37417C10.8637 5.37417 11.9 6.28551 11.9 8.2439V11.8998H9.79941V8.4891C9.79941 7.63186 9.49522 7.0472 8.73525 7.0472C8.15477 7.0472 7.80911 7.44149 7.65731 7.82239C7.60181 7.95832 7.5881 8.14913 7.5881 8.33945V11.8998Z', fill: '#A5A9AF' })
+    );
+
+    // GitHub icon (matches github-icon.inline.svg)
+    var GithubIconSVG = h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '14', height: '14', viewBox: '0 0 14 14', fill: 'none' },
+      h('path', { d: 'M7 0C3.13243 0 0 3.1802 0 7.10675C0 10.4466 2.25728 13.2186 5.30272 14C5.26757 13.9111 5.2503 13.7865 5.2503 13.6625V12.4541H4.37515C3.90272 12.4541 3.46485 12.2412 3.27243 11.8498C3.04485 11.4234 3.0097 10.766 2.43243 10.3571C2.25728 10.215 2.39728 10.0728 2.5897 10.0904C2.95728 10.1968 3.25455 10.446 3.53455 10.8186C3.81455 11.1918 3.93728 11.2807 4.46213 11.2807C4.70698 11.2807 5.09183 11.2631 5.44213 11.2093C5.63455 10.7115 5.96698 10.2676 6.3697 10.0547C4.02485 9.77042 2.90485 8.59766 2.90485 6.99849C2.90485 6.30535 3.20213 5.6479 3.69243 5.07936C3.53515 4.52836 3.32485 3.39128 3.76272 2.94734C4.81302 2.94734 5.44272 3.64047 5.6 3.81769C6.12485 3.63987 6.70272 3.53342 7.29728 3.53342C7.9097 3.53342 8.4697 3.63987 8.99455 3.81769C9.15183 3.63987 9.78213 2.94734 10.8318 2.94734C11.2518 3.37374 11.0594 4.52836 10.8843 5.07936C11.3746 5.63036 11.6546 6.30535 11.6546 6.99849C11.6546 8.59766 10.5518 9.77042 8.22485 10.019C8.87243 10.3565 9.32757 11.3158 9.32757 12.0264V13.645C9.32757 13.6982 9.3103 13.7514 9.3103 13.8046C12.04 12.8454 14 10.2162 14 7.10675C14 3.1802 10.8676 0 7 0Z', fill: '#A5A9AF' })
+    );
+
+    // Info (?) icon (matches info-icon.inline.svg)
+    var InfoIconSVG = h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '22', height: '22', viewBox: '0 0 22 22', fill: 'none' },
+      h('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11ZM11 20.0299C15.987 20.0299 20.0299 15.987 20.0299 11C20.0299 6.01295 15.987 1.97015 11 1.97015C6.01295 1.97015 1.97015 6.01295 1.97015 11C1.97015 15.987 6.01295 20.0299 11 20.0299Z', fill: '#A5A9AF' }),
+      h('path', { d: 'M12.5979 8.55109C12.5979 9.25078 12.2797 9.64683 11.7495 10.0825L11.0336 10.6766C10.331 11.2706 10.1454 11.4687 10.1454 12.3136V13.1585H11.7097V12.5644C11.7097 12.1023 11.829 11.9835 12.2002 11.6799L12.9558 11.0594C13.7645 10.3861 14.3478 9.72604 14.3478 8.45868C14.3478 7.01969 13.3933 5.73913 11.1131 5.73913C8.89922 5.73913 7.6133 7.16491 7.65307 9.22437H9.36322C9.34996 7.77219 10.0791 7.16491 11.0999 7.16491C12.0411 7.16491 12.5979 7.73258 12.5979 8.55109ZM11.9483 16.2609V14.4126H9.89349V16.2609H11.9483Z', fill: '#A5A9AF' })
+    );
+
+    // ── Static fallbacks for non-homepage previews ────────────────────────────
+    var STATIC_SOCIAL = [
+      { platform: 'twitter',  label: 'Twitter',  url: 'https://twitter.com/rtluu' },
+      { platform: 'linkedin', label: 'LinkedIn', url: 'https://linkedin.com/in/ryanluu' },
+      { platform: 'github',   label: 'Github',   url: 'https://github.com/rtluu' }
+    ];
+    var STATIC_INFO_TITLE    = 'Ryan Luu\u2019s Portfolio & Blog';
+    var STATIC_INFO_FAMILIAR = 'The design mimics Dropbox Paper, a tool I use daily for writing and collaboration.';
+    var STATIC_INFO_BUILT    = 'This site was custom coded with React Hooks and Gatsby, and is hosted on Netlify.';
+
+    var PLATFORM_ICONS = { twitter: TwitterIconSVG, linkedin: LinkedinIconSVG, github: GithubIconSVG };
+
+    // Renders the Social web-links drawer (inside footer-inner.left)
+    function renderSocial(socialOpen, onToggle, links) {
+      return h('div', { className: 'social-container' + (socialOpen ? ' show' : '') },
+        h('button', { className: 'icon social-button', onClick: onToggle }, WebIconSVG),
+        h('div', { className: 'social-inner' },
+          h('h3', { className: 'social-header' }, 'Web Links'),
+          h('ul', { className: 'social-list' },
+            links.map(function(link) {
+              var platform = itemGet(link, 'platform');
+              var label    = itemGet(link, 'label');
+              var url      = itemGet(link, 'url');
+              return h('a', { href: url, key: platform || label },
+                h('li', null,
+                  h('span', { className: 'social-icon' }, PLATFORM_ICONS[platform] || null),
+                  h('h5', null, label)
+                )
+              );
+            })
+          )
+        )
+      );
+    }
+
+    // Renders the fixed Info (?) button + popup
+    function renderInfo(infoOpen, onToggle, infoTitle, infoFamiliar, infoBuilt) {
+      return h('div', { className: 'info-container' + (infoOpen ? ' show' : '') },
+        h('button', { className: 'icon info-button', onClick: onToggle }, InfoIconSVG),
+        h('div', { className: 'info-inner' },
+          h('h3', { className: 'info-header' }, 'Site Info'),
+          h('div', { className: 'info-qa' },
+            h('h4', { className: 'question' }, 'What is this?'),
+            h('h5', { className: 'answer' }, infoTitle || '')
+          ),
+          h('div', { className: 'info-qa' },
+            h('h4', { className: 'question' }, 'Why does this look familiar?'),
+            h('h5', { className: 'answer' }, infoFamiliar || '')
+          ),
+          h('div', { className: 'info-qa' },
+            h('h4', { className: 'question' }, 'How was it built?'),
+            h('h5', { className: 'answer' }, infoBuilt || '')
+          )
+        )
+      );
+    }
+
     function ArrowSVG(rotated) {
       return h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: '8', height: '8', viewBox: '0 0 8 8',
                         style: { transform: rotated ? 'rotate(90deg)' : 'rotate(0deg)', transition: '0.2s all', display: 'block' } },
@@ -183,8 +272,11 @@
       );
     }
 
-    function renderFooter() {
+    function renderFooter(socialOpen, onSocialToggle, links) {
       return h('footer', { className: 'footer' },
+        h('div', { className: 'footer-inner left' },
+          renderSocial(socialOpen || false, onSocialToggle || function(){}, links || [])
+        ),
         h('div', { className: 'footer-inner center' },
           h('a', { href: '/' },
             h('h6', { className: 'copyright' }, '\u00A9 ' + new Date().getFullYear() + ' RL')
@@ -220,7 +312,9 @@
           speakCollapsed:   false,
           writeCollapsed:   false,
           productCollapsed: false,
-          devCollapsed:     false
+          devCollapsed:     false,
+          socialOpen:       false,
+          infoOpen:         false
         };
       },
 
@@ -245,6 +339,12 @@
         var writeItems   = toArr(e.getIn(['data', 'section_writing',     'items']));
         var productItems = toArr(e.getIn(['data', 'section_product',     'items']));
         var devItems     = toArr(e.getIn(['data', 'section_development', 'items']));
+
+        // ── Social links + Info panel text ──────────────────────────────────
+        var socialLinks  = toArr(e.getIn(['data', 'social', 'items']));
+        var infoTitle    = e.getIn(['data', 'infoTitle'])    || STATIC_INFO_TITLE;
+        var infoFamiliar = e.getIn(['data', 'infoFamiliar']) || STATIC_INFO_FAMILIAR;
+        var infoBuilt    = e.getIn(['data', 'infoBuilt'])    || STATIC_INFO_BUILT;
 
         var self = this;
         var layoutClass = 'layout' + (s.menuOpen ? ' menu-open' : '');
@@ -416,15 +516,25 @@
               ) // template-content
             ), // template
 
-            renderFooter()
-          ) // main-container
+            renderFooter(
+              s.socialOpen,
+              function(){ self.toggle('socialOpen'); },
+              socialLinks.length ? socialLinks : STATIC_SOCIAL
+            )
+          ), // main-container
+
+          renderInfo(
+            s.infoOpen,
+            function(){ self.toggle('infoOpen'); },
+            infoTitle, infoFamiliar, infoBuilt
+          )
         ); // layout
       }
     });
 
     // ── WritingPreview (blog posts) ───────────────────────────────────────────
     var WritingPreview = createClass({
-      getInitialState: function() { return { menuOpen: true }; },
+      getInitialState: function() { return { menuOpen: true, socialOpen: false, infoOpen: false }; },
 
       render: function() {
         var e    = this.props.entry;
@@ -477,8 +587,18 @@
               ) // template-content
             ), // template
 
-            renderFooter()
-          ) // main-container
+            renderFooter(
+              s.socialOpen,
+              function(){ self.setState({ socialOpen: !s.socialOpen }); },
+              STATIC_SOCIAL
+            )
+          ), // main-container
+
+          renderInfo(
+            s.infoOpen,
+            function(){ self.setState({ infoOpen: !s.infoOpen }); },
+            STATIC_INFO_TITLE, STATIC_INFO_FAMILIAR, STATIC_INFO_BUILT
+          )
         );
       }
     });
@@ -486,7 +606,7 @@
     // ── Case study preview factory (shared for Product and Development) ───────
     function makeCasePreview(category) {
       return createClass({
-        getInitialState: function() { return { menuOpen: true }; },
+        getInitialState: function() { return { menuOpen: true, socialOpen: false, infoOpen: false }; },
 
         render: function() {
           var e    = this.props.entry;
@@ -577,8 +697,18 @@
                 ) // template-content
               ), // template
 
-              renderFooter()
-            ) // main-container
+              renderFooter(
+                s.socialOpen,
+                function(){ self.setState({ socialOpen: !s.socialOpen }); },
+                STATIC_SOCIAL
+              )
+            ), // main-container
+
+            renderInfo(
+              s.infoOpen,
+              function(){ self.setState({ infoOpen: !s.infoOpen }); },
+              STATIC_INFO_TITLE, STATIC_INFO_FAMILIAR, STATIC_INFO_BUILT
+            )
           );
         }
       });

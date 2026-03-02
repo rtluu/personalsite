@@ -1,0 +1,306 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   DECAP CMS LIVE PREVIEW STYLES
+   Mirrors the exact CSS from ryanluu.com — same class names, same values.
+   Injected into the preview iframe via CMS.registerPreviewStyle().
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Reset & base ───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-variant-ligatures: no-common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #171B21;
+  color: #e8e9eb;
+  /* Matches .template: padding + centred max-width */
+  padding: 2.5rem 2.5rem 0 2.5rem;
+}
+
+/* ── Typography — exact values from index.scss / media-queries.scss ─────────── */
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+  word-spacing: .5px;
+}
+
+h2 {
+  font-size: 1.3125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  word-spacing: .5px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 400;
+  word-spacing: .5px;
+}
+
+h5 {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.625rem;
+  margin-bottom: 0.0675rem;
+  word-spacing: .5px;
+}
+
+a {
+  color: #72b6ec;
+  display: inline-block;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8ac3ef;
+}
+
+ul { list-style: none; }
+li { list-style-type: none; }
+
+/* ── Global utility classes ─────────────────────────────────────────────────── */
+
+.bold-italic {
+  font-style: italic;
+  font-weight: 600;
+  margin-right: 0.125rem;
+}
+
+.bold-underline {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.divider {
+  background-color: #3f4755;
+  display: block;
+  height: 0.0625rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.space-left { margin-left: 0.25rem; }
+
+/* ── Template content wrapper ───────────────────────────────────────────────── */
+
+.template-content {
+  /* mirrors the Gatsby <div className="template-content"> */
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────────── */
+
+.template-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 0 0.5rem 0;
+}
+
+.template-section.row {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.template-text-block {
+  position: relative;
+}
+
+.template-text-block.collapsed .template-text-body {
+  display: none !important;
+}
+
+.template-text-block.collapsed .collapse-expand {
+  transform: rotate(0deg) !important;
+}
+
+/* two-column layout (About section on homepage) */
+.template-text-block.two-column .template-text-body {
+  width: 63%;
+}
+
+.template-text-block.two-column .template-text-body.text-intro {
+  width: 80%;
+}
+
+/* ── Section header (collapse/expand toggle) ────────────────────────────────── */
+
+.template-text-header {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  /* Mirrors the real site: button hangs to the left of the content column */
+  left: -1.5625rem;
+  margin-bottom: 0.375rem;
+  position: relative;
+}
+
+.collapse-expand {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #a5a9af;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 9px;
+  justify-content: center;
+  line-height: 1;
+  opacity: 0.35;
+  padding: 0.5rem;
+  /* Expanded = pointing down; matches transform: rotate(90deg) in CSS */
+  transform: rotate(90deg);
+  transition: 0.2s all;
+}
+
+.template-text-header:hover .collapse-expand {
+  opacity: 1;
+}
+
+/* ── Section body ───────────────────────────────────────────────────────────── */
+
+.template-text-body {
+  margin: 0 0 2rem 0;
+  position: relative;
+}
+
+/* ── Homepage headline row ──────────────────────────────────────────────────── */
+
+.home-headline {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+.headline {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.headline h1 {
+  margin-bottom: 0.75rem;
+}
+
+.headline h4 {
+  color: #a5a9af;
+  font-size: 0.9375rem;
+}
+
+/* Circular headshot placeholder that sits to the right of the name */
+.headshot-side-placeholder {
+  align-items: center;
+  background: #283241;
+  border-radius: 50%;
+  color: #a5a9af;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  height: 7.5rem;
+  justify-content: center;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  width: 7.5rem;
+}
+
+/* ── Case study link list ───────────────────────────────────────────────────── */
+
+.listtype-casestudy {
+  margin-top: 0.375rem;
+}
+
+.listtype-casestudy li {
+  margin-bottom: 0.125rem;
+}
+
+.link-coming-soon p {
+  display: inline-block;
+  color: #e8e9eb;
+}
+
+/* ── Case-item link (+ Learnings From… style links) ────────────────────────── */
+
+.case-item {
+  color: #72b6ec;
+  display: inline-block;
+  position: relative;
+}
+
+.case-item p {
+  color: #72b6ec;
+}
+
+.case-item:hover p {
+  color: #8ac3ef;
+}
+
+/* ── End-of-page prev/next navigation ──────────────────────────────────────── */
+
+.case-end-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  position: relative;
+  width: 100%;
+}
+
+.case-item.next {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 0 0 0 0.5rem;
+}
+
+.case-arrow {
+  align-self: center;
+  color: #e8e9eb;
+  display: inline-block;
+  font-size: 0.875rem;
+  margin: 0 0 0 0.375rem;
+}
+
+.case-arrow.previous {
+  margin: 0 0.375rem 0 0;
+}
+
+/* ── Coming-soon items ──────────────────────────────────────────────────────── */
+
+.coming-soon-text {
+  color: #a5a9af;
+  font-style: italic;
+  padding-right: 0.5rem;
+}

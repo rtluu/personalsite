@@ -4,143 +4,222 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <style>
-    /* Preview pane base styles that approximate the real site */
-    .preview-wrap {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding: 32px;
-      max-width: 720px;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
-    .preview-wrap h1 { font-size: 28px; font-weight: 700; margin: 0 0 6px; }
-    .preview-wrap h2 { font-size: 20px; font-weight: 600; margin: 28px 0 8px; border-bottom: 1px solid #e8e8e8; padding-bottom: 6px; }
-    .preview-wrap h4 { font-size: 13px; color: #666; margin: 0 0 24px; font-weight: 400; }
-    .preview-wrap p  { margin: 0 0 16px; }
-    .preview-wrap ul { list-style: none; padding: 0; margin: 0; }
-    .preview-wrap li { margin-bottom: 6px; }
-    .preview-wrap a  { color: #0066cc; }
-    .preview-meta { display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
-    .preview-meta span { font-size: 13px; color: #555; }
-    .preview-meta strong { color: #1a1a1a; }
-    .preview-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; background: #f0f0f0; }
-    .preview-tag.coming-soon { background: #fff3cd; color: #856404; }
-    .preview-tag.draft { background: #f8f9fa; color: #999; }
-    .preview-section-list li { padding: 4px 0; }
-    .preview-section-list li a { text-decoration: none; color: inherit; }
-    .preview-section-list li .status-badge { margin-left: 8px; font-size: 11px; color: #999; font-style: italic; }
-  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // ─────────────────────────────────────────────────────────────────────────
-    // PREVIEW TEMPLATES
-    // These render a styled approximation of the real site in the CMS preview
-    // pane so you can see your edits in context.
-    // ─────────────────────────────────────────────────────────────────────────
+    // Inject the site's CSS into the preview iframe so the preview looks
+    // exactly like ryanluu.com.
+    CMS.registerPreviewStyle('/admin/preview.css');
 
-    // ── Profile & Bio ─────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // HELPER: split a text string on \n\n and render each chunk as a <p>
+    // ─────────────────────────────────────────────────────────────────────────
+    function renderParagraphs(text) {
+      if (!text) return null;
+      return (text + '').split('\n\n').map(function(para, i) {
+        return h('p', { key: i }, para);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // 1. PROFILE & BIO
+    //    Mirrors: src/components/About/about.js
+    //    — name h1, headline h4, About section, Speaking section
+    // ─────────────────────────────────────────────────────────────────────────
     var ProfilePreview = createClass({
-      render: function () {
-        var entry = this.props.entry;
-        var name         = entry.getIn(['data', 'name'])         || 'Your Name';
-        var headline     = entry.getIn(['data', 'headline'])     || 'Your Headline';
+      render: function() {
+        var entry        = this.props.entry;
+        var name         = entry.getIn(['data', 'name'])         || '';
+        var headline     = entry.getIn(['data', 'headline'])     || '';
         var bio          = entry.getIn(['data', 'bio'])          || '';
         var speakingText = entry.getIn(['data', 'speakingText']) || '';
         var email        = entry.getIn(['data', 'email'])        || '';
 
-        return h('div', { className: 'preview-wrap' },
-          h('h1', {}, name),
-          h('h4', {}, headline),
-          h('h2', {}, 'About'),
-          h('p',  {}, bio),
-          h('h2', {}, 'Speaking'),
-          h('p',  {},
-            speakingText,
-            email ? h('span', {}, ' — ') : null,
-            email ? h('a', { href: 'mailto:' + email }, email) : null
+        return h('div', { className: 'template-content' },
+
+          // ── Name + headline row (matches .home-headline in About) ──────────
+          h('div', { className: 'template-section row' },
+            h('div', { className: 'home-headline' },
+              h('div', { className: 'headline headline-length' },
+                h('h1', { id: 'ryanluu' }, name),
+                h('h4', { className: 'full-headline' }, h('b', {}, headline))
+              ),
+              // Circular headshot placeholder (real site shows a photo here)
+              h('div', { className: 'headshot-side-placeholder' }, 'RL')
+            )
+          ),
+
+          // ── About section ─────────────────────────────────────────────────
+          h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block two-column' },
+              h('div', { className: 'template-text-header' },
+                h('button', { className: 'collapse-expand' }, '\u25B6'),
+                h('h2', { id: 'about' }, 'About')
+              ),
+              h('div', { className: 'template-text-body text-intro' },
+                h('p', {}, bio)
+              )
+            )
+          ),
+
+          // ── Speaking section ──────────────────────────────────────────────
+          h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-header' },
+                h('button', { className: 'collapse-expand' }, '\u25B6'),
+                h('h2', { id: 'lets-talk' }, 'Speaking')
+              ),
+              h('div', { className: 'template-text-body' },
+                h('p', {},
+                  speakingText,
+                  email ? ' \u2014 ' : null,
+                  email ? h('a', { href: 'mailto:' + email }, email) : null,
+                  '.'
+                )
+              )
+            )
           )
         );
       }
     });
     CMS.registerPreviewTemplate('profile', ProfilePreview);
 
-    // ── Page Sections (navigation) ────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // 2. PAGE SECTIONS (Writing / Product / Development lists)
+    //    Mirrors: the three section blocks inside About.js
+    // ─────────────────────────────────────────────────────────────────────────
     var PageSectionsPreview = createClass({
-      render: function () {
-        var entry = this.props.entry;
-
-        var renderSection = function (label, items) {
-          return h('div', {},
-            h('h2', {}, label),
-            h('ul', { className: 'preview-section-list' },
-              items ? items.map(function (item, i) {
-                var status = item.get('status') || 'published';
-                var homeLabel = item.get('homeLabel') || item.get('title') || '';
-                return h('li', { key: i },
-                  h('span', {}, homeLabel),
-                  status !== 'published'
-                    ? h('span', { className: 'status-badge' }, '(' + status + ')')
-                    : null
-                );
-              }).toArray() : h('li', { style: { color: '#999' } }, 'No items yet')
-            )
-          );
-        };
-
-        var writingItems = entry.getIn(['data', 'section_writing', 'items']);
-        var productItems = entry.getIn(['data', 'section_product', 'items']);
+      render: function() {
+        var entry        = this.props.entry;
+        var writingItems = entry.getIn(['data', 'section_writing',     'items']);
+        var productItems = entry.getIn(['data', 'section_product',     'items']);
         var devItems     = entry.getIn(['data', 'section_development', 'items']);
 
-        return h('div', { className: 'preview-wrap' },
-          renderSection('Writing', writingItems),
-          renderSection('Product Management', productItems),
-          renderSection('Development', devItems)
+        function renderSection(sectionTitle, sectionId, items, checkComingSoon) {
+          return h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-header' },
+                h('button', { className: 'collapse-expand' }, '\u25B6'),
+                h('h2', { id: sectionId }, sectionTitle)
+              ),
+              h('div', { className: 'template-text-body' },
+                h('ul', { className: 'listtype-casestudy' },
+                  items ? items.map(function(item, i) {
+                    var status    = item.get('status') || 'published';
+                    var homeLabel = item.get('homeLabel') || item.get('title') || '';
+                    if (status === 'draft') return null;
+
+                    if (checkComingSoon && status === 'coming-soon') {
+                      return h('li', { key: i, className: 'link-coming-soon' },
+                        h('p', {},
+                          homeLabel,
+                          h('span', { className: 'italic' }, ' (coming soon)')
+                        )
+                      );
+                    }
+
+                    return h('li', { key: i },
+                      h('a', { href: '#', className: 'case-item' },
+                        h('p', {}, homeLabel)
+                      )
+                    );
+                  }).toArray() : h('li', {},
+                    h('p', { style: { color: '#a5a9af', fontStyle: 'italic' } }, 'No items yet')
+                  )
+                )
+              )
+            )
+          );
+        }
+
+        return h('div', { className: 'template-content' },
+          renderSection('Writing',            'writing',     writingItems, false),
+          renderSection('Product Management', 'product',     productItems, true),
+          renderSection('Development',        'development', devItems,     false)
         );
       }
     });
     CMS.registerPreviewTemplate('page-sections', PageSectionsPreview);
 
-    // ── Social Links ──────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // 3. SOCIAL LINKS
+    //    Mirrors: src/components/Social/social.js popup content
+    // ─────────────────────────────────────────────────────────────────────────
     var SocialPreview = createClass({
-      render: function () {
+      render: function() {
         var entry = this.props.entry;
         var items = entry.getIn(['data', 'items']);
 
-        return h('div', { className: 'preview-wrap' },
-          h('h2', {}, 'Web Links'),
-          h('ul', {},
-            items ? items.map(function (item, i) {
-              return h('li', { key: i },
-                h('strong', {}, item.get('platform') + ': '),
-                h('a', { href: item.get('url'), target: '_blank', rel: 'noreferrer' },
-                  item.get('label') || item.get('url')
+        return h('div', { className: 'template-content' },
+          h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-header' },
+                h('button', { className: 'collapse-expand' }, '\u25B6'),
+                h('h2', {}, 'Web Links')
+              ),
+              h('div', { className: 'template-text-body' },
+                h('ul', { className: 'listtype-casestudy' },
+                  items ? items.map(function(item, i) {
+                    return h('li', { key: i },
+                      h('a', { href: item.get('url'), target: '_blank', rel: 'noreferrer', className: 'case-item' },
+                        h('p', {},
+                          h('span', { style: { color: '#a5a9af', marginRight: '0.375rem' } },
+                            item.get('platform') + ':'
+                          ),
+                          item.get('label') || item.get('url')
+                        )
+                      )
+                    );
+                  }).toArray() : h('li', {},
+                    h('p', { style: { color: '#a5a9af', fontStyle: 'italic' } }, 'No links yet')
+                  )
                 )
-              );
-            }).toArray() : h('li', { style: { color: '#999' } }, 'No links yet')
+              )
+            )
           )
         );
       }
     });
     CMS.registerPreviewTemplate('social', SocialPreview);
 
-    // ── Writing posts ─────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // 4. WRITING POSTS
+    //    Mirrors: src/templates/blog-post.js exactly
+    // ─────────────────────────────────────────────────────────────────────────
     var WritingPreview = createClass({
-      render: function () {
+      render: function() {
         var entry    = this.props.entry;
-        var title    = entry.getIn(['data', 'title'])  || 'Untitled';
-        var intro    = entry.getIn(['data', 'intro'])  || '';
+        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
+        var intro    = entry.getIn(['data', 'intro'])    || '';
         var sections = entry.getIn(['data', 'sections']);
 
-        return h('div', { className: 'preview-wrap' },
+        return h('div', { className: 'template-content' },
+
           h('h1', {}, title),
-          intro ? h('p', { style: { color: '#555', fontStyle: 'italic' } }, intro) : null,
-          sections ? sections.map(function (section, i) {
-            return h('div', { key: i },
-              h('h2', {}, section.get('title')),
-              h('p',  {}, section.get('text'))
+
+          // Optional intro block (no section header, just text)
+          intro ? h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-body' },
+                renderParagraphs(intro)
+              )
+            )
+          ) : null,
+
+          // Collapsible sections
+          sections ? sections.map(function(section, i) {
+            return h('div', { className: 'template-section', key: i },
+              h('div', { className: 'template-text-block' },
+                h('div', { className: 'template-text-header' },
+                  h('button', { className: 'collapse-expand' }, '\u25B6'),
+                  h('h2', {}, section.get('title') || '')
+                ),
+                h('div', { className: 'template-text-body' },
+                  renderParagraphs(section.get('text'))
+                )
+              )
             );
           }).toArray() : null
         );
@@ -148,63 +227,166 @@
     });
     CMS.registerPreviewTemplate('writing', WritingPreview);
 
-    // ── Product case studies ──────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // 5. PRODUCT CASE STUDIES
+    //    Mirrors: src/templates/case-study.js exactly
+    // ─────────────────────────────────────────────────────────────────────────
     var ProductPreview = createClass({
-      render: function () {
-        var entry    = this.props.entry;
-        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
-        var role     = entry.getIn(['data', 'role'])     || '';
-        var team     = entry.getIn(['data', 'team'])     || '';
-        var tools    = entry.getIn(['data', 'tools'])    || '';
-        var timeline = entry.getIn(['data', 'timeline']) || '';
-        var sections = entry.getIn(['data', 'sections']);
+      render: function() {
+        var entry         = this.props.entry;
+        var title         = entry.getIn(['data', 'title'])         || 'Untitled';
+        var role          = entry.getIn(['data', 'role'])          || '';
+        var team          = entry.getIn(['data', 'team'])          || '';
+        var tools         = entry.getIn(['data', 'tools'])         || '';
+        var timeline      = entry.getIn(['data', 'timeline'])      || '';
+        var prevTitle     = entry.getIn(['data', 'prevTitle'])     || '';
+        var prevPath      = entry.getIn(['data', 'prevPath'])      || '';
+        var nextTitle     = entry.getIn(['data', 'nextTitle'])     || '';
+        var nextPath      = entry.getIn(['data', 'nextPath'])      || '';
+        var nextComingSoon = entry.getIn(['data', 'nextComingSoon']) || false;
+        var sections      = entry.getIn(['data', 'sections']);
 
-        return h('div', { className: 'preview-wrap' },
+        return h('div', { className: 'template-content' },
+
           h('h1', {}, title),
-          h('div', { className: 'preview-meta' },
-            role     ? h('span', {}, h('strong', {}, 'Role: '),     role)     : null,
-            team     ? h('span', {}, h('strong', {}, 'Team: '),     team)     : null,
-            tools    ? h('span', {}, h('strong', {}, 'Tools: '),    tools)    : null,
-            timeline ? h('span', {}, h('strong', {}, 'Timeline: '), timeline) : null
+
+          // Metadata block (same structure as case-study template)
+          h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-body' },
+                role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
+                team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
+                tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
+                timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
+              )
+            )
           ),
-          sections ? sections.map(function (section, i) {
-            return h('div', { key: i },
-              h('h2', {}, section.get('title')),
-              h('p',  {}, section.get('text'))
+
+          // Collapsible content sections
+          sections ? sections.map(function(section, i) {
+            return h('div', { className: 'template-section', key: i },
+              h('div', { className: 'template-text-block' },
+                h('div', { className: 'template-text-header' },
+                  h('button', { className: 'collapse-expand' }, '\u25B6'),
+                  h('h2', {}, section.get('title') || '')
+                ),
+                h('div', { className: 'template-text-body' },
+                  renderParagraphs(section.get('text'))
+                )
+              )
             );
-          }).toArray() : null
+          }).toArray() : null,
+
+          // Prev / Next navigation links
+          (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-body' },
+              h('div', { className: 'case-end-links' },
+                prevTitle && prevPath
+                  ? h('a', { href: '#', className: 'case-item' },
+                      h('span', { className: 'case-arrow previous' }, '\u2039'),
+                      h('p', {}, '+' + prevTitle)
+                    )
+                  : h('span', {}),
+                nextTitle && nextPath
+                  ? (nextComingSoon
+                      ? h('span', { className: 'case-item next' },
+                          h('div', { className: 'coming-soon' },
+                            h('p', {}, '+' + nextTitle),
+                            h('span', { className: 'coming-soon-text' }, '(coming soon)')
+                          ),
+                          h('span', { className: 'case-arrow' }, '\u203A')
+                        )
+                      : h('a', { href: '#', className: 'case-item next' },
+                          h('p', {}, '+' + nextTitle),
+                          h('span', { className: 'case-arrow' }, '\u203A')
+                        )
+                    )
+                  : h('span', {})
+              )
+            )
+          ) : null
         );
       }
     });
     CMS.registerPreviewTemplate('product', ProductPreview);
 
-    // ── Development case studies ──────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────────────
+    // 6. DEVELOPMENT CASE STUDIES
+    //    Same structure as Product but includes Client field
+    // ─────────────────────────────────────────────────────────────────────────
     var DevelopmentPreview = createClass({
-      render: function () {
-        var entry    = this.props.entry;
-        var title    = entry.getIn(['data', 'title'])    || 'Untitled';
-        var client   = entry.getIn(['data', 'client'])   || '';
-        var role     = entry.getIn(['data', 'role'])     || '';
-        var team     = entry.getIn(['data', 'team'])     || '';
-        var tools    = entry.getIn(['data', 'tools'])    || '';
-        var timeline = entry.getIn(['data', 'timeline']) || '';
-        var sections = entry.getIn(['data', 'sections']);
+      render: function() {
+        var entry          = this.props.entry;
+        var title          = entry.getIn(['data', 'title'])          || 'Untitled';
+        var client         = entry.getIn(['data', 'client'])         || '';
+        var role           = entry.getIn(['data', 'role'])           || '';
+        var team           = entry.getIn(['data', 'team'])           || '';
+        var tools          = entry.getIn(['data', 'tools'])          || '';
+        var timeline       = entry.getIn(['data', 'timeline'])       || '';
+        var prevTitle      = entry.getIn(['data', 'prevTitle'])      || '';
+        var prevPath       = entry.getIn(['data', 'prevPath'])       || '';
+        var nextTitle      = entry.getIn(['data', 'nextTitle'])      || '';
+        var nextPath       = entry.getIn(['data', 'nextPath'])       || '';
+        var nextComingSoon = entry.getIn(['data', 'nextComingSoon']) || false;
+        var sections       = entry.getIn(['data', 'sections']);
 
-        return h('div', { className: 'preview-wrap' },
+        return h('div', { className: 'template-content' },
+
           h('h1', {}, title),
-          h('div', { className: 'preview-meta' },
-            client   ? h('span', {}, h('strong', {}, 'Client: '),   client)   : null,
-            role     ? h('span', {}, h('strong', {}, 'Role: '),     role)     : null,
-            team     ? h('span', {}, h('strong', {}, 'Team: '),     team)     : null,
-            tools    ? h('span', {}, h('strong', {}, 'Tools: '),    tools)    : null,
-            timeline ? h('span', {}, h('strong', {}, 'Timeline: '), timeline) : null
+
+          h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-block' },
+              h('div', { className: 'template-text-body' },
+                client   ? h('p', {}, h('span', { className: 'bold-italic' }, 'Client: '),   client)   : null,
+                role     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Role: '),     role)     : null,
+                team     ? h('p', {}, h('span', { className: 'bold-italic' }, 'Team: '),     team)     : null,
+                tools    ? h('p', {}, h('span', { className: 'bold-italic' }, 'Tools: '),    tools)    : null,
+                timeline ? h('p', {}, h('span', { className: 'bold-italic' }, 'Timeline: '), timeline) : null
+              )
+            )
           ),
-          sections ? sections.map(function (section, i) {
-            return h('div', { key: i },
-              h('h2', {}, section.get('title')),
-              h('p',  {}, section.get('text'))
+
+          sections ? sections.map(function(section, i) {
+            return h('div', { className: 'template-section', key: i },
+              h('div', { className: 'template-text-block' },
+                h('div', { className: 'template-text-header' },
+                  h('button', { className: 'collapse-expand' }, '\u25B6'),
+                  h('h2', {}, section.get('title') || '')
+                ),
+                h('div', { className: 'template-text-body' },
+                  renderParagraphs(section.get('text'))
+                )
+              )
             );
-          }).toArray() : null
+          }).toArray() : null,
+
+          (prevTitle || nextTitle) ? h('div', { className: 'template-section' },
+            h('div', { className: 'template-text-body' },
+              h('div', { className: 'case-end-links' },
+                prevTitle && prevPath
+                  ? h('a', { href: '#', className: 'case-item' },
+                      h('span', { className: 'case-arrow previous' }, '\u2039'),
+                      h('p', {}, '+' + prevTitle)
+                    )
+                  : h('span', {}),
+                nextTitle && nextPath
+                  ? (nextComingSoon
+                      ? h('span', { className: 'case-item next' },
+                          h('div', { className: 'coming-soon' },
+                            h('p', {}, '+' + nextTitle),
+                            h('span', { className: 'coming-soon-text' }, '(coming soon)')
+                          ),
+                          h('span', { className: 'case-arrow' }, '\u203A')
+                        )
+                      : h('a', { href: '#', className: 'case-item next' },
+                          h('p', {}, '+' + nextTitle),
+                          h('span', { className: 'case-arrow' }, '\u203A')
+                        )
+                    )
+                  : h('span', {})
+              )
+            )
+          ) : null
         );
       }
     });

@@ -329,18 +329,24 @@
     }
 
     function _infoPortalMount(self) {
-      if (document.getElementById(_INFO_PORTAL_ID)) return;
-      var el = document.createElement('div');
+      // self.base is Preact's root DOM node for this component — it lives inside
+      // the preview iframe, so ownerDocument gives us the iframe's document,
+      // not the parent CMS page document.
+      var ownerDoc = (self.base && self.base.ownerDocument) || document;
+      if (ownerDoc.getElementById(_INFO_PORTAL_ID)) return;
+      var el = ownerDoc.createElement('div');
       el.id        = _INFO_PORTAL_ID;
       el.className = 'info-container';
       el.style.cssText = 'bottom:0;left:0;pointer-events:none;position:fixed;width:100%;z-index:9999';
-      document.body.appendChild(el);
+      ownerDoc.body.appendChild(el);
       self._isInfoPortalOwner = true;
+      self._infoOwnerDoc = ownerDoc;
       _infoPortalUpdate(self);
     }
 
     function _infoPortalUpdate(self) {
-      var el = document.getElementById(_INFO_PORTAL_ID);
+      var ownerDoc = self._infoOwnerDoc || (self.base && self.base.ownerDocument) || document;
+      var el = ownerDoc.getElementById(_INFO_PORTAL_ID);
       if (!el) return;
       var isOpen = !!(self.state && self.state.infoOpen);
       var t = self._infoTitle    || STATIC_INFO_TITLE;
@@ -349,13 +355,14 @@
       el.className     = 'info-container' + (isOpen ? ' show' : '');
       el.style.cssText = 'bottom:0;left:0;pointer-events:none;position:fixed;width:100%;z-index:9999';
       el.innerHTML     = _buildInfoHTML(isOpen, t, f, b);
-      var btn = document.getElementById('cms-info-toggle');
+      var btn = ownerDoc.getElementById('cms-info-toggle');
       if (btn) btn.onclick = function() { self.setState({ infoOpen: !self.state.infoOpen }); };
     }
 
     function _infoPortalUnmount(self) {
       if (!self._isInfoPortalOwner) return;
-      var el = document.getElementById(_INFO_PORTAL_ID);
+      var ownerDoc = self._infoOwnerDoc || document;
+      var el = ownerDoc.getElementById(_INFO_PORTAL_ID);
       if (el && el.parentNode) el.parentNode.removeChild(el);
     }
 
